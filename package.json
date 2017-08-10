@@ -10,7 +10,6 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "@mapbox/stylelint-processor-arbitrary-tags": "^0.1.1",
     "babel": "^6.23.0",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -29,7 +28,8 @@
     "vue": "^2.4.2",
     "vue-loader": "^13.0.3",
     "vue-template-compiler": "^2.4.2",
-    "webpack": "^3.4.1"
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.7.1"
   },
   "devDependencies": {
     "eslint": "^4.3.0",
