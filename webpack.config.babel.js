@@ -1,6 +1,6 @@
-import path from 'path'
-import webpack from 'webpack'
-import ExtractTextPlugin from "extract-text-webpack-plugin"
+import path from 'path';
+import webpack from 'webpack';
+import ExtractTextPlugin from "extract-text-webpack-plugin";
 
 
 module.exports = {
@@ -12,12 +12,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: "pre",
-        test: /\.vue$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader",
-      },
       {
         test: /\.vue$/,
         exclude: /node_modules/,
@@ -46,11 +40,17 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map'
-}
+};
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = '#source-map';
   // http://vue-loader.vuejs.org/en/workflow/production.html
+  module.exports.module.rules.push( {
+    enforce: "pre",
+    test: /\.vue$/,
+    exclude: /node_modules/,
+    loader: "eslint-loader",
+  });
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
@@ -66,5 +66,5 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
-  ])
+  ]);
 }

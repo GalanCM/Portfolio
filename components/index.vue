@@ -91,6 +91,8 @@ export default {
     };
   },
   created() {
+    let n: number = 'hi';
+    n;
     var vm = this;
     function animate () {
       if (TWEEN.update()) {
