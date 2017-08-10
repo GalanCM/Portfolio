@@ -74,6 +74,7 @@
 
 
 <script>
+/* @flow */
 import TWEEN from 'tween.js';
 
 export default {

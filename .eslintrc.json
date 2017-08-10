@@ -1,4 +1,5 @@
 {
+    "parser": "babel-eslint",
     "env": {
         "browser": true,
         "es6": true
@@ -12,7 +13,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "vue"
+        "html",
+        "flowtype-errors"
     ],
     "rules": {
         "indent": [
@@ -26,6 +28,7 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "flowtype-errors/show-errors": 2
     }
 }
