@@ -72,41 +72,23 @@ export default {
 
   created() {
     tween ({
-      from: { r: 0 },
-      to: { r: 5 },
-      duration: 100,
-      easing: "easeInQuad",
+      from: { r: 0, y: 0 },
+      to: { r: 5, y: 38 },
+      duration: 200,
+      easing: { r: "easeInQuad", y: "easeOutQuad" },
       delay: 500,
       step: (state) => {
         this.circle_radius = state.r;
+        this.line_height = state.y;
       }
     }).then ( () => {
       return tween ({
-        from: { y: 0 },
-        to: { y: 38 },
-        duration: 100,
-        easing: "easeOutQuad",
-        step: (state) => {
-          this.line_height = state.y;
-        }
-      });
-    }).then ( () => {
-      return tween ({
-        from: { x: 0 },
-        to: {x: 115},
+        from: { x: 0, o: 0, y: 0 },
+        to: { x: 115, o: 1, y: 1 },
         duration: 400,
         easing: "easeInOutQuad",
         step: (state) => {
           this.line_halfwidth = state.x;
-        }
-      });
-    }).then ( () => {
-      return tween ({
-        from: { o: 0, y: 0 },
-        to: {o: 1, y: 1},
-        duration: 300,
-        easing: "easeInQuad",
-        step: (state) => {
           this.title1 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
         }
       });
@@ -115,7 +97,7 @@ export default {
         from: { o: 0, y: 0 },
         to: {o: 1, y: 1},
         duration: 250,
-        delay: 100,
+        delay: 300,
         easing: "easeInQuad",
         step: (state) => {
           this.title2 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
