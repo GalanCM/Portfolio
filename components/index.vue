@@ -76,6 +76,14 @@
 <script>
 /* @flow */
 import TWEEN from 'tween.js';
+interface TweenType {
+  Tween( Object ): null,
+  to( Object ): TweenType,
+  easing( () => number ): TweenType,
+  onUpdate( () => any ): TweenType,
+  onComplete( () => any ): TweenType,
+  start( ?number ): TweenType
+}
 
 export default {
   name: 'index',
@@ -101,7 +109,7 @@ export default {
     setTimeout( () => {
       this.show_titles = true;
 
-      let tween = new TWEEN.Tween({ r: 0 })
+      let tween: TweenType = new TWEEN.Tween({ r: 0 })
         .to({r: 5}, 100)
         .easing(TWEEN.Easing.Quadratic.In)
         .onUpdate( function () {
