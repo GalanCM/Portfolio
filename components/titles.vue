@@ -55,15 +55,7 @@
 </style>
 
 <script>
-import TWEEN from 'tween.js';
-interface TweenType {
-  Tween( Object ): null,
-  to( Object ): TweenType,
-  easing( () => number ): TweenType,
-  onUpdate( () => any ): TweenType,
-  onComplete( () => any ): TweenType,
-  start( ?number ): TweenType
-}
+import { tween } from 'shifty';
 
 export default {
   name: 'titles',
@@ -79,68 +71,57 @@ export default {
   },
 
   created() {
-    var vm = this;
-    function animate () {
-      if (TWEEN.update()) {
-        requestAnimationFrame(animate);
+    tween ({
+      from: { r: 0 },
+      to: { r: 5 },
+      duration: 100,
+      easing: "easeInQuad",
+      delay: 500,
+      step: (state) => {
+        this.circle_radius = state.r;
       }
-    }
-
-    setTimeout( () => {
-      let tween: TweenType = new TWEEN.Tween({ r: 0 })
-        .to({r: 5}, 100)
-        .easing(TWEEN.Easing.Quadratic.In)
-        .onUpdate( function () {
-          vm.circle_radius = this.r;
-        })
-        .start();
-
-      animate();
-
-      tween.onComplete( () => {
-        tween = new TWEEN.Tween({ y: 0 })
-          .to({y: 38}, 100)
-          .easing(TWEEN.Easing.Quadratic.Out)
-          .onUpdate( function () {
-            vm.line_height = this.y;
-          })
-          .start();
-
-        tween.onComplete( () => {
-          tween = new TWEEN.Tween({ x: 0 })
-            .to({x: 115}, 400)
-            .easing(TWEEN.Easing.Quadratic.InOut)
-            .onUpdate( function () {
-              vm.line_halfwidth = this.x;
-            })
-            .start();
-
-          tween.onComplete( () => {
-            tween = new TWEEN.Tween({ o: 0, y: 0 })
-              .to( {o: 1, y: 1}, 300)
-              .easing(TWEEN.Easing.Quadratic.In)
-              .onUpdate( function () {
-                vm.title1 = { opacity: this.o, transform: "scaleY(" + this.y + ")" };
-              })
-              .start();
-
-            tween.onComplete( () => {
-              setTimeout( () => {
-                tween = new TWEEN.Tween({ o: 0, y: 0 })
-                  .to( {o: 1, y: 1}, 250)
-                  .easing(TWEEN.Easing.Quadratic.In)
-                  .onUpdate( function () {
-                    vm.title2 = { opacity: this.o, transform: "scaleY(" + this.y + ")" };
-                  })
-                  .start();
-                tween.start();
-                animate();
-              }, 100 );
-            });
-          });
-        });
+    }).then ( () => {
+      return tween ({
+        from: { y: 0 },
+        to: { y: 38 },
+        duration: 100,
+        easing: "easeOutQuad",
+        step: (state) => {
+          this.line_height = state.y;
+        }
       });
-    }, 500 );
+    }).then ( () => {
+      return tween ({
+        from: { x: 0 },
+        to: {x: 115},
+        duration: 400,
+        easing: "easeInOutQuad",
+        step: (state) => {
+          this.line_halfwidth = state.x;
+        }
+      });
+    }).then ( () => {
+      return tween ({
+        from: { o: 0, y: 0 },
+        to: {o: 1, y: 1},
+        duration: 300,
+        easing: "easeInQuad",
+        step: (state) => {
+          this.title1 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
+        }
+      });
+    }).then ( () => {
+      return tween ({
+        from: { o: 0, y: 0 },
+        to: {o: 1, y: 1},
+        duration: 250,
+        delay: 100,
+        easing: "easeInQuad",
+        step: (state) => {
+          this.title2 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
+        }
+      });
+    });
   }
 };
 </script>
