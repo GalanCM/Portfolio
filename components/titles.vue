@@ -2,8 +2,8 @@
   <transition v-on:enter="appear" v-on:leave="leave" appear>
     <div class="wrapper" v-show=" show ">
       <svg width="250px" height="60" viewbox="0,0,250,60" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="125" cy="10" :r="circle_radius" fill="#818190" />
-        <line x1="125" y1="10" x2="125" :y2="10+line_height" stroke-width="2" stroke="#818190" />
+        <circle cx="125" cy="10" :r="circle_radius" fill="#868d95" />
+        <line x1="125" y1="10" x2="125" :y2="10+line_height" stroke-width="2" stroke="#868d95" />
         <line :x1="10+(115-line_halfwidth)" y1="50" :x2="125+line_halfwidth" y2="50" stroke-width="3" stroke="white" />
       </svg>
 
@@ -18,6 +18,8 @@
 <style lang="less">
   .wrapper {
     position: absolute;
+    user-select: none;
+    cursor: default;
 
     svg, .titles {
       margin: 0;
@@ -30,7 +32,7 @@
     margin: 20px 0 5px
   }
   h3 {
-    color: #818190;
+    color: #868d95;
     font-size: 27px;
     margin: 0;
   }
