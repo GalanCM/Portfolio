@@ -1,7 +1,7 @@
 <template>
-  <header>
+  <header v-on:click="show_titles= false">
     <h1 class="name">GalanMontgomery</h1>
-    <titles></titles>
+    <titles :show="show_titles"></titles>
   </header>
 </template>
 
@@ -23,7 +23,7 @@
   }
 
   .name {
-    margin: auto auto 0;
+    margin: auto auto auto;
   }
 </style>
 
@@ -37,8 +37,7 @@ export default {
   components: { Titles },
   data () {
     return {
-      msg: 'works',
-
+      show_titles: true
     };
   }
 };

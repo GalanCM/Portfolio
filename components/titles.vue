@@ -1,27 +1,26 @@
 <template>
-  <div class="wrapper">
-    <svg width="250px" height="60" viewbox="0,0,250,60" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="125" cy="10" :r="circle_radius" fill="#818190" />
-      <line x1="125" y1="10" x2="125" :y2="10+line_height" stroke-width="2" stroke="#818190" />
-      <line :x1="10+(115-line_halfwidth)" y1="50" :x2="125+line_halfwidth" y2="50" stroke-width="3" stroke="white" />
-    </svg>
-    <div class="titles">
-      <h2 :style="title1">Full-stack Web Developer</h2>
-      <h3 :style="title2">UX Specialist</h3>
+  <transition v-on:enter="appear" v-on:leave="leave" appear>
+    <div class="wrapper" v-show=" show ">
+      <svg width="250px" height="60" viewbox="0,0,250,60" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="125" cy="10" :r="circle_radius" fill="#818190" />
+        <line x1="125" y1="10" x2="125" :y2="10+line_height" stroke-width="2" stroke="#818190" />
+        <line :x1="10+(115-line_halfwidth)" y1="50" :x2="125+line_halfwidth" y2="50" stroke-width="3" stroke="white" />
+      </svg>
+
+      <div class="titles">
+        <h2 :style="title1">Full-stack Web Developer</h2>
+        <h3 :style="title2">UX Specialist</h3>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <style lang="less">
-
-
   .wrapper {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto auto;
+    position: absolute;
 
     svg, .titles {
-      margin: 0 auto;
+      margin: 0;
       position: absolute;
     }
   }
@@ -70,40 +69,83 @@ export default {
     };
   },
 
-  created() {
-    tween ({
-      from: { r: 0, y: 0 },
-      to: { r: 5, y: 38 },
-      duration: 200,
-      easing: { r: "easeInQuad", y: "easeOutQuad" },
-      delay: 500,
-      step: (state) => {
-        this.circle_radius = state.r;
-        this.line_height = state.y;
-      }
-    }).then ( () => {
-      return tween ({
-        from: { x: 0, o: 0, y: 0 },
-        to: { x: 115, o: 1, y: 1 },
-        duration: 400,
-        easing: "easeInOutQuad",
+  props: [ 'show' ],
+
+  methods: {
+    appear( el, done ) {
+      tween ({
+        from: { r: 0, y: 0 },
+        to: { r: 5, y: 38 },
+        duration: 200,
+        easing: { r: "easeInQuad", y: "easeOutQuad" },
+        delay: 500,
         step: (state) => {
-          this.line_halfwidth = state.x;
-          this.title1 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
+          this.circle_radius = state.r;
+          this.line_height = state.y;
         }
+      }).then ( () => {
+        return tween ({
+          from: { x: 0, o: 0, y: 0 },
+          to: { x: 115, o: 1, y: 1 },
+          duration: 400,
+          easing: "easeInOutQuad",
+          step: (state) => {
+            this.line_halfwidth = state.x;
+            this.title1 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
+          }
+        });
+      }).then ( () => {
+        return tween ({
+          from: { o: 0, y: 0 },
+          to: {o: 1, y: 1},
+          duration: 250,
+          delay: 300,
+          easing: "easeInQuad",
+          step: (state) => {
+            this.title2 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
+            // console.log( state, this.title2 );
+          }
+        });
+      }).then ( () => {
+        done();
       });
-    }).then ( () => {
-      return tween ({
-        from: { o: 0, y: 0 },
-        to: {o: 1, y: 1},
+    },
+
+    leave( el, done ) {
+      tween ({
+        from: { o: 1, y: 1 },
+        to: { o: 0, y: 0 },
         duration: 250,
-        delay: 300,
         easing: "easeInQuad",
         step: (state) => {
           this.title2 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
         }
+      }).then ( () => {
+        return tween ({
+          from: { x: 115, o: 1, y: 1 },
+          to: { x: 0, o: 0, y: 0 },
+          duration: 200,
+          easing: "easeInOutQuad",
+          step: (state) => {
+            this.line_halfwidth = state.x;
+            this.title1 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
+          }
+        });
+      }).then ( () => {
+        return tween ({
+          from: { r: 5, y: 38 },
+          to: { r: 0, y: 0 },
+          duration: 100,
+          easing: { r: "easeInQuad", y: "easeOutQuad" },
+          step: (state) => {
+            this.circle_radius = state.r;
+            this.line_height = state.y;
+          }
+        });
+      }).then ( () => {
+        done();
       });
-    });
+    }
   }
 };
 </script>
