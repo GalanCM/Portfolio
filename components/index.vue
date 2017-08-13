@@ -1,6 +1,10 @@
 <template>
-  <header>
-    <h1 class="name">GalanMontgomery</h1>
+  <header :style=" { height:  show_titles ? '100vh' : '60px' } ">
+    <h1 class="name" :style=" {
+      fontSize:  show_titles ? '70px' : '40px',
+      marginLeft: show_titles ? '50vw' : '20px',
+      transform: show_titles ? 'translateX( -50% )' : 'translateX( 0 )'
+    } ">GalanMontgomery</h1>
 
     <titles :show="show_titles"></titles>
 
@@ -20,7 +24,7 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    transition: 1s height 1s;
   }
 
   h1,h2,h3 {
@@ -28,10 +32,10 @@
   }
   h1 {
     font-size: 70px;
-  }
-
-  .name {
-    margin: auto auto auto;
+    transition: 1s font-size ease-in-out 1s,
+      1s margin ease-out 2s,
+      1s transform ease-out 2s;
+    margin: auto auto auto 20px;
   }
 
   .continue {
@@ -76,6 +80,13 @@ export default {
     return {
       show_titles: true
     };
-  }
+  },
+  // watch () {
+  //   show_titles: ( new_val, old_val ) => {
+  //     if ( new_val = true ) {
+  //
+  //     }
+  //   };
+  // }
 };
 </script>
