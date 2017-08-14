@@ -15,7 +15,7 @@
   </transition>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
   .wrapper {
     position: absolute;
     user-select: none;
