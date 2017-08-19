@@ -1,12 +1,17 @@
 <template>
-  <section>
+  <section v-if="!intro">
     <h1>Portfolio</h1>
 
-    <svg height="40" width="100%">
-      <line x1="0" y1="28px" x2="100%" y2="28px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
-    </svg>
+    <transition appear enter-to-class="horizontal-appear-to" (2.1.8+) enter-active-class="horizontal-appear-active">
+      <svg height="40" width="100%" :style=" intro_transitions.horizontal ">
+        <line x1="0" y1="28px" x2="100%" y2="28px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
+      </svg>
+    </transition>
 
     <span class="nav-bg">
+      <transition appear enter-to-class="vertical-appear-to" (2.1.8+) enter-active-class="vertical-appear-active">
+        <div class="border" :style=" intro_transitions.vertical "></div>
+      </transition>
       <div class="thumb" :style="thumb_style"></div>
 
       <span :class=" [ 'nav', current_tab === 'tab-websites' ? 'active' : '' ] " @click=" set_tab( 'tab-websites' )" ref="tab-websites">
@@ -60,11 +65,24 @@
     }
   }
 
+  .horizontal-appear-active {
+    transform-origin: 300px center;
+    transition: 0.5s transform ease-in-out 0.2s;
+    transform: scaleX(0);
+
+    @media ( max-device-width: 1024px ) {
+      transform-origin: 650px center;
+    }
+  }
+  .horizontal-appear-to {
+    transform: scalex(1);
+  }
+
   .nav-bg {
     background-color: #dadadf;
     font-size: 1.1rem;
     position: relative;
-    top: -98px;
+    top: -97px;
     left: 260px;
     box-shadow: 1px 2px 7px rgba(0,0,0,0.3) inset;
     display: inline-block;
@@ -74,6 +92,25 @@
       top: -134px;
     }
   }
+  .border {
+    height: 100%;
+    width: calc(100% - 1px);
+    position: absolute;
+    left: -1px;
+    z-index: 1;
+    border-left: 2px solid rgb(12, 27, 42);
+    border-right: 2px solid rgb(12, 27, 42);
+    pointer-events: none;
+  }
+
+  .vertical-appear-active {
+    transition: 0.3s transform ease-out;
+    transform: scaleY(0);
+  }
+  .vertical-appear-to {
+    transform: scaleY(1);
+  }
+
   .nav {
     display: inline-block;
     position: relative;
@@ -87,12 +124,10 @@
     &:first-of-type {
       padding: 10px;
       padding-right: 5px;
-      border-left: 2px solid rgb(12, 27, 42);
     }
     &:last-of-type {
       padding: 10px;
       padding-left: 5px;
-      border-right: 2px solid rgb(12, 27, 42);
     }
   }
   .thumb {
@@ -131,6 +166,7 @@
   export default {
     components: { Item },
 
+    props: [ 'intro' ],
     data() {
       return {
         current_tab: "tab-websites",
@@ -139,6 +175,10 @@
           width: '50%'
         },
         content_transform: "translateX(0)",
+        intro_transitions: {
+          vertical: this.intro === true ? 'transition: 0.3s transform ease-out 3s;' : '',
+          horizontal: this.intro === true ? 'transition: 0.5s transform ease-in-out 3.2s;' : ''
+        },
 
         sites: [
           {
@@ -187,17 +227,6 @@
             frontend: "Coffeescript, Less",
             backend: null
           }
-          // {
-          //   color: "rgb(253, 185, 19)",
-          //   url: null,
-          //   image: "../images/getloaded.png",
-          //   video: null,
-          //   title: "Getloaded",
-          //   main: "Getloaded was an eCommerce site, used by over 100,000 independent truckers to find loads. Full-stack developer on a small team, where I played a major role in defining the interface for it’s mobile and admin interfaces, and built new back-end email testing and error handling systems.",
-          //   tech: "This was the first major project th",
-          //   frontend: "Coffeescript, jQuery, Backbone",
-          //   backend: "PHP, PHP Activerecord, Postgres"
-          // }
         ],
 
         games: [
@@ -246,7 +275,17 @@
     },
 
     mounted() {
-      this.set_tab( 'tab-websites', false );
+      if ( this.intro === false ) {
+        this.set_tab( 'tab-websites', false );
+      }
+    },
+
+    watch: {
+      intro: function() {
+        setTimeout ( () => {
+          this.set_tab( 'tab-websites', false );
+        }, 100 );
+      }
     },
 
     methods: {

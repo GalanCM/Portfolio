@@ -9,9 +9,9 @@
     <titles :show="show_titles"></titles>
 
     <transition name="arrow" appear>
-      <svg class="continue" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="show_titles" v-on:click="show_titles= false">
+      <svg class="continue" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="show_titles" v-on:click=" $emit('close_intro') ">
           <circle cx="25" cy="25" r="25" fill="rgba(255,255,255,0.75)"></circle>
-          <text x="25" y="47" font-family="Ubuntu" font-size="3em" text-anchor="middle" fill="rgb(12, 27, 42)">⬇</text>
+          <text x="25" y="47" font-family="Ubuntu" font-size="55px" text-anchor="middle" fill="rgb(12, 27, 42)">⬇</text>
       </svg>
     </transition>
   </nav>
@@ -79,10 +79,6 @@
   export default {
     name: 'index',
     components: { Titles },
-    data () {
-      return {
-        show_titles: false
-      };
-    }
+    props: [ 'show_titles' ],
   };
 </script>

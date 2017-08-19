@@ -45,7 +45,7 @@
   </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
   .wrapper {
     width: 100%;
     display: flex;

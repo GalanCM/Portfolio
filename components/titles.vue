@@ -29,12 +29,20 @@
 
   h2 {
     font-size: 2em;
-    margin: 20px 0 5px
+    margin: 20px 0 5px;
+
+    @media ( max-device-width: 1024px ){
+      font-size: 1em;
+    }
   }
   h3 {
     color: #868d95;
     font-size: 2em;
     margin: 0;
+
+    @media ( max-device-width: 1024px ){
+      font-size: 1em;
+    }
   }
 
   svg {
