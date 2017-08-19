@@ -1,8 +1,8 @@
 <template>
-  <nav :style=" { height:  show_titles ? '100vh' : '60px' } ">
+  <nav :style=" { height:  show_titles ? '100vh' : '3em' } ">
     <h1 class="name" :style=" {
-      fontSize:  show_titles ? '70px' : '40px',
-      marginLeft: show_titles ? '50vw' : '20px',
+      fontSize:  show_titles ? '70px' : '2.5em',
+      marginLeft: show_titles ? '50vw' : '0.1em',
       transform: show_titles ? 'translateX( -50% )' : 'translateX( 0 )'
     } ">GalanMontgomery</h1>
 
@@ -11,7 +11,7 @@
     <transition name="arrow" appear>
       <svg class="continue" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="show_titles" v-on:click="show_titles= false">
           <circle cx="25" cy="25" r="25" fill="rgba(255,255,255,0.75)"></circle>
-          <text x="25" y="47" font-family="Ubuntu" font-size="57" text-anchor="middle" fill="rgb(12, 27, 42)">⬇</text>
+          <text x="25" y="47" font-family="Ubuntu" font-size="3em" text-anchor="middle" fill="rgb(12, 27, 42)">⬇</text>
       </svg>
     </transition>
   </nav>
@@ -34,7 +34,7 @@
     font-family: Ubuntu, sans-serif;
   }
   h1 {
-    font-size: 70px;
+    font-size: 4em;
     transition: 1s font-size ease-in-out 1s,
       1s margin ease-out 2s,
       1s transform ease-out 2s;

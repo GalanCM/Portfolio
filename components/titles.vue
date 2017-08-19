@@ -28,12 +28,12 @@
   }
 
   h2 {
-    font-size: 27px;
+    font-size: 2em;
     margin: 20px 0 5px
   }
   h3 {
     color: #868d95;
-    font-size: 27px;
+    font-size: 2em;
     margin: 0;
   }
 
