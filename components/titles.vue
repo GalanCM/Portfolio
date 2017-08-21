@@ -48,6 +48,10 @@
   svg {
     left: ~"calc( 50vw - 125px )";
     top: ~"calc( 50vh + 35px)";
+
+    @media ( max-height: 500px ) {
+      top: 75px;
+    }
   }
 
   .titles {
@@ -59,6 +63,10 @@
 
     h2, h3 {
       transform-origin: top center;
+    }
+
+    @media ( max-height: 500px ) {
+      top: 120px;
     }
   }
 </style>
@@ -113,7 +121,6 @@ export default {
           easing: "easeInQuad",
           step: (state) => {
             this.title2 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
-            // console.log( state, this.title2 );
           }
         });
       }).then ( () => {

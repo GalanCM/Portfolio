@@ -1,9 +1,10 @@
 <template>
-  <nav :style=" { height:  show_titles ? '100vh' : '3em' } ">
+  <nav :style=" { height:  show_titles ? '100vh' : '3em', transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
       fontSize:  show_titles ? '70px' : '2.5em',
       marginLeft: show_titles ? '50vw' : '0.1em',
-      transform: show_titles ? 'translateX( -50% )' : 'translateX( 0 )'
+      transform: show_titles ? 'translateX( -50% )' : 'translateX( 0 )',
+      transition: intro_transitioning ? '1s font-size ease-in-out 1s, 1s margin ease-out 2s, 1s transform ease-out 2s' : ''
     } ">GalanMontgomery</h1>
 
     <titles :show="show_titles"></titles>
@@ -24,7 +25,6 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    transition: 1s height 1s;
     position: absolute;
     top: 0;
     z-index: 100;
@@ -35,10 +35,11 @@
   }
   h1 {
     font-size: 4em;
-    transition: 1s font-size ease-in-out 1s,
-      1s margin ease-out 2s,
-      1s transform ease-out 2s;
     margin: auto auto auto 20px;
+
+    @media ( max-height: 500px ) {
+      margin-top: 0;
+    }
   }
 
   .continue {
@@ -80,5 +81,22 @@
     name: 'index',
     components: { Titles },
     props: [ 'show_titles' ],
+
+    data() {
+      return {
+        intro_transitioning: false
+      };
+    },
+
+    watch: {
+      show_titles: function (e) {
+        console.log(e, 'x')
+        this.intro_transitioning = true;
+
+        setTimeout( () => {
+          this.intro_transitioning = false;
+        }, 3000 );
+      }
+    }
   };
 </script>
