@@ -75,8 +75,6 @@
 import { tween } from 'shifty';
 
 export default {
-  name: 'titles',
-
   data() {
     return {
       circle_radius: 0,

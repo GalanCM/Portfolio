@@ -74,7 +74,6 @@
 
 
 <script>
-  /* @flow */
   import Titles from "./titles.vue";
 
   export default {
@@ -89,8 +88,7 @@
     },
 
     watch: {
-      show_titles: function (e) {
-        console.log(e, 'x')
+      show_titles: function () {
         this.intro_transitioning = true;
 
         setTimeout( () => {

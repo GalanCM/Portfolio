@@ -21,7 +21,7 @@
         <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
       </div>
 
-      <p v-html=" info.main "><p>
+      <p v-html=" info.main "></p>
 
       <p class="tech" v-if=" info.tech !== null ">
         <strong>&mdash; The Tech &mdash;</strong>
