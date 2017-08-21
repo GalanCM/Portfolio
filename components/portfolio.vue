@@ -187,12 +187,10 @@
             image: null,
             video: null,
             title: "This Site",
-            main: "This site is a work-in-progress showcase for my web development skills. " +
-                  "As of right now it hosts my portfolio, but I also plan to add a blog, with a login system and comments.",
-            tech: "I'm using this site to learn several new things. The foremost is gradual typing, using <a href='https://www.flow.org'>Flow</a> on the front-end and <a href='http://mypy-lang.org/'>MyPy</a> on the back. " +
-                  "When implementing the server, I also plan on strengthening my NoSQL skills with MongoDB.",
+            main: "Welcome to my site. My name is Galan Montgomery, and I am a professional web developer, user experience specialist, and hobbiest game developer. Below you can see some of my web work, and if you want to get a further look at my design skills, check out my games in the other tab.",
+            tech: "As I do with every project, I'm using this site to learn something new, in this case, it's <a href='https://www.flow.org'>Flow</a>, a gradual type checker for Javascript.",
             frontend: "Vue, Webpack, Babel, ESlint",
-            backend: "Python, Flask, Caddy"
+            backend: null
           },
           {
             color: "#994d00",
@@ -200,8 +198,8 @@
             image: "../images/isoteric-games.png",
             video: null,
             title: "Isoteric Games",
-            main: "A responsive website that serves as a promotional web presence for my hobby games. Uses animated transitions and looks good on a mobile and desktop.",
-            tech: "The main goal for this site is to be informative, so the tech is fairly simple. The front-end is designed in Vue, with a thin back-end written in Go. Since the only use for a database would have been for the occasional blog post, I opted instead for writing them as meta-tagged Markdown files.",
+            main: "This is responsive website that serves as a promotional web presence for my hobby games. Uses animated transitions and looks good on a mobile and desktop.",
+            tech: "The main goal for this site is to be informative, so the tech is fairly simple. The front-end is designed in <a href='https://vuejs.org>Vue</a>, with a thin back-end written in Go. Since the only use for a database would have been for the occasional blog post, I opted instead for writing them as meta-tagged Markdown files.",
             frontend: "Webpack, Babel",
             backend: "Caddy"
           },
@@ -211,10 +209,10 @@
             image: "../images/there-turn.png",
             video: null,
             title: "Childfund VR | The Return",
-            main: "Informational website for Childfund’s VR experience: The Return. This is a single-page app that hosts the video and informs Childfund’s donors about its mission. Based on a design from the team artist, which I adapted for mobile.",
+            main: "An informational website for Childfund’s VR experience: The Return. This is a single-page app that hosts the video and informs Childfund’s donors about its mission. Based on a design from the team artist, which I adapted for mobile.",
             tech: "Another informational site, this time build on a CMS. This was my first experience with React, and contained a number of CSS transition effects. One of the biggest challenges, though, was cleanly integrating a Google VR video.",
             frontend: "React, Webpack, Babel",
-            backend: null
+            backend: "Ektron"
           },
           {
             color: "rgb(115, 168, 57)",
@@ -223,25 +221,23 @@
             video: null,
             title: "Getloaded Mobile 2.0",
             main: "Getloaded Mobile was an iOS and Android apps used by over 20,000 people. I led the development of this app, and served as core architect and top-level UI designer.",
-            tech: "This began as a research project to replace our aging mobile apps. My team settled on a combination of Phonegap and Ractive, which allowed us quickly convert the templates from our mobile website into components for a single-page app.",
+            tech: "This began as a research project to replace our aging mobile apps. My team settled on a combination of <a href='https://phonegap.com/'>Phonegap</a> and <a href='https://ractive.js.org/'>Ractive</a>, which allowed us quickly convert the templates from our mobile website into components for a single-page app.",
             frontend: "Coffeescript, Less",
-            backend: null
+            backend: "ASP.NET"
           }
         ],
 
         games: [
           {
             color: "#0000c1",
-            url: null,
+            url: "https://www.isoteric-games.com/#timebomb",
             image: null,
             video: "xRblNIzu3BA",
             title: "Timebomb",
-            main: "This site is a work-in-progress showcase for my web development skills. " +
-                  "As of right now it hosts my portfolio, but I also plan to add a blog, with a login system and comments.",
-            tech: "I'm using this site to learn several new things. The foremost is gradual typing, using <a href='https://www.flow.org'>Flow</a> on the front-end and <a href='http://mypy-lang.org/'>MyPy</a> on the back. " +
-                  "When implementing the server, I also plan on strengthening my NoSQL skills with MongoDB.",
-            frontend: "Vue, Webpack, Babel, ESlint",
-            backend: "Python, Flask, Caddy"
+            main: "Timebomb is a arcade-action game for Android and iOS. Simple-to-play an hard-to-master, Timebomb takes it's influence from games like Super Hexagon and Canabalt, and shares a not-entirely-coincidental similarity to Flappy Bird.",
+            tech: null,
+            frontend: null,
+            backend: null
           },
           {
             color: "#00dddd",
@@ -249,25 +245,21 @@
             image: null,
             video: "lWqwd2E0f0s",
             title: "SQUAREfish",
-            main: "This site is a work-in-progress showcase for my web development skills. " +
-                  "As of right now it hosts my portfolio, but I also plan to add a blog, with a login system and comments.",
-            tech: "I'm using this site to learn several new things. The foremost is gradual typing, using <a href='https://www.flow.org'>Flow</a> on the front-end and <a href='http://mypy-lang.org/'>MyPy</a> on the back. " +
-                  "When implementing the server, I also plan on strengthening my NoSQL skills with MongoDB.",
-            frontend: "Vue, Webpack, Babel, ESlint",
-            backend: "Python, Flask, Caddy"
+            main: "SQUAREfish is a small action game for <a href='https://play.google.com/store/apps/details?id=com.isoteric.squarefish&hl=en'>Android</a> and <a href='https://itunes.apple.com/us/app/squarefish/id1175130624?mt=8'>iOS</a> that I originally build in one hour for <a href='http://0hgame.eu/'>0h Game Jam 2016</a>. Over the course of the following week I polished it up into a simple but stylish game.",
+            tech: null,
+            frontend: null,
+            backend: null
           },
           {
             color: "#ff523b",
-            url: null,
+            url: "https://elanti.itch.io/crownless",
             image: null,
             video: "q_ohMwydOU8",
             title: "Crownless",
-            main: "This site is a work-in-progress showcase for my web development skills. " +
-                  "As of right now it hosts my portfolio, but I also plan to add a blog, with a login system and comments.",
-            tech: "I'm using this site to learn several new things. The foremost is gradual typing, using <a href='https://www.flow.org'>Flow</a> on the front-end and <a href='http://mypy-lang.org/'>MyPy</a> on the back. " +
-                  "When implementing the server, I also plan on strengthening my NoSQL skills with MongoDB.",
-            frontend: "Vue, Webpack, Babel, ESlint",
-            backend: "Python, Flask, Caddy"
+            main: "Crownless is, as of August 2017, my latest of over a dozen 48 hour games developed during <a href='https://ldjam.com/'>Ludum Dare</a> competitions. It lacks the polish of my other two games, but is a good example of how good my design can look under crunch.",
+            tech: null,
+            frontend: null,
+            backend: null
           }
         ]
 
