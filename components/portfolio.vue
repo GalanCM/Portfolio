@@ -187,7 +187,7 @@
             image: null,
             video: null,
             title: "This Site",
-            main: "Welcome to my site. My name is Galan Montgomery, and I am a professional web developer, user experience specialist, and hobbiest game developer. Below you can see some of my web work, and if you want to get a further look at my design skills, check out my games in the other tab.",
+            main: "Welcome to my site. My name is Galan Montgomery, and I am a professional <strong>web developer</strong>, <strong>UX specialist</strong>, and hobbiest <strong>game developer</strong>. I've worked on a variety of projects, from small informational sites to large-scale commercial web apps. Below you can see a sampling of my web work, and if you want to get a further look at my design skills in more freeform environments, check out my games in the other tab.",
             tech: "As I do with every project, I'm using this site to learn something new, in this case, it's <a href='https://www.flow.org'>Flow</a>, a gradual type checker for Javascript.",
             frontend: "Vue, Webpack, Babel, ESlint",
             backend: null
@@ -199,7 +199,7 @@
             video: null,
             title: "Isoteric Games",
             main: "This is responsive website that serves as a promotional web presence for my hobby games. Uses animated transitions and looks good on a mobile and desktop.",
-            tech: "The main goal for this site is to be informative, so the tech is fairly simple. The front-end is designed in <a href='https://vuejs.org>Vue</a>, with a thin back-end written in Go. Since the only use for a database would have been for the occasional blog post, I opted instead for writing them as meta-tagged Markdown files.",
+            tech: "The main goal for this site is to be informative, so the tech is fairly simple. The front-end is designed in <a href='https://vuejs.org'>Vue</a>, with a thin back-end written in Go. Since the only use for a database would have been for the occasional blog post, I opted instead for writing them as meta-tagged Markdown files.",
             frontend: "Webpack, Babel",
             backend: "Caddy"
           },
