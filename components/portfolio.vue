@@ -210,7 +210,7 @@
             video: null,
             title: "Childfund VR | The Return",
             main: "An informational website for Childfund’s VR experience: The Return. This is a single-page app that hosts the video and informs Childfund’s donors about its mission. Based on a design from the team artist, which I adapted for mobile.",
-            tech: "Another informational site, this time build on a CMS. This was my first experience with React, and contained a number of CSS transition effects. One of the biggest challenges, though, was cleanly integrating a Google VR video.",
+            tech: "Another informational site, this time build on top of a CMS. This was my first experience with React, and contained a number of CSS transition effects. One of the biggest challenges, though, was cleanly integrating a Google VR video.",
             frontend: "React, Webpack, Babel",
             backend: "Ektron"
           },

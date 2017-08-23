@@ -48,6 +48,8 @@
     width: 100%;
     display: flex;
     padding: 20px 0 80px;
+    opacity: 0.3;
+    transition: 0.75s opacity ease-out;
 
     @media ( max-device-width: 1024px ) {
       flex-direction: column;
@@ -129,6 +131,26 @@
         }
       };
     },
-    props: [ 'info', 'side' ]
+
+    props: [ 'info', 'side' ],
+
+    methods: {
+      scroll() {
+        if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 && this.$el.getBoundingClientRect().left < window.innerWidth ) {
+          this.$el.style.opacity = 1;
+        }
+      }
+    },
+
+    mounted() {
+      window.addEventListener( 'scroll', this.scroll );
+      if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 ) {
+        this.$el.style.opacity = 1;
+      }
+    },
+
+    destroyed() {
+      window.removeEventListener( 'scroll', this.scroll );
+    }
   };
 </script>
