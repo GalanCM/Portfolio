@@ -186,8 +186,8 @@
             url: null,
             image: null,
             video: null,
-            title: "This Site",
-            main: "Welcome to my site. My name is Galan Montgomery, and I am a professional <strong>web developer</strong>, <strong>UX specialist</strong>, and hobbiest <strong>game developer</strong>. I've worked on a variety of projects, from small informational sites to large-scale commercial web apps. Below you can see a sampling of my web work, and if you want to get a further look at my design skills in more freeform environments, check out my games in the other tab.",
+            title: "About This Site",
+            main: "Welcome to my site. My name is Galan Montgomery, and I am a professional <strong>full-stack web developer</strong>, specializing in <strong>user experience</strong>. I've worked on a variety of projects, from small informational sites to large-scale commercial web apps with tens-of-thousands of users. Below you can see a sampling of my work, and if you want to see more interactive designs, please check out my hobbist video games in the other tab.",
             tech: "As I do with every project, I'm using this site to learn something new, in this case, it's <a href='https://www.flow.org'>Flow</a>, a gradual type checker for Javascript.",
             frontend: "Vue, Webpack, Babel, ESlint",
             backend: null
@@ -198,7 +198,7 @@
             image: "../images/isoteric-games.png",
             video: null,
             title: "Isoteric Games",
-            main: "This is responsive website that serves as a promotional web presence for my hobby games. Uses animated transitions and looks good on a mobile and desktop.",
+            main: "This is responsive website that serves as a promotional web presence for my hobby games. Make heavy use of transitions and designed for mobile first.",
             tech: "The main goal for this site is to be informative, so the tech is fairly simple. The front-end is designed in <a href='https://vuejs.org'>Vue</a>, with a thin back-end written in Go. Since the only use for a database would have been for the occasional blog post, I opted instead for writing them as meta-tagged Markdown files.",
             frontend: "Webpack, Babel",
             backend: "Caddy"
@@ -220,8 +220,8 @@
             image: "../images/getloaded-mobile.png",
             video: null,
             title: "Getloaded Mobile 2.0",
-            main: "Getloaded Mobile was an iOS and Android apps used by over 20,000 people. I led the development of this app, and served as core architect and top-level UI designer.",
-            tech: "This began as a research project to replace our aging mobile apps. My team settled on a combination of <a href='https://phonegap.com/'>Phonegap</a> and <a href='https://ractive.js.org/'>Ractive</a>, which allowed us quickly convert the templates from our mobile website into components for a single-page app.",
+            main: "Getloaded Mobile was an app for iOS and Android. Used by over 20,000 people. I led the development of this app, and served as core architect and top-level UI designer.",
+            tech: "This began as a research project to replace Getloaded's aging mobile apps. My team settled on a combination of <a href='https://phonegap.com/'>Phonegap</a> and <a href='https://ractive.js.org/'>Ractive</a>, which allowed us quickly convert the templates from our mobile website into components for a single-page app.",
             frontend: "Coffeescript, Less",
             backend: "ASP.NET"
           }
@@ -245,7 +245,7 @@
             image: null,
             video: "lWqwd2E0f0s",
             title: "SQUAREfish",
-            main: "SQUAREfish is a small action game for <a href='https://play.google.com/store/apps/details?id=com.isoteric.squarefish&hl=en'>Android</a> and <a href='https://itunes.apple.com/us/app/squarefish/id1175130624?mt=8'>iOS</a> that I originally build in one hour for <a href='http://0hgame.eu/'>0h Game Jam 2016</a>. Over the course of the following week I polished it up into a simple but stylish game.",
+            main: "SQUAREfish is a small action game for <a href='https://play.google.com/store/apps/details?id=com.isoteric.squarefish&hl=en'>Android</a> and <a href='https://itunes.apple.com/us/app/squarefish/id1175130624?mt=8'>iOS</a> that I originally build in one hour for <a href='http://0hgame.eu/'>0h Game Jam</a> 2016. Over the course of the following week I polished it up into a stylish, if simple, game.",
             tech: null,
             frontend: null,
             backend: null
@@ -256,7 +256,7 @@
             image: null,
             video: "q_ohMwydOU8",
             title: "Crownless",
-            main: "Crownless is, as of August 2017, my latest of over a dozen 48 hour games developed during <a href='https://ldjam.com/'>Ludum Dare</a> competitions. It lacks the polish of my other two games, but is a good example of how good my design can look under crunch.",
+            main: "Crownless is, as of August 2017, my latest of over a dozen 48 hour games developed during <a href='https://ldjam.com/'>Ludum Dare</a> competitions. It may lack the polish of the other two games, but is a good example of my design and animation skills when working under pressure.",
             tech: null,
             frontend: null,
             backend: null
