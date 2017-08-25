@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
-    <div v-if=" !is_mobile && ( info.image !== null || info.video !== null ) && side === 'left' " class="img-wrapper" :style=" 'box-shadow: 2px 1px 4px rgba(0,0,0,0.2), 10px 7px ' + info.color + ', 0 7px ' + info.color + ( ( is_mobile && side === 'right' ) ? '; margin-left: auto' : '' ) ">
+    <div class="color-bar" v-if=" side === 'right' " :style=" { 'background-color': info.color } "></div>
+    <div v-if=" !is_mobile && side === 'left' " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '30px' }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
@@ -16,9 +17,11 @@
         </span>
       </h2>
 
-      <div v-if=" is_mobile && ( info.image !== null || info.video !== null ) " class="img-wrapper" :style=" 'box-shadow: 2px 1px 4px rgba(0,0,0,0.2), 10px 7px ' + info.color + ', 0 7px ' + info.color + ( ( is_mobile && side === 'right' ) ? '; margin-left: auto' : '' ) ">
-        <img v-if=" info.image !== null " :src=" info.image ">
-        <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
+      <div v-if=" is_mobile && ( side !== null ) " class="img-wrapper" :style="{ 'background': info.color }">
+        <div class="img-inner-wrapper">
+          <img v-if=" info.image !== null " :src=" info.image " :style="{ 'border-color': info.color } ">
+          <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color } "></iframe>
+        </div>
       </div>
 
       <p v-html=" info.main "></p>
@@ -36,10 +39,12 @@
       </ul>
     </div>
 
-    <div v-if=" !is_mobile && ( info.image !== null || info.video !== null ) && side === 'right' " class="img-wrapper" :style=" 'box-shadow: 2px 1px 4px rgba(0,0,0,0.2), 10px 7px ' + info.color ">
+    <div v-if=" !is_mobile && side === 'right' " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '30px' }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
+
+    <div class="color-bar" v-if=" side === 'left' " :style=" { 'background-color': info.color } "></div>
   </div>
 </template>
 
@@ -55,10 +60,10 @@
       flex-direction: column;
     }
   }
+  .color-bar {
+    width: 50px;
+  }
   .img-wrapper {
-    width: fit-content;
-    height: fit-content;
-
     @media ( max-device-width: 1024px ) {
       margin-bottom: 50px;
     }
@@ -70,6 +75,31 @@
       width: 75vw;
     }
   }
+  iframe {
+    width: 35vw;
+    height: ~"calc( 35vw * 0.5625 )";
+
+    @media ( max-device-width: 1024px ) {
+      width: 75vw;
+      height: ~"calc( 75vw * 0.5625 )";
+    }
+  }
+  img, iframe {
+    box-shadow: 2px 1px 4px rgba(0,0,0,0.2);
+
+    @media ( max-device-width: 1024px ) {
+      box-shadow: none;
+      border-left: 8px solid;
+      border-right: 8px solid;
+    }
+  }
+  .img-inner-wrapper {
+    float: right;
+    margin-right: 30px;
+    padding: 0 20px 0px 50px;
+    background-color: #fafaff;
+  }
+
   .details {
     display: flex;
     flex-direction: column;
@@ -108,23 +138,13 @@
   li {
     padding-top: 5px;
   }
-
-  iframe {
-    width: 35vw;
-    height: ~"calc( 35vw * 0.5625 )";
-
-    @media ( max-device-width: 1024px ) {
-      width: 75vw;
-      height: ~"calc( 75vw * 0.5625 )";
-    }
-  }
 </style>
 
 <script>
   export default {
     data() {
       return {
-        is_mobile: window.innerWidth < 1024 ? true : false ,
+        is_mobile: false,
         margin: {
           left:  ( this.info.image === null && this.info.video === null || this.side === 'right' ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0,
           right: ( this.info.image === null && this.info.video === null || this.side === 'left' ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0
@@ -139,7 +159,19 @@
         if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 && this.$el.getBoundingClientRect().left < window.innerWidth ) {
           this.$el.style.opacity = 1;
         }
+      },
+
+      resize() {
+        this.is_mobile = window.innerWidth < 1024 ? true : false;
       }
+    },
+
+    beforeMount() {
+      if ( this.image === null && this.video === null ) {
+        this.side = null;
+      }
+
+      this.resize();
     },
 
     mounted() {
@@ -147,10 +179,13 @@
       if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 ) {
         this.$el.style.opacity = 1;
       }
+
+      window.addEventListener( 'resize', this.resize );
     },
 
     destroyed() {
       window.removeEventListener( 'scroll', this.scroll );
+      window.removeEventListener( 'resize', this.resize );
     }
   };
 </script>
