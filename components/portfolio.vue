@@ -241,11 +241,11 @@
           },
           {
             color: "#00dddd",
-            url: null,
+            url: "https://elanti.itch.io/squarefish",
             image: null,
             video: "lWqwd2E0f0s",
             title: "SQUAREfish",
-            main: "SQUAREfish is a small action game for <a href='https://play.google.com/store/apps/details?id=com.isoteric.squarefish&hl=en'>Android</a> and <a href='https://itunes.apple.com/us/app/squarefish/id1175130624?mt=8'>iOS</a> that I originally build in one hour for <a href='http://0hgame.eu/'>0h Game Jam</a> 2016. Over the course of the following week I polished it up into a stylish, if simple, game.",
+            main: "SQUAREfish is a small action game for mobile. Originally developed in one hour for <a href='http://0hgame.eu/'>0h Game Jam</a> 2016. Over the course of the following week I polished it up into a stylish, if simple, game.",
             tech: null,
             frontend: null,
             backend: null
