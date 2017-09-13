@@ -4,7 +4,7 @@ import ExtractTextPlugin from "extract-text-webpack-plugin";
 
 
 module.exports = {
-  entry: './components/index.js',
+  entry: './components/index.ts',
   output: {
     path: path.resolve(__dirname, './build'),
     publicPath: '/build/',
@@ -24,6 +24,14 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules|vue\/src/,
+        loader: "ts-loader",
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,

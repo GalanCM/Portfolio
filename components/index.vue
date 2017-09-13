@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import NavBar from './nav_bar.vue';
   import Portfolio from './portfolio.vue';
 
@@ -13,12 +13,12 @@
     components: { NavBar, Portfolio },
     data() {
       return {
-        intro: localStorage.getItem( 'intro' ) !== null ? false: true
+        intro: ( localStorage.getItem( 'intro' ) !== null ? false: true ) as boolean
       };
     },
 
     methods: {
-      close_intro: function () {
+      close_intro(): void {
         this.intro = false;
         localStorage.setItem( 'intro', 'false' );
       }
