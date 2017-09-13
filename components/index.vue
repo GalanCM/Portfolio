@@ -6,22 +6,21 @@
 </template>
 
 <script lang="ts">
+  import Vue from 'vue';
+  import Component from 'vue-class-component';
   import NavBar from './nav_bar.vue';
   import Portfolio from './portfolio.vue';
 
-  export default {
-    components: { NavBar, Portfolio },
-    data() {
-      return {
-        intro: ( localStorage.getItem( 'intro' ) !== null ? false: true ) as boolean
-      };
-    },
+  @Component({
+    components: { NavBar, Portfolio }
+  })
+  export default class Index extends Vue {
+    'intro': boolean =  ( localStorage.getItem( 'intro' ) !== null ? false: true );
 
-    methods: {
-      close_intro(): void {
-        this.intro = false;
-        localStorage.setItem( 'intro', 'false' );
-      }
+    close_intro(): void {
+      this.intro = false;
+      localStorage.setItem( 'intro', 'false' );
     }
-  };
+
+  }
 </script>

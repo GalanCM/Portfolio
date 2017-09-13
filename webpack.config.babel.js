@@ -57,13 +57,12 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map';
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.module.rules.push( {
-    enforce: "pre",
-    test: /\.vue$/,
-    exclude: /node_modules/,
-    loader: "eslint-loader",
-  });
+  // module.exports.module.rules.push( {
+  //   enforce: "pre",
+  //   test: /\.vue$/,
+  //   exclude: /node_modules/,
+  //   loader: "eslint-loader",
+  // });
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
