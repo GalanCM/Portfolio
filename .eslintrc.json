@@ -13,8 +13,7 @@
         "sourceType": "module"
     },
     "plugins": [
-        "html",
-        "flowtype-errors"
+        "html"
     ],
     "rules": {
         "indent": [
@@ -28,7 +27,6 @@
         "semi": [
             "error",
             "always"
-        ],
-        "flowtype-errors/show-errors": 2
+        ]
     }
 }

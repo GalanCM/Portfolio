@@ -281,7 +281,7 @@
     },
 
     methods: {
-      set_tab( tab: string, transition = true ) {
+      set_tab( tab, transition = true ) {
         this.current_tab = tab;
 
         this.thumb_style = {
