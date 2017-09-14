@@ -159,157 +159,154 @@
   }
 </style>
 
-<script>
+<script lang="ts">
+  import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
   import Item from "./portfolio_item.vue";
 
-  /* flow */
-  export default {
-    components: { Item },
+  @Component({
+    components: { Item }
+  })
+  export default class Portfolio extends Vue {
 
-    props: [ 'intro' ],
-    data() {
-      return {
-        current_tab: "tab-websites",
-        thumb_style: {
-          left: 0,
-          width: '50%'
-        },
-        content_transform: "translateX(0)",
-        intro_transitions: {
-          vertical: this.intro === true ? 'transition: 0.3s transform ease-out 3s;' : '',
-          horizontal: this.intro === true ? 'transition: 0.5s transform ease-in-out 3.2s;' : ''
-        },
+    @Prop()
+    'intro': boolean
 
-        sites: [
-          {
-            color: "#0067cf",
-            url: null,
-            image: null,
-            video: null,
-            title: "About This Site",
-            main: "Welcome to my site. My name is Galan Montgomery, and I am a professional <strong>full-stack web developer</strong>, specializing in <strong>user experience</strong>. I've worked on a variety of projects, from small informational sites to large-scale commercial web apps with tens-of-thousands of users. Below you can see a sampling of my work, and if you want to see more interactive designs, please check out my hobbist video games in the other tab.",
-            tech: "As I do with every project, I'm using this site to learn something new, in this case, it's <a href='https://www.flow.org'>Flow</a>, a gradual type checker for Javascript.",
-            frontend: "Vue, Webpack, Babel, ESlint",
-            backend: null
-          },
-          {
-            color: "#994d00",
-            url: "https://www.isoteric-games.com",
-            image: "../images/isoteric-games.png",
-            video: null,
-            title: "Isoteric Games",
-            main: "This is responsive website that serves as a promotional web presence for my hobby games. Make heavy use of transitions and designed for mobile first.",
-            tech: "The main goal for this site is to be informative, so the tech is fairly simple. The front-end is designed in <a href='https://vuejs.org'>Vue</a>, with a thin back-end written in Go. Since the only use for a database would have been for the occasional blog post, I opted instead for writing them as meta-tagged Markdown files.",
-            frontend: "Webpack, Babel",
-            backend: "Caddy"
-          },
-          {
-            color: "#fd9001",
-            url: "https://www.childfund.org/thereturn/",
-            image: "../images/there-turn.png",
-            video: null,
-            title: "Childfund VR | The Return",
-            main: "An informational website for Childfund’s VR experience: The Return. This is a single-page app that hosts the video and informs Childfund’s donors about its mission. Based on a design from the team artist, which I adapted for mobile.",
-            tech: "Another informational site, this time build on top of a CMS. This was my first experience with React, and contained a number of CSS transition effects. One of the biggest challenges, though, was cleanly integrating a Google VR video.",
-            frontend: "React, Webpack, Babel",
-            backend: "Ektron"
-          },
-          {
-            color: "rgb(115, 168, 57)",
-            url: null,
-            image: "../images/getloaded-mobile.png",
-            video: null,
-            title: "Getloaded Mobile 2.0",
-            main: "Getloaded Mobile was an app for iOS and Android. Used by over 20,000 people. I led the development of this app, and served as core architect and top-level UI designer.",
-            tech: "This began as a research project to replace Getloaded's aging mobile apps. My team settled on a combination of <a href='https://phonegap.com/'>Phonegap</a> and <a href='https://ractive.js.org/'>Ractive</a>, which allowed us quickly convert the templates from our mobile website into components for a single-page app.",
-            frontend: "Coffeescript, Less",
-            backend: "ASP.NET"
-          }
-        ],
+    'current_tab' = "tab-websites";
+    'thumb_style' = {
+      transition: '' as string,
+      left: '0' as string,
+      width: '50%' as string
+    };
+    'content_transform' = "translateX(0)";
+    'intro_transitions' = {
+      vertical: ( this.intro === true ? 'transition: 0.3s transform ease-out 3s;' : '' ) as string,
+      horizontal: ( this.intro === true ? 'transition: 0.5s transform ease-in-out 3.2s;' : '') as string
+    };
 
-        games: [
-          {
-            color: "#0000c1",
-            url: "https://www.isoteric-games.com/#timebomb",
-            image: null,
-            video: "xRblNIzu3BA",
-            title: "Timebomb",
-            main: "Timebomb is a arcade-action game for Android and iOS. Simple-to-play an hard-to-master, Timebomb takes it's influence from games like Super Hexagon and Canabalt, and shares a not-entirely-coincidental similarity to Flappy Bird.",
-            tech: null,
-            frontend: null,
-            backend: null
-          },
-          {
-            color: "#00dddd",
-            url: "https://elanti.itch.io/squarefish",
-            image: null,
-            video: "lWqwd2E0f0s",
-            title: "SQUAREfish",
-            main: "SQUAREfish is a small action game for mobile. Originally developed in one hour for <a href='http://0hgame.eu/'>0h Game Jam</a> 2016. Over the course of the following week I polished it up into a stylish, if simple, game.",
-            tech: null,
-            frontend: null,
-            backend: null
-          },
-          {
-            color: "#ff523b",
-            url: "https://elanti.itch.io/crownless",
-            image: null,
-            video: "q_ohMwydOU8",
-            title: "Crownless",
-            main: "Crownless is, as of August 2017, my latest of over a dozen 48 hour games developed during <a href='https://ldjam.com/'>Ludum Dare</a> competitions. It may lack the polish of the other two games, but is a good example of my design and animation skills when working under pressure.",
-            tech: null,
-            frontend: null,
-            backend: null
-          }
-        ]
+    'sites' = [
+      {
+        color: "#0067cf",
+        url: null,
+        image: null,
+        video: null,
+        title: "About This Site",
+        main: "Welcome to my site. My name is Galan Montgomery, and I am a professional <strong>full-stack web developer</strong>, specializing in <strong>user experience</strong>. I've worked on a variety of projects, from small informational sites to large-scale commercial web apps with tens-of-thousands of users. Below you can see a sampling of my work, and if you want to see more interactive designs, please check out my hobbist video games in the other tab.",
+        tech: "As I do with every project, I'm using this site to learn something new, in this case, it's <a href='https://www.flow.org'>Flow</a>, a gradual type checker for Javascript.",
+        frontend: "Vue, Webpack, Babel, ESlint",
+        backend: null
+      },
+      {
+        color: "#994d00",
+        url: "https://www.isoteric-games.com",
+        image: "../images/isoteric-games.png",
+        video: null,
+        title: "Isoteric Games",
+        main: "This is responsive website that serves as a promotional web presence for my hobby games. Make heavy use of transitions and designed for mobile first.",
+        tech: "The main goal for this site is to be informative, so the tech is fairly simple. The front-end is designed in <a href='https://vuejs.org'>Vue</a>, with a thin back-end written in Go. Since the only use for a database would have been for the occasional blog post, I opted instead for writing them as meta-tagged Markdown files.",
+        frontend: "Webpack, Babel",
+        backend: "Caddy"
+      },
+      {
+        color: "#fd9001",
+        url: "https://www.childfund.org/thereturn/",
+        image: "../images/there-turn.png",
+        video: null,
+        title: "Childfund VR | The Return",
+        main: "An informational website for Childfund’s VR experience: The Return. This is a single-page app that hosts the video and informs Childfund’s donors about its mission. Based on a design from the team artist, which I adapted for mobile.",
+        tech: "Another informational site, this time build on top of a CMS. This was my first experience with React, and contained a number of CSS transition effects. One of the biggest challenges, though, was cleanly integrating a Google VR video.",
+        frontend: "React, Webpack, Babel",
+        backend: "Ektron"
+      },
+      {
+        color: "rgb(115, 168, 57)",
+        url: null,
+        image: "../images/getloaded-mobile.png",
+        video: null,
+        title: "Getloaded Mobile 2.0",
+        main: "Getloaded Mobile was an app for iOS and Android. Used by over 20,000 people. I led the development of this app, and served as core architect and top-level UI designer.",
+        tech: "This began as a research project to replace Getloaded's aging mobile apps. My team settled on a combination of <a href='https://phonegap.com/'>Phonegap</a> and <a href='https://ractive.js.org/'>Ractive</a>, which allowed us quickly convert the templates from our mobile website into components for a single-page app.",
+        frontend: "Coffeescript, Less",
+        backend: "ASP.NET"
+      }
+    ];
 
-      };
-    },
+    'games' = [
+      {
+        color: "#0000c1",
+        url: "https://www.isoteric-games.com/#timebomb",
+        image: null,
+        video: "xRblNIzu3BA",
+        title: "Timebomb",
+        main: "Timebomb is a arcade-action game for Android and iOS. Simple-to-play an hard-to-master, Timebomb takes it's influence from games like Super Hexagon and Canabalt, and shares a not-entirely-coincidental similarity to Flappy Bird.",
+        tech: null,
+        frontend: null,
+        backend: null
+      },
+      {
+        color: "#00dddd",
+        url: "https://elanti.itch.io/squarefish",
+        image: null,
+        video: "lWqwd2E0f0s",
+        title: "SQUAREfish",
+        main: "SQUAREfish is a small action game for mobile. Originally developed in one hour for <a href='http://0hgame.eu/'>0h Game Jam</a> 2016. Over the course of the following week I polished it up into a stylish, if simple, game.",
+        tech: null,
+        frontend: null,
+        backend: null
+      },
+      {
+        color: "#ff523b",
+        url: "https://elanti.itch.io/crownless",
+        image: null,
+        video: "q_ohMwydOU8",
+        title: "Crownless",
+        main: "Crownless is, as of August 2017, my latest of over a dozen 48 hour games developed during <a href='https://ldjam.com/'>Ludum Dare</a> competitions. It may lack the polish of the other two games, but is a good example of my design and animation skills when working under pressure.",
+        tech: null,
+        frontend: null,
+        backend: null
+      }
+    ]
 
-    mounted() {
+    mounted(): void {
       if ( this.intro === false ) {
         this.set_tab( 'tab-websites', false );
       }
-    },
+    }
 
-    watch: {
-      intro: function() {
-        setTimeout ( () => {
-          this.set_tab( 'tab-websites', false );
-        }, 100 );
+    @Watch('intro')
+    function() {
+      setTimeout ( () => {
+        this.set_tab( 'tab-websites', false );
+      }, 100 );
+    }
+
+    set_tab( tab: string, transition = true ): void {
+      this.current_tab = tab;
+
+      this.thumb_style = {
+        transition: transition ? "0.5s left ease-in-out, 0.5s width ease-in-out" : '',
+        left: ( this.$refs[ tab ] as HTMLElement ).offsetLeft + "px",
+        width: ( this.$refs[ tab ] as HTMLElement ).offsetWidth + "px"
+      };
+
+
+      if ( tab === 'tab-games' ) {
+        ( this.$refs['panel-games'] as HTMLElement ).style.height = 'auto';
+
+        this.content_transform = "translateX( calc(-100vw - 20px) )";
+
+        setTimeout( () => {
+          ( this.$refs['panel-websites'] as HTMLElement ).style.height = '0';
+        }, 500);
       }
-    },
+      else {
+        ( this.$refs['panel-websites'] as HTMLElement ).style.height = 'auto';
 
-    methods: {
-      set_tab( tab, transition = true ) {
-        this.current_tab = tab;
+        this.content_transform = "translateX(0)";
 
-        this.thumb_style = {
-          transition: transition ? "0.5s left ease-in-out, 0.5s width ease-in-out" : '',
-          left: this.$refs[ tab ].offsetLeft + "px",
-          width: this.$refs[ tab ].offsetWidth + "px"
-        };
-
-
-        if ( tab === 'tab-games' ) {
-          this.$refs['panel-games'].style.height = 'auto';
-
-          this.content_transform = "translateX( calc(-100vw - 20px) )";
-
-          setTimeout( () => {
-            this.$refs['panel-websites'].style.height = '0';
-          }, 500);
-        }
-        else {
-          this.$refs['panel-websites'].style.height = 'auto';
-
-          this.content_transform = "translateX(0)";
-
-          setTimeout( () => {
-            this.$refs['panel-games'].style.height = '0';
-          }, 500);
-        }
+        setTimeout( () => {
+          ( this.$refs['panel-games'] as HTMLElement ).style.height = '0';
+        }, 500);
       }
     }
-  };
+  }
 </script>

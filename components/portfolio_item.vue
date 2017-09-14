@@ -140,52 +140,52 @@
   }
 </style>
 
-<script>
-  export default {
-    data() {
-      return {
-        is_mobile: false,
-        margin: {
-          left:  ( this.info.image === null && this.info.video === null || this.side === 'right' ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0,
-          right: ( this.info.image === null && this.info.video === null || this.side === 'left' ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0
-        }
-      };
-    },
+<script lang="ts">
+  import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
-    props: [ 'info', 'side' ],
+  @Component
+  export default class PortfolioItem extends Vue {
+    @Prop()
+    'info': PortfolioInfo;
+    @Prop()
+    'side': string;
 
-    methods: {
-      scroll() {
-        if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 && this.$el.getBoundingClientRect().left < window.innerWidth ) {
-          this.$el.style.opacity = 1;
-        }
-      },
+    'is_mobile' = false;
+    'margin' = {
+      left:  ( this.info.image === null && this.info.video === null || this.side === 'right' ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0,
+      right: ( this.info.image === null && this.info.video === null || this.side === 'left' ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0
+    }
 
-      resize() {
-        this.is_mobile = window.innerWidth < 1024 ? true : false;
+    scroll(): void {
+      if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 && this.$el.getBoundingClientRect().left < window.innerWidth ) {
+        ( this.$el as HTMLElement ).style.opacity = '1';
       }
-    },
+    }
+
+    resize(): void {
+      this.is_mobile = window.innerWidth < 1024 ? true : false;
+    }
 
     beforeMount() {
-      if ( this.image === null && this.video === null ) {
+      if ( this.info.image === null && this.info.video === null ) {
         this.side = null;
       }
 
       this.resize();
-    },
+    }
 
     mounted() {
       window.addEventListener( 'scroll', this.scroll );
       if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 ) {
-        this.$el.style.opacity = 1;
+        ( this.$el as HTMLElement ).style.opacity = '1';
       }
 
       window.addEventListener( 'resize', this.resize );
-    },
+    }
 
     destroyed() {
       window.removeEventListener( 'scroll', this.scroll );
       window.removeEventListener( 'resize', this.resize );
     }
-  };
+  }
 </script>

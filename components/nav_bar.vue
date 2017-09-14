@@ -73,28 +73,27 @@
 </style>
 
 
-<script>
+<script lang="ts">
+  import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
   import Titles from "./titles.vue";
 
-  export default {
+  @Component({
     name: 'index',
-    components: { Titles },
-    props: [ 'show_titles' ],
+    components: { Titles }
+  })
+  export default class NavBar extends Vue {
+    'intro_transitioning': boolean = false;
 
-    data() {
-      return {
-        intro_transitioning: false
-      };
-    },
+    @Prop()
+    'show_titles': boolean;
 
-    watch: {
-      show_titles: function () {
-        this.intro_transitioning = true;
+    @Watch('show_titles')
+    onTitlesChanged(): void {
+      this.intro_transitioning = true;
 
-        setTimeout( () => {
-          this.intro_transitioning = false;
-        }, 3000 );
-      }
+      setTimeout( () => {
+        this.intro_transitioning = false;
+      }, 3000 );
     }
-  };
+  }
 </script>

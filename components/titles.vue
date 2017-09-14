@@ -71,24 +71,22 @@
   }
 </style>
 
-<script>
-import { tween } from 'shifty';
+<script lang="ts">
+  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import { tween } from 'shifty';
 
-export default {
-  data() {
-    return {
-      circle_radius: 0,
-      line_height: 0,
-      line_halfwidth: 0,
-      title1: { opacity: 0, transform: "scaleY(0)" },
-      title2: { opacity: 0, transform: "scaleY(0)" }
-    };
-  },
+  @Component
+  export default class Titles extends Vue {
+    'circle_radius' = 0;
+    'line_height' = 0;
+    'line_halfwidth' = 0;
+    'title1' = { opacity: 0 as number, transform: "scaleY(0)" as string };
+    'title2' = { opacity: 0 as number, transform: "scaleY(0)" as string };
 
-  props: [ 'show' ],
+    @Prop()
+    'show': boolean;
 
-  methods: {
-    appear( el, done ) {
+    appear( el: HTMLElement, done: ()=>void ) {
       tween ({
         from: { r: 0, y: 0 },
         to: { r: 5, y: 38 },
@@ -124,9 +122,9 @@ export default {
       }).then ( () => {
         done();
       });
-    },
+    }
 
-    leave( el, done ) {
+    leave( el: HTMLElement, done: ()=>void ) {
       tween ({
         from: { o: 1, y: 1 },
         to: { o: 0, y: 0 },
@@ -162,5 +160,4 @@ export default {
       });
     }
   }
-};
 </script>
