@@ -25,12 +25,12 @@
     <div class="content" :style="{ 'transform': content_transform }">
       <div class="panel" ref="panel-websites">
         <div v-for=" (site, key) in sites ">
-          <item :info=" site " :side=" key % 2 === 0 ? 'left' : 'right' "></item>
+          <item :info=" site " :_side=" key % 2 === 0 ? 'left' : 'right' "></item>
         </div>
       </div>
       <div class="panel" ref="panel-games" style="margin-left: 20px;">
         <div v-for=" (game, key) in games ">
-          <item :info=" game " :side=" key % 2 === 0 ? 'left' : 'right' "></item>
+          <item :info=" game " :_side=" key % 2 === 0 ? 'left' : 'right' "></item>
         </div>
       </div>
     </div>
