@@ -23,9 +23,14 @@
       a {
         color: #0067cf;
       }
-      @media ( max-device-width: 1024px ) {
+      @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
         html {
           font-size: 40px;
+        }
+      }
+      @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
+        html {
+          font-size: 25px;
         }
       }
     </style>

@@ -66,7 +66,6 @@
   }
   .img-wrapper {
     display: flex;
-    flex-direction: column;
 
     @media ( min-device-width: 1024px ) {
       min-height: 60vh;
@@ -98,8 +97,7 @@
   }
   .img-inner-wrapper {
     float: right;
-    margin-right: 3%;
-    margin-left: 12%;
+    margin: -1px 3% -10px 12%;
     padding: 0 20px 0px 50px;
     background-color: #fafaff;
   }

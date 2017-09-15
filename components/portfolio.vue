@@ -61,7 +61,10 @@
     top: -60px;
 
     @media ( max-device-width: 1024px ) {
-      top: -85px
+      top: -95px
+    }
+    @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
+      top: -73px;
     }
   }
 
@@ -88,8 +91,12 @@
     display: inline-block;
 
     @media ( max-device-width: 1024px ) {
-      left: 400px;
-      top: -134px;
+      left: 470px;
+      top: -150px;
+    }
+    @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
+      left: 350px;
+      top: -118px;
     }
   }
   .border {
@@ -139,6 +146,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    margin-top: -1px;
+    padding-bottom: 2px;
   }
 
   .content {
