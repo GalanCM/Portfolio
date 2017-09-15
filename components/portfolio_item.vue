@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="color-bar" v-if=" side === 'right' " :style=" { 'background-color': info.color } "></div>
-    <div v-if=" !is_mobile && side === 'left' " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px' }">
+    <div v-if=" !is_mobile && side !== 'right' " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px' }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div v-if=" !is_mobile && side === 'right' " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px' }">
+    <div v-if=" !is_mobile && side !== 'left' " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px' }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
@@ -66,6 +66,7 @@
   }
   .img-wrapper {
     display: flex;
+    flex-direction: column;
 
     @media ( min-device-width: 1024px ) {
       min-height: 60vh;
