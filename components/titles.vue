@@ -83,7 +83,7 @@
     'title1' = { opacity: 0 as number, transform: "scaleY(0)" as string };
     'title2' = { opacity: 0 as number, transform: "scaleY(0)" as string };
 
-    @Prop()
+    @Prop(Boolean)
     'show': boolean;
 
     appear( el: HTMLElement, done: ()=>void ) {

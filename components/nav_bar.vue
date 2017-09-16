@@ -78,13 +78,12 @@
   import Titles from "./titles.vue";
 
   @Component({
-    name: 'index',
     components: { Titles }
   })
   export default class NavBar extends Vue {
     'intro_transitioning': boolean = false;
 
-    @Prop()
+    @Prop(Boolean)
     'show_titles': boolean;
 
     @Watch('show_titles')

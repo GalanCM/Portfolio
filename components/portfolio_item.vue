@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="color-bar" v-if=" side === 'right' " :style=" { 'background-color': info.color } "></div>
-    <div v-if=" !is_mobile && side !== 'right' " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px' }">
+    <div v-if=" !is_mobile && side === 'left' " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px' }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
@@ -17,7 +17,7 @@
           </span>
         </h2>
 
-        <div v-if=" is_mobile && ( side !== null ) " class="img-wrapper" :style="{ 'background': info.color }">
+        <div v-if=" is_mobile && ( has_image === true ) " class="img-wrapper" :style="{ 'background': info.color }">
           <div class="img-inner-wrapper">
             <img v-if=" info.image !== null " :src=" info.image " :style="{ 'border-color': info.color } ">
             <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color } "></iframe>
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div v-if=" !is_mobile && side !== 'left' " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px' }">
+    <div v-if=" !is_mobile && side === 'right' " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px' }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
@@ -160,10 +160,10 @@
 
   @Component
   export default class PortfolioItem extends Vue {
-    @Prop()
+    @Prop(Object)
     'info': PortfolioInfo;
-    @Prop()
-    '_side': string;
+    @Prop(String)
+    'side': string;
 
     'is_mobile' = false;
     'margin' = {
@@ -199,12 +199,12 @@
       window.removeEventListener( 'resize', this.resize );
     }
 
-    get side() {
+    get has_image() {
       if ( this.info.image === null && this.info.video === null ) {
-        return null;
+        return false;
       }
       else {
-        return this._side;
+        return true;
       }
     }
   }
