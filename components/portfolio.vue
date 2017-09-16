@@ -200,8 +200,8 @@
         video: null,
         title: "About This Site",
         main: "Welcome to my site. My name is Galan Montgomery, and I am a professional <strong>full-stack web developer</strong>, specializing in <strong>user experience</strong>. I've worked on a variety of projects, from small informational sites to large-scale commercial web apps with tens-of-thousands of users. Below you can see a sampling of my work, and if you want to see more interactive designs, please check out my hobbist video games in the other tab.",
-        tech: "As I do with every project, I'm using this site to learn something new, in this case, it's <a href='https://www.flow.org'>Flow</a>, a gradual type checker for Javascript.",
-        frontend: "Vue, Webpack, Babel, ESlint",
+        tech: "As I do with every project, I'm using this site to learn something new. This time it was gradual typing, ultimately using <a href='https://www.typescriptlang.org/'>Typescript</a>.",
+        frontend: "Vue, Webpack, Babel",
         backend: null
       },
       {
@@ -235,7 +235,7 @@
         main: "Getloaded Mobile was an app for iOS and Android. Used by over 20,000 people. I led the development of this app, and served as core architect and top-level UI designer.",
         tech: "This began as a research project to replace Getloaded's aging mobile apps. My team settled on a combination of <a href='https://phonegap.com/'>Phonegap</a> and <a href='https://ractive.js.org/'>Ractive</a>, which allowed us quickly convert the templates from our mobile website into components for a single-page app.",
         frontend: "Coffeescript, Less",
-        backend: "ASP.NET"
+        backend: "Phonegap"
       }
     ];
 
