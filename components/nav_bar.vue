@@ -1,11 +1,10 @@
 <template>
   <nav :style=" { height:  show_titles ? '100vh' : '3em', transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
-      fontSize:  show_titles ? '70px' : '2.5em',
       marginLeft: show_titles ? '50vw' : '0.1em',
-      transform: show_titles ? 'translateX( -50% )' : 'translateX( 0 )',
+      transform: show_titles ? 'translateX( -50% )' : 'translateX( 0 ) scale(0.45)',
       transition: intro_transitioning ? '1s font-size ease-in-out 1s, 1s margin ease-out 2s, 1s transform ease-out 2s' : ''
-    } ">GalanMontgomery</h1>
+    } "><img src="../images/web header.svg"></img></h1>
 
     <titles :show="show_titles"></titles>
 
@@ -30,12 +29,10 @@
     z-index: 100;
   }
 
-  h1,h2,h3 {
-    font-family: Ubuntu, sans-serif;
-  }
   h1 {
     font-size: 4em;
     margin: auto auto auto 20px;
+    transform-origin: top left;
 
     @media ( max-height: 500px ) {
       margin-top: 0;

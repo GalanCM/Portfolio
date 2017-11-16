@@ -9,7 +9,7 @@
 
       <div class="titles">
         <h2 :style="title1">Full-stack Web Developer</h2>
-        <h3 :style="title2">UX Specialist</h3>
+        <h3 :style="title2"><span>&</span> UX Specialist</h3>
       </div>
     </div>
   </transition>
