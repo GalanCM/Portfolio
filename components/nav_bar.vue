@@ -1,10 +1,10 @@
 <template>
   <nav :style=" { height:  show_titles ? '100vh' : '3em', transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
-      marginLeft: show_titles ? '50vw' : '0.1em',
-      transform: show_titles ? 'translateX( -50% )' : 'translateX( 0 ) scale(0.45)',
+      marginLeft: show_titles ? '50px' : '0.1em',
+      transform: show_titles ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.3)',
       transition: intro_transitioning ? '1s font-size ease-in-out 1s, 1s margin ease-out 2s, 1s transform ease-out 2s' : ''
-    } "><img src="../images/web header.svg"></img></h1>
+    } "><object data="../images/web header.svg" type="image/svg+xml"></object></h1>
 
     <titles :show="show_titles"></titles>
 
@@ -90,6 +90,10 @@
       setTimeout( () => {
         this.intro_transitioning = false;
       }, 3000 );
+    }
+
+    get fullSizeHeaderScale() : number {
+      return window.innerWidth * 0.6 / 1575;
     }
   }
 </script>
