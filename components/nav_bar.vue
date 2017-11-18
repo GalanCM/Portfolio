@@ -46,8 +46,8 @@
 
   .continue {
     position: absolute;
-    left: ~"calc( 50vw - 25px )";
-    top: ~"calc( 100vh - 70px )";
+    left: 2.5vw;
+    bottom: 2.5vw;
     cursor: pointer;
   }
 

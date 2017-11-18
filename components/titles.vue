@@ -1,14 +1,14 @@
 <template>
   <transition v-on:enter="appear" v-on:leave="leave" appear>
     <div class="titles-wrapper" v-show=" show ">
-      <div style="display: flex;width: 100vw;height: 100vh;">
-       <div style="display: flex;margin: auto;">
-          <svg width="16" :height="verticalLineHeight" xmlns="http://www.w3.org/2000/svg">
+      <!-- <div style="display: flex;width: 100vw;height: 100vh;">
+       <div style="margin: auto;"> -->
+          <svg width="16" :height="verticalLineHeight" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 50vh; left: calc(50vw - 8px);">
             <line x1="7.5" :y1="22*fullSizeHeaderScale" x2="7.5" :y2="10+line_height" :stroke-width="max(8*fullSizeHeaderScale,2)" stroke="rgba(275,255,255,.3)" />
             <circle cx="7.5" :cy="22*fullSizeHeaderScale" :r="max(circle_radius, 3)" fill="#b3b3b3" />
           </svg>
-        </div>
-      </div>
+        <!-- </div>
+      </div> -->
 
       <div class="titles">
         <svg :width="1505 * this.fullSizeHeaderScale" height="4" xmlns="http://www.w3.org/2000/svg" :style="{ position: 'absolute', top: 0, right: 0 }">
@@ -60,7 +60,7 @@
   // }
 
   .titles {
-    top: 52.5vh;
+    top: 60vh;
     transform-origin: top right;
     right: 5vw;
     width: 100vw;
@@ -165,7 +165,7 @@
       return (window.innerWidth+100) * 0.5 / 1575;
     }
     get verticalLineHeight(): number {
-      return window.innerHeight*0.05 + 15*this.fullSizeHeaderScale;
+      return window.innerHeight*0.1;
     }
 
     max(a,b): number {
