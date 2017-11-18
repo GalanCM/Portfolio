@@ -1,10 +1,9 @@
 <template>
-  <nav :style=" { height:  show_titles ? '100vh' : '3em', transition: intro_transitioning ? '1s height 1s' : '' } ">
+  <nav :style=" { height:  show_titles ? '100vh' : '3.1em', transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
-      marginLeft: show_titles ? '50px' : '0.1em',
-      transform: show_titles ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.3)',
+      marginLeft: show_titles ? '0px' : '0.1em',
       transition: intro_transitioning ? '1s font-size ease-in-out 1s, 1s margin ease-out 2s, 1s transform ease-out 2s' : ''
-    } "><object data="../images/web header.svg" type="image/svg+xml"></object></h1>
+    } "><object data="../images/header.svg" type="image/svg+xml" :style="{ transform: show_titles ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)' }"></object></h1>
 
     <titles :show="show_titles"></titles>
 
@@ -32,10 +31,15 @@
   h1 {
     font-size: 4em;
     margin: auto auto auto 20px;
-    transform-origin: top left;
-
+    position: absolute;
+    bottom: 52vh;
+    left: 5vw;
     @media ( max-height: 500px ) {
       margin-top: 0;
+    }
+
+    object {
+          transform-origin: bottom left;
     }
   }
 
@@ -93,7 +97,7 @@
     }
 
     get fullSizeHeaderScale() : number {
-      return window.innerWidth * 0.6 / 1575;
+      return (window.innerWidth+100) * 0.6 / 1575;
     }
   }
 </script>
