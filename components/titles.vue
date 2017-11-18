@@ -1,14 +1,20 @@
 <template>
   <transition v-on:enter="appear" v-on:leave="leave" appear>
     <div class="titles-wrapper" v-show=" show ">
-      <!-- <svg width="790px" height="60" viewbox="0,0,780,60" xmlns="http://www.w3.org/2000/svg">
-        <line x1="125" y1="10" x2="125" :y2="10+line_height" stroke-width="3" stroke="rgba(255,255,255,.3)" />
-        <circle cx="125" cy="10" :r="circle_radius" fill="#b3b3b3" />
-        <line :x1="60" y1="50" :x2="line_width" y2="50" stroke-width="4" stroke="#820a0a" />
-      </svg> -->
+      <div style="display: flex;width: 100vw;height: 100vh;">
+       <div style="display: flex;margin: auto;">
+          <svg width="16" :height="verticalLineHeight" xmlns="http://www.w3.org/2000/svg">
+            <line x1="7.5" :y1="22*fullSizeHeaderScale" x2="7.5" :y2="10+line_height" :stroke-width="max(8*fullSizeHeaderScale,2)" stroke="rgba(275,255,255,.3)" />
+            <circle cx="7.5" :cy="22*fullSizeHeaderScale" :r="max(circle_radius, 3)" fill="#b3b3b3" />
+          </svg>
+        </div>
+      </div>
 
       <div class="titles">
-        <object data="../images/titles.svg" type="image/svg+xml" :style="{ transform: 'scale(' + fullSizeHeaderScale + ')' }"></object>
+        <svg :width="1505 * this.fullSizeHeaderScale" height="4" xmlns="http://www.w3.org/2000/svg" :style="{ position: 'absolute', top: 0, right: 0 }">
+          <line :x1="0" y1="2" :x2="line_width" y2="2" :stroke-width="max(12*fullSizeHeaderScale,2)" stroke="#820a0a" />
+        </svg>
+        <object data="../images/titles.svg" type="image/svg+xml" :style="{ transform: 'scale(' + fullSizeHeaderScale + ')', position: 'absolute', right: 0 }"></object>
       </div>
     </div>
   </transition>
@@ -22,7 +28,6 @@
 
     svg, .titles {
       margin: 0;
-      position: absolute;
     }
   }
 
@@ -44,20 +49,22 @@
     }
   }
 
-  svg {
-    left: ~"calc( 50vw - 150px )";
-    bottom: 46vh;
+  // svg {
+  //   left: ~"calc( 50vw - 150px )";
+  //   bottom: 46vh;
+  //   position: absolute;
 
-    @media ( max-height: 500px ) {
-      top: 75px;
-    }
-  }
+  //   @media ( max-height: 500px ) {
+  //     top: 75px;
+  //   }
+  // }
 
   .titles {
-    top: 52vh;
+    top: 52.5vh;
     transform-origin: top right;
     right: 5vw;
-    width: 1600px;
+    width: 100vw;
+    position: absolute;
 
     object {
       transform-origin: top right;
@@ -73,7 +80,7 @@
   export default class Titles extends Vue {
     'circle_radius' = 0;
     'line_height' = 0;
-    'line_width' = 60;
+    'line_width' = 0;
     'title1' = { opacity: 0 as number, transform: "scaleY(0)" as string };
     'title2' = { opacity: 0 as number, transform: "scaleY(0)" as string };
 
@@ -83,7 +90,7 @@
     appear( el: HTMLElement, done: ()=>void ) {
       tween ({
         from: { r: 0, y: 0 },
-        to: { r: 5, y: 38 },
+        to: { r: 15*this.fullSizeHeaderScale, y: window.innerHeight*0.1 },
         duration: 200,
         easing: { r: "easeInQuad", y: "easeOutQuad" },
         delay: 500,
@@ -93,8 +100,8 @@
         }
       }).then ( () => {
         return tween ({
-          from: { x: 60, o: 0, y: 0 },
-          to: { x: 1625 * this.fullSizeHeaderScale, o: 1, y: 1 },
+          from: { x: 0, o: 0, y: 0 },
+          to: { x: 1505 * this.fullSizeHeaderScale, o: 1, y: 1 },
           duration: 400,
           easing: "easeInOutQuad",
           step: (state) => {
@@ -129,8 +136,8 @@
         }
       }).then ( () => {
         return tween ({
-          from: { x: 1625 * this.fullSizeHeaderScale, o: 1, y: 1 },
-          to: { x: 60, o: 0, y: 0 },
+          from: { x: 1505 * this.fullSizeHeaderScale, o: 1, y: 1 },
+          to: { x: 0, o: 0, y: 0 },
           duration: 200,
           easing: "easeInOutQuad",
           step: (state) => {
@@ -140,7 +147,7 @@
         });
       }).then ( () => {
         return tween ({
-          from: { r: 5, y: 38 },
+          from: { r: 15*this.fullSizeHeaderScale, y: window.innerHeight*0.1 },
           to: { r: 0, y: 0 },
           duration: 100,
           easing: { r: "easeInQuad", y: "easeOutQuad" },
@@ -156,6 +163,18 @@
 
     get fullSizeHeaderScale() : number {
       return (window.innerWidth+100) * 0.5 / 1575;
+    }
+    get verticalLineHeight(): number {
+      return window.innerHeight*0.05 + 15*this.fullSizeHeaderScale;
+    }
+
+    max(a,b): number {
+      if ( a > b ) {
+        return a;
+      }
+      else {
+        return b;
+      }
     }
   }
 </script>

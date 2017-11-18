@@ -3,7 +3,8 @@
     <h1 class="name" :style=" {
       marginLeft: show_titles ? '0px' : '0.1em',
       transition: intro_transitioning ? '1s font-size ease-in-out 1s, 1s margin ease-out 2s, 1s transform ease-out 2s' : ''
-    } "><object data="../images/header.svg" type="image/svg+xml" :style="{ transform: show_titles ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)' }"></object></h1>
+    } ">
+    <object data="../images/header.svg" type="image/svg+xml" :style="{ transform: show_titles ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object></h1>
 
     <titles :show="show_titles"></titles>
 
