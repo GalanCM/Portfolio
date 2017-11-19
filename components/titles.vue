@@ -1,21 +1,25 @@
 <template>
-  <transition v-on:enter="appear" v-on:leave="leave" appear>
+  <transition v-on:enter="appear" name="title-transition" appear>
     <div class="titles-wrapper" v-show=" show ">
-      <!-- <div style="display: flex;width: 100vw;height: 100vh;">
-       <div style="margin: auto;"> -->
-          <svg width="16" :height="verticalLineHeight" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 50vh; left: calc(50vw - 8px);">
-            <line x1="7.5" :y1="22*fullSizeHeaderScale" x2="7.5" :y2="10+line_height" :stroke-width="max(8*fullSizeHeaderScale,2)" stroke="rgba(275,255,255,.3)" />
-            <circle cx="7.5" :cy="22*fullSizeHeaderScale" :r="max(circle_radius, 3)" fill="#b3b3b3" />
-          </svg>
-        <!-- </div>
-      </div> -->
+      
+      <svg width="30" :height="verticalLineHeight" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 50vh; left: calc(50vw - 15px);">
+        <line x1="15" :y1="22*fullSizeHeaderScale" x2="15" :y2="(22*fullSizeHeaderScale)+line_height" :stroke-width="max(8*fullSizeHeaderScale,2)" stroke="rgba(275,255,255,.3)" />
+        <circle cx="15" :cy="22*fullSizeHeaderScale" :r="circle_radius" :fill="'rgba(179,179,179,' + circle_opacity + ')'" stroke="#b3b3b3" />
+      </svg>
 
       <div class="titles">
         <svg :width="1505 * this.fullSizeHeaderScale" height="4" xmlns="http://www.w3.org/2000/svg" :style="{ position: 'absolute', top: 0, right: 0 }">
           <line :x1="0" y1="2" :x2="line_width" y2="2" :stroke-width="max(12*fullSizeHeaderScale,2)" stroke="#820a0a" />
         </svg>
-        <object data="../images/titles.svg" type="image/svg+xml" :style="{ transform: 'scale(' + fullSizeHeaderScale + ')', position: 'absolute', right: 0 }"></object>
+
+        <!-- <object :class="{text: true, on: show_text}" data="../images/titles.svg" type="image/svg+xml" :style="{ transform: 'scale(' + fullSizeHeaderScale + ')', position: 'absolute', right: 0 }"></object> -->
+        <div :class="{text: true, on: show_text}":style="{ transform: 'scale(' + fullSizeHeaderScale + ')', position: 'absolute', right: 0 }">
+          <object class="developer" data="../images/developer.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
+          <object class="and" data="../images/and.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
+          <object class="designer" data="../images/designer.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
+        </div>
       </div>
+
     </div>
   </transition>
 </template>
@@ -49,27 +53,43 @@
     }
   }
 
-  // svg {
-  //   left: ~"calc( 50vw - 150px )";
-  //   bottom: 46vh;
-  //   position: absolute;
-
-  //   @media ( max-height: 500px ) {
-  //     top: 75px;
-  //   }
-  // }
-
   .titles {
     top: 60vh;
     transform-origin: top right;
     right: 5vw;
     width: 100vw;
     position: absolute;
-
-    object {
-      transform-origin: top right;
-    }
   }
+
+  .text {
+      transform-origin: top right;
+
+      .developer, .designer, .and {
+        opacity: 0.0;
+      }
+      .developer {
+        transition: opacity 1s ease-in 0.25s;
+      }
+      .and {
+        transition: opacity 0.5s ease-in 1.5s;
+      }
+      .designer {
+        transition: opacity 1s ease-in 1.75s;
+      }
+
+      &.on .developer, &.on .designer, &.on .and {
+        opacity: 1.0;
+      }
+    }
+
+  .title-transition-leave-active {
+    transition: 0.5s opacity ease-in 0.5s, 1s filter ease-in;
+  }
+  .title-transition-leave-to {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
 </style>
 
 <script lang="ts">
@@ -79,84 +99,51 @@
   @Component
   export default class Titles extends Vue {
     'circle_radius' = 0;
-    'line_height' = 0;
-    'line_width' = 0;
-    'title1' = { opacity: 0 as number, transform: "scaleY(0)" as string };
-    'title2' = { opacity: 0 as number, transform: "scaleY(0)" as string };
+    'circle_opacity' = 0;
+    'line_height' = 0.0;
+    'line_width' = -0.0;
+    'show_text' = false;
 
     @Prop(Boolean)
     'show': boolean;
 
     appear( el: HTMLElement, done: ()=>void ) {
       tween ({
-        from: { r: 0, y: 0 },
-        to: { r: 15*this.fullSizeHeaderScale, y: window.innerHeight*0.1 },
-        duration: 200,
-        easing: { r: "easeInQuad", y: "easeOutQuad" },
-        delay: 500,
+        from: { r: 0, o:0.0 },
+        to: { r: this.max(15*this.fullSizeHeaderScale, 3), o:1.0 },
+        duration: 800,
+        easing: { r: "swingTo", y: "easeOutQuad", o:'easeInQuad' },
+        delay: 1000,
         step: (state) => {
           this.circle_radius = state.r;
-          this.line_height = state.y;
+          this.circle_opacity = state.o;
         }
+      // }).then ( () => {
+      //   return tween ({
+      //     from: { y: 0 },
+      //     to: { y: window.innerHeight*0.1 },
+      //     duration: 500,
+      //     easing: { y: "easeOutQuad"},
+      //     step: (state) => {
+      //       this.line_height = state.y;
+      //     }
+      //   });
       }).then ( () => {
         return tween ({
-          from: { x: 0, o: 0, y: 0 },
-          to: { x: 1505 * this.fullSizeHeaderScale, o: 1, y: 1 },
-          duration: 400,
-          easing: "easeInOutQuad",
+          // from: { x: 0, o: 0, y: 0 },
+          // to: { x: 1505 * this.fullSizeHeaderScale, o: 1, y: 1 },
+          from: { x: 0, y: 0 },
+          to: { x: 1505 * this.fullSizeHeaderScale, y: window.innerHeight*0.1 },
+          duration: 500,
+          easing: { x: "easeInQuad", y:"easeOutQuad" },
+          delay: 500,
           step: (state) => {
             this.line_width = state.x;
-            this.title1 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
-          }
-        });
-      }).then ( () => {
-        return tween ({
-          from: { o: 0, y: 0 },
-          to: {o: 1, y: 1},
-          duration: 250,
-          delay: 300,
-          easing: "easeInQuad",
-          step: (state) => {
-            this.title2 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
-          }
-        });
-      }).then ( () => {
-        done();
-      });
-    }
-
-    leave( el: HTMLElement, done: ()=>void ) {
-      tween ({
-        from: { o: 1, y: 1 },
-        to: { o: 0, y: 0 },
-        duration: 250,
-        easing: "easeInQuad",
-        step: (state) => {
-          this.title2 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
-        }
-      }).then ( () => {
-        return tween ({
-          from: { x: 1505 * this.fullSizeHeaderScale, o: 1, y: 1 },
-          to: { x: 0, o: 0, y: 0 },
-          duration: 200,
-          easing: "easeInOutQuad",
-          step: (state) => {
-            this.line_width = state.x;
-            this.title1 = { opacity: state.o, transform: "scaleY(" + state.y + ")" };
-          }
-        });
-      }).then ( () => {
-        return tween ({
-          from: { r: 15*this.fullSizeHeaderScale, y: window.innerHeight*0.1 },
-          to: { r: 0, y: 0 },
-          duration: 100,
-          easing: { r: "easeInQuad", y: "easeOutQuad" },
-          step: (state) => {
-            this.circle_radius = state.r;
             this.line_height = state.y;
           }
         });
       }).then ( () => {
+        this.show_text = true;
         done();
       });
     }
