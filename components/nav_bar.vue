@@ -5,14 +5,22 @@
       bottom: uncollapsed ? '52vh' : '-29px',
       left: uncollapsed ? '5vw' : '0' 
     } ">
-    <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object></h1>
+      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
+      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object>
+    </h1>
 
-    <titles :show="show_titles" @close_intro=" close_intro "></titles>
+    <titles :show="titles_visible" @close_intro=" close_intro " @intro_complete="show_close"></titles>
 
     <transition name="arrow" appear>
-      <svg class="continue" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="show_titles" v-on:click=" close_titles() ">
+      <svg class="close" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="close_visible">
           <circle cx="25" cy="25" r="25" fill="rgba(255,255,255,0.75)"></circle>
           <text x="25" y="47" font-family="Ubuntu" font-size="55px" text-anchor="middle" fill="rgb(12, 27, 42)">⬇</text>
+      </svg>
+    </transition>
+
+    <transition v-on:enter="underline_enter" appear>
+      <svg class="underline" height="12" width="500px" style="position: absolute; bottom: -10px; left: 0; z-index: -1;" v-show="!titles_visible">
+        <polygon :points="'0,0, '+ underline_length +',0, '+(underline_length-10)+',14, 0,14'" fill="#820a0a"/>
       </svg>
     </transition>
   </nav>
@@ -41,11 +49,12 @@
     }
   }
 
-  .continue {
+  .close {
     position: absolute;
     left: 2.5vw;
     bottom: 2.5vw;
     cursor: pointer;
+    user-select: none;
   }
 
   .arrow-enter-active {
@@ -75,30 +84,64 @@
 <script lang="ts">
   import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
   import Titles from "./titles.vue";
+  import { tween } from 'shifty';
 
   @Component({
     components: { Titles }
   })
   export default class NavBar extends Vue {
     'intro_transitioning': boolean = false;
-    'show_titles': boolean = false;
+    'titles_visible': boolean = false;
+    'close_visible': boolean = false;
+    'underline_length': number = 0;
 
     @Prop(Boolean)
     'uncollapsed': boolean;
 
     created(): void {
-      this.show_titles = this.uncollapsed;
+      this.titles_visible = this.uncollapsed;
     }
 
+    show_close(): void {
+      this.close_visible = true;
+
+      let vm = this
+      let close_hander = function() {
+        vm.close_titles();
+
+        window.removeEventListener('click', close_hander);
+        window.removeEventListener('keydown', close_hander);
+        window.removeEventListener('wheel', close_hander);
+      }
+
+      window.addEventListener('click', close_hander);
+      window.addEventListener('keydown', close_hander);
+      window.addEventListener('wheel', close_hander);
+    }
     close_titles(): void {
-      this.show_titles = false;
-      // localStorage.setItem( 'intro', 'false' );
+      this.titles_visible = false;
+      this.close_visible = false;
     }
     close_intro(): void {
       this.$emit('close_intro')
     }
 
-    @Watch('show_titles')
+    underline_enter(): void {
+      setTimeout( () => {
+        tween ({
+          from: { x: 0 },
+          to: { x: 430 },
+          duration: 1000,
+          easing: "easeInOutQuad",
+          delay: 1000,
+          step: (state) => {
+            this.underline_length = state.x;
+          }
+        })
+      }, 2000 );
+    }
+
+    @Watch('titles_visible')
     onTitlesChanged(): void {
       this.intro_transitioning = true;
 

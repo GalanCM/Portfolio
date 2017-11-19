@@ -133,6 +133,10 @@
       }).then ( () => {
         this.show_text = true;
         done();
+
+        setTimeout( () => {
+          this.$emit('intro_complete')
+        }, 1000 );
       });
     }
 
