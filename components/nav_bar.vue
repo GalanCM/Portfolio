@@ -1,9 +1,9 @@
 <template>
-  <nav :style=" { height:  uncollapsed ? '100vh' : '3.1em', transition: intro_transitioning ? '1s height 1s' : '' } ">
+  <nav :style=" { height:  uncollapsed ? '100vh' : '50px', transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
       transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
-      bottom: uncollapsed ? '45vh' : '-29px',
-      left: uncollapsed ? '5vw' : '0' 
+      bottom: uncollapsed ? 'calc(50vh + 5px)' : '-9px',
+      left: uncollapsed ? '5vw' : '0',
     } ">
       <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale(0.27)', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
       <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object>
@@ -40,6 +40,7 @@
 
   h1 {
     position: absolute;
+    margin: 0;
 
     object {
       transform-origin: bottom left;
@@ -153,6 +154,14 @@
       }
       else {
         return (window.innerWidth+100) * 0.7 / 1575;
+      }
+    }
+    get center_gap(): number {
+      if ( window.innerWidth > window.innerHeight ) {
+        return window.innerHeight*0.1;
+      }
+      else {
+        return window.innerHeight*0.05;
       }
     }
   }

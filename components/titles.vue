@@ -1,12 +1,12 @@
 <template>
   <transition v-on:enter="appear" name="title-transition" v-on:after-leave="after_leave()" appear>
     <div class="titles-wrapper" v-show=" show ">
-      <svg width="30" :height="verticalLineHeight" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 50vh; left: calc(50vw - 15px);">
+      <svg width="30" :height="center_gap" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 50vh; left: calc(50vw - 15px);">
         <line x1="15" :y1="22*fullSizeHeaderScale" x2="15" :y2="(22*fullSizeHeaderScale)+line_height" :stroke-width="max(8*fullSizeHeaderScale,2)" stroke="rgba(275,255,255,.3)" />
         <circle cx="15" :cy="22*fullSizeHeaderScale" :r="circle_radius" :fill="'rgba(179,179,179,' + circle_opacity + ')'" stroke="#b3b3b3" />
       </svg>
 
-      <div class="titles" :style="{ top: 'calc(50vh + '+verticalLineHeight+'px)' }">
+      <div class="titles" :style="{ top: 'calc(50vh + '+center_gap+'px)' }">
         <svg :width="1505 * this.fullSizeHeaderScale" height="4" xmlns="http://www.w3.org/2000/svg" :style="{ position: 'absolute', top: 0, right: 0 }">
           <line :x1="0" y1="2" :x2="line_width" y2="2" :stroke-width="max(12*fullSizeHeaderScale,2)" stroke="#820a0a" />
         </svg>
@@ -150,7 +150,7 @@
         return (window.innerWidth+100) * 0.6 / 1575;
       }
     }
-    get verticalLineHeight(): number {
+    get center_gap(): number {
       if ( window.innerWidth > window.innerHeight ) {
         return window.innerHeight*0.1;
       }
