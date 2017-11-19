@@ -1,5 +1,5 @@
 <template>
-  <transition v-on:enter="appear" name="title-transition" appear>
+  <transition v-on:enter="appear" name="title-transition" v-on:after-leave="after_leave()" appear>
     <div class="titles-wrapper" v-show=" show ">
       
       <svg width="30" :height="verticalLineHeight" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 50vh; left: calc(50vw - 15px);">
@@ -83,7 +83,7 @@
     }
 
   .title-transition-leave-active {
-    transition: 0.5s opacity ease-in 0.5s, 1s filter ease-in;
+    transition: 0.75s opacity ease-out 0.75s, 1s filter ease-in;
   }
   .title-transition-leave-to {
     opacity: 0;
@@ -118,20 +118,8 @@
           this.circle_radius = state.r;
           this.circle_opacity = state.o;
         }
-      // }).then ( () => {
-      //   return tween ({
-      //     from: { y: 0 },
-      //     to: { y: window.innerHeight*0.1 },
-      //     duration: 500,
-      //     easing: { y: "easeOutQuad"},
-      //     step: (state) => {
-      //       this.line_height = state.y;
-      //     }
-      //   });
       }).then ( () => {
         return tween ({
-          // from: { x: 0, o: 0, y: 0 },
-          // to: { x: 1505 * this.fullSizeHeaderScale, o: 1, y: 1 },
           from: { x: 0, y: 0 },
           to: { x: 1505 * this.fullSizeHeaderScale, y: window.innerHeight*0.1 },
           duration: 500,
@@ -146,6 +134,10 @@
         this.show_text = true;
         done();
       });
+    }
+
+    after_leave(): void {
+      this.$emit('close_intro')
     }
 
     get fullSizeHeaderScale() : number {

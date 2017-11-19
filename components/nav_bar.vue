@@ -1,15 +1,15 @@
 <template>
-  <nav :style=" { height:  show_titles ? '100vh' : '3.1em', transition: intro_transitioning ? '1s height 1s' : '' } ">
+  <nav :style=" { height:  uncollapsed ? '100vh' : '3.1em', transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
-      marginLeft: show_titles ? '0px' : '0.1em',
+      marginLeft: uncollapsed ? '0px' : '0.1em',
       transition: intro_transitioning ? '1s font-size ease-in-out 1s, 1s margin ease-out 2s, 1s transform ease-out 2s' : ''
     } ">
-    <object data="../images/header.svg" type="image/svg+xml" :style="{ transform: show_titles ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object></h1>
+    <object data="../images/header.svg" type="image/svg+xml" :style="{ transform: uncollapsed ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object></h1>
 
-    <titles :show="show_titles"></titles>
+    <titles :show="show_titles" @close_intro=" close_intro "></titles>
 
     <transition name="arrow" appear>
-      <svg class="continue" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="show_titles" v-on:click=" $emit('close_intro') ">
+      <svg class="continue" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="show_titles" v-on:click=" close_titles() ">
           <circle cx="25" cy="25" r="25" fill="rgba(255,255,255,0.75)"></circle>
           <text x="25" y="47" font-family="Ubuntu" font-size="55px" text-anchor="middle" fill="rgb(12, 27, 42)">⬇</text>
       </svg>
@@ -84,9 +84,22 @@
   })
   export default class NavBar extends Vue {
     'intro_transitioning': boolean = false;
+    'show_titles': boolean = false;
 
     @Prop(Boolean)
-    'show_titles': boolean;
+    'uncollapsed': boolean;
+
+    created(): void {
+      this.show_titles = this.uncollapsed;
+    }
+
+    close_titles(): void {
+      this.show_titles = false;
+      // localStorage.setItem( 'intro', 'false' );
+    }
+    close_intro(): void {
+      this.$emit('close_intro')
+    }
 
     @Watch('show_titles')
     onTitlesChanged(): void {
