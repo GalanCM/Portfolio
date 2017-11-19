@@ -1,10 +1,11 @@
 <template>
   <nav :style=" { height:  uncollapsed ? '100vh' : '3.1em', transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
-      marginLeft: uncollapsed ? '0px' : '0.1em',
-      transition: intro_transitioning ? '1s font-size ease-in-out 1s, 1s margin ease-out 2s, 1s transform ease-out 2s' : ''
+      transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
+      bottom: uncollapsed ? '52vh' : '-29px',
+      left: uncollapsed ? '5vw' : '0' 
     } ">
-    <object data="../images/header.svg" type="image/svg+xml" :style="{ transform: uncollapsed ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object></h1>
+    <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object></h1>
 
     <titles :show="show_titles" @close_intro=" close_intro "></titles>
 
@@ -30,11 +31,7 @@
   }
 
   h1 {
-    font-size: 4em;
-    margin: auto auto auto 20px;
     position: absolute;
-    bottom: 52vh;
-    left: 5vw;
     @media ( max-height: 500px ) {
       margin-top: 0;
     }
