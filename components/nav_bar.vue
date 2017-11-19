@@ -2,11 +2,11 @@
   <nav :style=" { height:  uncollapsed ? '100vh' : '3.1em', transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
       transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
-      bottom: uncollapsed ? '52vh' : '-29px',
+      bottom: uncollapsed ? '45vh' : '-29px',
       left: uncollapsed ? '5vw' : '0' 
     } ">
-      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
-      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + fullSizeHeaderScale + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object>
+      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale(0.27)', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
+      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object>
     </h1>
 
     <titles :show="titles_visible" @close_intro=" close_intro " @intro_complete="show_close"></titles>
@@ -40,12 +40,9 @@
 
   h1 {
     position: absolute;
-    @media ( max-height: 500px ) {
-      margin-top: 0;
-    }
 
     object {
-          transform-origin: bottom left;
+      transform-origin: bottom left;
     }
   }
 
@@ -150,8 +147,13 @@
       }, 3000 );
     }
 
-    get fullSizeHeaderScale() : number {
-      return (window.innerWidth+100) * 0.6 / 1575;
+    get scale_factor() : number {
+      if ( window.innerWidth > window.innerHeight ) {
+        return (window.innerWidth+100) * 0.6 / 1575;
+      }
+      else {
+        return (window.innerWidth+100) * 0.7 / 1575;
+      }
     }
   }
 </script>
