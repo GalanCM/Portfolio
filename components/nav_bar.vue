@@ -1,12 +1,12 @@
 <template>
-  <nav :style=" { height:  uncollapsed ? '100vh' : '50px', transition: intro_transitioning ? '1s height 1s' : '' } ">
+  <nav :style=" { height:  uncollapsed ? '100vh' : (50*nav_scale)+'px',  transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
       transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
-      bottom: uncollapsed ? 'calc(50vh + 5px)' : '-9px',
+      bottom: uncollapsed ? 'calc(50vh + 5px)' : (-9*nav_scale)+'px',
       left: uncollapsed ? '5vw' : '0',
     } ">
-      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale(0.27)', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
-      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale(0.27)', position: 'absolute', left: 0, bottom: 0 }"></object>
+      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
+      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: 0, bottom: 0 }"></object>
     </h1>
 
     <titles :show="titles_visible" @close_intro=" close_intro " @intro_complete="show_close"></titles>
@@ -19,8 +19,8 @@
     </transition>
 
     <transition v-on:enter="underline_enter" appear>
-      <svg class="underline" height="12" width="500px" style="position: absolute; bottom: -10px; left: 0; z-index: -1;" v-show="!titles_visible">
-        <polygon :points="'0,0, '+ underline_length +',0, '+(underline_length-10)+',14, 0,14'" fill="#820a0a"/>
+      <svg class="underline" :height="12*nav_scale" :width="(500*nav_scale)+'px'" :style=" 'position: absolute; bottom: '+(-10*nav_scale)+'px; left: 0; z-index: -1;'" v-show="!titles_visible">
+        <polygon :points="'0,0, '+ (underline_length*nav_scale) +',0, '+(underline_length*nav_scale-10)+','+(14*nav_scale)+', 0,'+(14*nav_scale)+''" fill="#820a0a"/>
       </svg>
     </transition>
   </nav>
@@ -154,6 +154,14 @@
       }
       else {
         return (window.innerWidth+100) * 0.7 / 1575;
+      }
+    }
+    get nav_scale() : number {
+      if ( window.innerWidth < window.innerHeight ) {
+        return 2;
+      }
+      else {
+        return 1;
       }
     }
     get center_gap(): number {

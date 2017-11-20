@@ -2,17 +2,17 @@
   <transition v-on:enter="appear" name="title-transition" v-on:after-leave="after_leave()" appear>
     <div class="titles-wrapper" v-show=" show ">
       <svg width="30" :height="center_gap" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 50vh; left: calc(50vw - 15px);">
-        <line x1="15" :y1="22*fullSizeHeaderScale" x2="15" :y2="(22*fullSizeHeaderScale)+line_height" :stroke-width="max(8*fullSizeHeaderScale,2)" stroke="rgba(275,255,255,.3)" />
-        <circle cx="15" :cy="22*fullSizeHeaderScale" :r="circle_radius" :fill="'rgba(179,179,179,' + circle_opacity + ')'" stroke="#b3b3b3" />
+        <line x1="15" :y1="22*scale_factor" x2="15" :y2="(22*scale_factor)+line_height" :stroke-width="max(8*scale_factor,2)" stroke="rgba(275,255,255,.3)" />
+        <circle cx="15" :cy="22*scale_factor" :r="circle_radius" :fill="'rgba(179,179,179,' + circle_opacity + ')'" stroke="#b3b3b3" />
       </svg>
 
       <div class="titles" :style="{ top: 'calc(50vh + '+center_gap+'px)' }">
-        <svg :width="1505 * this.fullSizeHeaderScale" height="4" xmlns="http://www.w3.org/2000/svg" :style="{ position: 'absolute', top: 0, right: 0 }">
-          <line :x1="0" y1="2" :x2="line_width" y2="2" :stroke-width="max(12*fullSizeHeaderScale,2)" stroke="#820a0a" />
+        <svg :width="1505 * this.scale_factor" height="4" xmlns="http://www.w3.org/2000/svg" :style="{ position: 'absolute', top: 0, right: 0 }">
+          <line :x1="0" y1="2" :x2="line_width" y2="2" :stroke-width="max(12*scale_factor,2)" stroke="#820a0a" />
         </svg>
 
-        <!-- <object :class="{text: true, on: show_text}" data="../images/titles.svg" type="image/svg+xml" :style="{ transform: 'scale(' + fullSizeHeaderScale + ')', position: 'absolute', right: 0 }"></object> -->
-        <div :class="{text: true, on: show_text}":style="{ transform: 'scale(' + fullSizeHeaderScale + ')', position: 'absolute', right: 0 }">
+        <!-- <object :class="{text: true, on: show_text}" data="../images/titles.svg" type="image/svg+xml" :style="{ transform: 'scale(' + scale_factor + ')', position: 'absolute', right: 0 }"></object> -->
+        <div :class="{text: true, on: show_text}":style="{ transform: 'scale(' + scale_factor + ')', position: 'absolute', right: 0 }">
           <object class="developer" data="../images/developer.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
           <object class="and" data="../images/and.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
           <object class="designer" data="../images/designer.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
@@ -108,7 +108,7 @@
     appear( el: HTMLElement, done: ()=>void ) {
       tween ({
         from: { r: 0, o:0.0 },
-        to: { r: this.max(15*this.fullSizeHeaderScale, 3), o:1.0 },
+        to: { r: this.max(15*this.scale_factor, 3), o:1.0 },
         duration: 800,
         easing: { r: "swingTo", y: "easeOutQuad", o:'easeInQuad' },
         delay: 1000,
@@ -119,7 +119,7 @@
       }).then ( () => {
         return tween ({
           from: { x: 0, y: 0 },
-          to: { x: 1505 * this.fullSizeHeaderScale, y: window.innerHeight*0.1 },
+          to: { x: 1505 * this.scale_factor, y: window.innerHeight*0.1 },
           duration: 500,
           easing: { x: "easeInQuad", y:"easeOutQuad" },
           delay: 500,
@@ -142,7 +142,7 @@
       this.$emit('close_intro')
     }
 
-    get fullSizeHeaderScale() : number {
+    get scale_factor() : number {
       if ( window.innerWidth > window.innerHeight ) {
         return (window.innerWidth+100) * 0.5 / 1575;
       }
