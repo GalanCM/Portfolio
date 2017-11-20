@@ -1,18 +1,26 @@
 <template>
-  <nav :style=" { height:  show_titles ? '100vh' : '3em', transition: intro_transitioning ? '1s height 1s' : '' } ">
+  <nav :style=" { height:  uncollapsed ? '100vh' : (50*nav_scale)+'px',  transition: intro_transitioning ? '1s height 1s' : '' } ">
     <h1 class="name" :style=" {
-      fontSize:  show_titles ? '70px' : '2.5em',
-      marginLeft: show_titles ? '50vw' : '0.1em',
-      transform: show_titles ? 'translateX( -50% )' : 'translateX( 0 )',
-      transition: intro_transitioning ? '1s font-size ease-in-out 1s, 1s margin ease-out 2s, 1s transform ease-out 2s' : ''
-    } ">GalanMontgomery</h1>
+      transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
+      bottom: uncollapsed ? 'calc(50vh + 5px)' : (-9*nav_scale)+'px',
+      left: uncollapsed ? '5vw' : '0',
+    } ">
+      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
+      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: 0, bottom: 0 }"></object>
+    </h1>
 
-    <titles :show="show_titles"></titles>
+    <titles :show="titles_visible" @close_intro=" close_intro " @intro_complete="show_close"></titles>
 
     <transition name="arrow" appear>
-      <svg class="continue" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="show_titles" v-on:click=" $emit('close_intro') ">
+      <svg class="close" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="close_visible">
           <circle cx="25" cy="25" r="25" fill="rgba(255,255,255,0.75)"></circle>
           <text x="25" y="47" font-family="Ubuntu" font-size="55px" text-anchor="middle" fill="rgb(12, 27, 42)">⬇</text>
+      </svg>
+    </transition>
+
+    <transition v-on:enter="underline_enter" appear>
+      <svg class="underline" :height="12*nav_scale" :width="(500*nav_scale)+'px'" :style=" 'position: absolute; bottom: '+(-10*nav_scale)+'px; left: 0; z-index: -1;'" v-show="!titles_visible">
+        <polygon :points="'0,0, '+ (underline_length*nav_scale) +',0, '+(underline_length*nav_scale-10)+','+(14*nav_scale)+', 0,'+(14*nav_scale)+''" fill="#820a0a"/>
       </svg>
     </transition>
   </nav>
@@ -30,23 +38,21 @@
     z-index: 100;
   }
 
-  h1,h2,h3 {
-    font-family: Ubuntu, sans-serif;
-  }
   h1 {
-    font-size: 4em;
-    margin: auto auto auto 20px;
+    position: absolute;
+    margin: 0;
 
-    @media ( max-height: 500px ) {
-      margin-top: 0;
+    object {
+      transform-origin: bottom left;
     }
   }
 
-  .continue {
+  .close {
     position: absolute;
-    left: ~"calc( 50vw - 25px )";
-    top: ~"calc( 100vh - 70px )";
+    left: 2.5vw;
+    bottom: 2.5vw;
     cursor: pointer;
+    user-select: none;
   }
 
   .arrow-enter-active {
@@ -76,23 +82,103 @@
 <script lang="ts">
   import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
   import Titles from "./titles.vue";
+  import { tween } from 'shifty';
 
   @Component({
     components: { Titles }
   })
   export default class NavBar extends Vue {
     'intro_transitioning': boolean = false;
+    'titles_visible': boolean = false;
+    'close_visible': boolean = false;
+    'underline_length': number = 0;
+    'window_height' = window.innerHeight;
+    'window_width' = window.innerWidth;
 
     @Prop(Boolean)
-    'show_titles': boolean;
+    'uncollapsed': boolean;
 
-    @Watch('show_titles')
+    created(): void {
+      this.titles_visible = this.uncollapsed;
+
+      let vm = this;
+      window.addEventListener('resize', function() {
+        vm.window_height = window.innerHeight;
+        vm.window_width = window.innerWidth;
+      })
+    }
+
+    show_close(): void {
+      this.close_visible = true;
+
+      let vm = this
+      let close_hander = function() {
+        vm.close_titles();
+
+        window.removeEventListener('click', close_hander);
+        window.removeEventListener('keydown', close_hander);
+        window.removeEventListener('wheel', close_hander);
+      }
+
+      window.addEventListener('click', close_hander);
+      window.addEventListener('keydown', close_hander);
+      window.addEventListener('wheel', close_hander);
+    }
+    close_titles(): void {
+      this.titles_visible = false;
+      this.close_visible = false;
+    }
+    close_intro(): void {
+      this.$emit('close_intro')
+    }
+
+    underline_enter(): void {
+      setTimeout( () => {
+        tween ({
+          from: { x: 0 },
+          to: { x: 430 },
+          duration: 1000,
+          easing: "easeInOutQuad",
+          delay: 1000,
+          step: (state) => {
+            this.underline_length = state.x;
+          }
+        })
+      }, 2000 );
+    }
+
+    @Watch('titles_visible')
     onTitlesChanged(): void {
       this.intro_transitioning = true;
 
       setTimeout( () => {
         this.intro_transitioning = false;
       }, 3000 );
+    }
+
+    get scale_factor() : number {
+      if ( this.window_width > this.window_height ) {
+        return (this.window_width+100) * 0.6 / 1575;
+      }
+      else {
+        return (this.window_width+100) * 0.7 / 1575;
+      }
+    }
+    get nav_scale() : number {
+      if ( this.window_width < this.window_height ) {
+        return 2;
+      }
+      else {
+        return 1;
+      }
+    }
+    get center_gap(): number {
+      if ( this.window_width > this.window_height ) {
+        return this.window_height*0.1;
+      }
+      else {
+        return window.innerHeight*0.05;
+      }
     }
   }
 </script>
