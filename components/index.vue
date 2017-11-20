@@ -14,11 +14,11 @@
     components: { NavBar, Portfolio }
   })
   export default class Index extends Vue {
-    'intro': boolean = true // ( localStorage.getItem( 'intro' ) !== null ? false: true );
+    'intro': boolean = ( localStorage.getItem( 'intro' ) !== null ? false: true );
 
     close_intro(): void {
       this.intro = false;
-      // localStorage.setItem( 'intro', 'false' );
+      localStorage.setItem( 'intro', 'false' );
     }
   }
 </script>
