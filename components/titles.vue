@@ -101,14 +101,24 @@
     'line_height' = 0.0;
     'line_width' = -0.0;
     'show_text' = false;
+    'window_height' = window.innerHeight;
+    'window_width' = window.innerWidth;
 
     @Prop(Boolean)
     'show': boolean;
 
+    created(): void {
+      let vm = this;
+      window.addEventListener('resize', function() {
+        vm.window_height = window.innerHeight;
+        vm.window_width = window.innerWidth;
+      })
+    }
+
     appear( el: HTMLElement, done: ()=>void ) {
       tween ({
         from: { r: 0, o:0.0 },
-        to: { r: this.max(15*this.scale_factor, 3), o:1.0 },
+        to: { r: this.max(15*this.scale_factor, 4), o:1.0 },
         duration: 800,
         easing: { r: "swingTo", y: "easeOutQuad", o:'easeInQuad' },
         delay: 1000,
@@ -119,7 +129,7 @@
       }).then ( () => {
         return tween ({
           from: { x: 0, y: 0 },
-          to: { x: 1505 * this.scale_factor, y: window.innerHeight*0.1 },
+          to: { x: 1505 * this.scale_factor, y: this.window_height*0.1 },
           duration: 500,
           easing: { x: "easeInQuad", y:"easeOutQuad" },
           delay: 500,
@@ -143,19 +153,19 @@
     }
 
     get scale_factor() : number {
-      if ( window.innerWidth > window.innerHeight ) {
-        return (window.innerWidth+100) * 0.5 / 1575;
+      if ( this.window_width > this.window_height ) {
+        return (this.window_width+100) * 0.5 / 1575;
       }
       else {
-        return (window.innerWidth+100) * 0.6 / 1575;
+        return (this.window_width+100) * 0.6 / 1575;
       }
     }
     get center_gap(): number {
-      if ( window.innerWidth > window.innerHeight ) {
-        return window.innerHeight*0.1;
+      if ( this.window_width > this.window_height ) {
+        return this.window_height*0.1;
       }
       else {
-        return window.innerHeight*0.05;
+        return this.window_height*0.05;
       }
     }
 

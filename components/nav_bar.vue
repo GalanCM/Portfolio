@@ -92,12 +92,20 @@
     'titles_visible': boolean = false;
     'close_visible': boolean = false;
     'underline_length': number = 0;
+    'window_height' = window.innerHeight;
+    'window_width' = window.innerWidth;
 
     @Prop(Boolean)
     'uncollapsed': boolean;
 
     created(): void {
       this.titles_visible = this.uncollapsed;
+
+      let vm = this;
+      window.addEventListener('resize', function() {
+        vm.window_height = window.innerHeight;
+        vm.window_width = window.innerWidth;
+      })
     }
 
     show_close(): void {
@@ -149,15 +157,15 @@
     }
 
     get scale_factor() : number {
-      if ( window.innerWidth > window.innerHeight ) {
-        return (window.innerWidth+100) * 0.6 / 1575;
+      if ( this.window_width > this.window_height ) {
+        return (this.window_width+100) * 0.6 / 1575;
       }
       else {
-        return (window.innerWidth+100) * 0.7 / 1575;
+        return (this.window_width+100) * 0.7 / 1575;
       }
     }
     get nav_scale() : number {
-      if ( window.innerWidth < window.innerHeight ) {
+      if ( this.window_width < this.window_height ) {
         return 2;
       }
       else {
@@ -165,8 +173,8 @@
       }
     }
     get center_gap(): number {
-      if ( window.innerWidth > window.innerHeight ) {
-        return window.innerHeight*0.1;
+      if ( this.window_width > this.window_height ) {
+        return this.window_height*0.1;
       }
       else {
         return window.innerHeight*0.05;
