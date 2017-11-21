@@ -54,24 +54,15 @@
 
   .arrow-enter-active {
     transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2s;
-
-    // text {
-    //   transition: transform 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2.25s;
-    // }
   }
   .arrow-leave-active {
-    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); //, transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .arrow-enter {
     opacity: 0;
-
-    // text {
-    //   transform: translateY(-51px);
-    // }
   }
   .arrow-leave-to {
     opacity: 0;
-    // transform: scale(2);
   }
 </style>
 
@@ -90,6 +81,7 @@
     'titles_visible': boolean = false;
     'close_visible': boolean = false;
     'underline_length': number = 0;
+    'delay_underline': boolean = false;
     'window_height' = window.innerHeight;
     'window_width' = window.innerWidth;
 
@@ -98,6 +90,7 @@
 
     created(): void {
       this.titles_visible = this.uncollapsed;
+      this.delay_underline = this.uncollapsed;
 
       let vm = this;
       window.addEventListener('resize', function() {
@@ -131,18 +124,16 @@
     }
 
     underline_enter(): void {
-      setTimeout( () => {
-        tween ({
-          from: { x: 0 },
-          to: { x: 430 },
-          duration: 1000,
-          easing: "easeInOutQuad",
-          delay: 1000,
-          step: (state) => {
-            this.underline_length = state.x;
-          }
-        })
-      }, 2000 );
+      tween ({
+        from: { x: 0 },
+        to: { x: 430 },
+        duration: 750,
+        easing: "easeInOutQuad",
+        delay: this.delay_underline ? 3250 : 750,
+        step: (state) => {
+          this.underline_length = state.x;
+        }
+      });
     }
 
     @Watch('titles_visible')
