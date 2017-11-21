@@ -11,7 +11,6 @@
           <line :x1="0" y1="2" :x2="line_width" y2="2" :stroke-width="max(12*scale_factor,2)" stroke="#820a0a" />
         </svg>
 
-        <!-- <object :class="{text: true, on: show_text}" data="../images/titles.svg" type="image/svg+xml" :style="{ transform: 'scale(' + scale_factor + ')', position: 'absolute', right: 0 }"></object> -->
         <div :class="{text: true, on: show_text}":style="{ transform: 'scale(' + scale_factor + ')', position: 'absolute', right: 0 }">
           <object class="developer" data="../images/developer.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
           <object class="and" data="../images/and.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
