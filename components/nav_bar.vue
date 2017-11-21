@@ -1,9 +1,10 @@
 <template>
-  <nav :style=" { height:  uncollapsed ? '100vh' : (50*nav_scale)+'px',  transition: intro_transitioning ? '1s height 1s' : '' } ">
+  <nav :style=" { height:  uncollapsed ? '100vh' : (50*nav_scale)+'px',  transition: intro_transitioning ? '1s height 1s' : '', 'will-change': uncollapsed ? 'height' : '', isolation: 'isolate' } ">
     <h1 class="name" :style=" {
       transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
       bottom: uncollapsed ? 'calc(50vh + 5px)' : (-9*nav_scale)+'px',
       left: uncollapsed ? '5vw' : '0',
+      'will-change': uncollapsed ? 'left, top' : '',
     } ">
       <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
       <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: 0, bottom: 0 }"></object>
