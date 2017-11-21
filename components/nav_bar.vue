@@ -12,10 +12,7 @@
     <titles :show="titles_visible" @close_intro=" close_intro " @intro_complete="show_close"></titles>
 
     <transition name="arrow" appear>
-      <svg class="close" height="50" width="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" v-if="close_visible">
-          <circle cx="25" cy="25" r="25" fill="rgba(255,255,255,0.75)"></circle>
-          <text x="25" y="47" font-family="Ubuntu" font-size="55px" text-anchor="middle" fill="rgb(12, 27, 42)">⬇</text>
-      </svg>
+      <continue v-if="close_visible"></continue>
     </transition>
 
     <transition v-on:enter="underline_enter" appear>
@@ -58,23 +55,23 @@
   .arrow-enter-active {
     transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2s;
 
-    text {
-      transition: transform 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2.25s;
-    }
+    // text {
+    //   transition: transform 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2.25s;
+    // }
   }
   .arrow-leave-active {
-    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); //, transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .arrow-enter {
     opacity: 0;
 
-    text {
-      transform: translateY(-51px);
-    }
+    // text {
+    //   transform: translateY(-51px);
+    // }
   }
   .arrow-leave-to {
     opacity: 0;
-    transform: scale(2);
+    // transform: scale(2);
   }
 </style>
 
@@ -82,10 +79,11 @@
 <script lang="ts">
   import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
   import Titles from "./titles.vue";
+  import Continue from "./continue.vue";
   import { tween } from 'shifty';
 
   @Component({
-    components: { Titles }
+    components: { Titles, Continue }
   })
   export default class NavBar extends Vue {
     'intro_transitioning': boolean = false;
@@ -177,7 +175,7 @@
         return this.window_height*0.1;
       }
       else {
-        return window.innerHeight*0.05;
+        return this.window_height*0.05;
       }
     }
   }
