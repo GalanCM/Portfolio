@@ -1,4 +1,4 @@
-<template style="background-color: #0c1b2a">
+<template>
     <transition name="animate">
         <div class="continue-wrapper">
             <svg class="circle" height="105" width="105">
