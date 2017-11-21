@@ -3,7 +3,7 @@
     <div class="titles-wrapper" v-show=" show ">
       <svg width="30" :height="center_gap" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 50vh; left: calc(50vw - 15px);">
         <line x1="15" :y1="22*scale_factor" x2="15" :y2="(22*scale_factor)+line_height" :stroke-width="max(8*scale_factor,2)" stroke="rgba(275,255,255,.3)" />
-        <circle cx="15" :cy="22*scale_factor" :r="circle_radius" :fill="'rgba(179,179,179,' + circle_opacity + ')'" stroke="#b3b3b3" />
+        <circle cx="15" :cy="22*scale_factor+5" :r="circle_radius" :fill="'rgba(179,179,179,' + circle_opacity + ')'" stroke="#b3b3b3" />
       </svg>
 
       <div class="titles" :style="{ top: 'calc(50vh + '+center_gap+'px)' }">

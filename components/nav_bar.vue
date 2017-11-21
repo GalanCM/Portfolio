@@ -12,7 +12,7 @@
     <titles :show="titles_visible" @close_intro=" close_intro " @intro_complete="show_close"></titles>
 
     <transition name="arrow" appear>
-      <continue v-if="close_visible"></continue>
+      <continue :style=" 'transform: scale('+scale_factor*nav_scale*1.5+'); transform-origin: bottom left;'" v-if="close_visible"></continue>
     </transition>
 
     <transition v-on:enter="underline_enter" appear>
