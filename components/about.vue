@@ -4,7 +4,7 @@
     <h1>Do you want visuals that <em>engage</em> your users, that help them find what they are looking for and do what they need to do?</h1>
     <h1>Do you want <strong>UX principles</strong> to guide your product design from <em>front to back</em>?</h1>
     <h2>My name is <span class="name">Galan Montomery</span>. <em>I engineer websites</em> with an eye toward design.</h2>
-    <h2><strong>And I am currently for hire.</strong></h2>
+    <h2><strong>And I am for hire.</strong></h2>
   </div>
 </template>
 
@@ -89,6 +89,7 @@
     font-weight: 900;
     font-size: 42px;
     color: rgba(255,255,255,1.0);
+    white-space: nowrap;
 
     @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
       font-size: 72px;
