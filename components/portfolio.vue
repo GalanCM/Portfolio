@@ -64,8 +64,7 @@
   }
 
   svg {
-    position: relative;
-    top: -11px;
+    position: absolute;
 
     @media ( max-device-width: 1024px ) {
       top: -34px
@@ -101,7 +100,7 @@
     @media ( max-device-width: 1024px ) {
       left: 475px;
       transform-origin: left center;
-      transform: translateY(-100%) scale(1.2);
+      transform: translateY(-50%) scale(1.2);
     }
     @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
       left: 350px;
