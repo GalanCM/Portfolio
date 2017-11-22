@@ -26,7 +26,7 @@
 
 <style lang="less" scoped>
   nav {
-    background-color: rgb(12, 27, 42);
+    background-color: #001b36;
     color: white;
     display: flex;
     flex-direction: column;

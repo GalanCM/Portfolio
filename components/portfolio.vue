@@ -3,8 +3,8 @@
     <h1>Portfolio</h1>
 
     <transition appear enter-to-class="horizontal-appear-to" (2.1.8+) enter-active-class="horizontal-appear-active">
-      <svg height="40" width="100%" :style=" intro_transitions.horizontal ">
-        <line x1="0" y1="28px" x2="100%" y2="28px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
+      <svg height="3" width="100%" :style=" intro_transitions.horizontal ">
+        <line x1="0" y1="2px" x2="100%" y2="2px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
       </svg>
     </transition>
 
@@ -42,23 +42,27 @@
     margin-top: 3.5em;
     width: 100vw;
     overflow-x: hidden;
+    background-color: rgb(250, 250, 255);
+    margin-top: 90px;
+    overflow-y: visible;
   }
 
   h1 {
     font-size: 2.5em;
     font-weight: 700;
     background-color: rgb(250, 250, 255);
-    width: fit-content;
     padding: 10px;
     display: inline-block;
     margin: 0px;
-    position: relative;
+    position: absolute;
     z-index: 1;
+    transform: translateY(-50%);
+    border-right: 2px solid black;
   }
 
   svg {
     position: relative;
-    top: -60px;
+    top: -11px;
 
     @media ( max-device-width: 1024px ) {
       top: -95px
@@ -84,11 +88,13 @@
   .nav-bg {
     background-color: #dadadf;
     font-size: 1.1rem;
-    position: relative;
-    top: -97px;
+    position: absolute;
+    top: 90px;
     left: 260px;
     box-shadow: 1px 2px 7px rgba(0,0,0,0.3) inset;
     display: inline-block;
+    transform: translateY(-50%);
+    z-index: 1;
 
     @media ( max-device-width: 1024px ) {
       left: 470px;
@@ -152,7 +158,7 @@
 
   .content {
     width: ~"calc(200vw + 20px)";
-    top: -80px;
+    top: 0;
     position: relative;
     transition: 0.5s transform ease-in-out;
   }
@@ -194,7 +200,7 @@
 
     'sites' = [
       {
-        color: "#0067cf",
+        color: "#001b36",
         url: null,
         image: null,
         video: null,
