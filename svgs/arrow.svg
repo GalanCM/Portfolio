@@ -95,14 +95,14 @@
   </defs>
   <sodipodi:namedview
      id="base"
-     pagecolor="#0c1b2a"
+     pagecolor="#001b36"
      bordercolor="#666666"
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="91.875875"
-     inkscape:cy="56.472495"
+     inkscape:zoom="8"
+     inkscape:cx="31.516333"
+     inkscape:cy="30.15319"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -153,7 +153,7 @@
          aria-label="➡">
         <path
            d="M 5.7374753,62.616784 V 37.641175 H 50 L 49.934959,22.291582 78.22764,49.933858 50,77.706214 v -15.08943 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:66.66666412px;font-family:GungSeo;-inkscape-font-specification:GungSeo;fill:#0c1b2a;fill-opacity:1;stroke:#0c1b2a;stroke-width:9;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:66.66666412px;font-family:GungSeo;-inkscape-font-specification:GungSeo;fill:#0c1b2a;fill-opacity:1;stroke:#001b36;stroke-width:9;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="path13054"
            inkscape:connector-curvature="0"
            sodipodi:nodetypes="cccccccc" />
@@ -161,7 +161,7 @@
            sodipodi:nodetypes="cccccccc"
            inkscape:connector-curvature="0"
            id="path13051"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:66.66666412px;font-family:GungSeo;-inkscape-font-specification:GungSeo;fill:#0c1b2a;fill-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:66.66666412px;font-family:GungSeo;-inkscape-font-specification:GungSeo;fill:#001b36;fill-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
            d="M 5.7374753,62.616784 V 37.641175 H 50 L 49.934959,22.291582 78.22764,49.933858 50,77.706214 v -15.08943 z" />
       </g>
     </g>
