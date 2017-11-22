@@ -198,8 +198,8 @@
     };
     'content_transform' = "translateX(0)";
     'intro_transitions' = {
-      vertical: ( this.intro === true ? 'transition: 0.3s transform ease-out 3s;' : '' ) as string,
-      horizontal: ( this.intro === true ? 'transition: 0.5s transform ease-in-out 3.2s;' : '') as string
+      vertical: ( this.intro === true ? 'transition: 0.3s transform ease-out 3.5s;' : '' ) as string,
+      horizontal: ( this.intro === true ? 'transition: 0.5s transform ease-in-out 3.7s;' : '') as string
     };
 
     'sites' = [
@@ -289,6 +289,10 @@
       if ( this.intro === false ) {
         this.set_tab( 'tab-websites', false );
       }
+
+      setTimeout( () => { // workaround: tab drawing too narrow
+        this.thumb_style.width = ( this.$refs[ this.current_tab ] as HTMLElement ).offsetWidth + "px"
+      }, 20)
     }
 
     @Watch('intro')
