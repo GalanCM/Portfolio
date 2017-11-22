@@ -1,5 +1,5 @@
 <template>
-  <nav :style=" { height:  uncollapsed ? '100vh' : (50*nav_scale)+'px',  transition: intro_transitioning ? '1s height 1s' : '', 'will-change': uncollapsed ? 'height' : '', isolation: 'isolate' } ">
+  <nav :style="{ transform:  uncollapsed ? '' : 'translateY( calc(-100vh + '+50*nav_scale+'px) )',  transition: intro_transitioning ? '1s transform 1s' : '' }">
     <h1 class="name" :style=" {
       transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
       bottom: uncollapsed ? 'calc(50vh + 5px)' : (-9*nav_scale)+'px',
@@ -34,6 +34,7 @@
     position: absolute;
     top: 0;
     z-index: 100;
+    height: 100vh;
   }
 
   h1 {
