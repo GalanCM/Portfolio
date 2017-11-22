@@ -6,8 +6,8 @@
       left: uncollapsed ? '5vw' : '0',
       'will-change': uncollapsed ? 'left, top' : '',
     } ">
+      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: 0, bottom: 0, 'z-index': 1 }"></object>
       <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
-      <object data="../images/header.svg" type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: 0, bottom: 0 }"></object>
     </h1>
 
     <titles :show="titles_visible" @close_intro=" close_intro " @intro_complete="show_close"></titles>
