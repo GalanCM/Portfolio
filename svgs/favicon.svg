@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128"
+   height="128"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="favicon.svg"
+   inkscape:export-filename="/Users/dev-galan/projects/Portfolio/images/favicon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="DotM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8589"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8394"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(0.4,0,0,0.4,2.96,0.4)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="DotL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8586"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8391"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill:#7d7d7d;fill-opacity:1;fill-rule:evenodd;stroke:#7d7d7d;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,5.92,0.8)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="DotS"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="DotS"
+       style="overflow:visible">
+      <path
+         id="path3855"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt"
+         transform="matrix(0.2,0,0,0.2,1.48,0.2)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="DotM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="DotM"
+       style="overflow:visible">
+      <path
+         id="path3852"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt"
+         transform="matrix(0.4,0,0,0.4,2.96,0.4)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="DotL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="DotL"
+       style="overflow:visible">
+      <path
+         id="path3849"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt"
+         transform="matrix(0.8,0,0,0.8,5.92,0.8)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#001b36"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="138.32813"
+     inkscape:cy="-79.835679"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1436"
+     inkscape:window-height="855"
+     inkscape:window-x="-1"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:snap-global="false"
+     objecttolerance="10000"
+     inkscape:snap-page="true"
+     inkscape:snap-object-midpoints="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid8117"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Name"
+     style="display:inline;opacity:1"
+     transform="translate(0,32)">
+    <g
+       aria-label="g"
+       style="font-style:normal;font-weight:normal;font-size:121.35922241px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="text13878">
+      <path
+         d="m 48.587379,58.881068 c -0.242718,0.647249 -0.444983,1.294499 -0.606796,1.941748 -0.161812,0.647249 -0.242718,1.294498 -0.242718,1.941747 0,1.779935 1.05178,3.195793 3.15534,4.247573 2.184466,1.05178 5.865696,1.57767 11.043689,1.57767 3.15534,0 5.703884,-0.161812 7.645631,-0.485437 1.941747,-0.323625 3.438511,-0.768608 4.490291,-1.334951 1.132686,-0.566343 1.901294,-1.213593 2.305825,-1.941748 0.404531,-0.728155 0.606797,-1.537217 0.606797,-2.427184 0,-0.970874 -0.202266,-1.820389 -0.606797,-2.548544 -0.404531,-0.647249 -1.173139,-1.254045 -2.305825,-1.820388 -1.05178,-0.485437 -2.548544,-0.930421 -4.490291,-1.334952 -1.860841,-0.323625 -4.247573,-0.566343 -7.160194,-0.728155 -4.935275,-0.323625 -9.021036,-0.849515 -12.257282,-1.57767 -3.236246,-0.728155 -5.825243,-1.658576 -7.76699,-2.791262 -1.860841,-1.213593 -3.195793,-2.62945 -4.004854,-4.247573 -0.728155,-1.618123 -1.092233,-3.478964 -1.092233,-5.582524 0,-2.10356 0.606796,-4.085761 1.820388,-5.946602 1.294499,-1.941747 7.72733,-5.41847 7.72733,-5.41847 l 8.23483,1.342839 c 0,0 -1.277694,4.075631 -1.277694,5.046505 0,0.728155 0.161812,1.334951 0.485437,1.820388 0.323625,0.485437 1.092233,0.93042 2.305825,1.334951 1.213593,0.323625 2.993528,0.647249 5.339806,0.970874 2.427185,0.242719 5.663431,0.485437 9.708738,0.728156 8.171521,0.566343 14.360841,2.548543 18.567961,5.946601 4.207119,3.398059 6.310679,7.88835 6.310679,13.470874 0,3.398058 -0.809061,6.351132 -2.427184,8.859223 -1.618123,2.588997 -3.923949,4.73301 -6.917476,6.432039 -2.912621,1.779935 -6.512945,3.074434 -10.800971,3.883495 -4.207119,0.889968 -8.980582,1.334952 -14.320388,1.334952 -5.825243,0 -10.760518,-0.444984 -14.805825,-1.334952 -3.964401,-0.809061 -7.2411,-1.9822 -9.830097,-3.519417 -2.508091,-1.456311 -4.328479,-3.195793 -5.461165,-5.218447 -1.132686,-1.941747 -1.699029,-4.045307 -1.699029,-6.310679 0,-1.860841 0.202265,-3.600324 0.606796,-5.218447 0.485437,-1.537217 1.415857,-3.114887 2.791262,-4.73301 z"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold';fill:#820a0a;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
+         id="path13891"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="csscsscssccccsccscccsscccsscccscccsccc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:121.35922241px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       x="27.470875"
+       y="54.633495"
+       id="text13874"><tspan
+         sodipodi:role="line"
+         id="tspan13872"
+         x="27.470875"
+         y="54.633495"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Fira Mono';-inkscape-font-specification:'Fira Mono Bold';fill:none;stroke:#ffffff;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none">g</tspan></text>
+  </g>
+</svg>
