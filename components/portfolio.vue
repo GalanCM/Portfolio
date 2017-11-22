@@ -92,7 +92,6 @@
     background-color: #dadadf;
     font-size: 1.1rem;
     position: absolute;
-    top: 620px;
     left: 260px;
     box-shadow: 1px 2px 7px rgba(0,0,0,0.3) inset;
     display: inline-block;
@@ -101,13 +100,11 @@
     
     @media ( max-device-width: 1024px ) {
       left: 475px;
-      top: 1340px;
       transform-origin: left center;
-      transform: translateY(-50%) scale(1.2);
+      transform: translateY(-100%) scale(1.2);
     }
     @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
       left: 350px;
-      top: 766px;
     }
   }
   .border {
