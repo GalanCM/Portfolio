@@ -4,7 +4,7 @@
 
     <transition appear enter-to-class="horizontal-appear-to" (2.1.8+) enter-active-class="horizontal-appear-active">
       <svg height="3" width="100%" :style=" intro_transitions.horizontal ">
-        <line x1="0" y1="2px" x2="100%" y2="2px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
+        <line x1="0" y1="1px" x2="100%" y2="1px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
       </svg>
     </transition>
 
@@ -39,12 +39,15 @@
 
 <style lang="less" scoped>
   section {
-    margin-top: 3.5em;
     width: 100vw;
     overflow-x: hidden;
     background-color: rgb(250, 250, 255);
     margin-top: 90px;
     overflow-y: visible;
+
+    @media ( max-device-width: 1024px ) {
+      margin-top: 180px;
+    }
   }
 
   h1 {
@@ -95,14 +98,15 @@
     display: inline-block;
     transform: translateY(-50%);
     z-index: 1;
-
+    
     @media ( max-device-width: 1024px ) {
-      left: 470px;
-      top: -150px;
+      left: 475px;
+      top: 180px;
+      transform-origin: left center;
+      transform: translateY(-50%) scale(1.2);
     }
     @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
       left: 350px;
-      top: -118px;
     }
   }
   .border {
