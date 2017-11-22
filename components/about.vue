@@ -105,3 +105,22 @@
     }
   }
 </style>
+
+<script lang="ts">
+  import { Component, Vue, Prop } from 'vue-property-decorator';
+
+  @Component({})
+  export default class Index extends Vue {
+    @Prop(Boolean)
+    show_about: boolean;
+
+    created(): void {
+      window.addEventListener("scroll", () => {
+        if (this.$el.getBoundingClientRect().bottom < 0) {
+          this.$emit('input', false);
+          window.scrollTo(0,0);
+        }
+      });
+    }
+  }
+</script>

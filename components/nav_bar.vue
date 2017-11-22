@@ -1,5 +1,5 @@
 <template>
-  <nav :style="{ transform:  uncollapsed ? '' : 'translateY( calc(-100vh + '+50*nav_scale+'px) )',  transition: intro_transitioning ? '1s transform 1s' : '' }">
+  <nav :style="{ transform:  uncollapsed ? '' : 'translateY( calc(-100vh + '+50*nav_scale+'px) )',  transition: intro_transitioning ? '1s transform 1s' : '', position: fixed ? 'fixed' : 'absolute' }">
     <h1 class="name" :style=" {
       transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
       bottom: uncollapsed ? 'calc(50vh + 5px)' : (-9*nav_scale)+'px',
@@ -31,7 +31,6 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    position: absolute;
     top: 0;
     z-index: 100;
     height: 100vh;
@@ -89,6 +88,8 @@
 
     @Prop(Boolean)
     'uncollapsed': boolean;
+    @Prop(Boolean)
+    'fixed': boolean;
 
     created(): void {
       this.titles_visible = this.uncollapsed;
