@@ -97,7 +97,7 @@
     transform: translateY(-50%);
     z-index: 1;
     
-    @media ( max-device-width: 1024px ) {
+    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
       left: 475px;
       transform-origin: left center;
       transform: translateY(-50%) scale(1.2);
@@ -168,6 +168,13 @@
     width: 100vw;
     padding: 20px 0;
     float: left;
+
+    @media ( max-device-width: 1024px ) {
+      margin-top: 20px;
+    }
+    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+      margin-top: 60px;
+    }
 
     > div {
       max-height: 100%;

@@ -1,5 +1,5 @@
 <template>
-  <nav :style="{ transform:  uncollapsed ? '' : 'translateY( calc(-100vh + '+50*nav_scale+'px) )',  transition: intro_transitioning ? '1s transform 1s' : '', position: position == null ? 'fixed' : 'fixed', top: position == null ? '0' : position+'px' }">
+  <nav :style="{ transform:  uncollapsed ? '' : 'translateY( calc(-100vh + '+50*nav_scale+'px) )',  transition: intro_transitioning ? '1s transform 1s' : '', top: position+'px', 'position': position <= 0 ? 'fixed' : 'absolute' }">
     <h1 class="name" :style=" {
       transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
       bottom: uncollapsed ? 'calc(50vh + 5px)' : (-9*nav_scale)+'px',
