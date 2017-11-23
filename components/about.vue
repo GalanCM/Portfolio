@@ -117,7 +117,6 @@
     created(): void {
       window.addEventListener("scroll", () => {
         let bottom = this.$el.getBoundingClientRect().bottom;
-        console.log(bottom, bottom+ window.scrollY)
         if (bottom < 0) {
           this.$emit('input', bottom + window.scrollY);
         }
