@@ -45,7 +45,7 @@
     margin-top: 90px;
     overflow-y: visible;
 
-    @media ( max-device-width: 1024px ) {
+    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
       margin-top: 180px;
     }
   }
@@ -59,9 +59,15 @@
     margin: 0px;
     position: absolute;
     z-index: 1;
+    transform-origin: center left;
     transform: translateY(-50%);
     border-right: 2px solid black;
+
+    @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
+      transform: translateY(-50%) scale(0.8);
+    }
   }
+
 
   svg {
     position: absolute;
@@ -98,12 +104,14 @@
     z-index: 1;
     
     @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
-      left: 475px;
       transform-origin: left center;
       transform: translateY(-50%) scale(1.2);
+      left: 475px;
     }
     @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
-      left: 350px;
+      transform-origin: left center;
+      transform: translateY(-50%) scale(0.9);
+      left: 300px;
     }
   }
   .border {

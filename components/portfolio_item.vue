@@ -136,6 +136,7 @@
       text-align: left;
       padding: 0 50px;
       width: auto;
+      font-size: 1.7rem;
     }
   }
   p {
