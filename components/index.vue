@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nav-bar :uncollapsed=" intro " @close_intro=" close_intro " :fixed=" show_about "></nav-bar>
-    <about v-model="show_about" v-if="show_about"></about>
+    <nav-bar :uncollapsed=" intro " @close_intro=" close_intro " :position=" nav_position "></nav-bar>
+    <about v-model="nav_position"></about>
     <portfolio :intro=" intro "></portfolio>
   </div>
 </template>
@@ -17,7 +17,7 @@
   })
   export default class Index extends Vue {
     'intro': boolean = ( localStorage.getItem( 'intro' ) !== null ? false: true );
-    'show_about': boolean = true;
+    'nav_position': number = 0;
 
     close_intro(): void {
       this.intro = false;

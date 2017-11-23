@@ -112,13 +112,16 @@
   @Component({})
   export default class Index extends Vue {
     @Prop(Boolean)
-    show_about: boolean;
+    nav_position: number;
 
     created(): void {
       window.addEventListener("scroll", () => {
-        if (this.$el.getBoundingClientRect().bottom < 0) {
-          this.$emit('input', false);
-          window.scrollTo(0,0);
+        let bottom = this.$el.getBoundingClientRect().bottom;
+        if (bottom < 0) {
+          this.$emit('input', bottom);
+        }
+        else {
+          this.$emit('input', 0);
         }
       });
     }
