@@ -45,7 +45,7 @@
     margin-top: 90px;
     overflow-y: visible;
 
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( orientation: portrait ) {
       margin-top: 180px;
     }
   }
@@ -63,7 +63,7 @@
     transform: translateY(-50%);
     border-right: 2px solid black;
 
-    @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
+    @media ( max-width: 1024px ) and ( orientation: landscape ) {
       transform: translateY(-50%) scale(0.8);
     }
   }
@@ -72,10 +72,10 @@
   svg {
     position: absolute;
 
-    @media ( max-device-width: 1024px ) {
+    @media ( max-width: 1024px ) {
       top: -34px
     }
-    @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
+    @media ( max-width: 1024px ) and ( orientation: landscape ) {
       top: -20px;
     }
   }
@@ -85,7 +85,7 @@
     transition: 0.5s transform ease-in-out 0.2s;
     transform: scaleX(0);
 
-    @media ( max-device-width: 1024px ) {
+    @media ( max-width: 1024px ) {
       transform-origin: 650px center;
     }
   }
@@ -103,12 +103,12 @@
     transform: translateY(-50%);
     z-index: 1;
     
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( max-aspect-ratio: 1/1 ) {
       transform-origin: left center;
       transform: translateY(-50%) scale(1.2);
       left: 475px;
     }
-    @media ( max-device-width: 1024px ) and ( orientation: landscape ) {
+    @media ( max-width: 1024px ) and ( min-aspect-ratio: 1/1 ) {
       transform-origin: left center;
       transform: translateY(-50%) scale(0.9);
       left: 300px;
@@ -177,10 +177,10 @@
     padding: 20px 0;
     float: left;
 
-    @media ( max-device-width: 1024px ) {
+    @media ( max-width: 1024px ) {
       margin-top: 20px;
     }
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( orientation: portrait ) {
       margin-top: 60px;
     }
 

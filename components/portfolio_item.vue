@@ -57,7 +57,7 @@
     opacity: 0.3;
     transition: 0.75s opacity ease-out;
 
-    @media ( max-device-width: 1024px ) {
+    @media ( max-width: 1024px ) {
       flex-direction: column;
     }
   }
@@ -72,7 +72,7 @@
       min-height: 60vh;
     }
 
-    @media ( max-device-width: 1024px ) {
+    @media ( max-width: 1024px ) {
       margin-bottom: 50px;
     }
   }
@@ -82,7 +82,7 @@
     margin-bottom: auto;
     box-shadow: 2px 1px 4px rgba(0,0,0,0.2);
 
-    @media ( max-device-width: 1024px ) {
+    @media ( max-width: 1024px ) {
       width: 75vw;
       box-shadow: none;
       border-left: 8px solid;
@@ -92,7 +92,7 @@
   iframe {
     height: ~"calc( 35vw * 0.5625 )";
 
-    @media ( max-device-width: 1024px ) {
+    @media ( max-width: 1024px ) {
       height: ~"calc( 75vw * 0.5625 )";
     }
   }
@@ -133,7 +133,7 @@
       text-decoration: none;
     }
 
-    @media ( max-device-width: 1024px ) {
+    @media ( max-width: 1024px ) {
       margin-left: 0;
       margin-right: 0;
       text-align: left;

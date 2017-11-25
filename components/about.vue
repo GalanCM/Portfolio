@@ -15,7 +15,7 @@
     max-width: 100%;
     padding: 50px 100px;
 
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( orientation: portrait ) {
       margin-top: 99px;
       padding: 50px 50px;
     }
@@ -27,7 +27,7 @@
     font-weight: 200;
     color: rgba(255,255,255,0.7);
 
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( orientation: portrait ) {
       font-size: 40px;
     }
   }
@@ -50,7 +50,7 @@
     color: rgba(255,255,255,0.3);;
     font-size: 22px;
 
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( orientation: portrait ) {
       font-size: 44px;
     }
   }
@@ -59,7 +59,7 @@
     font-size: 30px;
     color: rgba(255,255,255,1.0);
 
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( orientation: portrait ) {
       font-size: 50px;
     }
   }
@@ -73,7 +73,7 @@
     margin-bottom: 0;
     color: rgba(255,255,255,0.4);
 
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( orientation: portrait ) {
       font-size: 56px;
     }
   }
@@ -91,7 +91,7 @@
     color: rgba(255,255,255,1.0);
     white-space: nowrap;
 
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( orientation: portrait ) {
       font-size: 72px;
     }
   }
@@ -100,7 +100,7 @@
     font-size: 30px;
     color: rgba(255,255,255,1.0);
 
-    @media ( max-device-width: 1024px ) and ( orientation: portrait ) {
+    @media ( max-width: 1024px ) and ( orientation: portrait ) {
       font-size: 60px;
     }
   }

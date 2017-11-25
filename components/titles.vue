@@ -37,7 +37,7 @@
     font-size: 2em;
     margin: 20px 0 5px;
 
-    @media ( max-device-width: 1024px ){
+    @media ( max-width: 1024px ){
       font-size: 1em;
     }
   }
@@ -46,7 +46,7 @@
     font-size: 2em;
     margin: 0;
 
-    @media ( max-device-width: 1024px ){
+    @media ( max-width: 1024px ){
       font-size: 1em;
     }
   }
