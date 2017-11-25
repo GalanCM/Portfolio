@@ -221,9 +221,14 @@
         image: null,
         video: null,
         title: "About This Site",
-        main: "Welcome to my site. My name is Galan Montgomery, and I am a professional <strong>full-stack web developer</strong>, specializing in <strong>user interaction</strong> and <strong>interface design</strong>. I've worked on a variety of projects, from small informational sites to large-scale commercial web apps with tens-of-thousands of users. Below you can see a sampling of my work, and in the 'Games' tab, you can take a look at how I work in a more free-form environment.",
-        tech: "As I do with every project, I'm using this site to learn something new. This time it was gradual typing, ultimately using <a href='https://www.typescriptlang.org/'>Typescript</a>.",
-        frontend: "Vue, Webpack, Babel",
+        main: "<p>This site is both a showcase for some of the best products that I have worked on, and a part of the the showcase itself. \
+              As such, it incorporates some flashier elements, like the animated intro. \
+              The actual interactions are kept simple: a vertical scrolling layout with the most important information, and some addition detail available with a click.</p>\
+              <p>This site is still a work in progress. As I learn new techniques and polish my skills, it's likely to change, and I already have some new features in mind.</p>",
+        tech: "<p>This is also a showcase for my coding skills, and you can even see the source <a href='https://github.com/GalanCM/Portfolio'>on Github</a>. \
+              The tech stack — a static site built in the <a href='https://vuejs.org/'>Vue</a> framework and running on a lightweight <a href='https://caddyserver.com/'>Caddy</a> server — was largely chosen for fast setup and iteration time, and all components and effects were coded from scratch. \
+              <p>I also used this as an opportunity to experiment with <a href='https://www.typescriptlang.org/'>Typescript</a>, since gradually typing is growing in popularity in the Javascript community and could be useful in future products.</p>",
+        frontend: null,
         backend: null
       },
       {
@@ -232,10 +237,15 @@
         image: "../images/isoteric-games.png",
         video: null,
         title: "Isoteric Games",
-        main: "This is responsive website that serves as a promotional web presence for my hobby games. Make heavy use of transitions and designed for mobile first.",
-        tech: "The main goal for this site is to be informative, so the tech is fairly simple. The front-end is designed in <a href='https://vuejs.org'>Vue</a>, with a thin back-end written in Go. Since the only use for a database would have been for the occasional blog post, I opted instead for writing them as meta-tagged Markdown files.",
-        frontend: "Webpack, Babel",
-        backend: "Caddy"
+        main: "<p>In addition being a professional web developer, I make games as a hobby. \
+              Isoteric serves as a promotional outlet for some of the more polished ones.</p>\
+              <p>Like this site, isoteric-games.com is primaily informational, with a vertical scolling layout. \
+              Some effects are used to help transition between the home page and game pages, but otherwise the goal is to inform more than impress.</p>",
+        tech: "<p>Also similar to this page, Isoteric is built on <a href='https://vuejs.org/'>Vue</a> for rapid iteration.</p>\
+              <p>The backend is a bit more beefy, with news articles hosted on a lightweight <a href='https://golang.org/'>Go</a> server. \
+              To avoid adding the extra complexity of a database, I opted to store the stories in meta-tagged markdown files.</p>",
+        frontend: null,
+        backend: null
       },
       {
         color: "#fd9001",
@@ -243,10 +253,14 @@
         image: "../images/there-turn.png",
         video: null,
         title: "Childfund VR",
-        main: "An informational website for Childfund’s VR experience: The Return. This is a single-page app that hosts the video and informs Childfund’s donors about its mission. Based on a design from the team artist, which I adapted for mobile.",
-        tech: "Another informational site, this time build on top of a CMS. This was my first experience with React, and contained a number of CSS transition effects. One of the biggest challenges, though, was cleanly integrating a Google VR video.",
-        frontend: "React, Webpack, Babel",
-        backend: "Ektron"
+        main: "<p>Childfund VR: The Return, is a short VR documentary sponsored by Childfund to promote their charity.</p> \
+              <p>I was responsible for building a mini-site for the video, based off a static design by their graphic designer. \
+              While much of the design came from his work, I am responsible for the page transitions, and modifications for mobile devices. \
+              The end result was intended to give the site a slight futuristic feel, while not losing the human aspect.</p>",
+        tech: "<p>This the first and largest site I've built in <a href='https://reactjs.org/'>React</a>, which I chose primarily as an opportunity to learn the popular framework.</p>\
+              <p>One of the bigger technical challenges with this site was incorporating the Youtube 360º video, and integrating it seemlessly into the UI in a way that was easy to understand on both desktop and mobile.",
+        frontend: null,
+        backend: null
       },
       {
         color: "rgb(115, 168, 57)",
@@ -254,10 +268,13 @@
         image: "../images/getloaded-mobile.png",
         video: null,
         title: "Getloaded Mobile 2.0",
-        main: "Getloaded Mobile was an app for iOS and Android. Used by over 20,000 people. I led the development of this app, and served as core architect and top-level UI designer.",
-        tech: "This began as a research project to replace Getloaded's aging mobile apps. My team settled on a combination of <a href='https://phonegap.com/'>Phonegap</a> and <a href='https://ractive.js.org/'>Ractive</a>, which allowed us quickly convert the templates from our mobile website into components for a single-page app.",
-        frontend: "Coffeescript, Less",
-        backend: "Node"
+        main: "<p>Getloaded Mobile was a popular load board app for iOS and Android. A team project, I led five developers for several months, architecting the app and   designing the interface.</p>\
+              <p>One of the main goals of this project was to save work by porting our existing PHP forms to mobile. \
+              However, navigation between them was originally handled by our server, which couldn't be ported. As a replacement, I designed familiar mobile-style navigation drawer.</p>",
+        tech: "<p>At the time, the fastest approach to porting a web app to mobile was <a href='https://phonegap.com/'>Phonegap</a>, with a reactive framework to handle templating and back-end logic. \
+              After an initial prototype using Angular I ultimately settled on <a href='https://ractive.js.org/'>Ractive</a>, which had a largely comparable templating language to PHP, and caused less friction with our existing stack.</p>",
+        frontend: null,
+        backend: null
       }
     ];
 
@@ -268,7 +285,10 @@
         image: null,
         video: "xRblNIzu3BA",
         title: "Timebomb",
-        main: "Timebomb is a arcade-action game for Android and iOS. Simple-to-play an hard-to-master, Timebomb takes it's influence from games like Super Hexagon and Canabalt, and shares a not-entirely-coincidental similarity to Flappy Bird.",
+        main: "<p>Compared to websites, audience expectations for games generally allow for much greater variety and expression in user interfaces, and Timebomb is the most expressive experience I've developed.</p>\
+              <p>Starting as a 48 hour game during <a href='https://ldjam.com/'>Ludum Dare</a> 34, I used my spare time over the next year-and-a-half to polish it. \
+              You can get a good feel for the process by playing both the <a href='https://isoteric-games.itch.io/timebomb-web'>final version</a> and the <a href='https://elanti.itch.io/timebomb'>original</a>.</p>\
+              <p>I improved in a <strong>lot</strong> of areas while developing this game, from animation and sound design to usability testing, and the final product speaks for itself.</p>",
         tech: null,
         frontend: null,
         backend: null
@@ -279,7 +299,10 @@
         image: null,
         video: "lWqwd2E0f0s",
         title: "SQUAREfish",
-        main: "SQUAREfish is a small action game for mobile. Originally developed in one hour for <a href='http://0hgame.eu/'>0h Game Jam</a> 2016. Over the course of the following week I polished it up into a stylish, if simple, game.",
+        main: "<p>Compared to Timebomb, SQUAREfish is a much more humble game. \
+              Originally developed in zero hours for <a href='http://0hgame.eu/'>0h Game Jam</a> 2016, I spent only a week polishing it up for intial release.</p>\
+              <p>The core game is quite simple, and doesn't really provide much in the way of longterm challenge. \
+              Respecting that, I focused on creating a relaxing vibe instead, making it more of a stress toy than a traditional game.</p>",
         tech: null,
         frontend: null,
         backend: null
@@ -290,7 +313,10 @@
         image: null,
         video: "q_ohMwydOU8",
         title: "Crownless",
-        main: "Crownless is, as of August 2017, my latest of over a dozen 48 hour games developed during <a href='https://ldjam.com/'>Ludum Dare</a> competitions. It may lack the polish of the other two games, but is a good example of my design and animation skills when working under pressure.",
+        main: "<p>Crownless is, as of August 2017, my latest of over a dozen <a href='https://ldjam.com/'>Ludum Dare</a> games.</p>\
+              <p>A short runner game, my goal was a fun game that looks like a paper cutout animation. \
+              A difficult aesthetic to pull off in under 48 hours, the end result still managed to land exactly where I had hoped, despite some rough edges.</p>\
+              <p>This personal success expanded my comfort zone and emboldened my use of color.</p>",
         tech: null,
         frontend: null,
         backend: null

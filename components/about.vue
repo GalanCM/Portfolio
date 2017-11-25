@@ -2,9 +2,9 @@
   <div class="about">
     <h1>Do you want a web site that is easy to use — with a <em>clean</em>, <strong>distinctive</strong> look?</h1>
     <h1>Do you want visuals that <em>engage</em> your users, that help them find what they are looking for and do what they need to do?</h1>
-    <h1>Do you want <strong>UX principles</strong> to guide your product design from <em>front to back</em>?</h1>
+    <h1>Do you want <strong>UX principles</strong> to guide both your <em>product design</em> and your <em>code</em>?</h1>
     <h2>My name is <span class="name">Galan Montomery</span>. <em>I engineer websites</em> with an eye toward design.</h2>
-    <h2><strong>And I am for hire.</strong></h2>
+    <h2><strong>And I could work for you.</strong></h2>
   </div>
 </template>
 

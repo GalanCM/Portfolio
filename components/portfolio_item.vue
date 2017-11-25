@@ -10,7 +10,7 @@
       <div>
         <h2>
           <span v-if=" info.url !== null ">
-            <a :href="info.url">{{ info.title }}</a>
+            <a :href="info.url">{{ info.title }} »</a>
           </span>
           <span v-else>
             {{ info.title }}
@@ -24,13 +24,13 @@
           </div>
         </div>
 
-        <p v-html=" info.main "></p>
+        <div class="detail-chunk" v-html=" info.main "></div>
 
-        <p class="tech" v-if=" info.tech !== null ">
+        <div class="tech" v-if=" info.tech !== null ">
           <strong>&mdash; The Tech &mdash;</strong>
-        </p>
+        </div>
 
-        <p v-html=" info.tech "></p>
+        <div class="detail-chunk" v-html=" info.tech "></div>
 
         <ul v-if=" info.frontend !== null || info.backend !== null">
           <em>As for the rest of the stack…</em>
@@ -110,6 +110,10 @@
 
     > div {
       margin: auto;
+
+      &:first-child {
+        padding: 10px 0 15px 0;
+      }
     }
   }
   h2 {
@@ -117,7 +121,6 @@
     margin: 0 auto 30px;
     font-size: 2rem;
     font-weight: 300;
-    font-style: italic;
     width: 100%;
 
     > span {
@@ -139,7 +142,7 @@
       font-size: 1.7rem;
     }
   }
-  p {
+  .detail-chunk {
     padding: 0 60px;
     margin: 5px 0;
   }
@@ -153,6 +156,12 @@
   }
   li {
     padding-top: 5px;
+  }
+</style>
+
+<style>
+  .detail-chunk p {
+    margin: 0 0 0.6em 0;
   }
 </style>
 

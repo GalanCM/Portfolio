@@ -1,0 +1,3 @@
+I am a designer and developer. My approach is this: A product should be designed to make life easier for both users and developers, and affordances should be made for both.
+
+Design is an iterative process, that requires an understanding of the clients needs and abilities, and constant study, to create the smoothest possible workflow. 
