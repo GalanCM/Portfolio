@@ -4,7 +4,7 @@
     <h1>Do you want visuals that <em>engage</em> your users, that help them find what they are looking for and do what they need to do?</h1>
     <h1>Do you want <strong>UX principles</strong> to guide both your <em>product design</em> and your <em>code</em>?</h1>
     <h2>My name is <span class="name">Galan Montomery</span>. <em>I engineer websites</em> with an eye toward design.</h2>
-    <h2><strong>And I could work for you.</strong></h2>
+    <h2>And <strong>I could work for you.</strong></h2>
   </div>
 </template>
 
@@ -47,7 +47,8 @@
     margin-bottom: 0;
   }
   h1 em {
-    color: rgba(255,255,255,0.3);;
+    color: rgba(255,255,255,1.0);
+    text-decoration: underline rgba(129, 10, 9, 1);
     font-size: 22px;
 
     @media ( max-width: 1024px ) and ( orientation: portrait ) {
@@ -57,6 +58,7 @@
   h1 strong {
     opacity: 1;
     font-size: 30px;
+    font-weight: 400;
     color: rgba(255,255,255,1.0);
 
     @media ( max-width: 1024px ) and ( orientation: portrait ) {
@@ -67,9 +69,9 @@
   h2 {
     font-size: 28px;
     font-family: Lato;
+    font-weight: 200;
     font-style: normal;
     text-align: center;
-    font-weight: 400;
     margin-bottom: 0;
     color: rgba(255,255,255,0.4);
 
@@ -81,12 +83,13 @@
     margin-top: 70px;
   }
   h2 em {
-    font-weight: 200;
     font-style: normal;
     color: rgba(255,255,255,0.9);
+    font-style: italic;
+    text-decoration: underline rgba(129, 10, 9, 1);
   }
   .name {
-    font-weight: 900;
+    font-weight: 400;
     font-size: 42px;
     color: rgba(255,255,255,1.0);
     white-space: nowrap;
@@ -96,7 +99,7 @@
     }
   }
   h2 strong {
-    font-weight: 900;
+    font-weight: 400;
     font-size: 30px;
     color: rgba(255,255,255,1.0);
 
