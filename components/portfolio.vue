@@ -8,20 +8,6 @@
       </svg>
     </transition>
 
-    <span class="nav-bg">
-      <transition appear enter-to-class="vertical-appear-to" (2.1.8+) enter-active-class="vertical-appear-active">
-        <div class="border" :style=" intro_transitions.vertical "></div>
-      </transition>
-      <div class="thumb" :style="thumb_style"></div>
-
-      <span :class=" [ 'nav', current_tab === 'tab-websites' ? 'active' : '' ] " @click=" set_tab( 'tab-websites' )" ref="tab-websites">
-        Websites
-      </span>
-      <span :class=" [ 'nav', current_tab === 'tab-games' ? 'active' : '' ] " @click=" set_tab( 'tab-games' )" ref="tab-games">
-        Games
-      </span>
-    </span>
-
     <div class="content" :style="{ 'transform': content_transform }">
       <div class="panel" ref="panel-websites">
         <div v-for=" (site, key) in sites ">
@@ -223,7 +209,7 @@
         title: "About This Site",
         main: "<p>This site is both a showcase for some of the best products that I have worked on, and a part of the the showcase itself. \
               As such, it incorporates some flashier elements, like the animated intro. \
-              The actual interactions are kept simple: a vertical scrolling layout with the most important information, and some addition detail available with a click.</p>\
+              The actual interactions are kept simple: a vertical scrolling layout with the most relevant information, and some addition detail available with a click.</p>\
               <p>This site is still a work in progress. As I learn new techniques and polish my skills, it's likely to change, and I already have some new features in mind.</p>",
         tech: "<p>This is also a showcase for my coding skills, and you can even see the source <a href='https://github.com/GalanCM/Portfolio'>on Github</a>. \
               The tech stack — a static site built in the <a href='https://vuejs.org/'>Vue</a> framework and running on a lightweight <a href='https://caddyserver.com/'>Caddy</a> server — was largely chosen for fast setup and iteration time, and all components and effects were coded from scratch. \
@@ -244,6 +230,21 @@
         tech: "<p>Also similar to this page, Isoteric is built on <a href='https://vuejs.org/'>Vue</a> for rapid iteration.</p>\
               <p>The backend is a bit more beefy, with news articles hosted on a lightweight <a href='https://golang.org/'>Go</a> server. \
               To avoid adding the extra complexity of a database, I opted to store the stories in meta-tagged markdown files.</p>",
+        frontend: null,
+        backend: null
+      },
+      {
+        color: "#0000c1",
+        url: "https://www.isoteric-games.com/#timebomb",
+        image: null,
+        video: "xRblNIzu3BA",
+        title: "Timebomb",
+        main: "<p>Speaking of games, audience expectations generally allow for them to exhibit a much greater variety and expression in user interfaces than websites. \
+              With that in mind, Timebomb is the most expressive experience I've developed.</p>\
+              <p>Starting as a 48 hour game during <a href='https://ldjam.com/'>Ludum Dare</a> 34, I used my spare time over the next year-and-a-half to polish it. \
+              You can get a good feel for the process by playing both the <a href='https://isoteric-games.itch.io/timebomb-web'>final version</a> and the <a href='https://elanti.itch.io/timebomb'>original</a>.</p>\
+              <p>I improved in a <strong>lot</strong> of areas while developing this game, from animation and sound design to usability testing, and the final product speaks for itself.</p>",
+        tech: null,
         frontend: null,
         backend: null
       },
@@ -277,51 +278,6 @@
         backend: null
       }
     ];
-
-    'games' = [
-      {
-        color: "#0000c1",
-        url: "https://www.isoteric-games.com/#timebomb",
-        image: null,
-        video: "xRblNIzu3BA",
-        title: "Timebomb",
-        main: "<p>Compared to websites, audience expectations for games generally allow for much greater variety and expression in user interfaces, and Timebomb is the most expressive experience I've developed.</p>\
-              <p>Starting as a 48 hour game during <a href='https://ldjam.com/'>Ludum Dare</a> 34, I used my spare time over the next year-and-a-half to polish it. \
-              You can get a good feel for the process by playing both the <a href='https://isoteric-games.itch.io/timebomb-web'>final version</a> and the <a href='https://elanti.itch.io/timebomb'>original</a>.</p>\
-              <p>I improved in a <strong>lot</strong> of areas while developing this game, from animation and sound design to usability testing, and the final product speaks for itself.</p>",
-        tech: null,
-        frontend: null,
-        backend: null
-      },
-      {
-        color: "#00dddd",
-        url: "https://elanti.itch.io/squarefish",
-        image: null,
-        video: "lWqwd2E0f0s",
-        title: "SQUAREfish",
-        main: "<p>Compared to Timebomb, SQUAREfish is a much more humble game. \
-              Originally developed in zero hours for <a href='http://0hgame.eu/'>0h Game Jam</a> 2016, I spent only a week polishing it up for intial release.</p>\
-              <p>The core game is quite simple, and doesn't really provide much in the way of longterm challenge. \
-              Respecting that, I focused on creating a relaxing vibe instead, making it more of a stress toy than a traditional game.</p>",
-        tech: null,
-        frontend: null,
-        backend: null
-      },
-      {
-        color: "#ff523b",
-        url: "https://elanti.itch.io/crownless",
-        image: null,
-        video: "q_ohMwydOU8",
-        title: "Crownless",
-        main: "<p>Crownless is, as of August 2017, my latest of over a dozen <a href='https://ldjam.com/'>Ludum Dare</a> games.</p>\
-              <p>A short runner game, my goal was a fun game that looks like a paper cutout animation. \
-              A difficult aesthetic to pull off in under 48 hours, the end result still managed to land exactly where I had hoped, despite some rough edges.</p>\
-              <p>This personal success expanded my comfort zone and emboldened my use of color.</p>",
-        tech: null,
-        frontend: null,
-        backend: null
-      }
-    ]
 
     mounted(): void {
       if ( this.intro === false ) {
