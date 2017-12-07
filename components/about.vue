@@ -1,9 +1,9 @@
 <template>
   <div class="about">
-    <h1>Do you want a web site that is easy to use — with a <em>clean</em>, <strong>distinctive</strong> look?</h1>
-    <h1>Do you want visuals that <em>engage</em> your users, that help them find what they are looking for and do what they need to do?</h1>
+    <h1>Do you want a <em>robust</em>, <strong>distinctive</strong> website that will get you noticed?</h1>
+    <h1>Do you want <em>stylish visuals</em> that engage and assist your users?</h1>
     <h1>Do you want <strong>UX principles</strong> to guide both your <em>product design</em> and your <em>code</em>?</h1>
-    <h2>My name is <span class="name">Galan Montomery</span>. <em>I engineer websites</em> with an eye toward design.</h2>
+    <h2>My name is <span class="name">Galan Montgomery</span>. <em>I engineer websites</em> with a focus on usability.</h2>
     <h2>And <strong>I could work for you.</strong></h2>
   </div>
 </template>
@@ -22,7 +22,7 @@
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 22px;
     font-family: Raleway, sans-serif;
     font-weight: 200;
     color: rgba(255,255,255,0.7);
@@ -49,7 +49,7 @@
   h1 em {
     color: rgba(255,255,255,1.0);
     text-decoration: underline rgba(129, 10, 9, 1);
-    font-size: 22px;
+    font-size: 24px;
 
     @media ( max-width: 1024px ) and ( orientation: portrait ) {
       font-size: 44px;
@@ -73,7 +73,7 @@
     font-style: normal;
     text-align: center;
     margin-bottom: 0;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.55);
 
     @media ( max-width: 1024px ) and ( orientation: portrait ) {
       font-size: 56px;
