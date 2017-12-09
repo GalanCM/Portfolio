@@ -215,9 +215,9 @@
         image: null,
         video: null,
         title: "About This Site",
-        main: "<p>This site is both a showcase for some of the best products that I have worked on, and a part of the the showcase itself. \
-              As such, I've given it some extra animated <em>style</em>. \
-              The actual interactions are simple: a vertical scrolling layout with the most relevant information.</p>",
+        main: "<p>This site is both a showcase for some my best work, and a part of the the showcase itself. \
+              As such, I <em>am</em> showing off a bit.</p>\
+              <p>I've kept interaction simple though: vertical scrolling will get you all of relevant information, and links will take you to the sites.</p>",
         tech: "<p>This is also a showcase for my coding skills, and you can even see the source <a href='https://github.com/GalanCM/Portfolio'>on Github</a>. \
               The tech stack — a static site built in the <a href='https://vuejs.org/'>Vue</a> framework and running on a lightweight <a href='https://caddyserver.com/'>Caddy</a> server — was largely chosen for fast setup and iteration time, and all components and effects were coded from scratch. \
               <p>I also used this as an opportunity for some experimenting, learning to work with gradual typing via <a href='https://www.typescriptlang.org/'>Typescript</a>.</p>",
@@ -234,7 +234,7 @@
               <strong><em>Isoteric</em></strong> serves as a promotional outlet for some of the more polished ones.</p>\
               <p>Like this site, isoteric-games.com is informational, and uses a vertical scolling layout. \
               I used animations and page transitions to give the site a more dynamic feel.</p>",
-        tech: "<p>Also similar to this page, Isoteric is built on <a href='https://vuejs.org/'>Vue</a> for rapid iteration.</p>\
+        tech: "<p>Also similar to this portfolio, Isoteric's site is built on <a href='https://vuejs.org/'>Vue</a> for rapid iteration.</p>\
               <p>The backend is a bit more beefy, with news articles hosted on a lightweight <a href='https://golang.org/'>Go</a> server, which hosts the both the page and a RESTful api for the blog.",
         frontend: null,
         backend: null
@@ -245,7 +245,7 @@
         image: null,
         video: "xRblNIzu3BA",
         title: "Timebomb",
-        main: "<p>Speaking of games, audience expectations generally allow for them to exhibit a much greater variety and expression in user interfaces than websites. \
+        main: "<p>Speaking of games, audience expectations generally allow for them to exhibit much greater variety and expression in user interfaces than websites. \
               With that in mind, Timebomb is the most expressive experience I've developed.</p>\
               <p>Starting as a 48-hour game during <a href='https://ldjam.com/'>Ludum Dare</a> 34, I used my spare time over the next year-and-a-half to polish it. \
               You can get a good feel for the process by playing both the <a href='https://isoteric-games.itch.io/timebomb-web'>final version</a> and the <a href='https://elanti.itch.io/timebomb'>original</a>.</p>\
