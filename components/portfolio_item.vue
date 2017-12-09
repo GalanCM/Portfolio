@@ -1,16 +1,16 @@
 <template>
   <div class="wrapper">
-    <div class="color-bar" v-if=" side === 'right' " :style=" { 'background-color': info.color } "></div>
-    <div v-if=" !is_mobile && side === 'left' " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px' }">
+    <div class="color-bar" v-if=" side === 'right' || has_image !== true " :style=" { 'background-color': info.color } "></div>
+    <div v-if=" !is_mobile && side === 'left' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px' }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="details" :style="{ 'margin-left': margin.left + 'px', 'margin-right': margin.right + 'px' }">
+    <div class="details" :style="{ 'padding-left': padding.left + 'px', 'padding-right': padding.right + 'px' }">
       <div>
         <h2>
           <span v-if=" info.url !== null ">
-            <a :href="info.url">{{ info.title }} »</a>
+            <a :href="info.url">{{ info.title }} <span class="chevron">»</span></a>
           </span>
           <span v-else>
             {{ info.title }}
@@ -40,12 +40,12 @@
       </div>
     </div>
 
-    <div v-if=" !is_mobile && side === 'right' " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px' }">
+    <div v-if=" !is_mobile && side === 'right' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px' }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="color-bar" v-if=" side === 'left' " :style=" { 'background-color': info.color } "></div>
+    <div class="color-bar" v-if=" side === 'left' || has_image !== true " :style=" { 'background-color': info.color } "></div>
   </div>
 </template>
 
@@ -53,16 +53,20 @@
   .wrapper {
     width: 100%;
     display: flex;
-    padding: 20px 0 80px;
     opacity: 0.3;
     transition: 0.75s opacity ease-out;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
 
     @media ( max-width: 1024px ) {
       flex-direction: column;
     }
   }
   .color-bar {
-    width: 50px;
+    width: 25%;
+    min-width: 10px;
   }
   .img-wrapper {
     display: flex;
@@ -107,6 +111,13 @@
     display: flex;
     flex-direction: column;
     width: inherit;
+    border-left: 4px solid #222;
+    border-right: 4px solid #222;
+
+    @media ( max-width: 1024px ) {
+      border-left: none;
+      border-right: none;
+    }
 
     > div {
       margin: auto;
@@ -118,7 +129,7 @@
   }
   h2 {
     display: inline-block;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;
     font-size: 2rem;
     font-weight: 300;
     width: 100%;
@@ -134,12 +145,17 @@
     }
 
     @media ( max-width: 1024px ) {
-      margin-left: 0;
-      margin-right: 0;
+      margin: 0 0 15px;
       text-align: left;
       padding: 0 50px;
       width: auto;
       font-size: 1.7rem;
+    }
+
+    .chevron {
+      font-weight: 700;
+      display: inline-block;
+      transform: translateY(-2px);
     }
   }
   .detail-chunk {
@@ -176,9 +192,9 @@
     'side': string;
 
     'is_mobile' = false;
-    'margin' = {
-      left:  ( this.info.image === null && this.info.video === null || this.side === 'right' ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0,
-      right: ( this.info.image === null && this.info.video === null || this.side === 'left' ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0
+    'padding' = {
+      left:  ( this.has_image !== true ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0,
+      right: ( this.has_image !== true ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0
     }
 
     scroll(): void {

@@ -1,10 +1,10 @@
 <template>
   <div class="about">
     <h1>Do you want a <em>robust</em>, <strong>distinctive</strong> website that will get you noticed?</h1>
-    <h1>Do you want <em>stylish visuals</em> that engage and assist your users?</h1>
+    <h1>Do you want <em>stylish visuals</em> that engage your users and support their needs?</h1>
     <h1>Do you want <strong>UX principles</strong> to guide both your <em>product design</em> and your <em>code</em>?</h1>
     <h2>My name is <span class="name">Galan Montgomery</span>. <em>I engineer websites</em> with a focus on usability.</h2>
-    <h2>And <strong>I could work for you.</strong></h2>
+    <h2>And <strong>I could join your team.</strong></h2>
   </div>
 </template>
 
