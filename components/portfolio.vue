@@ -14,11 +14,6 @@
           <item :info=" site " :side=" key % 2 === 0 ? 'left' : 'right' "></item>
         </div>
       </div>
-      <div class="panel" ref="panel-games" style="margin-left: 20px;">
-        <div v-for=" (game, key) in games " class="portfolio-item">
-          <item :info=" game " :side=" key % 2 === 0 ? 'left' : 'right' "></item>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -196,12 +191,6 @@
     @Prop(Boolean)
     'intro': boolean
 
-    'current_tab' = "tab-websites";
-    'thumb_style' = {
-      transition: '' as string,
-      left: '0' as string,
-      width: '50%' as string
-    };
     'content_transform' = "translateX(0)";
     'intro_transitions' = {
       vertical: ( this.intro === true ? 'transition: 0.3s transform ease-out 3.5s;' : '' ) as string,
@@ -281,52 +270,5 @@
         backend: null
       }
     ];
-
-    mounted(): void {
-      if ( this.intro === false ) {
-        this.set_tab( 'tab-websites', false );
-      }
-
-      setTimeout( () => { // workaround: tab drawing too narrow
-        this.thumb_style.width = ( this.$refs[ this.current_tab ] as HTMLElement ).offsetWidth + "px"
-      }, 20)
-    }
-
-    @Watch('intro')
-    function() {
-      setTimeout ( () => {
-        this.set_tab( 'tab-websites', false );
-      }, 100 );
-    }
-
-    set_tab( tab: string, transition = true ): void {
-      this.current_tab = tab;
-
-      this.thumb_style = {
-        transition: transition ? "0.5s left ease-in-out, 0.5s width ease-in-out" : '',
-        left: ( this.$refs[ tab ] as HTMLElement ).offsetLeft + "px",
-        width: ( this.$refs[ tab ] as HTMLElement ).offsetWidth + "px"
-      };
-
-
-      if ( tab === 'tab-games' ) {
-        ( this.$refs['panel-games'] as HTMLElement ).style.height = 'auto';
-
-        this.content_transform = "translateX( calc(-100vw - 20px) )";
-
-        setTimeout( () => {
-          ( this.$refs['panel-websites'] as HTMLElement ).style.height = '0';
-        }, 500);
-      }
-      else {
-        ( this.$refs['panel-websites'] as HTMLElement ).style.height = 'auto';
-
-        this.content_transform = "translateX(0)";
-
-        setTimeout( () => {
-          ( this.$refs['panel-games'] as HTMLElement ).style.height = '0';
-        }, 500);
-      }
-    }
   }
 </script>
