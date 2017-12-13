@@ -205,8 +205,8 @@
         video: null,
         title: "About This Site",
         main: "<p>This site is both a showcase for some my best work, and a part of the the showcase itself. \
-              As such, I <em>am</em> showing off a bit.</p>\
-              <p>I've kept interaction simple though: vertical scrolling will get you all of relevant information, and links will take you to the sites.</p>",
+              As such, I am using this opportunity to show off with plenty of effects.</p>\
+              <p>Interaction is still simple though: vertical scrolling will get you all of relevant information, and links will take you to the sites.</p>",
         tech: "<p>This is also a showcase for my coding skills, and you can even see the source <a href='https://github.com/GalanCM/Portfolio'>on Github</a>. \
               The tech stack — a static site built in the <a href='https://vuejs.org/'>Vue</a> framework and running on a lightweight <a href='https://caddyserver.com/'>Caddy</a> server — was largely chosen for fast setup and iteration time, and all components and effects were coded from scratch. \
               <p>I also used this as an opportunity for some experimenting, learning to work with gradual typing via <a href='https://www.typescriptlang.org/'>Typescript</a>.</p>",
@@ -234,8 +234,8 @@
         image: null,
         video: "xRblNIzu3BA",
         title: "Timebomb",
-        main: "<p>Speaking of games, audience expectations generally allow for them to exhibit much greater variety and expression in user interfaces than websites. \
-              With that in mind, Timebomb is the most expressive experience I've developed.</p>\
+        main: "<p>Speaking of games, audiences expect them to be more expressive and eye-catching than websites. \
+              It should come as no surprise then that <em>Timebomb</em> is the most expressive experience I've developed.</p>\
               <p>Starting as a 48-hour game during <a href='https://ldjam.com/'>Ludum Dare</a> 34, I used my spare time over the next year-and-a-half to polish it. \
               You can get a good feel for the process by playing both the <a href='https://isoteric-games.itch.io/timebomb-web'>final version</a> and the <a href='https://elanti.itch.io/timebomb'>original</a>.</p>\
               <p>I improved in a <strong>lot</strong> of areas while developing this game, from animation and sound design to usability testing, and the final product speaks for itself.</p>",
