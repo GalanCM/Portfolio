@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper">
-    <div class="color-bar" v-if=" side === 'right' || has_image !== true " :style=" { 'background-color': info.color } "></div>
-    <div v-if=" !is_mobile && side === 'left' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px' }">
+    <div class="color-bar" v-if=" side === 'right' || has_image !== true " :style=" { 'background-color': info.color, 'opacity': opacity } "></div>
+    <div v-if=" !is_mobile && side === 'left' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px', 'opacity': opacity }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="details" :style="{ 'padding-left': padding.left + 'px', 'padding-right': padding.right + 'px' }">
+    <div class="details" :style="{ 'padding-left': padding.left + 'px', 'padding-right': padding.right + 'px', 'border-color': 'rgba(34,34,34,' +opacity+ ')'  }">
       <div>
         <h2>
           <span v-if=" info.url !== null ">
@@ -17,7 +17,7 @@
           </span>
         </h2>
 
-        <div v-if=" is_mobile && ( has_image === true ) " class="img-wrapper" :style="{ 'background': info.color }">
+        <div v-if=" is_mobile && ( has_image === true ) " class="img-wrapper" :style="{ 'background': info.color, 'opacity': opacity }">
           <div class="img-inner-wrapper">
             <img v-if=" info.image !== null " :src=" info.image " :style="{ 'border-color': info.color } ">
             <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color } "></iframe>
@@ -40,12 +40,12 @@
       </div>
     </div>
 
-    <div v-if=" !is_mobile && side === 'right' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px' }">
+    <div v-if=" !is_mobile && side === 'right' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px', 'opacity': opacity }">
       <img v-if=" info.image !== null " :src=" info.image ">
       <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="color-bar" v-if=" side === 'left' || has_image !== true " :style=" { 'background-color': info.color } "></div>
+    <div class="color-bar" v-if=" side === 'left' || has_image !== true " :style=" { 'background-color': info.color, 'opacity': opacity } "></div>
   </div>
 </template>
 
@@ -53,8 +53,6 @@
   .wrapper {
     width: 100%;
     display: flex;
-    opacity: 0.3;
-    transition: 0.75s opacity ease-out;
 
     &:last-child {
       padding-bottom: 0;
@@ -67,10 +65,14 @@
   .color-bar {
     width: 25%;
     min-width: 10px;
+
+    transition: 0.75s opacity ease-out 0.2s;
   }
   .img-wrapper {
     display: flex;
     flex-direction: column;
+
+    transition: 0.75s opacity ease-out 0.2s;
 
     @media ( min-device-width: 1024px ) {
       min-height: 60vh;
@@ -111,8 +113,10 @@
     display: flex;
     flex-direction: column;
     width: inherit;
-    border-left: 4px solid #222;
-    border-right: 4px solid #222;
+    border-left: 4px solid;
+    border-right: 4px solid;
+    border-color: rgba(34,34,34,0.1);
+    transition: 0.75s border-color ease-out;
 
     @media ( max-width: 1024px ) {
       border-left: none;
@@ -192,6 +196,7 @@
     'side': string;
 
     'is_mobile' = false;
+    'opacity' = 0.1
     'padding' = {
       left:  ( this.has_image !== true ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0,
       right: ( this.has_image !== true ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0
@@ -199,7 +204,7 @@
 
     scroll(): void {
       if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 && this.$el.getBoundingClientRect().left < window.innerWidth ) {
-        ( this.$el as HTMLElement ).style.opacity = '1';
+        this.opacity = 1;
       }
     }
 
