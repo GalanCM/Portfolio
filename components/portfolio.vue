@@ -205,7 +205,7 @@
         video: null,
         title: "About This Site",
         main: "<p>This site is both a showcase for some my best work, and a part of the the showcase itself. \
-              As such, I am using this opportunity to show off with plenty of effects.</p>\
+              I am using this as an opportunity to show off.</p>\
               <p>Interaction is still simple though: vertical scrolling will get you all of relevant information, and links will take you to the sites.</p>",
         tech: "<p>This is also a showcase for my coding skills, and you can even see the source <a href='https://github.com/GalanCM/Portfolio'>on Github</a>. \
               The tech stack — a static site built in the <a href='https://vuejs.org/'>Vue</a> framework and running on a lightweight <a href='https://caddyserver.com/'>Caddy</a> server — was largely chosen for fast setup and iteration time, and all components and effects were coded from scratch. \
