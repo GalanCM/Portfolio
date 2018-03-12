@@ -58,7 +58,7 @@
       padding-bottom: 0;
     }
 
-    @media ( max-width: 1024px ) {
+    @media (max-width: 1024px) {
       flex-direction: column;
     }
   }
@@ -74,21 +74,22 @@
 
     transition: 0.75s opacity ease-out 0.2s;
 
-    @media ( min-device-width: 1024px ) {
+    @media (min-device-width: 1024px) {
       min-height: 60vh;
     }
 
-    @media ( max-width: 1024px ) {
+    @media (max-width: 1024px) {
       margin-bottom: 50px;
     }
   }
-  img, iframe {
+  img,
+  iframe {
     width: 35vw;
     margin-top: auto;
     margin-bottom: auto;
-    box-shadow: 2px 1px 4px rgba(0,0,0,0.2);
+    box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.2);
 
-    @media ( max-width: 1024px ) {
+    @media (max-width: 1024px) {
       width: 75vw;
       box-shadow: none;
       border-left: 8px solid;
@@ -98,7 +99,7 @@
   iframe {
     height: ~"calc( 35vw * 0.5625 )";
 
-    @media ( max-width: 1024px ) {
+    @media (max-width: 1024px) {
       height: ~"calc( 75vw * 0.5625 )";
     }
   }
@@ -115,10 +116,10 @@
     width: inherit;
     border-left: 4px solid;
     border-right: 4px solid;
-    border-color: rgba(34,34,34,0.1);
+    border-color: rgba(34, 34, 34, 0.1);
     transition: 0.75s border-color ease-out;
 
-    @media ( max-width: 1024px ) {
+    @media (max-width: 1024px) {
       border-left: none;
       border-right: none;
     }
@@ -148,7 +149,7 @@
       text-decoration: none;
     }
 
-    @media ( max-width: 1024px ) {
+    @media (max-width: 1024px) {
       margin: 0 0 15px;
       text-align: left;
       padding: 0 50px;
@@ -186,24 +187,31 @@
 </style>
 
 <script lang="ts">
-  import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+  import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
   @Component
   export default class PortfolioItem extends Vue {
-    @Prop(Object)
-    'info': PortfolioInfo;
-    @Prop(String)
-    'side': string;
+    @Prop(Object) info: PortfolioInfo;
+    @Prop(String) side: string;
 
-    'is_mobile' = false;
-    'opacity' = 0.1
-    'padding' = {
-      left:  ( this.has_image !== true ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0,
-      right: ( this.has_image !== true ) && window.innerWidth > 1100 ? ( window.innerWidth - 1100 ) / 2 : 0
-    }
+    is_mobile = false;
+    opacity = 0.1;
+    padding = {
+      left:
+        this.has_image !== true && window.innerWidth > 1100
+          ? (window.innerWidth - 1100) / 2
+          : 0,
+      right:
+        this.has_image !== true && window.innerWidth > 1100
+          ? (window.innerWidth - 1100) / 2
+          : 0
+    };
 
     scroll(): void {
-      if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 && this.$el.getBoundingClientRect().left < window.innerWidth ) {
+      if (
+        this.$el.getBoundingClientRect().top < window.innerHeight / 2 &&
+        this.$el.getBoundingClientRect().left < window.innerWidth
+      ) {
         this.opacity = 1;
       }
     }
@@ -217,24 +225,23 @@
     }
 
     mounted() {
-      window.addEventListener( 'scroll', this.scroll );
-      if ( this.$el.getBoundingClientRect().top < window.innerHeight / 2 ) {
-        ( this.$el as HTMLElement ).style.opacity = '1';
+      window.addEventListener("scroll", this.scroll);
+      if (this.$el.getBoundingClientRect().top < window.innerHeight / 2) {
+        (this.$el as HTMLElement).style.opacity = "1";
       }
 
-      window.addEventListener( 'resize', this.resize );
+      window.addEventListener("resize", this.resize);
     }
 
     destroyed() {
-      window.removeEventListener( 'scroll', this.scroll );
-      window.removeEventListener( 'resize', this.resize );
+      window.removeEventListener("scroll", this.scroll);
+      window.removeEventListener("resize", this.resize);
     }
 
     get has_image() {
-      if ( this.info.image === null && this.info.video === null ) {
+      if (this.info.image === null && this.info.video === null) {
         return false;
-      }
-      else {
+      } else {
         return true;
       }
     }

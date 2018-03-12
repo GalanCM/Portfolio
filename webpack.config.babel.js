@@ -1,21 +1,20 @@
-import path from 'path';
-import webpack from 'webpack';
+import path from "path";
+import webpack from "webpack";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 
-
 module.exports = {
-  entry: './components/index.ts',
+  entry: "./components/index.ts",
   output: {
-    path: path.resolve(__dirname, './build'),
-    publicPath: '/build/',
-    filename: 'build.js'
+    path: path.resolve(__dirname, "./build"),
+    publicPath: "/build/",
+    filename: "build.js"
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
         exclude: /node_modules/,
-        loader: 'vue-loader',
+        loader: "vue-loader",
         options: {
           extractCSS: true
         }
@@ -23,7 +22,20 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: "babel-loader",
+        query: {
+          presets: [
+            [
+              "env",
+              {
+                targets: {
+                  browsers: ["last 2 versions", "> 2%"]
+                }
+              }
+            ]
+          ],
+          plugins: ["transform-runtime"]
+        }
       },
       {
         test: /\.ts$/,
@@ -35,16 +47,14 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {
-          name: '[name].[ext]?[hash]'
+          name: "[name].[ext]?[hash]"
         }
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin("style.css")
-  ],
+  plugins: [new ExtractTextPlugin("style.css")],
   devServer: {
     historyApiFallback: true,
     noInfo: false
@@ -52,31 +62,31 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: "#eval-source-map"
 };
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map';
-  // module.exports.module.rules.push( {
-  //   enforce: "pre",
-  //   test: /\.vue$/,
-  //   exclude: /node_modules/,
-  //   loader: "eslint-loader",
-  // });
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ]);
-}
+// if (process.env.NODE_ENV === "production") {
+//   module.exports.devtool = "#source-map";
+//   // module.exports.module.rules.push( {
+//   //   enforce: "pre",
+//   //   test: /\.vue$/,
+//   //   exclude: /node_modules/,
+//   //   loader: "eslint-loader",
+//   // });
+//   module.exports.plugins = (module.exports.plugins || []).concat([
+//     new webpack.DefinePlugin({
+//       "process.env": {
+//         NODE_ENV: '"production"'
+//       }
+//     }),
+//     new webpack.optimize.UglifyJsPlugin({
+//       sourceMap: true,
+//       compress: {
+//         warnings: false
+//       }
+//     }),
+//     new webpack.LoaderOptionsPlugin({
+//       minimize: true
+//     })
+//   ]);
+// }

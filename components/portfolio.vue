@@ -23,7 +23,7 @@
     width: 100vw;
     overflow-x: hidden;
     background-color: rgb(250, 250, 255);
-    margin-top: 90px;
+    margin-top: 15px;
     overflow-y: visible;
 
     @media (max-width: 1024px) and (orientation: portrait) {
@@ -41,7 +41,7 @@
     position: absolute;
     z-index: 1;
     transform-origin: center left;
-    transform: translateY(-50%);
+    transform: translateY(-10px);
     border-right: 2px solid black;
 
     @media (max-width: 1024px) and (orientation: landscape) {
@@ -172,7 +172,7 @@
       margin-bottom: 50px;
     }
     &:first-child {
-      margin-top: -35px;
+      margin-top: -50px;
     }
   }
 </style>
@@ -185,7 +185,7 @@
     components: { Item }
   })
   export default class Portfolio extends Vue {
-    @Prop(Boolean) intro: boolean;
+    @Prop() intro!: boolean;
     @Prop(Boolean) "animation-start": boolean = false;
 
     content_transform = "translateX(0)";
@@ -206,13 +206,12 @@
         video: null,
         title: "About This Site",
         main:
-          "<p>This site is both a showcase for some my best work, and a part of the the showcase itself. \
-                    I am using this as an opportunity to show off.</p>\
-                    <p>Interaction is still simple though: vertical scrolling will get you all of relevant information, and links will take you to the sites.</p>",
+          "<p>This site is both a showcase for some my best work, and a part of the the showcase itself.</p>\
+                                  <p>Interaction is simple: vertical scrolling will get you all of relevant information, and links will take you to the sites.</p>",
         tech:
           "<p>This is also a showcase for my coding skills, and you can even see the source <a href='https://github.com/GalanCM/Portfolio'>on Github</a>. \
-                    The tech stack — a static site built in the <a href='https://vuejs.org/'>Vue</a> framework and running on a lightweight <a href='https://caddyserver.com/'>Caddy</a> server — was largely chosen for fast setup and iteration time, and all components and effects were coded from scratch. \
-                    <p>I also used this as an opportunity for some experimenting, learning to work with gradual typing via <a href='https://www.typescriptlang.org/'>Typescript</a>.</p>",
+                                  The tech stack — a static site built in the <a href='https://vuejs.org/'>Vue</a> framework and running on a lightweight <a href='https://caddyserver.com/'>Caddy</a> server — was largely chosen for fast setup and iteration time, and all components and effects were coded from scratch. \
+                                  <p>I also used this as an opportunity for some experimenting, learning to work with gradual typing via <a href='https://www.typescriptlang.org/'>Typescript</a>.</p>",
         frontend: null,
         backend: null
       },
@@ -224,12 +223,12 @@
         title: "Isoteric Games",
         main:
           "<p>In addition being a professional web developer, I also make games. \
-                    <strong><em>Isoteric</em></strong> serves as a promotional outlet for some of the more polished ones.</p>\
-                    <p>Like this site, isoteric-games.com is informational, and uses a vertical scolling layout. \
-                    I used animations and page transitions to give the site a more dynamic feel.</p>",
+                                  <strong><em>Isoteric</em></strong> serves as a promotional outlet for some of the more polished ones.</p>\
+                                  <p>Like this site, isoteric-games.com is informational, and uses a vertical scolling layout. \
+                                  I used animations and page transitions to give the site a more dynamic feel.</p>",
         tech:
           "<p>Also similar to this portfolio, Isoteric's site is built on <a href='https://vuejs.org/'>Vue</a> for rapid iteration.</p>\
-                    <p>The backend is a bit more beefy, with news articles hosted on a lightweight <a href='https://golang.org/'>Go</a> server, which hosts the both the page and a RESTful api for the blog.",
+                                  <p>The backend is a bit more beefy, with news articles hosted on a lightweight <a href='https://golang.org/'>Go</a> server, which hosts the both the page and a RESTful api for the blog.",
         frontend: null,
         backend: null
       },
@@ -241,10 +240,10 @@
         title: "Timebomb",
         main:
           "<p>Speaking of games, audiences expect them to be more expressive and eye-catching than websites. \
-                    It should come as no surprise then that <em>Timebomb</em> is the most expressive experience I've developed.</p>\
-                    <p>Starting as a 48-hour game during <a href='https://ldjam.com/'>Ludum Dare</a> 34, I used my spare time over the next year-and-a-half to polish it. \
-                    You can get a good feel for the process by playing both the <a href='https://isoteric-games.itch.io/timebomb-web'>final version</a> and the <a href='https://elanti.itch.io/timebomb'>original</a>.</p>\
-                    <p>I improved in a <strong>lot</strong> of areas while developing this game, from animation and sound design to usability testing, and the final product speaks for itself.</p>",
+                                  It should come as no surprise then that <em>Timebomb</em> is the most expressive experience I've developed.</p>\
+                                  <p>Starting as a 48-hour game during <a href='https://ldjam.com/'>Ludum Dare</a> 34, I used my spare time over the next year-and-a-half to polish it. \
+                                  You can get a good feel for the process by playing both the <a href='https://isoteric-games.itch.io/timebomb-web'>final version</a> and the <a href='https://elanti.itch.io/timebomb'>original</a>.</p>\
+                                  <p>I improved in a <strong>lot</strong> of areas while developing this game, from animation and sound design to usability testing, and the final product speaks for itself.</p>",
         tech: null,
         frontend: null,
         backend: null
@@ -257,10 +256,10 @@
         title: "Childfund VR",
         main:
           "<p>Childfund VR: The Return, is a VR documentary sponsored by Childfund to promote their charity.</p> \
-                    <p>Based on a Photoshop mockup from their artist, I was responsible for creating the site. This involved some <em>slight</em> tweaks to the interaction design, and heavier modifications for mobile.</p>",
+                                  <p>Based on a Photoshop mockup from their artist, I was responsible for creating the site. This involved some <em>slight</em> tweaks to the interaction design, and heavier modifications for mobile.</p>",
         tech:
           "<p>This the first and largest site I've built in <a href='https://reactjs.org/'>React</a>, which I chose primarily as an opportunity to learn the popular framework.</p>\
-                    <p>One of the bigger challenges with this site was incorporating the Youtube 360º video seemlessly into the UI in a way that was easy to understand on both desktop and mobile.",
+                                  <p>One of the bigger challenges with this site was incorporating the Youtube 360º video seemlessly into the UI in a way that was easy to understand on both desktop and mobile.",
         frontend: null,
         backend: null
       },
@@ -272,10 +271,10 @@
         title: "Getloaded Mobile 2.0",
         main:
           "<p>Getloaded Mobile was a popular website, used by independent truckers to find loads. In 2015, I led a small team to build new Android and iOS apps to supplement the site.</p>\
-                    <p>Sadly, Getloaded was closed down by their parent company the next year and the apps are no longer availible, but I'm still exceedingly proud my team's work.</p>",
+                                  <p>Sadly, Getloaded was closed down by their parent company the next year and the apps are no longer availible, but I'm still exceedingly proud my team's work.</p>",
         tech:
           "<p>At the time, the fastest approach to porting a web app to mobile was <a href='https://phonegap.com/'>Phonegap</a>, with a Javascript framework to handle templating and back-end logic. \
-                    After an initial prototype using Angular I ultimately settled on <a href='https://ractive.js.org/'>Ractive</a>, which had a largely comparable templating language to PHP, and caused less friction with our existing stack.</p>",
+                                  After an initial prototype using Angular I ultimately settled on <a href='https://ractive.js.org/'>Ractive</a>, which had a largely comparable templating language to PHP, and caused less friction with our existing stack.</p>",
         frontend: null,
         backend: null
       }

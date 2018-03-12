@@ -69,107 +69,102 @@
 
 
 <script lang="ts">
-  import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+  import { Component, Prop, Vue, Watch } from "vue-property-decorator";
   import Titles from "./titles.vue";
   import Continue from "./continue.vue";
-  import { tween } from 'shifty';
+  import { tween } from "shifty";
 
   @Component({
     components: { Titles, Continue }
   })
   export default class NavBar extends Vue {
-    'intro_transitioning': boolean = false;
-    'titles_visible': boolean = false;
-    'close_visible': boolean = false;
-    'underline_length': number = 0;
-    'delay_underline': boolean = false;
-    'window_height' = window.innerHeight;
-    'window_width' = window.innerWidth;
+    intro_transitioning: boolean = false;
+    titles_visible: boolean = false;
+    close_visible: boolean = false;
+    underline_length: number = 0;
+    delay_underline: boolean = false;
+    window_height = window.innerHeight;
+    window_width = window.innerWidth;
 
-    @Prop(Boolean)
-    'uncollapsed': boolean;
-    @Prop(Number)
-    position: number;
+    @Prop() uncollapsed!: boolean;
+    @Prop() position!: number;
 
     created(): void {
       this.titles_visible = this.uncollapsed;
       this.delay_underline = this.uncollapsed;
 
       let vm = this;
-      window.addEventListener('resize', function() {
+      window.addEventListener("resize", function() {
         vm.window_height = window.innerHeight;
         vm.window_width = window.innerWidth;
-      })
+      });
     }
 
     show_close(): void {
       this.close_visible = true;
 
-      let vm = this
+      let vm = this;
       let close_hander = function() {
         vm.close_titles();
 
-        window.removeEventListener('click', close_hander);
-        window.removeEventListener('keydown', close_hander);
-        window.removeEventListener('wheel', close_hander);
-      }
+        window.removeEventListener("click", close_hander);
+        window.removeEventListener("keydown", close_hander);
+        window.removeEventListener("wheel", close_hander);
+      };
 
-      window.addEventListener('click', close_hander);
-      window.addEventListener('keydown', close_hander);
-      window.addEventListener('wheel', close_hander);
+      window.addEventListener("click", close_hander);
+      window.addEventListener("keydown", close_hander);
+      window.addEventListener("wheel", close_hander);
     }
     close_titles(): void {
       this.titles_visible = false;
       this.close_visible = false;
     }
     close_intro(): void {
-      this.$emit('close_intro')
+      this.$emit("close_intro");
     }
 
     underline_enter(): void {
-      tween ({
+      tween({
         from: { x: 0 },
         to: { x: 430 },
         duration: 750,
         easing: "easeInOutQuad",
         delay: this.delay_underline ? 3250 : 750,
-        step: (state) => {
+        step: state => {
           this.underline_length = state.x;
         }
       });
     }
 
-    @Watch('titles_visible')
+    @Watch("titles_visible")
     onTitlesChanged(): void {
       this.intro_transitioning = true;
 
-      setTimeout( () => {
+      setTimeout(() => {
         this.intro_transitioning = false;
-      }, 3000 );
+      }, 3000);
     }
 
-    get scale_factor() : number {
-      if ( this.window_width > this.window_height ) {
-        return (this.window_width+100) * 0.6 / 1575;
-      }
-      else {
-        return (this.window_width+100) * 0.7 / 1575;
+    get scale_factor(): number {
+      if (this.window_width > this.window_height) {
+        return (this.window_width + 100) * 0.6 / 1575;
+      } else {
+        return (this.window_width + 100) * 0.7 / 1575;
       }
     }
-    get nav_scale() : number {
-      if ( this.window_width < this.window_height ) {
+    get nav_scale(): number {
+      if (this.window_width < this.window_height) {
         return 2;
-      }
-      else {
+      } else {
         return 1;
       }
     }
     get center_gap(): number {
-      if ( this.window_width > this.window_height ) {
-        return this.window_height*0.1;
-      }
-      else {
-        return this.window_height*0.05;
+      if (this.window_width > this.window_height) {
+        return this.window_height * 0.1;
+      } else {
+        return this.window_height * 0.05;
       }
     }
   }

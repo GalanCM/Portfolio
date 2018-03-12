@@ -111,7 +111,7 @@
     window_height = window.innerHeight;
     window_width = window.innerWidth;
 
-    @Prop(Boolean) show: boolean; // whether or not the titles should be displayed
+    @Prop() show!: boolean; // whether or not the titles should be displayed
 
     created(): void {
       // make sure elements scale properly when window resizes. Important for mobile viewers.
