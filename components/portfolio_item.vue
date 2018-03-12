@@ -64,7 +64,7 @@
   }
   .color-bar {
     width: 25%;
-    min-width: 10px;
+    min-width: 200px;
 
     transition: 0.75s opacity ease-out 0.2s;
   }
