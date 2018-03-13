@@ -15,9 +15,9 @@
         </svg>
 
         <div :class="{text: true, on: show_text}" :style="{ transform: 'scale(' + scale_factor + ')', position: 'absolute', right: 0 }">
-          <object class="developer" data="../images/developer.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
+          <object class="developer" data="../images/ux engineer.svg" type="image/svg+xml" style="position: absolute; right: -10px;"></object>
           <object class="and" data="../images/and.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
-          <object class="designer" data="../images/designer.svg" type="image/svg+xml" style="position: absolute; right:0;"></object>
+          <object class="designer" data="../images/game developer.svg" type="image/svg+xml" style="position: absolute; right: -10px;"></object>
         </div>
       </div>
 
@@ -139,7 +139,7 @@
         .then(() => {
           return tween({
             from: { x: 0, y: 0 },
-            to: { x: 1505 * this.scale_factor, y: this.window_height * 0.1 },
+            to: { x: 1200 * this.scale_factor, y: this.window_height * 0.1 },
             duration: 500,
             easing: { x: "easeInQuad", y: "easeOutQuad" },
             delay: 500,

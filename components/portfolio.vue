@@ -23,11 +23,11 @@
     width: 100vw;
     overflow-x: hidden;
     background-color: rgb(250, 250, 255);
-    margin-top: 15px;
+    margin-top: 10px;
     overflow-y: visible;
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      margin-top: 180px;
+      margin-top: 15px;
     }
   }
 
@@ -41,11 +41,14 @@
     position: absolute;
     z-index: 1;
     transform-origin: center left;
-    transform: translateY(-10px);
+    transform: translateY(-15px);
     border-right: 2px solid black;
 
     @media (max-width: 1024px) and (orientation: landscape) {
-      transform: translateY(-50%) scale(0.8);
+      transform: translateY(-30px) scale(0.8);
+    }
+    @media (max-width: 1024px) and (orientation: portrait) {
+      transform: translateY(-40px) scale(0.8);
     }
   }
 

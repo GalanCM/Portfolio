@@ -18,7 +18,7 @@
     padding: 50px 100px;
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      margin-top: 99px;
+      margin-top: 199px;
       padding: 50px 50px;
     }
   }
@@ -29,9 +29,6 @@
     font-weight: 200;
     color: rgba(255, 255, 255, 0.7);
     transform-origin: top center;
-    transform: scaleY(0);
-    transition: 300ms transform ease-in;
-    transform: scaley(1);
 
     @media (max-width: 1024px) and (orientation: portrait) {
       font-size: 40px;
@@ -114,10 +111,13 @@
     }
   }
 
-  .scale-appear-to {
-    transform: scaleY(0);
+  .scale-appear-active {
+    transition: 300ms transform ease-in;
   }
   .scale-appear-active {
+    transform: scaleY(0);
+  }
+  .scale-appear-to {
     transform: scaleY(1);
   }
 </style>
@@ -132,8 +132,8 @@
     created(): void {
       window.addEventListener("scroll", () => {
         let bottom = this.$el.getBoundingClientRect().bottom;
-        if (bottom < 0) {
-          this.$emit("input", bottom + window.scrollY);
+        if (bottom < 50) {
+          this.$emit("input", bottom - 50 + window.scrollY);
         } else {
           this.$emit("input", 0);
         }

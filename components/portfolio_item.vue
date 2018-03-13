@@ -184,6 +184,10 @@
   .detail-chunk p {
     margin: 0 0 0.6em 0;
   }
+
+  .portfolio-item:first-child h2 {
+    margin-top: 10px;
+  }
 </style>
 
 <script lang="ts">
@@ -191,8 +195,8 @@
 
   @Component
   export default class PortfolioItem extends Vue {
-    @Prop(Object) info: PortfolioInfo;
-    @Prop(String) side: string;
+    @Prop(Object) info!: PortfolioInfo;
+    @Prop(String) side!: string;
 
     is_mobile = false;
     opacity = 0.1;

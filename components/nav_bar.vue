@@ -16,6 +16,10 @@
       <continue :style=" 'transform: scale('+scale_factor*nav_scale*1.5+'); transform-origin: bottom left;'" v-if="close_visible"></continue>
     </transition>
 
+    <transition name="fade-in" appear>
+      <a v-show="show_links" href="/miniblog">Code Sample»</a>
+    </transition>
+
     <transition v-on:enter="underline_enter" appear>
       <svg class="underline" :height="12*nav_scale" :width="(underline_length*nav_scale)+'px'" :style=" 'position: absolute; bottom: '+(-10*nav_scale)+'px; left: 0; z-index: -1;'" v-show="!titles_visible">
         <polygon :points="'0,0, '+ (underline_length*nav_scale) +',0, '+(underline_length*nav_scale-10)+','+(14*nav_scale)+', 0,'+(14*nav_scale)+''" fill="#820a0a"/>
@@ -53,6 +57,34 @@
     user-select: none;
   }
 
+  a {
+    position: absolute;
+    bottom: 13px;
+    right: 0px;
+    padding-right: 10px;
+    font-weight: 200;
+    font-size: 17px;
+    letter-spacing: 4px;
+    transition: opacity 0.7s ease-out 0s;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: Raleway, Helvetica, sans-serif;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    @media (max-width: 1024px) and (orientation: portrait) {
+      bottom: -100px;
+      font-size: 36px;
+      background-color: #001c36;
+      width: 100vw;
+      text-align: right;
+      padding-top: 40px;
+      padding-bottom: 20px;
+      z-index: -1;
+    }
+  }
+
   .arrow-enter-active {
     transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2s;
   }
@@ -64,6 +96,13 @@
   }
   .arrow-leave-to {
     opacity: 0;
+  }
+
+  .fade-in-enter {
+    opacity: 0;
+  }
+  .fade-in-active {
+    transition: 500ms opacity ease-out;
   }
 </style>
 
@@ -81,6 +120,7 @@
     intro_transitioning: boolean = false;
     titles_visible: boolean = false;
     close_visible: boolean = false;
+    show_links: boolean = false;
     underline_length: number = 0;
     delay_underline: boolean = false;
     window_height = window.innerHeight;
@@ -134,6 +174,8 @@
         step: state => {
           this.underline_length = state.x;
         }
+      }).then( () => {
+        this.show_links = true;
       });
     }
 
