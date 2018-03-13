@@ -17,7 +17,7 @@
     </transition>
 
     <transition name="fade-in" appear>
-      <a v-show="show_links" href="/miniblog">Code Sample»</a>
+      <a v-show="show_links" href="/miniblog">Code Sample »</a>
     </transition>
 
     <transition v-on:enter="underline_enter" appear>
@@ -61,7 +61,7 @@
     position: absolute;
     bottom: 13px;
     right: 0px;
-    padding-right: 10px;
+    padding-right: 20px;
     font-weight: 200;
     font-size: 17px;
     letter-spacing: 4px;
