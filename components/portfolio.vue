@@ -23,11 +23,11 @@
     width: 100vw;
     overflow-x: hidden;
     background-color: rgb(250, 250, 255);
-    margin-top: 10px;
+    margin-top: 20px;
     overflow-y: visible;
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      margin-top: 15px;
+      margin-top: 35px;
     }
   }
 

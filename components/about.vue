@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <transition enter-to-class="scale-appear-to" enter-active-class="scale-appear-active">
+    <transition name="scale">
       <h1>Do you want a <strong>distinctive</strong> website built on a <em>robust</em> foundation?</h1>
     </transition>
     <h1>Do you want <em>stylish visuals</em> that engage your users and support their needs?</h1>
@@ -111,13 +111,13 @@
     }
   }
 
-  .scale-appear-active {
+  .scale-active {
     transition: 300ms transform ease-in;
   }
-  .scale-appear-active {
+  .scale-enter {
     transform: scaleY(0);
   }
-  .scale-appear-to {
+  .scale-to {
     transform: scaleY(1);
   }
 </style>
@@ -132,8 +132,10 @@
     created(): void {
       window.addEventListener("scroll", () => {
         let bottom = this.$el.getBoundingClientRect().bottom;
-        if (bottom < 50) {
-          this.$emit("input", bottom - 50 + window.scrollY);
+        let header_buffer = window.matchMedia("(max-width: 1024px) and (orientation: portrait)").matches ? 190 : 50;
+
+        if (bottom < header_buffer) {
+          this.$emit("input", bottom - header_buffer + window.scrollY);
         } else {
           this.$emit("input", 0);
         }
