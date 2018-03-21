@@ -30,7 +30,7 @@
 
 <style lang="less" scoped>
   nav {
-    background-color: #001b36;
+    background-color: #001f3d;
     color: white;
     display: flex;
     flex-direction: column;
@@ -59,18 +59,20 @@
 
   a {
     position: absolute;
-    bottom: 13px;
-    right: 0px;
-    padding-right: 20px;
+    bottom: 0;
+    right: 20px;
+    line-height: 50px;
+    padding: 0 20px;
     font-weight: 200;
     font-size: 17px;
     letter-spacing: 4px;
-    transition: opacity 0.7s ease-out 0s;
-    color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.4s ease-out;
+    color: rgba(255, 255, 255, 0.9);
     font-family: Raleway, Helvetica, sans-serif;
 
     &:hover {
-      color: rgba(255, 255, 255, 1);
+      background-color: rgba(100, 255, 255, 0.15);
+      color: white;
     }
 
     @media (max-width: 1024px) and (orientation: portrait) {
