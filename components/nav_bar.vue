@@ -17,7 +17,7 @@
     </transition>
 
     <transition name="fade-in" appear>
-      <a v-show="show_links" href="/miniblog">Code Sample »</a>
+      <NavLinks v-show="show_links"></NavLinks>
     </transition>
 
     <transition v-on:enter="underline_enter" appear>
@@ -57,36 +57,6 @@
     user-select: none;
   }
 
-  a {
-    position: absolute;
-    bottom: 0;
-    right: 20px;
-    line-height: 50px;
-    padding: 0 20px;
-    font-weight: 200;
-    font-size: 17px;
-    letter-spacing: 4px;
-    transition: background-color 0.4s ease-out;
-    color: rgba(255, 255, 255, 0.9);
-    font-family: Raleway, Helvetica, sans-serif;
-
-    &:hover {
-      background-color: rgba(100, 255, 255, 0.15);
-      color: white;
-    }
-
-    @media (max-width: 1024px) and (orientation: portrait) {
-      bottom: -100px;
-      font-size: 36px;
-      background-color: #001c36;
-      width: 100vw;
-      text-align: right;
-      padding-top: 40px;
-      padding-bottom: 20px;
-      z-index: -1;
-    }
-  }
-
   .arrow-enter-active {
     transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2s;
   }
@@ -103,7 +73,7 @@
   .fade-in-enter {
     opacity: 0;
   }
-  .fade-in-active {
+  .fade-in-enter-active {
     transition: 500ms opacity ease-out;
   }
 </style>
@@ -113,10 +83,11 @@
   import { Component, Prop, Vue, Watch } from "vue-property-decorator";
   import Titles from "./titles.vue";
   import Continue from "./continue.vue";
+  import NavLinks from "./nav_links.vue";
   import { tween } from "shifty";
 
   @Component({
-    components: { Titles, Continue }
+    components: { Titles, Continue, NavLinks }
   })
   export default class NavBar extends Vue {
     intro_transitioning: boolean = false;
@@ -128,8 +99,8 @@
     window_height = window.innerHeight;
     window_width = window.innerWidth;
 
-    @Prop() uncollapsed!: boolean;
-    @Prop() position!: number;
+    @Prop() uncollapsed! : boolean;
+    @Prop() position! : number;
 
     created(): void {
       this.titles_visible = this.uncollapsed;
