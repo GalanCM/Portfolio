@@ -1,9 +1,9 @@
 <template>
-  <a href="/miniblog">Code Sample »</a>
+  <a class='header-link' href="/miniblog">{{ !is_portrait ? "Code Sample »" : "☰"}}</a>
 </template>
 
 <style lang="less" scoped>
-  a {
+  .header-link {
     position: absolute;
     bottom: 0;
     right: 20px;
@@ -22,20 +22,20 @@
     }
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      bottom: -100px;
-      font-size: 36px;
-      background-color: #001c36;
-      width: 100vw;
-      text-align: right;
-      padding-top: 40px;
-      padding-bottom: 20px;
-      z-index: -1;
+      line-height: 100px;
+      font-size: 60px;
+      right: 0;
     }
   }
 </style>
 
-<script>
+<script lang="ts">
   import { Vue } from "vue-property-decorator";
 
-  export default class NavLinks extends Vue {}
+  export default class NavLinks extends Vue {
+    is_portrait = this.get_mode();
+
+    get_mode(): boolean {
+      return matchMedia("(max-width: 1024px) and (orientation: portrait)").matches;
+  }
 </script>

@@ -18,7 +18,7 @@
     padding: 50px 100px;
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      margin-top: 199px;
+      margin-top: 100px;
       padding: 50px 50px;
     }
   }
