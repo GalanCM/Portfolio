@@ -21,7 +21,7 @@
     </transition>
 
     <transition v-on:enter="underline_enter" appear>
-      <svg class="underline" :height="12*nav_scale" :width="(underline_length*nav_scale)+'px'" :style=" 'position: absolute; bottom: '+(-10*nav_scale)+'px; left: 0; z-index: -1;'" v-show="!titles_visible">
+      <svg class="underline" :height="12*nav_scale" :width="(underline_length*nav_scale)+'px'" :style=" 'position: absolute; bottom: '+(-10*nav_scale)+'px; left: 0; z-index: 0;'" v-show="!titles_visible">
         <polygon :points="'0,0, '+ (underline_length*nav_scale) +',0, '+(underline_length*nav_scale-10)+','+(14*nav_scale)+', 0,'+(14*nav_scale)+''" fill="#820a0a"/>
       </svg>
     </transition>
