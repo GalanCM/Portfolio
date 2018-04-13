@@ -8,15 +8,6 @@
 
     <div class="details" :style="{ 'padding-left': padding.left + 'px', 'padding-right': padding.right + 'px', 'border-color': 'rgba(34,34,34,' +opacity+ ')'  }">
       <div>
-        <h2>
-          <span v-if=" info.url !== null ">
-            <a :href="info.url">{{ info.title }} <span class="chevron">»</span></a>
-          </span>
-          <span v-else>
-            {{ info.title }}
-          </span>
-        </h2>
-
         <div v-if=" is_mobile && ( has_image === true ) " class="img-wrapper" :style="{ 'background': info.color, 'opacity': opacity }">
           <div class="img-inner-wrapper">
             <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'border-color': info.color } ">
@@ -24,19 +15,11 @@
           </div>
         </div>
 
-        <div class="detail-chunk" v-html=" info.main "></div>
-
-        <div class="tech" v-if=" info.tech !== null ">
-          <strong>&mdash; The Tech &mdash;</strong>
+        <div class="detail-chunk">
+          <h2>{{ info.title }}</h2>
+          <p>{{ info.tagline }}</p>
+          <a v-if=" info.url !== null " class="button primary" :href=" info.url ">Visit Site</a>
         </div>
-
-        <div class="detail-chunk" v-html=" info.tech "></div>
-
-        <ul v-if=" info.frontend !== null || info.backend !== null">
-          <em>As for the rest of the stack…</em>
-          <li><strong>Front-end:</strong> {{ info.frontend }}</li>
-          <li v-if=" info.backend !== null "><strong>Back-end:</strong> {{ info.backend }}</li>
-        </ul>
       </div>
     </div>
 
@@ -52,6 +35,7 @@
 <style lang="less" scoped>
   .wrapper {
     width: 100%;
+    min-height: 200px;
     display: flex;
 
     &:last-child {
@@ -118,6 +102,7 @@
     border-right: 4px solid;
     border-color: rgba(34, 34, 34, 0.1);
     transition: 0.75s border-color ease-out;
+    font-size: 18px;
 
     @media (max-width: 1024px) {
       border-left: none;
@@ -131,12 +116,16 @@
         padding: 10px 0 15px 0;
       }
     }
+
+    a.button {
+      float: right;
+    }
   }
   h2 {
     display: inline-block;
-    margin: 0 auto 20px;
+    margin: 0 auto 10px;
     font-size: 2rem;
-    font-weight: 300;
+    font-weight: 600;
     width: 100%;
 
     > span {

@@ -29,6 +29,10 @@
       background-color: rgba(100, 255, 255, 0.15);
       color: white;
     }
+    &:focus {
+      outline: 1px dotted white;
+      text-decoration: underline rgba(255, 255, 255, 0.3);
+    }
 
     @media (max-width: 1024px) and (orientation: portrait) {
       line-height: 100px;

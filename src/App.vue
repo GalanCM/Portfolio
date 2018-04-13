@@ -42,4 +42,23 @@
       font-size: 25px;
     }
   }
+
+  button,
+  a.button {
+    padding: 10px 10px 8px;
+    border: none;
+    background-color: transparent;
+    color: #004a8f;
+    font-weight: 600;
+
+    &:focus {
+      outline: 1px dotted black;
+      text-decoration: underline rgba(255, 255, 255, 0.6);
+    }
+
+    &.primary {
+      color: white;
+      background-color: #004a8f;
+    }
+  }
 </style>
