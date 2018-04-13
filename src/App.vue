@@ -1,11 +1,6 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Index</router-link> |
-      <router-link to="/abnpmout">About</router-link> 
-    </div> -->
     <router-view/>
-    <!-- <img src="./assets/logo.png"> -->
   </div>
 </template>
 
