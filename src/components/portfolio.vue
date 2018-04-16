@@ -27,7 +27,7 @@
     overflow-y: visible;
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      margin-top: 35px;
+      margin-top: 25px;
     }
   }
 
@@ -48,7 +48,7 @@
       transform: translateY(-30px) scale(0.8);
     }
     @media (max-width: 1024px) and (orientation: portrait) {
-      transform: translateY(-40px) scale(0.8);
+      transform: translateY(-60px) scale(0.4);
     }
   }
 
@@ -176,6 +176,17 @@
     }
     &:first-child {
       margin-top: -50px;
+    }
+
+    @media (max-width: 1024px) and (orientation: portrait) {
+      margin: 0 0 40px;
+
+      &:last-child {
+        margin-bottom: 50px;
+      }
+      &:first-child {
+        margin-top: -60px;
+      }
     }
   }
 </style>

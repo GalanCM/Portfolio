@@ -6,7 +6,7 @@
     <h1>Do you want <em>stylish visuals</em> that engage your users and support their needs?</h1>
     <h1>Do you want <strong>UX principles</strong> to guide both your <em>product design</em> and your <em>code</em>?</h1>
     <h2>My name is <span class="name">Galan Montgomery</span>. <em>I engineer websites</em> with a focus on usability.</h2>
-    <h2>And <strong>I could join your team.</strong></h2>
+    <h2>And <strong>I could work with you.</strong></h2>
   </div>
 </template>
 
@@ -15,11 +15,11 @@
     margin-top: 50px;
     background-color: #000a14;
     max-width: 100%;
-    padding: 50px 100px;
+    padding: 50px 80px;
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      margin-top: 100px;
-      padding: 50px 50px;
+      margin-top: 50px;
+      padding: 35px 35px;
     }
   }
 
@@ -31,20 +31,20 @@
     transform-origin: top center;
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      font-size: 40px;
+      font-size: 18px;
     }
   }
   h1:nth-of-type(2) {
     text-align: right;
   }
   h1:not(:first-of-type) {
-    margin-top: 50px;
+    margin-top: 40px;
   }
   h1:first-of-type {
     margin-top: 0;
   }
   h1:not(:last-of-type) {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   h1:last-of-type {
     margin-bottom: 0;
@@ -55,7 +55,7 @@
     font-size: 24px;
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      font-size: 44px;
+      font-size: 20px;
     }
   }
   h1 strong {
@@ -65,7 +65,7 @@
     color: rgba(255, 255, 255, 1);
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      font-size: 50px;
+      font-size: 23px;
     }
   }
 
@@ -79,11 +79,15 @@
     color: rgba(255, 255, 255, 0.55);
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      font-size: 56px;
+      font-size: 25px;
     }
   }
   h2:first-of-type {
-    margin-top: 70px;
+    margin: 50px 0;
+
+    @media (max-width: 1024px) and (orientation: portrait) {
+      font-size: 25px;
+    }
   }
   h2 em {
     font-style: normal;
@@ -98,7 +102,7 @@
     white-space: nowrap;
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      font-size: 72px;
+      font-size: 34px;
     }
   }
   h2 strong {
@@ -107,7 +111,7 @@
     color: rgba(255, 255, 255, 1);
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      font-size: 60px;
+      font-size: 28px;
     }
   }
 
@@ -132,7 +136,7 @@
     created(): void {
       window.addEventListener("scroll", () => {
         let bottom = this.$el.getBoundingClientRect().bottom;
-        let header_buffer = window.matchMedia("(max-width: 1024px) and (orientation: portrait)").matches ? 190 : 50;
+        let header_buffer = window.matchMedia("(max-width: 1024px) and (orientation: portrait)").matches ? 95 : 50;
 
         if (bottom < header_buffer) {
           this.$emit("input", bottom - header_buffer + window.scrollY);

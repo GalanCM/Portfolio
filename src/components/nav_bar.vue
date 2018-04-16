@@ -1,19 +1,19 @@
 <template>
-  <nav :style="{ transform:  uncollapsed ? '' : 'translateY( -100vh ) translateY('+ 50*nav_scale +'px) ',  transition: intro_transitioning ? '1s transform 1s' : '', top: position+'px', 'position': position <= 0 ? 'fixed' : 'absolute' }">
+  <nav :style="{ transform:  uncollapsed ? '' : 'translateY( -100vh ) translateY('+ 50 +'px) ',  transition: intro_transitioning ? '1s transform 1s' : '', top: position+'px', 'position': position <= 0 ? 'fixed' : 'absolute' }">
     <h1 class="name" :style=" {
       transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
-      bottom: uncollapsed ? 'calc(50vh + 5px)' : (-9*nav_scale)+'px',
+      bottom: uncollapsed ? 'calc(50vh + 5px)' : (-9)+'px',
       left: uncollapsed ? '5vw' : '0',
       'will-change': uncollapsed ? 'left, top' : '',
     } ">
-      <object :data=" require( '../assets/header.svg') " type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: 0, bottom: 0, 'z-index': 1 }"></object>
-      <object :data=" require( '../assets/header.svg') " type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: uncollapsed ? 'scale(' + scale_factor + ')' : 'scale('+ (0.27*nav_scale) +')', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
+      <object :data=" require( '../assets/header.svg') " type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: 'scale(' + scale_factor + ')', position: 'absolute', left: 0, bottom: 0, 'z-index': 1 }"></object>
+      <object :data=" require( '../assets/header.svg') " type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: 'scale(' + scale_factor + ')', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
     </h1>
 
     <titles :show="titles_visible" @close_intro=" close_intro " @intro_complete="show_close"></titles>
 
     <transition name="arrow" appear>
-      <continue :style=" 'transform: scale('+scale_factor*nav_scale*1.5+'); transform-origin: bottom left;'" v-if="close_visible"></continue>
+      <continue :style=" 'transform: scale('+scale_factor*1.5+'); transform-origin: bottom left;'" v-if="close_visible"></continue>
     </transition>
 
     <transition name="fade-in" appear>
@@ -22,8 +22,8 @@
 
     
     <transition v-on:enter="underline_enter" appear>
-      <svg class="underline" :height="12*nav_scale" :width="(underline_length*nav_scale)+'px'" :style=" 'position: absolute; bottom: '+(-10*nav_scale)+'px; left: 0; z-index: 0;'" v-show="!titles_visible">
-        <polygon :points="'0,0, '+ (underline_length*nav_scale) +',0, '+(underline_length*nav_scale-10)+','+(14*nav_scale)+', 0,'+(14*nav_scale)+''" fill="#820a0a"/>
+      <svg class="underline" :height="12" :width="(underline_length)+'px'" :style=" 'position: absolute; bottom: '+(-10)+'px; left: 0; z-index: 0;'" v-show="!titles_visible">
+        <polygon :points="'0,0, '+ (underline_length) +',0, '+(underline_length-10)+','+(14)+', 0,'+(14)+''" fill="#820a0a"/>
       </svg>
     </transition>
   </nav>
@@ -163,25 +163,7 @@
     }
 
     get scale_factor(): number {
-      if (this.window_width > this.window_height) {
-        return (this.window_width + 100) * 0.6 / 1575;
-      } else {
-        return (this.window_width + 100) * 0.7 / 1575;
-      }
-    }
-    get nav_scale(): number {
-      if (this.window_width < this.window_height) {
-        return 2;
-      } else {
-        return 1;
-      }
-    }
-    get center_gap(): number {
-      if (this.window_width > this.window_height) {
-        return this.window_height * 0.1;
-      } else {
-        return this.window_height * 0.05;
-      }
+      return (this.window_width + 100) * 0.6 / 1575;
     }
   }
 </script>

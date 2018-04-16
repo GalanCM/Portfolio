@@ -8,11 +8,13 @@
 
     <div class="details" :style="{ 'padding-left': padding.left + 'px', 'padding-right': padding.right + 'px', 'border-color': 'rgba(34,34,34,' +opacity+ ')'  }">
       <div>
-        <div v-if=" is_mobile && ( has_image === true ) " class="img-wrapper" :style="{ 'background': info.color, 'opacity': opacity }">
+        <div v-if=" is_mobile && ( has_image === true )" class="img-wrapper" :style="{ 'background': info.color, 'opacity': opacity }">
           <div class="img-inner-wrapper">
             <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'border-color': info.color } ">
             <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color } "></iframe>
           </div>
+        </div>
+        <div v-else :style="{ 'min-height': '50px', 'background-color': info.color }">
         </div>
 
         <div class="detail-chunk">
@@ -44,6 +46,7 @@
 
     @media (max-width: 1024px) {
       flex-direction: column;
+      min-height: 100px;
     }
   }
   .color-bar {
@@ -63,11 +66,12 @@
     }
 
     @media (max-width: 1024px) {
-      margin-bottom: 50px;
+      margin-bottom: 20px;
     }
   }
   img,
-  iframe {
+  iframe,
+  img {
     width: 35vw;
     margin-top: auto;
     margin-bottom: auto;
@@ -141,9 +145,8 @@
     @media (max-width: 1024px) {
       margin: 0 0 15px;
       text-align: left;
-      padding: 0 50px;
       width: auto;
-      font-size: 1.7rem;
+      font-size: 34px;
     }
 
     .chevron {
@@ -155,6 +158,10 @@
   .detail-chunk {
     padding: 0 60px;
     margin: 5px 0;
+
+    @media (max-width: 1024px) {
+      padding: 0 40px;
+    }
   }
   .tech {
     text-align: center;

@@ -35,8 +35,9 @@
     }
 
     @media (max-width: 1024px) and (orientation: portrait) {
-      line-height: 100px;
-      font-size: 60px;
+      line-height: 50px;
+      padding: 0 10px 0 15px;
+      font-size: 25px;
       right: 0;
     }
   }
@@ -47,16 +48,17 @@
     background-color: #001f3d;
     width: 100vw;
     z-index: -1;
-    padding-top: 34px;
+    padding-top: 22px;
     transform: translateY(-20px);
   }
 
   .drawer-item {
     display: inline-block;
-    width: ~"calc(100% - 30px)";
+    width: ~"calc(100% - 20px)";
     text-align: right;
     font-family: Raleway, Helvetica, sans-serif;
-    line-height: 80px;
+    line-height: 40px;
+    font-size: 20px;
     color: white;
   }
 
