@@ -216,6 +216,7 @@
       {
         color: "#001f3d",
         url: null,
+        case_study_url: '/portfolio',
         image: null,
         video: null,
         title: "This Site",
@@ -224,6 +225,7 @@
       {
         color: "#994d00",
         url: [ 'Visit Site', "https://www.isoteric-games.com" ],
+        case_study_url: null,
         image: "isoteric-games.png",
         video: null,
         title: "Isoteric Games",
@@ -232,6 +234,7 @@
       {
         color: "#0000c1",
         url: ['Play Game', "https://isoteric-games.itch.io/timebomb-web" ],
+        case_study_url: null,
         image: null,
         video: "xRblNIzu3BA",
         title: "Timebomb",
@@ -240,6 +243,7 @@
       {
         color: "#fd9001",
         url: [ 'Visit Site', "https://www.childfund.org/thereturn/" ],
+        case_study_url: null,
         image: "there-turn.png",
         video: null,
         title: "Childfund VR",
@@ -248,6 +252,7 @@
       {
         color: "rgb(115, 168, 57)",
         url: null,
+        case_study_url: null,
         image: "getloaded-mobile.png",
         video: null,
         title: "Getloaded Mobile 2.0",
