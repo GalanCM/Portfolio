@@ -14,13 +14,13 @@
             <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color } "></iframe>
           </div>
         </div>
-        <div v-else :style="{ 'min-height': '50px', 'background-color': info.color }">
+        <div v-else-if=" is_mobile " :style="{ 'min-height': '50px', 'background-color': info.color }">
         </div>
 
         <div class="detail-chunk">
           <h2>{{ info.title }}</h2>
           <p>{{ info.tagline }}</p>
-          <a v-if=" info.url !== null " class="button primary" :href=" info.url ">Visit Site</a>
+          <a v-if=" info.url !== null " class="button primary" :href=" info.url[1] ">{{ info.url[0] }}</a>
         </div>
       </div>
     </div>

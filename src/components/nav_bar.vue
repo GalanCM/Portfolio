@@ -141,7 +141,7 @@
     underline_enter(): void {
       tween({
         from: { x: 0 },
-        to: { x: 430 },
+        to: { x: 1600 * this.scale_factor },
         duration: 750,
         easing: "easeInOutQuad",
         delay: this.delay_underline ? 3250 : 750,
@@ -163,7 +163,12 @@
     }
 
     get scale_factor(): number {
-      return (this.window_width + 100) * 0.6 / 1575;
+      if  (window.matchMedia("(max-width: 1024px) and (orientation: portrait)").matches) {
+          return 0.22
+      }
+      else {
+        return 0.3
+      }
     }
   }
 </script>

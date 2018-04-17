@@ -60,5 +60,9 @@
       color: white;
       background-color: #004a8f;
     }
+
+    @media (max-width: 1024px) and (orientation: portrait) {
+      font-size: 16px;
+    }
   }
 </style>

@@ -223,7 +223,7 @@
       },
       {
         color: "#994d00",
-        url: "https://www.isoteric-games.com",
+        url: [ 'Visit Site', "https://www.isoteric-games.com" ],
         image: "isoteric-games.png",
         video: null,
         title: "Isoteric Games",
@@ -231,7 +231,7 @@
       },
       {
         color: "#0000c1",
-        url: "https://www.isoteric-games.com/#timebomb",
+        url: ['Play Game', "https://isoteric-games.itch.io/timebomb-web" ],
         image: null,
         video: "xRblNIzu3BA",
         title: "Timebomb",
@@ -239,7 +239,7 @@
       },
       {
         color: "#fd9001",
-        url: "https://www.childfund.org/thereturn/",
+        url: [ 'Visit Site', "https://www.childfund.org/thereturn/" ],
         image: "there-turn.png",
         video: null,
         title: "Childfund VR",
