@@ -15,7 +15,7 @@ export default new Router({
       meta: { title: "Portfolio" }
     },
     {
-      path: "/caseStudy/portfolio",
+      path: "/case_studies/portfolio",
       name: "portfolio_study",
       component: PortfolioStudy,
       meta: { title: "Case Study – My Portfolio" }

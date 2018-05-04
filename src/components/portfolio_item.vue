@@ -21,6 +21,7 @@
           <h2>{{ info.title }}</h2>
           <p>{{ info.tagline }}</p>
           <a v-if=" info.url !== null " class="button primary" :href=" info.url[1] ">{{ info.url[0] }}</a>
+          <a v-if=" info.case_study_url !== null " class="button" :href=" info.case_study_url ">Case Study</a>
         </div>
       </div>
     </div>

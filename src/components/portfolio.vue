@@ -216,7 +216,7 @@
       {
         color: "#001f3d",
         url: null,
-        case_study_url: '/portfolio',
+        case_study_url: '/case_studies/portfolio',
         image: null,
         video: null,
         title: "This Site",
