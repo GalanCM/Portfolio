@@ -5,7 +5,7 @@ import router from "./router";
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
-  document.title = "Galan Montogmery | " + to.meta.title;
+  document.title = "Galan Montgomery | " + to.meta.title;
 
   next();
 });

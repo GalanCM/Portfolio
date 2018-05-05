@@ -28,17 +28,13 @@
     </div>
 
     <section class="main" v-show=" section === null ">
-      <h1 class="decision"><strong>Which lens</strong> do you want to study <em>{{studyName}}</em> through?</h1>
+      <h1 class="decision"><strong>Which aspect</strong> of <em>{{studyName}}</em> would you like to learn about?</h1>
     </section>
 
     <transition name="fade">
       <section class="main full" v-show=" section !== null ">
-        <section v-show=" section === 'tech' ">
-          <slot name="tech-case"></slot>
-        </section>
-        <section v-show=" section === 'design' ">
-          <slot name="design-case"></slot>
-        </section>
+        <slot name="tech-case" v-if=" section === 'tech' "></slot>
+        <slot name="design-case"  v-if=" section === 'design' "></slot>
       </section>
     </transition>
   </div>
@@ -62,23 +58,31 @@
   padding: 15px 30px;
   margin: 30px auto 30px 30px;
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
+  max-width: calc(~"100vw - 120px");
 }
 
 .subheader {
   margin: 0;
   line-height: 100%;
   color: #820a0a;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 1024px) and (orientation: portrait) {
     font-size: 30px;
+    text-align: right;
   }
 }
 
 .header {
   font-size: 50px;
-  margin: 0;
+  margin: 0 0 0 -5px;
   line-height: 100%;
   color: #f2f2f2;
+
+  @media (max-width: 1024px) and (orientation: portrait) {
+    margin: -5px 0 0 0;
+  }
 }
 
 .header,
@@ -92,7 +96,8 @@
 
 .tab-wrapper {
   display: flex;
-  margin: 0 0 0 -30px;
+  margin: 0;
+  user-select: none;
 
   .section-tab {
     font-size: 30px;
@@ -101,15 +106,19 @@
     padding: 12px 30px 5px;
     position: absolute;
     transition: 500ms transform ease-out;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 22px;
+    }
   }
 
   .section-tab:first-child {
-    transform: translateX(calc(~"50vw - 100%"));
+    transform: translateX(calc(~"(50vw - 100%) - 15px"));
     border-right: 2px solid black;
     padding-right: 20px;
 
     &.solo {
-      transform: translateX(30px);
+      transform: translateX(0);
       border-right: 4px solid black;
 
       .close-icon {
@@ -124,13 +133,13 @@
   }
 
   .section-tab:last-child {
-    transform: translateX(50vw);
+    transform: translateX(calc(~"50vw - 15px"));
     border-left: 2px solid black;
     padding-left: 20px;
 
     &.solo {
       border-left: 4px solid black;
-      transform: translateX(calc(~"100vw - 100% + 30px"));
+      transform: translateX(calc(~"100vw - 100%"));
     }
 
     .close-icon {
@@ -154,6 +163,12 @@
   }
 }
 
+.study-wrapper {
+  @media screen and (max-width: 1024px) {
+    font-size: 40%;
+  }
+}
+
 .main {
   margin-top: 15px;
   padding-top: 50px;
@@ -164,6 +179,7 @@
 .main.full {
   border-top: 2px solid black;
   flex-grow: 1;
+  display: flex;
 }
 
 .decision {
@@ -171,6 +187,11 @@
   text-align: center;
   font-weight: 400;
   color: #777;
+  padding: 20px;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 36px;
+  }
 
   strong {
     color: #333;
@@ -199,6 +220,124 @@
   clip-path: polygon(0 0, 100% 0, 100% 2px, 0 2px);
 }
 </style>
+
+<style lang="less">
+.study-wrapper .main.full {
+  .case {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .mission {
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 1.7;
+      color: #346;
+      margin: 30px calc(~"(100vw - 1064px) / 2") 50px
+        calc(~"(100vw - 1064px) / 2");
+      font-family: Lato, "sans-serif";
+      border-left: 4px solid #3467;
+      border-right: 4px solid #3467;
+      padding: 0 20px;
+      text-align: justify;
+
+      @media screen and (max-width: 1024px) {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+      em {
+        font-weight: 200;
+      }
+    }
+
+    .question {
+      display: flex;
+
+      @media screen and (max-width: 1024px) {
+        flex-direction: column;
+        margin: 0 !important;
+      }
+
+      .header-short {
+        margin: 0;
+        color: #346;
+      }
+      .header-long {
+        margin: -5px 0 0;
+        font-family: Lato, "sans-serif";
+        font-size: 20px;
+        font-weight: 300;
+        color: #661;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .image {
+        height: 200px;
+        width: auto;
+        margin: auto 0;
+
+        @media screen and (max-width: 1024px) {
+          clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
+          mask-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1) 80%,
+            rgba(0, 0, 0, 0.7) 100%
+          );
+          margin-bottom: -100px;
+        }
+      }
+      .text {
+        @media screen and (max-width: 1024px) {
+          margin: 20px 50px 50px;
+        }
+      }
+
+      &:nth-child(2n) {
+        margin: 25px 0 25px calc(~"(100vw - 1024px) / 2");
+
+        @media screen and (max-width: 1024px) {
+          margin: 25px 0 25px 25px;
+        }
+
+        .image {
+          @media screen and (max-width: 1024px) {
+            order: -1;
+          }
+        }
+        .text {
+          margin-right: 50px;
+
+          @media screen and (max-width: 1024px) {
+            margin-right: 50px;
+          }
+        }
+      }
+      &:nth-child(2n-1) {
+        margin: 25px calc(~"(100vw - 1024px) / 2") 25px 0;
+
+        @media screen and (max-width: 1024px) {
+          margin: 25px 25px 25px 0;
+        }
+
+        .image {
+          order: -1;
+        }
+        .text {
+          margin-left: 50px;
+
+          @media screen and (max-width: 1024px) {
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
+
 
 <script lang="ts">
 import { Vue, Prop, Component } from "vue-property-decorator";
