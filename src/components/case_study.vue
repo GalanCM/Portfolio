@@ -103,7 +103,7 @@
     font-size: 30px;
     background-color: #fafaff;
     z-index: 1;
-    padding: 12px 30px 5px;
+    padding: 9px 30px 5px;
     position: absolute;
     transition: 500ms transform ease-out;
 
@@ -150,12 +150,21 @@
   .close-icon {
     font-weight: 200;
     background-color: #ddd;
-    padding: 0 4px;
+    margin-top: 5px;
+    padding: 0 4px 1px 5px;
     font-size: 24px;
+    line-height: 1;
     border-radius: 2px;
     position: relative;
     vertical-align: text-top;
     opacity: 0;
+    display: inline-block; // Webkit display glitch workaround
+
+    @media screen and (max-width: 1024px) {
+      margin-top: 1px;
+      padding-bottom: 2px;
+      font-size: 20px;
+    }
   }
   .solo .close-icon {
     opacity: 1;
@@ -175,6 +184,10 @@
   background-color: #fafaff;
   clip-path: polygon(0 0, 105% 0, 105% 105%, 0 105%);
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 40px;
+  }
 }
 .main.full {
   border-top: 2px solid black;
@@ -230,7 +243,7 @@
 
     .mission {
       font-weight: 700;
-      font-size: 26px;
+      font-size: 24px;
       line-height: 1.7;
       color: #346;
       margin: 30px calc(~"(100vw - 1064px) / 2") 50px
@@ -244,6 +257,9 @@
       @media screen and (max-width: 1024px) {
         margin-left: 30px;
         margin-right: 30px;
+        padding: 0;
+        border: none;
+        font-size: 22px;
       }
       em {
         font-weight: 200;
@@ -268,10 +284,18 @@
         font-size: 20px;
         font-weight: 300;
         color: #661;
+
+        @media screen and (max-width: 1024px) {
+          font-size: 18px;
+        }
       }
       p {
         font-size: 18px;
         line-height: 1.6;
+
+        @media screen and (max-width: 1024px) {
+          font-size: 16px;
+        }
       }
 
       .image {
