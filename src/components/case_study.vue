@@ -277,6 +277,7 @@
       .header-short {
         margin: 0;
         color: #346;
+        font-size: 32px;
       }
       .header-long {
         margin: -5px 0 0;
@@ -304,13 +305,15 @@
         margin: auto 0;
 
         @media screen and (max-width: 1024px) {
-          clip-path: polygon(0 0, 100% 0, 100% 100px, 0 100px);
+          height: 100px;
+          width: 100%;
+          object-fit: cover;
+          object-position: 0 0;
           mask-image: linear-gradient(
             to right,
             rgba(0, 0, 0, 1) 80%,
             rgba(0, 0, 0, 0.7) 100%
           );
-          margin-bottom: -100px;
         }
       }
       .text {
