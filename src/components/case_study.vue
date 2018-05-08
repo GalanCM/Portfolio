@@ -113,13 +113,12 @@
   }
 
   .section-tab:first-child {
-    transform: translateX(calc(~"(50vw - 100%) - 15px"));
-    border-right: 2px solid black;
+    transform: translateX(calc(~"(50vw - 100%) - 15px + 2px"));
+    border-right: 4px solid black;
     padding-right: 20px;
 
     &.solo {
       transform: translateX(0);
-      border-right: 4px solid black;
 
       .close-icon {
         opacity: 1;
@@ -133,12 +132,11 @@
   }
 
   .section-tab:last-child {
-    transform: translateX(calc(~"50vw - 15px"));
-    border-left: 2px solid black;
+    transform: translateX(calc(~"50vw - 15px - 2px"));
+    border-left: 4px solid black;
     padding-left: 20px;
 
     &.solo {
-      border-left: 4px solid black;
       transform: translateX(calc(~"100vw - 100%"));
     }
 
@@ -303,6 +301,7 @@
         height: 200px;
         width: auto;
         margin: auto 0;
+        box-shadow: 1px 1px 4px rgba(0, 0, 50, 0.25);
 
         @media screen and (max-width: 1024px) {
           height: 100px;
