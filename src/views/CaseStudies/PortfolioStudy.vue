@@ -89,16 +89,16 @@
       <section class="question">
         <div class="text">
           <h1 class="header-short">
-            Catching Your Attention
+            Catching Attention
           </h1>
           <h2 class="header-long">
-            I need to get your attention quickly, and the intro animation is meant to do just that.
+            I need to get a visitor's attention quickly, and the intro animation is meant to do just that.
           </h2>
           <p>
-            Normally I'd be against such a flashy intro. They tend to get in the way of users doing what they came to the site to do. But you came here to learn about me and my skills, and one of my skills that I'm most proud of is animation.
+            Normally I'm not a fan of flashy intros. They tend to get in the way of users doing what they came to the site to do. But you came here to learn about me and my skills, and UI animation is a skill that I'm quite proud of.
           </p>
           <p>
-            I do try to keep it snappy – something that I could still improve upon. And it only plays on the first visit: if you come back a second time, I assume you're looking for details and don't want your time wasted.
+            I do try to keep it snappy, and it only plays on the first visit: if a visitor comes back a second time, I don't want to waste their time.
           </p>
         </div>
         <img :src=" require('../../assets/study-portfolio/intro_animation.png') " class="image">
@@ -110,10 +110,13 @@
             Who am I?
           </h1>
           <h2 class="header-long">
-            Now that I have your attention, what is a UX Engineer?
+            What skills do I bring to the table.?
           </h2>
           <p>
-            I could have chosen to give you a wall of text about what I do. Instead I chose to give a quick overview of what I can do <em>for</em> you. I tried to keep my thoughts brief and engaging. A good jumping off point for an interview.
+            The first thing on my site, after the animation, is a brief overview of my skill. I've tried to keep this brief and to the point, highlighting the skills that I'm most proud of, and the kind of work that I want to do.
+          </p>
+          <p>
+            I certainly could have been more wordy here, but I figure that visitors to the main page are in a hurry and just want to get a quick feel for who I am. If I've promoted myself correctly, they can always dig further.
           </p>
         </div>
         <img :src=" require('../../assets/study-portfolio/overview.png') " class="image">
@@ -125,16 +128,16 @@
             Style
           </h1>
           <h2 class="header-long">
-            Finding a Brand for Myslef.
+            Finding a Brand for Myself.
           </h2>
           <p>
-            Figuring out a brand for myself has been a slow process. When I started builing this site, all I knew was that I wanted a professional, approachable look, and that it needed color.
+            Figuring out a brand for myself has been a slow process. When I started builing this site, all I knew was that I wanted a professional, approachable look, and that it needed some color.
           </p>
           <p>
-            Choosing fonts was easy. I knew that I wanted a fun, but sharp, header font – and <a href="https://fonts.google.com/specimen/Raleway">Raleway</a> fit the bill. I matched that with <a href="https://fonts.google.com/specimen/Lato">Lato</a> a great body font with similar letterforms.
+            Choosing fonts was easy. I knew that I wanted a fun, but sharp, header font – and <a href="https://fonts.google.com/specimen/Raleway">Raleway</a> fit the bill. I matched that with <a href="https://fonts.google.com/specimen/Lato">Lato</a>, a great body font with similar letterforms.
           </p>
           <p>
-            How to work in color was a bit more complicated. After iterating over the design a few times, I came to the current <a href="https://www.google.com/search?q=mondrian&source=lnms&tbm=isch&sa=X&ved=0ahUKEwil993-tvbaAhXBUt8KHUZlA7MQ_AUICigB">Mondrian</a>-inspired design, with colors borrowed from each project in the portfolio. The result is intended to feel very retro-modern.
+            How to work in color was a bit more complicated. After iterating over the design a few times, I came to the current <a href="https://www.google.com/search?q=mondrian&source=lnms&tbm=isch&sa=X&ved=0ahUKEwil993-tvbaAhXBUt8KHUZlA7MQ_AUICigB">Mondrian</a>-inspired design, with colors borrowed from each project in the portfolio. The result is intended to be a contemporary take on mid-century modern designs.
           </p>
         </div>
         <img :src=" require('../../assets/study-portfolio/mondrian.png') " class="image">
@@ -149,13 +152,9 @@
             Improvements to Readablility.
           </h2>
           <p>
-            In the previous iteration of this site, I described each site in detail on the main page. This was not a great design.
-          </p>
+            In the previous iteration of this site, I described each site in detail on the main page, but I've since realized that users first coming to the site probably aren't interested in learning about my work in so much detail. They are curious as to who I am, and those paragraphs quickly become walls of text.
           <p>
-            Users first coming to the site probably aren't interested in learning about my work in so much detail. They are curious as to who I am, and those paragraphs quickly become walls of text.
-          </p>
-          <p>
-            Conversely, for people who <em>are</em> interested in those details, it's too short. There was no room on the main page to meaningfully go into process or skills.
+            Conversely, for people who <em>are</em> interested in those details, it's too short. There was no room on the main page to meaningfully go into my process or skills.
           </p>
           <p>
             These case studies where the solution. The main page now has a brief sentence about why each project is in my portfolio, and the case studies now have room to breathe.
