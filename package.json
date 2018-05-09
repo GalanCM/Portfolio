@@ -1,49 +1,45 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
-  "description": "Galan Montgomery's portfolio site",
+  "version": "2.0.0",
+  "private": true,
   "main": "index.js",
   "author": "Galan Montgomery",
   "license": "MIT",
   "scripts": {
-    "dev": "node_modules/.bin/webpack-dev-server --mode development",
-    "build": "node_modules/.bin/webpack --progress --mode production"
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.26.0",
-    "cross-env": "^5.1.4",
-    "css-loader": "^0.28.10",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-html": "^3.2.2",
-    "eslint-plugin-vue": "^2.1.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "file-loader": "^0.11.2",
-    "less": "^2.7.3",
-    "less-loader": "^4.1.0",
+    "css-loader": "^0.28.11",
+    "normalize.css": "^8.0.0",
     "shifty": "^2.3.1",
-    "stylelint": "^8.4.0",
-    "stylelint-config-standard": "^17.0.0",
-    "ts-loader": "^4.0.1",
-    "typescript": "^2.7.2",
-    "typescript-eslint-parser": "^14.0.0",
-    "url-loader": "^0.6.2",
-    "vue": "^2.5.15",
-    "vue-class-component": "^5.0.2",
-    "vue-loader": "^14.2.1",
+    "vue": "^2.5.13",
+    "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^6.0.0",
-    "vue-template-compiler": "^2.5.15",
-    "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.11",
-    "webpack-dev-server": "^3.1.1"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
-    "eslint": "^4.18.2"
-  }
+    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
+    "@vue/cli-plugin-typescript": "^3.0.0-beta.6",
+    "@vue/cli-service": "^3.0.0-beta.6",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

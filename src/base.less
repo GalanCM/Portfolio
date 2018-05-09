@@ -1,0 +1,60 @@
+body {
+  background-color: #aab;
+  color: rgb(12, 27, 42);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+h8,
+h9 {
+  font-family: Raleway, "sans-serif";
+}
+
+p {
+  font-family: Lato, "sans-serif";
+}
+
+a {
+  color: #006cd5;
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) and (orientation: portrait) {
+  html {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  html {
+    font-size: 25px;
+  }
+}
+
+button,
+a.button {
+  padding: 10px 10px 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.07);
+  color: #004a8f;
+  font-weight: 600;
+
+  &:focus {
+    outline: 1px dotted black;
+    text-decoration: underline rgba(255, 255, 255, 0.6);
+  }
+
+  &.primary {
+    color: white;
+    background-color: #004a8f;
+  }
+
+  @media (max-width: 1024px) and (orientation: portrait) {
+    font-size: 16px;
+  }
+}
