@@ -83,7 +83,7 @@
 
     <div slot='design-case' class="case">
       <p class="mission">
-        The goal of this site, first and foremost, is to sell myself. What skills do I bring to the table? What makes me stand out?
+        This site is for potential clients or employers to learn more about me. They are likely to be in a hurry, and will want to quickly vet my skills. If they like what they see, only then will they want to dig deeper.
       </p>
 
       <section class="question">
