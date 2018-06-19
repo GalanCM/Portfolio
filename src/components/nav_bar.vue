@@ -31,10 +31,9 @@
     display: flex;
     flex-direction: column;
     background-color: #001f3d;
-    z-index: 100;
+    z-index: 101;
 
     .name {
-      z-index: 1;
       left: 2%;
       width: 90vw;
       filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.6));
