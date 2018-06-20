@@ -1,29 +1,25 @@
 <template>
-  <div>
-    <nav>
+  <div class="nav-wrapper">
+    <nav class="nav" ref="nav">
+      <img class="name" src="../assets/header.svg" ref="name" />
     </nav>
-    <div class="intro">
-      <div class="top" ref="top">
-        <img class="name" src="../assets/header.svg" ref="name" />
-      </div>
-      <div class="line" ref="line"></div>
-      <div class="bottom" ref="bottom" v-if="hide_titles === false">
-        <div class="titles">
-          <div class="web">Web UX Engineer</div>
-          <div class="and">&</div>
-          <div class="game">Game Developer</div>
-        </div>
+    <div class="line" ref="line"></div>
+    <div class="bottom" ref="bottom" v-if="hide_titles === false">
+      <div class="titles">
+        <div class="web">Web UX Engineer</div>
+        <div class="and">&</div>
+        <div class="game">Game Developer</div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
-.intro {
+.nav-wrapper {
   height: 200vh;
   width: 100vw;
 
-  .top {
+  .nav {
     position: fixed;
     width: 100vw;
     height: 50vh;
@@ -113,12 +109,12 @@ export default Vue.extend({
     scrollHandler(event) {
       if (
         (this.$refs.bottom as Element).getBoundingClientRect().bottom <
-        (this.$refs.top as Element).getBoundingClientRect().bottom
+        (this.$refs.nav as Element).getBoundingClientRect().bottom
       ) {
         this.hide_titles = true;
         window.removeEventListener("scroll", this.scrollHandler);
 
-        (this.$refs.top as HTMLElement).style.transform =
+        (this.$refs.nav as HTMLElement).style.transform =
           "translateY( calc(-50vh + 50px) )";
         (this.$refs.line as HTMLElement).style.transform =
           "translateY( calc(-50vh + 50px) ) scaleY(0.5)";
