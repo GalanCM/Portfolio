@@ -1,14 +1,21 @@
 <template>
-  <div class="nav-wrapper">
-    <nav class="nav" ref="nav">
-      <img class="name" src="../assets/header.svg" ref="name" />
+  <div class="nav-wrapper" @click=" scrollComplete ">
+    <nav class="nav" ref="nav" 
+      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: absolute;' ">
+        <img class="name" src="../assets/header.svg" ref="name" 
+        :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "/>
     </nav>
-    <div class="line" ref="line"></div>
-    <div class="bottom" ref="bottom" v-if="hide_titles === false">
-      <div class="titles">
+    <div class="line" ref="line" 
+      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: absolute;' "></div>
+    <div class="bottom" ref="bottom" v-if="show_titles === true">
+      <div class="titles" ref="titles">
         <div class="web">Web UX Engineer</div>
         <div class="and">&</div>
         <div class="game">Game Developer</div>
+      </div>
+      <div class="chevron-wrapper">
+        <div class="chevron">⌄</div>
+        <div class="chevron">⌄</div>
       </div>
     </div>
   </div>
@@ -17,11 +24,11 @@
 <style lang="less" scoped>
 .nav-wrapper {
   height: 200vh;
-  width: 100vw;
+  width: 100%;
 
   .nav {
     position: fixed;
-    width: 100vw;
+    width: 100%;
     height: 50vh;
     min-height: fit-content;
     display: flex;
@@ -37,15 +44,15 @@
       width: 90vw;
       filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.6));
       margin-top: auto;
-      transform-origin: 0 88%;
+      transform-origin: 0 84%;
       transition: 1000ms transform ease-in-out;
     }
   }
   .line {
     position: fixed;
     top: 50vh;
-    width: 100vw;
-    height: 4vh;
+    width: 100%;
+    height: 1.5vw;
     background-color: #820a0a;
     z-index: 100;
     transform-origin: top;
@@ -53,20 +60,22 @@
   }
 
   .bottom {
-    height: 50vh;
-    padding-top: calc(50vh + 1.4vw);
+    height: calc(50vh - 3.4vw);
+    width: 100%;
+    padding-top: calc(50vh + 3.4vw);
     min-height: fit-content;
-    padding-bottom: 55px;
     background-color: #000a14;
+    display: flex;
+    flex-direction: column;
 
     .titles {
       position: relative;
       top: 5px;
       font-size: calc(50vw / 9);
       line-height: 1;
-      right: 2%;
+      right: 4%;
+      margin-left: auto;
       font-family: Raleway, Helvetica, sans-serif;
-      float: right;
 
       .web {
         font-weight: 200;
@@ -83,6 +92,29 @@
         color: rgba(225, 225, 255, 0.3);
       }
     }
+    .chevron-wrapper {
+      margin-top: auto;
+      color: white;
+      display: flex;
+      font-size: 70px;
+      line-height: 0.7;
+
+      .chevron {
+        margin: auto auto 5px;
+        transform: scaleX(1.5);
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+    }
+  }
+
+  // CSS Animations
+  @keyframes glow {
+    0% {
+      filter: none;
+    }
+    100% {
+      filter: drop-shadow(0px 0px 4px lightblue);
+    }
   }
 }
 </style>
@@ -90,39 +122,78 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { setTimeout } from "timers";
 
 export default Vue.extend({
   data() {
     return {
-      show_intro: true,
-      hide_titles: false
+      show_titles: true,
+
+      styles: {
+        navHeight: 50,
+        logoScale: 1
+      }
     };
   },
 
   mounted() {
-    if (this.show_intro) {
+    if (this.show_titles) {
+      this.resizeHandler();
+
       window.addEventListener("scroll", this.scrollHandler);
+      window.addEventListener("resize", this.resizeHandler);
     }
   },
 
   methods: {
     scrollHandler(event) {
       if (
-        (this.$refs.bottom as Element).getBoundingClientRect().bottom <
+        (this.$refs.titles as Element).getBoundingClientRect().bottom <=
         (this.$refs.nav as Element).getBoundingClientRect().bottom
       ) {
-        this.hide_titles = true;
-        window.removeEventListener("scroll", this.scrollHandler);
-
-        (this.$refs.nav as HTMLElement).style.transform =
-          "translateY( calc(-50vh + 50px) )";
-        (this.$refs.line as HTMLElement).style.transform =
-          "translateY( calc(-50vh + 50px) ) scaleY(0.5)";
-        (this.$refs.name as HTMLElement).style.transform =
-          "scale(" +
-          50 / (this.$refs.name as Element).getBoundingClientRect().height +
-          ")";
+        this.scrollComplete(null);
       }
+    },
+
+    resizeHandler() {
+      const LOGO_WIDTH = window.innerWidth * 0.9;
+      const LOGO_HEIGHT_RATIO = 0.127;
+
+      let targetHeight = 50;
+      let targetScale = targetHeight / (LOGO_WIDTH * LOGO_HEIGHT_RATIO);
+
+      if (targetScale * LOGO_WIDTH > window.innerWidth * 0.85) {
+        targetScale = window.innerWidth * 0.85 / LOGO_WIDTH;
+        targetHeight = window.innerWidth * 0.85 * LOGO_HEIGHT_RATIO;
+      }
+
+      this.styles.navHeight = targetHeight;
+      this.styles.logoScale = targetScale;
+    },
+
+    scrollComplete(event) {
+      let speed = 1;
+      let scroller = () => {
+        window.scrollBy(0, speed);
+        speed += 1;
+
+        if (this.show_titles === false) {
+          return;
+        } else if (
+          (this.$refs.bottom as Element).getBoundingClientRect().bottom <=
+          (this.$refs.nav as Element).getBoundingClientRect().bottom
+        ) {
+          this.show_titles = false;
+          window.removeEventListener("scroll", this.scrollHandler);
+
+          requestAnimationFrame(() => window.scrollTo(0, 0)); // scroll AFTER scroller() ticks
+          // // setTimeout(() => window.scrollTo(0, 0), 1000); // scroll AFTER scroller() ticks
+        } else {
+          requestAnimationFrame(scroller);
+        }
+      };
+
+      requestAnimationFrame(scroller);
     }
   }
 });
