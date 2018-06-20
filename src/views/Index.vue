@@ -1,8 +1,8 @@
 <template>
   <div>
     <nav-bar :uncollapsed=" intro " @close_intro=" close_intro " :position=" nav_position "></nav-bar>
-    <about v-model="nav_position"></about>
-    <portfolio :intro=" intro " :animation-start="nav_position > 0"></portfolio>
+    <!-- <about v-model="nav_position"></about> -->
+    <!-- <portfolio :intro=" intro " :animation-start="nav_position > 0"></portfolio> -->
   </div>
 </template>
 
