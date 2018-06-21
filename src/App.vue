@@ -34,6 +34,18 @@ export default Vue.extend({
 
   data() {
     return { show_titles: true }; //localStorage.getItem("intro", "false");
+  },
+
+  created() {
+    if (localStorage.getItem("show_titles") === "false") {
+      this.show_titles = false;
+    }
+  },
+
+  watch: {
+    show_titles(value) {
+      localStorage.setItem("show_titles", value.toString());
+    }
   }
 });
 </script>
