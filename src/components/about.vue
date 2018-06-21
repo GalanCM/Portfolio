@@ -12,7 +12,6 @@
 
 <style lang="less" scoped>
 .about {
-  margin-top: 50px;
   background-color: #000a14;
   max-width: 100%;
   padding: 50px 80px;

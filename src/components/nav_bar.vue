@@ -1,12 +1,12 @@
 <template>
-  <div class="nav-wrapper" @click=" scrollComplete " :style=" show_titles ? 'cursor: pointer;' : 'height: fit-content;' ">
+  <div class="nav-wrapper" @click=" scrollComplete " :style=" show_titles ? 'cursor: pointer;' : 'height: ' + styles.navHeight + 'px;' ">
     <nav class="nav" ref="nav" 
-      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: absolute;' ">
+      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px));' ">
         <img class="name" src="../assets/header.svg" ref="name" 
         :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "/>
     </nav>
     <div class="line" ref="line" 
-      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: absolute;' "></div>
+      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5);' "></div>
     <div class="bottom" ref="bottom" v-if="show_titles === true">
       <div class="titles" ref="titles">
         <div class="web">Web UX Engineer</div>
@@ -128,8 +128,6 @@ import { setTimeout } from "timers";
 export default Vue.extend({
   data() {
     return {
-      // show_titles: true,
-
       styles: {
         navHeight: 50,
         logoScale: 1,
