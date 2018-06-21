@@ -13,7 +13,7 @@
         <div class="and">&</div>
         <div class="game">Game Developer</div>
       </div>
-      <div class="chevron-wrapper">
+      <div class="chevron-wrapper" :style=" styles.hideChevron ? 'opacity: 0' : '' ">
         <div class="chevron">⌄</div>
         <div class="chevron">⌄</div>
       </div>
@@ -98,6 +98,7 @@
       display: flex;
       font-size: 70px;
       line-height: 0.7;
+      transition: 100ms opacity ease-out;
 
       .chevron {
         margin: auto auto 5px;
@@ -131,7 +132,8 @@ export default Vue.extend({
 
       styles: {
         navHeight: 50,
-        logoScale: 1
+        logoScale: 1,
+        hideChevron: false
       }
     };
   },
@@ -172,6 +174,8 @@ export default Vue.extend({
     },
 
     scrollComplete(event) {
+      this.styles.hideChevron = true;
+
       let speed = 1;
       let scroller = () => {
         window.scrollBy(0, speed);
@@ -187,7 +191,6 @@ export default Vue.extend({
           window.removeEventListener("scroll", this.scrollHandler);
 
           requestAnimationFrame(() => window.scrollTo(0, 0)); // scroll AFTER scroller() ticks
-          // // setTimeout(() => window.scrollTo(0, 0), 1000); // scroll AFTER scroller() ticks
         } else {
           requestAnimationFrame(scroller);
         }
