@@ -8,7 +8,7 @@
         :class=" { active: this.transitionsActive }"/>
     </nav>
     <div class="line" ref="line" 
-      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: static;' "
+      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: absolute;' "
       :class=" { active: this.transitionsActive }"></div>
     <div class="bottom" ref="bottom" v-if="show_titles === true">
       <div class="titles" ref="titles">
