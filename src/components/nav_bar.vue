@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-wrapper" @click=" scrollComplete ">
+  <div class="nav-wrapper" @click=" scrollComplete " :style=" show_titles ? 'cursor: pointer;' : 'height: fit-content;' ">
     <nav class="nav" ref="nav" 
       :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: absolute;' ">
         <img class="name" src="../assets/header.svg" ref="name" 
@@ -128,7 +128,7 @@ import { setTimeout } from "timers";
 export default Vue.extend({
   data() {
     return {
-      show_titles: true,
+      // show_titles: true,
 
       styles: {
         navHeight: 50,
@@ -138,10 +138,18 @@ export default Vue.extend({
     };
   },
 
-  mounted() {
-    if (this.show_titles) {
-      this.resizeHandler();
+  computed: {
+    show_titles(): boolean {
+      return this.value;
+    }
+  },
 
+  props: ["value"],
+
+  mounted() {
+    this.resizeHandler();
+
+    if (this.show_titles) {
       window.addEventListener("scroll", this.scrollHandler);
       window.addEventListener("resize", this.resizeHandler);
     }
@@ -171,6 +179,7 @@ export default Vue.extend({
 
       this.styles.navHeight = targetHeight;
       this.styles.logoScale = targetScale;
+      console.log(targetScale);
     },
 
     scrollComplete(event) {
@@ -184,10 +193,11 @@ export default Vue.extend({
         if (this.show_titles === false) {
           return;
         } else if (
+          this.$refs.bottom !== undefined &&
           (this.$refs.bottom as Element).getBoundingClientRect().bottom <=
-          (this.$refs.nav as Element).getBoundingClientRect().bottom
+            (this.$refs.nav as Element).getBoundingClientRect().bottom
         ) {
-          this.show_titles = false;
+          this.$emit("input", false);
           window.removeEventListener("scroll", this.scrollHandler);
 
           requestAnimationFrame(() => window.scrollTo(0, 0)); // scroll AFTER scroller() ticks
