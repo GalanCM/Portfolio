@@ -1,12 +1,15 @@
 <template>
   <div class="nav-wrapper" @click=" scrollComplete " :style=" show_titles ? 'cursor: pointer;' : 'height: ' + styles.navHeight + 'px;' ">
     <nav class="nav" ref="nav" 
-      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px));' ">
+      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: relative;' "
+      :class=" { active: this.transitionsActive }">
         <img class="name" src="../assets/header.svg" ref="name" 
-        :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "/>
+        :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "
+        :class=" { active: this.transitionsActive }"/>
     </nav>
     <div class="line" ref="line" 
-      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5);' "></div>
+      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: static;' "
+      :class=" { active: this.transitionsActive }"></div>
     <div class="bottom" ref="bottom" v-if="show_titles === true">
       <div class="titles" ref="titles">
         <div class="web">Web UX Engineer</div>
@@ -35,7 +38,10 @@
     flex-direction: column;
     background-color: #001f3d;
     z-index: 101;
-    transition: 1000ms transform ease-in-out;
+
+    &.active {
+      transition: 1000ms transform ease-in-out;
+    }
 
     .name {
       position: relative;
@@ -45,7 +51,10 @@
       filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.6));
       margin-top: auto;
       transform-origin: 0 84%;
-      transition: 1000ms transform ease-in-out;
+
+      &.active {
+        transition: 1000ms transform ease-in-out;
+      }
     }
   }
   .line {
@@ -56,7 +65,10 @@
     background-color: #820a0a;
     z-index: 100;
     transform-origin: top;
-    transition: 1000ms transform ease-in-out;
+
+    &.active {
+      transition: 1000ms transform ease-in-out;
+    }
   }
 
   .bottom {
@@ -128,6 +140,8 @@ import { setTimeout } from "timers";
 export default Vue.extend({
   data() {
     return {
+      transitionsActive: false,
+
       styles: {
         navHeight: 50,
         logoScale: 1,
@@ -144,12 +158,18 @@ export default Vue.extend({
 
   props: ["value"],
 
+  created() {
+    if (this.show_titles) {
+      this.transitionsActive = true;
+    }
+  },
+
   mounted() {
     this.resizeHandler();
+    window.addEventListener("resize", this.resizeHandler);
 
     if (this.show_titles) {
       window.addEventListener("scroll", this.scrollHandler);
-      window.addEventListener("resize", this.resizeHandler);
     }
   },
 
@@ -177,7 +197,6 @@ export default Vue.extend({
 
       this.styles.navHeight = targetHeight;
       this.styles.logoScale = targetScale;
-      console.log(targetScale);
     },
 
     scrollComplete(event) {
@@ -199,6 +218,7 @@ export default Vue.extend({
           window.removeEventListener("scroll", this.scrollHandler);
 
           requestAnimationFrame(() => window.scrollTo(0, 0)); // scroll AFTER scroller() ticks
+          setTimeout(() => (this.transitionsActive = false), 2500);
         } else {
           requestAnimationFrame(scroller);
         }
