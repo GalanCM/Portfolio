@@ -33,18 +33,20 @@ export default Vue.extend({
   },
 
   data() {
-    return { show_titles: true }; //localStorage.getItem("intro", "false");
+    return { show_titles: true };
   },
 
   created() {
-    if (localStorage.getItem("show_titles") === "false") {
+    if (localStorage.getItem("show_titles") === "false" || this.$route.name !== "index") {
       this.show_titles = false;
     }
   },
 
   watch: {
     show_titles(value) {
-      localStorage.setItem("show_titles", value.toString());
+      if (this.$route.name === "index") {
+        localStorage.setItem("show_titles", value.toString());
+      }
     }
   }
 });
