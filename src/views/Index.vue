@@ -1,9 +1,7 @@
 <template>
   <div>
-    <div v-if=" !show_titles ">
-      <about></about>
-      <portfolio></portfolio>
-    </div>
+    <about></about>
+    <portfolio></portfolio>
   </div>
 </template>
 
