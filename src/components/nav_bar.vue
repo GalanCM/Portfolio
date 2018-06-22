@@ -62,9 +62,10 @@
     top: 50vh;
     width: 100%;
     height: 1.5vw;
-    background-color: #820a0a;
     z-index: 100;
     transform-origin: top;
+    background-color: #820a0a;
+    box-shadow: 0px 0px 2px black;
 
     &.active {
       transition: 1000ms transform ease-in-out;
