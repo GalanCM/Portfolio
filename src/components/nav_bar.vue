@@ -7,20 +7,24 @@
         :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "
         :class=" { active: this.transitionsActive }"/>
     </nav>
-    <div class="line" ref="line" 
-      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: absolute;' "
-      :class=" { active: this.transitionsActive }"></div>
-    <div class="bottom" ref="bottom" v-if="show_titles === true">
-      <div class="titles" ref="titles">
-        <div class="web">Web UX Engineer</div>
-        <div class="and">&</div>
-        <div class="game">Game Developer</div>
+    <transition name="intro" appear>
+      <div class="line" ref="line" 
+        :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: absolute;' "
+        :class=" { active: this.transitionsActive }"></div>
+    </transition>
+    <transition name="intro" appear>
+      <div class="bottom" ref="bottom" v-if="show_titles === true">
+        <div class="titles" ref="titles">
+          <div class="web">Web UX Engineer</div>
+          <div class="and">&</div>
+          <div class="game">Game Developer</div>
+        </div>
+        <div class="chevron-wrapper" :style=" styles.hideChevron ? 'opacity: 0' : '' ">
+          <div class="chevron">⌄</div>
+          <div class="chevron">⌄</div>
+        </div>
       </div>
-      <div class="chevron-wrapper" :style=" styles.hideChevron ? 'opacity: 0' : '' ">
-        <div class="chevron">⌄</div>
-        <div class="chevron">⌄</div>
-      </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -121,7 +125,47 @@
     }
   }
 
-  // CSS Animations
+  // TRANSITIONS
+  .intro-enter-active {
+    &.line {
+      transition: 500ms opacity ease-out, 500ms transform ease-in;
+    }
+    &.bottom {
+      transition: 2500ms position 1000ms; // placeholder to insure transition runs
+
+      .web {
+        transition: 750ms clip-path linear 1000ms;
+        clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
+      }
+      .and {
+        transition: 500ms opacity ease-out 1950ms, 500ms transform ease-out 1950ms;
+      }
+      .game {
+        transition: 750ms clip-path linear 2650ms;
+        clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
+      }
+    }
+  }
+  .intro-enter {
+    &.line {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    &.bottom {
+      .web {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      }
+      .and {
+        opacity: 0;
+        transform: translateX(calc(-100% - 10px)) scale(0.1);
+      }
+      .game {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      }
+    }
+  }
+
+  // KEYRAMES
   @keyframes glow {
     0% {
       filter: none;
