@@ -1,174 +1,291 @@
 <template>
-  <nav :style="{ transform:  uncollapsed ? '' : 'translateY( -100vh ) translateY('+ 50 +'px) ',  transition: intro_transitioning ? '1s transform 1s' : '', top: position+'px', 'position': position <= 0 ? 'fixed' : 'absolute' }">
-    <h1 class="name" :style=" {
-      transition: intro_transitioning ? '1s left linear, 1s bottom linear' : '',
-      bottom: uncollapsed ? 'calc(50vh + 5px)' : (-9)+'px',
-      left: uncollapsed ? '5vw' : '0',
-      'will-change': uncollapsed ? 'left, top' : '',
-    } ">
-      <object :data=" require( '../assets/header.svg') " type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: 'scale(' + scale_factor + ')', position: 'absolute', left: 0, bottom: 0, 'z-index': 1 }"></object>
-      <object :data=" require( '../assets/header.svg') " type="image/svg+xml" :style="{ transition: intro_transitioning ? '1s transform ease-out' : '', transform: 'scale(' + scale_factor + ')', position: 'absolute', left: '1px', bottom: '-1px', filter: 'brightness(0)' }"></object>
-    </h1>
-
-    <titles :show="titles_visible" @close_intro=" close_intro " @intro_complete="show_close"></titles>
-
-    <transition name="arrow" appear>
-      <continue :style=" 'transform: scale('+scale_factor*1.5+'); transform-origin: bottom left;'" v-if="close_visible"></continue>
+  <div class="nav-wrapper" @click=" scrollComplete " :style=" show_titles ? 'cursor: pointer;' : 'height: ' + styles.navHeight + 'px;' ">
+    <nav class="nav" ref="nav" 
+      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: relative;' "
+      :class=" { active: this.transitionsActive }">
+        <img class="name" src="../assets/header.svg" ref="name" 
+        :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "
+        :class=" { active: this.transitionsActive }"
+        @click="go_home"/>
+    </nav>
+    <transition name="intro" appear>
+      <div class="line" ref="line" 
+        :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: absolute;' "
+        :class=" { active: this.transitionsActive }"></div>
     </transition>
-
-    <transition name="fade-in" appear>
-      <NavLinks v-show="show_links"></NavLinks>
+    <transition name="intro" appear>
+      <div class="bottom" ref="bottom" v-if="show_titles === true">
+        <div class="titles" ref="titles">
+          <div class="web">Web UX Engineer</div>
+          <div class="and">&</div>
+          <div class="game">Game Developer</div>
+        </div>
+        <div class="chevron-wrapper" :style=" styles.hideChevron ? 'opacity: 0' : '' ">
+          <div class="chevron">⌄</div>
+          <div class="chevron">⌄</div>
+        </div>
+      </div>
     </transition>
-
-    
-    <transition v-on:enter="underline_enter" appear>
-      <svg class="underline" :height="12" :width="(underline_length)+'px'" :style=" 'position: absolute; bottom: '+(-10)+'px; left: 0; z-index: 0;'" v-show="!titles_visible">
-        <polygon :points="'0,0, '+ (underline_length) +',0, '+(underline_length-10)+','+(14)+', 0,'+(14)+''" fill="#820a0a"/>
-      </svg>
-    </transition>
-  </nav>
+  </div>
 </template>
 
 <style lang="less" scoped>
-  nav {
-    background-color: #001f3d;
-    color: white;
+.nav-wrapper {
+  height: 200vh;
+  width: 100%;
+
+  .nav {
+    position: fixed;
+    width: 100%;
+    height: 50vh;
+    min-height: fit-content;
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    top: 0;
-    z-index: 100;
-    height: 100vh;
+    background-color: #001f3d;
+    z-index: 101;
+
+    &.active {
+      transition: 1000ms transform ease-in-out;
+    }
+
+    .name {
+      position: relative;
+      left: 0.5vw;
+      top: 1.8vw;
+      width: 90vw;
+      filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.6));
+      margin-top: auto;
+      transform-origin: 0 84%;
+      cursor: pointer;
+
+      &.active {
+        transition: 1000ms transform ease-in-out;
+      }
+    }
   }
+  .line {
+    position: fixed;
+    top: 50vh;
+    width: 100%;
+    height: 1.5vw;
+    z-index: 100;
+    transform-origin: top;
+    background-color: #820a0a;
+    box-shadow: 0px 0px 2px black;
 
-  h1 {
-    position: absolute;
-    margin: 0;
-
-    object {
-      transform-origin: bottom left;
+    &.active {
+      transition: 1000ms transform ease-in-out;
     }
   }
 
-  .close {
-    position: absolute;
-    left: 2.5vw;
-    bottom: 2.5vw;
-    cursor: pointer;
-    user-select: none;
+  .bottom {
+    height: calc(50vh - 3.4vw);
+    width: 100%;
+    padding-top: calc(50vh + 3.4vw);
+    min-height: fit-content;
+    background-color: #000a14;
+    display: flex;
+    flex-direction: column;
+
+    .titles {
+      position: relative;
+      top: 5px;
+      font-size: calc(50vw / 9);
+      line-height: 1;
+      right: 4%;
+      margin-left: auto;
+      font-family: Raleway, Helvetica, sans-serif;
+
+      .web {
+        font-weight: 200;
+        color: white;
+      }
+      .game {
+        font-weight: 400;
+        color: rgba(232, 232, 247, 0.8);
+      }
+      .and {
+        position: absolute;
+        transform: translateX(calc(-100% - 10px));
+        font-weight: 200;
+        color: rgba(225, 225, 255, 0.3);
+      }
+    }
+    .chevron-wrapper {
+      margin-top: auto;
+      color: white;
+      display: flex;
+      font-size: 70px;
+      line-height: 0.7;
+      transition: 100ms opacity ease-out;
+
+      .chevron {
+        margin: auto auto 5px;
+        transform: scaleX(1.5);
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+    }
   }
 
-  .arrow-enter-active {
-    transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2s;
+  // TRANSITIONS
+  .intro-enter-active {
+    &.line {
+      transition: 500ms opacity ease-out, 500ms transform ease-in;
+    }
+    &.bottom {
+      transition: 2500ms position 1000ms; // placeholder to insure transition runs
+
+      .web {
+        transition: 750ms clip-path linear 1000ms;
+        clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
+      }
+      .and {
+        transition: 300ms opacity ease-out 1950ms, 500ms transform ease-out 1950ms;
+      }
+      .game {
+        transition: 750ms clip-path linear 2450ms;
+        clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
+      }
+      .chevron-wrapper {
+        transition: 200ms opacity ease-out 3500ms;
+      }
+    }
   }
-  .arrow-leave-active {
-    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .arrow-enter {
-    opacity: 0;
-  }
-  .arrow-leave-to {
-    opacity: 0;
+  .intro-enter {
+    &.line {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    &.bottom {
+      .web {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      }
+      .and {
+        opacity: 0;
+        transform: translateX(calc(-100% - 10px)) scale(0.1);
+      }
+      .game {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      }
+      .chevron-wrapper {
+        opacity: 0;
+      }
+    }
   }
 
-  .fade-in-enter {
-    opacity: 0;
+  // KEYRAMES
+  @keyframes glow {
+    0% {
+      filter: none;
+    }
+    100% {
+      filter: drop-shadow(0px 0px 4px lightblue);
+    }
   }
-  .fade-in-enter-active {
-    transition: 500ms opacity ease-out;
-  }
+}
 </style>
 
 
 <script lang="ts">
-  import { Component, Prop, Vue, Watch } from "vue-property-decorator";
-  import Titles from "@/components/titles.vue";
-  import Continue from "@/components/continue.vue";
-  import NavLinks from "@/components/nav_links.vue";
-  import { tween } from "shifty";
+import Vue from "vue";
+import { setTimeout } from "timers";
 
-  @Component({
-    components: { Titles, Continue, NavLinks }
-  })
-  export default class NavBar extends Vue {
-    intro_transitioning: boolean = false;
-    titles_visible: boolean = false;
-    close_visible: boolean = false;
-    show_links: boolean = false;
-    underline_length: number = 0;
-    delay_underline: boolean = false;
-    window_height = window.innerHeight;
-    window_width = window.innerWidth;
+export default Vue.extend({
+  data() {
+    return {
+      transitionsActive: false,
 
-    @Prop() uncollapsed! : boolean;
-    @Prop() position! : number;
+      styles: {
+        navHeight: 50,
+        logoScale: 1,
+        hideChevron: false
+      }
+    };
+  },
 
-    created(): void {
-      this.titles_visible = this.uncollapsed;
-      this.delay_underline = this.uncollapsed;
-
-      let vm = this;
-      window.addEventListener("resize", function() {
-        vm.window_height = window.innerHeight;
-        vm.window_width = window.innerWidth;
-      });
+  computed: {
+    show_titles(): boolean {
+      return this.value;
     }
+  },
 
-    show_close(): void {
-      this.close_visible = true;
+  props: ["value"],
 
-      let vm = this;
-      let close_hander = function() {
-        vm.close_titles();
+  created() {
+    if (this.show_titles) {
+      this.transitionsActive = true;
+    }
+  },
 
-        window.removeEventListener("click", close_hander);
-        window.removeEventListener("keydown", close_hander);
-        window.removeEventListener("wheel", close_hander);
+  mounted() {
+    this.resizeHandler();
+    window.addEventListener("resize", this.resizeHandler);
+
+    if (this.show_titles) {
+      window.addEventListener("scroll", this.scrollHandler);
+    }
+  },
+
+  methods: {
+    scrollHandler(event) {
+      if (
+        (this.$refs.titles as Element).getBoundingClientRect().bottom <=
+        (this.$refs.nav as Element).getBoundingClientRect().bottom
+      ) {
+        this.scrollComplete(null);
+      }
+    },
+
+    resizeHandler() {
+      const LOGO_WIDTH = window.innerWidth * 0.9;
+      const LOGO_HEIGHT_RATIO = 0.127;
+
+      let targetHeight = 50;
+      let targetScale = targetHeight / (LOGO_WIDTH * LOGO_HEIGHT_RATIO);
+
+      if (targetScale * LOGO_WIDTH > window.innerWidth * 0.85) {
+        targetScale = window.innerWidth * 0.85 / LOGO_WIDTH;
+        targetHeight = window.innerWidth * 0.85 * LOGO_HEIGHT_RATIO;
+      }
+
+      this.styles.navHeight = targetHeight;
+      this.styles.logoScale = targetScale;
+    },
+
+    scrollComplete(event) {
+      this.styles.hideChevron = true;
+
+      let speed = 1;
+      let scroller = () => {
+        window.scrollBy(0, speed);
+        speed += 1;
+
+        if (this.show_titles === false) {
+          return;
+        } else if (
+          this.$refs.bottom !== undefined &&
+          (this.$refs.bottom as Element).getBoundingClientRect().bottom <=
+            (this.$refs.nav as Element).getBoundingClientRect().bottom
+        ) {
+          this.$emit("input", false);
+          window.removeEventListener("scroll", this.scrollHandler);
+
+          requestAnimationFrame(() => window.scrollTo(0, 0)); // scroll AFTER scroller() ticks
+          setTimeout(() => (this.transitionsActive = false), 2500);
+        } else {
+          requestAnimationFrame(scroller);
+        }
       };
 
-      window.addEventListener("click", close_hander);
-      window.addEventListener("keydown", close_hander);
-      window.addEventListener("wheel", close_hander);
-    }
-    close_titles(): void {
-      this.titles_visible = false;
-      this.close_visible = false;
-    }
-    close_intro(): void {
-      this.$emit("close_intro");
-    }
+      requestAnimationFrame(scroller);
+    },
 
-    underline_enter(): void {
-      tween({
-        from: { x: 0 },
-        to: { x: 1600 * this.scale_factor },
-        duration: 750,
-        easing: "easeInOutQuad",
-        delay: this.delay_underline ? 3250 : 750,
-        step: state => {
-          this.underline_length = state.x;
-        }
-      }).then( () => {
-        this.show_links = true;
-      });
-    }
-
-    @Watch("titles_visible")
-    onTitlesChanged(): void {
-      this.intro_transitioning = true;
-
-      setTimeout(() => {
-        this.intro_transitioning = false;
-      }, 3000);
-    }
-
-    get scale_factor(): number {
-      if  (window.matchMedia("(max-width: 1024px) and (orientation: portrait)").matches) {
-          return 0.22
-      }
-      else {
-        return 0.3
+    go_home() {
+      if (this.show_titles === false) {
+        this.$router.push("/");
       }
     }
   }
+});
 </script>
+

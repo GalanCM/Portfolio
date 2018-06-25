@@ -12,13 +12,11 @@
 
 <style lang="less" scoped>
 .about {
-  margin-top: 50px;
   background-color: #000a14;
   max-width: 100%;
   padding: 50px 80px;
 
   @media (max-width: 1024px) and (orientation: portrait) {
-    margin-top: 50px;
     padding: 35px 35px;
   }
 }
@@ -127,23 +125,21 @@ h2 strong {
 </style>
 
 <script lang="ts">
-  import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
-  @Component({})
-  export default class Index extends Vue {
-    @Prop() nav_position!: number;
+@Component({})
+export default class Index extends Vue {
+  created(): void {
+    window.addEventListener("scroll", () => {
+      let bottom = this.$el.getBoundingClientRect().bottom;
+      let header_buffer = window.matchMedia("(max-width: 1024px) and (orientation: portrait)").matches ? 95 : 50;
 
-    created(): void {
-      window.addEventListener("scroll", () => {
-        let bottom = this.$el.getBoundingClientRect().bottom;
-        let header_buffer = window.matchMedia("(max-width: 1024px) and (orientation: portrait)").matches ? 95 : 50;
-
-        if (bottom < header_buffer) {
-          this.$emit("input", bottom - header_buffer + window.scrollY);
-        } else {
-          this.$emit("input", 0);
-        }
-      });
-    }
+      if (bottom < header_buffer) {
+        this.$emit("input", bottom - header_buffer + window.scrollY);
+      } else {
+        this.$emit("input", 0);
+      }
+    });
   }
+}
 </script>

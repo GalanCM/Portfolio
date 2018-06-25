@@ -1,9 +1,53 @@
 <template>
   <div id="app">
-    <router-view/>
+    <nav-bar v-model=" show_titles "></nav-bar>
+
+    <transition name="deblur">
+      <div v-if=" !show_titles ">
+        <router-view/>
+      </div>
+    </transition>
   </div>
 </template>
 
 <style lang="less">
-  @import "./base.less";
+@import "./base.less";
+
+// TRANSITIONS
+.deblur-enter-active {
+  transition: 500ms filter ease-out 500ms, 500ms opacity ease-in 250ms;
+}
+.deblur-enter {
+  filter: blur(5px);
+  opacity: 0;
+}
 </style>
+
+<script lang="ts">
+import Vue from "vue";
+import NavBar from "@/components/nav_bar.vue";
+
+export default Vue.extend({
+  components: {
+    NavBar
+  },
+
+  data() {
+    return { show_titles: true };
+  },
+
+  created() {
+    if (sessionStorage.getItem("show_titles") === "false" || this.$route.name !== "index") {
+      this.show_titles = false;
+    }
+  },
+
+  watch: {
+    show_titles(value) {
+      if (this.$route.name === "index") {
+        sessionStorage.setItem("show_titles", value.toString());
+      }
+    }
+  }
+});
+</script>

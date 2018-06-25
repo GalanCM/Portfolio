@@ -244,8 +244,7 @@
       font-size: 24px;
       line-height: 1.7;
       color: #346;
-      margin: 30px calc(~"(100vw - 1064px) / 2") 50px
-        calc(~"(100vw - 1064px) / 2");
+      margin: 30px calc(~"(100vw - 1064px) / 2") 50px calc(~"(100vw - 1064px) / 2");
       font-family: Lato, "sans-serif";
       border-left: 4px solid #3467;
       border-right: 4px solid #3467;
@@ -308,11 +307,7 @@
           width: 100%;
           object-fit: cover;
           object-position: 0 0;
-          mask-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 1) 80%,
-            rgba(0, 0, 0, 0.7) 100%
-          );
+          mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0.7) 100%);
         }
       }
       .text {
@@ -380,7 +375,6 @@ export default class CaseStudy extends Vue {
     } else {
       this.section = null;
     }
-    console.log(this.section);
   }
 }
 </script>
