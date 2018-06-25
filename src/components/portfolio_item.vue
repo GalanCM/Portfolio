@@ -2,16 +2,16 @@
   <div class="wrapper">
     <div class="color-bar" v-if=" side === 'right' || has_image !== true " :style=" { 'background-color': info.color, 'transform': this.activated === true ? '' : 'translateX(-100%)' } "></div>
     <div v-if=" !is_mobile && side === 'left' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px', 'transform': this.activated === true ? '' : 'translateX(-100%)' }">
-      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) ">
-      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
+      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'opacity': this.activated === true ? '' : '0' }">
+      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'opacity': this.activated === true ? '' : '0' }"></iframe>
     </div>
 
     <div class="details" :style="{ 'padding-left': padding.left + 'px', 'padding-right': padding.right + 'px'  }">
       <div>
         <div v-if=" is_mobile && ( has_image === true )" class="img-wrapper" :style="{ 'background': info.color}">
-          <div class="img-inner-wrapper">
-            <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'border-color': info.color, 'transform': this.activated === true ? '' : 'translateX(100%)' } ">
-            <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color, 'transform': this.activated === true ? '' : 'translateX(100%)' } "></iframe>
+          <div class="img-inner-wrapper" :style="{ 'transform': this.activated === true ? '' : 'translateX(calc(100% - 6vw))' }">
+            <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'border-color': info.color, 'opacity': this.activated === true ? '' : '0' } ">
+            <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color, 'opacity': this.activated === true ? '' : '0' } "></iframe>
           </div>
         </div>
         <div v-else-if=" is_mobile " :style="{ 'min-height': '50px', 'background-color': info.color }">
@@ -27,8 +27,8 @@
     </div>
 
     <div v-if=" !is_mobile && side === 'right' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px',  'transform': this.activated === true ? '' : 'translateX(100%)' }">
-      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) ">
-      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
+      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'opacity': this.activated === true ? '' : '0' }">
+      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" :style="{ 'opacity': this.activated === true ? '' : '0' }" allowfullscreen></iframe>
     </div>
 
     <div class="color-bar" v-if=" side === 'left' || has_image !== true " :style=" { 'background-color': info.color,  'transform': this.activated === true ? '' : 'translateX(100%)' }"></div>
@@ -71,12 +71,12 @@
   }
 }
 img,
-iframe,
-img {
+iframe {
   width: 35vw;
   margin-top: auto;
   margin-bottom: auto;
   box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.2);
+  transition: 1000ms opacity ease-in;
 
   @media (max-width: 1024px) {
     width: 75vw;
@@ -94,14 +94,10 @@ iframe {
 }
 .img-inner-wrapper {
   float: right;
-  margin: -1px 3% -10px 12%;
+  margin: -1px 3% -4px 12%;
   padding: 0 20px 0px 50px;
   background-color: #fafaff;
-
-  img,
-  iframe {
-    transition: 1000ms transform ease-out;
-  }
+  transition: 1000ms transform ease-out;
 }
 
 .details {
