@@ -14,6 +14,9 @@
 @import "./base.less";
 
 // TRANSITIONS
+#app {
+  width: 100%;
+}
 .deblur-enter-active {
   transition: 500ms filter ease-out 500ms, 500ms opacity ease-in 250ms;
 }
