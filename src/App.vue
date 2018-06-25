@@ -37,7 +37,7 @@ export default Vue.extend({
   },
 
   created() {
-    if (localStorage.getItem("show_titles") === "false" || this.$route.name !== "index") {
+    if (sessionStorage.getItem("show_titles") === "false" || this.$route.name !== "index") {
       this.show_titles = false;
     }
   },
@@ -45,7 +45,7 @@ export default Vue.extend({
   watch: {
     show_titles(value) {
       if (this.$route.name === "index") {
-        localStorage.setItem("show_titles", value.toString());
+        sessionStorage.setItem("show_titles", value.toString());
       }
     }
   }
