@@ -5,7 +5,8 @@
       :class=" { active: this.transitionsActive }">
         <img class="name" src="../assets/header.svg" ref="name" 
         :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "
-        :class=" { active: this.transitionsActive }"/>
+        :class=" { active: this.transitionsActive }"
+        @click="go_home"/>
     </nav>
     <transition name="intro" appear>
       <div class="line" ref="line" 
@@ -55,6 +56,7 @@
       filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.6));
       margin-top: auto;
       transform-origin: 0 84%;
+      cursor: pointer;
 
       &.active {
         transition: 1000ms transform ease-in-out;
@@ -276,6 +278,12 @@ export default Vue.extend({
       };
 
       requestAnimationFrame(scroller);
+    },
+
+    go_home() {
+      if (this.show_titles === false) {
+        this.$router.push("/");
+      }
     }
   }
 });
