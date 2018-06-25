@@ -40,9 +40,9 @@ export default Vue.extend({
   },
 
   created() {
-    // if (sessionStorage.getItem("show_titles") === "false" || this.$route.name !== "index") {
-    //   this.show_titles = false;
-    // }
+    if (sessionStorage.getItem("show_titles") === "false" || this.$route.name !== "index") {
+      this.show_titles = false;
+    }
   },
 
   watch: {
