@@ -103,7 +103,7 @@
     font-size: 30px;
     background-color: #fafaff;
     z-index: 1;
-    padding: 9px 30px 1px;
+    padding: 7px 30px 1px;
     position: absolute;
     transition: 500ms transform ease-out;
 
@@ -148,18 +148,16 @@
     display: inline-block; // Webkit display glitch workaround
     font-weight: 200;
     background-color: #ddd;
-    padding: 0 4px 1px 5px;
+    line-height: 0;
+    padding: 12px 4px;
     font-size: 24px;
-    line-height: 1;
     border-radius: 2px;
     position: relative;
-    vertical-align: middle;
     top: -3px;
     opacity: 0;
 
     @media screen and (max-width: 1024px) {
       margin-top: 1px;
-      padding-bottom: 2px;
       font-size: 20px;
     }
   }
