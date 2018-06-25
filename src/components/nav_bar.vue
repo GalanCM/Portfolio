@@ -96,6 +96,10 @@
       margin-left: auto;
       font-family: Raleway, Helvetica, sans-serif;
 
+      @media screen and (orientation: portrait) {
+        font-size: calc(60vw / 9);
+      }
+
       .web {
         font-weight: 200;
         color: white;
