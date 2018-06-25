@@ -123,11 +123,6 @@
 
     &.solo {
       transform: translateX(0);
-
-      .close-icon {
-        opacity: 1;
-        transition: 300ms opacity ease-out 700ms;
-      }
     }
 
     .close-icon {
@@ -170,7 +165,7 @@
   }
   .solo .close-icon {
     opacity: 1;
-    transition: 300ms opacity ease-out 700ms;
+    transition: 500ms opacity ease-out 500ms;
   }
 }
 
