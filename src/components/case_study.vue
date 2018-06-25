@@ -103,12 +103,16 @@
     font-size: 30px;
     background-color: #fafaff;
     z-index: 1;
-    padding: 9px 30px 5px;
+    padding: 9px 30px 1px;
     position: absolute;
     transition: 500ms transform ease-out;
 
     @media screen and (max-width: 1024px) {
       font-size: 22px;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 
@@ -141,22 +145,22 @@
     }
 
     .close-icon {
-      left: -5px;
+      right: 5px;
     }
   }
 
   .close-icon {
+    display: inline-block; // Webkit display glitch workaround
     font-weight: 200;
     background-color: #ddd;
-    margin-top: 5px;
     padding: 0 4px 1px 5px;
     font-size: 24px;
     line-height: 1;
     border-radius: 2px;
     position: relative;
-    vertical-align: text-top;
+    vertical-align: middle;
+    top: -3px;
     opacity: 0;
-    display: inline-block; // Webkit display glitch workaround
 
     @media screen and (max-width: 1024px) {
       margin-top: 1px;
@@ -180,6 +184,7 @@
   margin-top: 15px;
   padding-top: 50px;
   background-color: #fafaff;
+  border-top: 2px solid black;
   clip-path: polygon(0 0, 105% 0, 105% 105%, 0 105%);
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
 
