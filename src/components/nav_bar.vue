@@ -138,11 +138,14 @@
         clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
       }
       .and {
-        transition: 500ms opacity ease-out 1950ms, 500ms transform ease-out 1950ms;
+        transition: 300ms opacity ease-out 1950ms, 500ms transform ease-out 1950ms;
       }
       .game {
-        transition: 750ms clip-path linear 2650ms;
+        transition: 750ms clip-path linear 2450ms;
         clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
+      }
+      .chevron-wrapper {
+        transition: 200ms opacity ease-out 3500ms;
       }
     }
   }
@@ -161,6 +164,9 @@
       }
       .game {
         clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      }
+      .chevron-wrapper {
+        opacity: 0;
       }
     }
   }
