@@ -82,7 +82,7 @@
     height: calc(50vh - 3.4vw);
     width: 100%;
     padding-top: calc(50vh + 3.4vw);
-    min-height: fit-content;
+    min-height: 17vw;
     background-color: #000a14;
     display: flex;
     flex-direction: column;
@@ -117,6 +117,7 @@
     }
     .chevron-wrapper {
       margin-top: auto;
+      margin-bottom: 10px;
       color: white;
       display: flex;
       font-size: 70px;
@@ -124,7 +125,7 @@
       transition: 100ms opacity ease-out;
 
       .chevron {
-        margin: auto auto 5px;
+        margin: auto;
         transform: scaleX(1.5);
         animation: glow 2s ease-in-out infinite alternate;
       }
