@@ -1,17 +1,17 @@
 <template>
   <div class="wrapper">
-    <div class="color-bar" v-if=" side === 'right' || has_image !== true " :style=" { 'background-color': info.color, 'transform': this.activated === true ? '' : 'translateX(-100%)' } "></div>
-    <div v-if=" !is_mobile && side === 'left' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px', 'transform': this.activated === true ? '' : 'translateX(-100%)' }">
-      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'opacity': this.activated === true ? '' : '0' }">
-      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'opacity': this.activated === true ? '' : '0' }"></iframe>
+    <div class="color-bar" v-if=" side === 'right' || has_image !== true " :style=" { 'background-color': info.color } "></div>
+    <div v-if=" !is_mobile && side === 'left' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px' }">
+      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) ">
+      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
 
     <div class="details" :style="{ 'padding-left': padding.left + 'px', 'padding-right': padding.right + 'px'  }">
       <div>
         <div v-if=" is_mobile && ( has_image === true )" class="img-wrapper" :style="{ 'background': info.color}">
-          <div class="img-inner-wrapper" :style="{ 'transform': this.activated === true ? '' : 'translateX(calc(100% - 6vw))' }">
-            <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'border-color': info.color, 'opacity': this.activated === true ? '' : '0' } ">
-            <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color, 'opacity': this.activated === true ? '' : '0' } "></iframe>
+          <div class="img-inner-wrapper">
+            <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'border-color': info.color } ">
+            <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color } "></iframe>
           </div>
         </div>
         <div v-else-if=" is_mobile " :style="{ 'min-height': '50px', 'background-color': info.color }">
@@ -26,12 +26,12 @@
       </div>
     </div>
 
-    <div v-if=" !is_mobile && side === 'right' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px',  'transform': this.activated === true ? '' : 'translateX(100%)' }">
-      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'opacity': this.activated === true ? '' : '0' }">
-      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" :style="{ 'opacity': this.activated === true ? '' : '0' }" allowfullscreen></iframe>
+    <div v-if=" !is_mobile && side === 'right' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px' }">
+      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) ">
+      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <div class="color-bar" v-if=" side === 'left' || has_image !== true " :style=" { 'background-color': info.color,  'transform': this.activated === true ? '' : 'translateX(100%)' }"></div>
+    <div class="color-bar" v-if=" side === 'left' || has_image !== true " :style=" { 'background-color': info.color }"></div>
   </div>
 </template>
 
@@ -195,7 +195,6 @@ export default class PortfolioItem extends Vue {
   side!: string;
 
   is_mobile = false;
-  activated = false;
   padding = {
     left:
       this.has_image !== true && window.innerWidth > 1100
@@ -207,15 +206,6 @@ export default class PortfolioItem extends Vue {
         : 0
   };
 
-  scroll(): void {
-    if (
-      this.$el.getBoundingClientRect().top < (window.innerHeight / 5) * 4 &&
-      this.$el.getBoundingClientRect().left < window.innerWidth
-    ) {
-      this.activated = true;
-    }
-  }
-
   resize(): void {
     this.is_mobile = window.innerWidth < 1024 ? true : false;
   }
@@ -225,16 +215,10 @@ export default class PortfolioItem extends Vue {
   }
 
   mounted() {
-    window.addEventListener("scroll", this.scroll);
-    if (this.$el.getBoundingClientRect().top < window.innerHeight / 2) {
-      this.activated = true;
-    }
-
     window.addEventListener("resize", this.resize);
   }
 
   destroyed() {
-    window.removeEventListener("scroll", this.scroll);
     window.removeEventListener("resize", this.resize);
   }
 
