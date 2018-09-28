@@ -54,17 +54,13 @@
   width: 25%;
   min-width: 200px;
 
-  transition: 1000ms transform ease-out;
+  transition: 500ms transform ease-out;
 }
 .img-wrapper {
   display: flex;
   flex-direction: column;
 
-  transition: 1000ms transform ease-out;
-
-  @media (min-device-width: 1024px) {
-    min-height: 60vh;
-  }
+  transition: 500ms transform ease-out;
 
   @media (max-width: 1024px) {
     margin-bottom: 20px;
@@ -193,19 +189,27 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
 @Component
 export default class PortfolioItem extends Vue {
-  @Prop(Object) info!: PortfolioInfo;
-  @Prop(String) side!: string;
+  @Prop(Object)
+  info!: PortfolioInfo;
+  @Prop(String)
+  side!: string;
 
   is_mobile = false;
   activated = false;
   padding = {
-    left: this.has_image !== true && window.innerWidth > 1100 ? (window.innerWidth - 1100) / 2 : 0,
-    right: this.has_image !== true && window.innerWidth > 1100 ? (window.innerWidth - 1100) / 2 : 0
+    left:
+      this.has_image !== true && window.innerWidth > 1100
+        ? (window.innerWidth - 1100) / 2
+        : 0,
+    right:
+      this.has_image !== true && window.innerWidth > 1100
+        ? (window.innerWidth - 1100) / 2
+        : 0
   };
 
   scroll(): void {
     if (
-      this.$el.getBoundingClientRect().top < window.innerHeight / 2 &&
+      this.$el.getBoundingClientRect().top < (window.innerHeight / 5) * 4 &&
       this.$el.getBoundingClientRect().left < window.innerWidth
     ) {
       this.activated = true;

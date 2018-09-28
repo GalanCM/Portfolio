@@ -199,13 +199,19 @@ import Item from "@/components/portfolio_item.vue";
   components: { Item }
 })
 export default class Portfolio extends Vue {
-  @Prop() intro!: boolean;
-  @Prop(Boolean) "animation-start": boolean = false;
+  @Prop()
+  intro!: boolean;
+  @Prop(Boolean)
+  "animation-start": boolean = false;
 
   content_transform = "translateX(0)";
   intro_transitions = {
-    vertical: (this.intro === true ? "transition: 0.3s transform ease-out 3.5s;" : "") as string,
-    horizontal: (this.intro === true ? "transition: 0.5s transform ease-in-out 3.7s;" : "") as string
+    vertical: (this.intro === true
+      ? "transition: 0.3s transform ease-out 3.5s;"
+      : "") as string,
+    horizontal: (this.intro === true
+      ? "transition: 0.5s transform ease-in-out 3.7s;"
+      : "") as string
   };
 
   sites = [
@@ -216,25 +222,8 @@ export default class Portfolio extends Vue {
       image: null,
       video: null,
       title: "This Site",
-      tagline: "The first site in my portfolio. A showcase for my technical and design skills."
-    },
-    {
-      color: "#994d00",
-      url: ["Visit Site", "https://www.isoteric-games.com"],
-      case_study_url: null,
-      image: "isoteric-games.png",
-      video: null,
-      title: "Isoteric Games",
-      tagline: "Homepage and blog for my videogame projects. A small site with a modern architecture."
-    },
-    {
-      color: "#0000c1",
-      url: ["Play Game", "https://isoteric-games.itch.io/timebomb-web"],
-      case_study_url: null,
-      image: null,
-      video: "xRblNIzu3BA",
-      title: "Timebomb",
-      tagline: "My first commercial game. A complex UX problem with a lot of interconnecting parts."
+      tagline:
+        "The first site in my portfolio. A showcase for my technical and design skills."
     },
     {
       color: "#fd9001",
