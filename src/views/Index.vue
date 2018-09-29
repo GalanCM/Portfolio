@@ -1,7 +1,6 @@
 <template>
   <div>
-    <about></about>
-    <portfolio></portfolio>
+    <Portfolio></Portfolio>
   </div>
 </template>
 

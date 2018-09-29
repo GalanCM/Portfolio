@@ -1,12 +1,10 @@
 <template>
-  <section v-if="!intro">
+  <section>
     <h1>Portfolio</h1>
 
-    <transition enter-to-class="horizontal-appear-to" enter-active-class="horizontal-appear-active">
-      <svg height="3" width="100%" :style=" intro_transitions.horizontal" v-if="animationStart">
-        <line x1="0" y1="1px" x2="100%" y2="1px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
-      </svg>
-    </transition>
+    <svg height="3" width="100%" :style=" intro_transitions.horizontal">
+      <line x1="0" y1="1px" x2="100%" y2="1px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
+    </svg>
 
     <div class="content" :style="{ 'transform': content_transform }">
       <div class="panel" ref="panel-websites">
@@ -41,14 +39,13 @@ h1 {
   position: absolute;
   z-index: 1;
   transform-origin: center left;
-  transform: translateY(-15px);
   border-right: 2px solid black;
 
   @media (max-width: 1024px) and (orientation: landscape) {
-    transform: translateY(-30px) scale(0.8);
+    transform: scale(0.8);
   }
   @media (max-width: 1024px) and (orientation: portrait) {
-    transform: translateY(-60px) scale(0.4);
+    transform: scale(0.4);
   }
 }
 

@@ -9,8 +9,8 @@ export default new Router({
   mode: "history",
   routes: [
     {
-      path: "/",
-      name: "index",
+      path: "/portfolio",
+      name: "portfolio",
       component: Index,
       meta: { title: "Portfolio" }
     },

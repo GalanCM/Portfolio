@@ -1,6 +1,3 @@
-<!-- Sample single-file Vue component from my portfolio site. Handles the title animation when first visiting the site.
-     Still a bit messy but it should give you an idea of what I know -->
-
 <template>
   <transition v-on:enter="appear" name="title-transition" v-on:after-leave="after_leave()" appear> <!-- main transition for the titles -->
     <div class="titles-wrapper" v-show=" show "> <!-- titles only show on first site visit -->
@@ -26,167 +23,168 @@
 </template>
 
 <style lang="less" scoped>
-  .titles-wrapper {
-    user-select: none;
-    cursor: default;
-    width: 100vw;
+.titles-wrapper {
+  user-select: none;
+  cursor: default;
+  width: 100vw;
 
-    svg,
-    .titles {
-      margin: 0;
-    }
-  }
-
-  h2 {
-    font-size: 2em;
-    margin: 20px 0 5px;
-
-    @media (max-width: 1024px) {
-      font-size: 1em;
-    }
-  }
-  h3 {
-    color: #868d95;
-    font-size: 2em;
-    margin: 0;
-
-    @media (max-width: 1024px) {
-      font-size: 1em;
-    }
-  }
-
+  svg,
   .titles {
-    transform-origin: top right;
-    right: 5vw;
-    width: 100vw;
-    position: absolute;
+    margin: 0;
   }
+}
 
-  .text {
-    transform-origin: top right;
+h2 {
+  font-size: 2em;
+  margin: 20px 0 5px;
 
-    .developer,
-    .designer,
-    .and {
-      opacity: 0;
-    }
-    .developer {
-      transition: opacity 1s ease-in 0.25s;
-    }
-    .and {
-      transition: opacity 0.5s ease-in 1.5s;
-    }
-    .designer {
-      transition: opacity 1s ease-in 1.75s;
-    }
-
-    &.on .developer,
-    &.on .designer,
-    &.on .and {
-      opacity: 1;
-    }
+  @media (max-width: 1024px) {
+    font-size: 1em;
   }
+}
+h3 {
+  color: #868d95;
+  font-size: 2em;
+  margin: 0;
 
-  .title-transition-leave-active {
-    transition: 0.75s opacity ease-out 0.75s, 1s filter ease-in;
+  @media (max-width: 1024px) {
+    font-size: 1em;
   }
-  .title-transition-leave-to {
+}
+
+.titles {
+  transform-origin: top right;
+  right: 5vw;
+  width: 100vw;
+  position: absolute;
+}
+
+.text {
+  transform-origin: top right;
+
+  .developer,
+  .designer,
+  .and {
     opacity: 0;
-    filter: blur(10px);
   }
+  .developer {
+    transition: opacity 1s ease-in 0.25s;
+  }
+  .and {
+    transition: opacity 0.5s ease-in 1.5s;
+  }
+  .designer {
+    transition: opacity 1s ease-in 1.75s;
+  }
+
+  &.on .developer,
+  &.on .designer,
+  &.on .and {
+    opacity: 1;
+  }
+}
+
+.title-transition-leave-active {
+  transition: 0.75s opacity ease-out 0.75s, 1s filter ease-in;
+}
+.title-transition-leave-to {
+  opacity: 0;
+  filter: blur(10px);
+}
 </style>
 
 <script lang="ts">
-  import { Component, Prop, Vue } from "vue-property-decorator";
-  import { tween } from "shifty";
+import { Component, Prop, Vue } from "vue-property-decorator";
+import { tween } from "shifty";
 
-  @Component
-  export default class Titles extends Vue {
-    // styling properties
-    circle_radius = 0;
-    circle_opacity = 0;
-    line_height = 0.0;
-    line_width = -0.0;
-    show_text = false;
-    window_height = window.innerHeight;
-    window_width = window.innerWidth;
+@Component
+export default class Titles extends Vue {
+  // styling properties
+  circle_radius = 0;
+  circle_opacity = 0;
+  line_height = 0.0;
+  line_width = -0.0;
+  show_text = false;
+  window_height = window.innerHeight;
+  window_width = window.innerWidth;
 
-    @Prop() show!: boolean; // whether or not the titles should be displayed
+  @Prop()
+  show!: boolean; // whether or not the titles should be displayed
 
-    created(): void {
-      // make sure elements scale properly when window resizes. Important for mobile viewers.
-      let vm = this;
-      window.addEventListener("resize", function() {
-        vm.window_height = window.innerHeight;
-        vm.window_width = window.innerWidth;
-      });
-    }
+  created(): void {
+    // make sure elements scale properly when window resizes. Important for mobile viewers.
+    let vm = this;
+    window.addEventListener("resize", function() {
+      vm.window_height = window.innerHeight;
+      vm.window_width = window.innerWidth;
+    });
+  }
 
-    // Tween chain for opening animation
-    // TODO: rewrite in CSS Animations
-    appear(el: HTMLElement, done: () => void) {
-      tween({
-        from: { r: 0, o: 0.0 },
-        to: { r: this.max(15 * this.scale_factor, 4), o: 1.0 },
-        duration: 800,
-        easing: { r: "swingTo", y: "easeOutQuad", o: "easeInQuad" },
-        delay: 1000,
-        step: state => {
-          this.circle_radius = state.r;
-          this.circle_opacity = state.o;
-        }
-      })
-        .then(() => {
-          return tween({
-            from: { x: 0, y: 0 },
-            to: { x: 1200 * this.scale_factor, y: this.window_height * 0.1 },
-            duration: 500,
-            easing: { x: "easeInQuad", y: "easeOutQuad" },
-            delay: 500,
-            step: state => {
-              this.line_width = state.x;
-              this.line_height = state.y;
-            }
-          });
-        })
-        .then(() => {
-          this.show_text = true;
-          done();
-
-          setTimeout(() => {
-            this.$emit("intro_complete");
-          }, 1000);
+  // Tween chain for opening animation
+  // TODO: rewrite in CSS Animations
+  appear(el: HTMLElement, done: () => void) {
+    tween({
+      from: { r: 0, o: 0.0 },
+      to: { r: this.max(15 * this.scale_factor, 4), o: 1.0 },
+      duration: 800,
+      easing: { r: "swingTo", y: "easeOutQuad", o: "easeInQuad" },
+      delay: 1000,
+      step: (state) => {
+        this.circle_radius = state.r;
+        this.circle_opacity = state.o;
+      }
+    })
+      .then(() => {
+        return tween({
+          from: { x: 0, y: 0 },
+          to: { x: 1200 * this.scale_factor, y: this.window_height * 0.1 },
+          duration: 500,
+          easing: { x: "easeInQuad", y: "easeOutQuad" },
+          delay: 500,
+          step: (state) => {
+            this.line_width = state.x;
+            this.line_height = state.y;
+          }
         });
-    }
+      })
+      .then(() => {
+        this.show_text = true;
+        done();
 
-    // let other elements know when the titles are closed, so they can run their animations
-    after_leave(): void {
-      this.$emit("close_intro");
-    }
+        setTimeout(() => {
+          this.$emit("intro_complete");
+        }, 1000);
+      });
+  }
 
-    // styling values that are based on window size
-    get scale_factor(): number {
-      if (this.window_width > this.window_height) {
-        return (this.window_width + 100) * 0.5 / 1575;
-      } else {
-        return (this.window_width + 100) * 0.6 / 1575;
-      }
-    }
-    get center_gap(): number {
-      if (this.window_width > this.window_height) {
-        return this.window_height * 0.1;
-      } else {
-        return this.window_height * 0.05;
-      }
-    }
+  // let other elements know when the titles are closed, so they can run their animations
+  after_leave(): void {
+    this.$emit("close_intro");
+  }
 
-    // helper function
-    max(a, b): number {
-      if (a > b) {
-        return a;
-      } else {
-        return b;
-      }
+  // styling values that are based on window size
+  get scale_factor(): number {
+    if (this.window_width > this.window_height) {
+      return ((this.window_width + 100) * 0.5) / 1575;
+    } else {
+      return ((this.window_width + 100) * 0.6) / 1575;
     }
   }
+  get center_gap(): number {
+    if (this.window_width > this.window_height) {
+      return this.window_height * 0.1;
+    } else {
+      return this.window_height * 0.05;
+    }
+  }
+
+  // helper function
+  max(a, b): number {
+    if (a > b) {
+      return a;
+    } else {
+      return b;
+    }
+  }
+}
 </script>

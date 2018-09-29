@@ -4,7 +4,10 @@
 
     <transition name="deblur">
       <div v-if=" !show_titles ">
-        <router-view/>
+        <Menu></Menu>
+        <transition name="page">
+          <router-view class="router-wrapper" />
+        </transition>
       </div>
     </transition>
   </div>
@@ -12,6 +15,11 @@
 
 <style lang="less">
 @import "./base.less";
+
+.router-wrapper {
+  position: absolute;
+  top: 40px;
+}
 
 // TRANSITIONS
 #app {
@@ -24,15 +32,25 @@
   filter: blur(5px);
   opacity: 0;
 }
+
+.page-enter-active,
+.page-leave-active {
+  transition: 700ms transform ease-out;
+}
+.page-enter, .page-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translateX(100%);
+}
 </style>
 
 <script lang="ts">
 import Vue from "vue";
 import NavBar from "@/components/nav_bar.vue";
+import Menu from "@/components/menu.vue";
 
 export default Vue.extend({
   components: {
-    NavBar
+    NavBar,
+    Menu
   },
 
   data() {
@@ -40,7 +58,10 @@ export default Vue.extend({
   },
 
   created() {
-    if (sessionStorage.getItem("show_titles") === "false" || this.$route.name !== "index") {
+    if (
+      sessionStorage.getItem("show_titles") === "false" ||
+      this.$route.name !== "index"
+    ) {
       this.show_titles = false;
     }
   },
