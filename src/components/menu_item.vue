@@ -51,7 +51,7 @@
     opacity: 1;
 
     &.active {
-      transform: translateX(0) scaleY(0.8);
+      transform: translateX(0) scaleY(0.7);
       opacity: 0.7;
     }
   }
