@@ -35,7 +35,7 @@
 
 .page-enter-active,
 .page-leave-active {
-  transition: 500ms transform ease-out;
+  transition: 400ms transform ease-out 100ms;
 }
 .page-enter, .page-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: translateX(100%);

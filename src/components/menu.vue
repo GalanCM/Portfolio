@@ -1,14 +1,14 @@
 <template>
   <section class='menu-wrapper'>
-    <MenuItem color="black" style="grid-row: 2">
+    <MenuItem color="black" url="about" style="grid-row: 2">
       <template slot="header">About Me</template>
-      <template slot="subheader">A brief history of me and my skills.</template>
+      <template slot="subheader">My work history, and my skills.</template>
     </MenuItem>
-    <MenuItem color="green" style="grid-row: 4">
+    <!-- <MenuItem color="green" style="grid-row: 4">
       <template slot="header">Code Samples</template>
       <template slot="subheader">Small web apps, with code.</template>
-    </MenuItem>
-    <MenuItem color="blue" url="portfolio" style="grid-row: 6">
+    </MenuItem> -->
+    <MenuItem color="blue" url="portfolio" style="grid-row: 4">
       <template slot="header">Portfolio</template>
       <template slot="subheader">In-depth looks at some of my past projects.</template>
     </MenuItem>
@@ -19,7 +19,7 @@
 .menu-wrapper {
   min-height: calc(100vh - 50px);
   display: grid;
-  grid-template-rows: repeat(4, minmax(20px, 1fr) max-content);
+  grid-template-rows: repeat(3, minmax(20px, 1fr) max-content);
 }
 </style>
 

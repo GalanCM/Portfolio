@@ -12,9 +12,10 @@
 
 <style lang="less" scoped>
 .about {
-  background-color: #000a14;
-  max-width: 100%;
+  width: 100vw;
+  min-height: 100vh;
   padding: 50px 80px;
+  background-color: #000a14;
 
   @media (max-width: 1024px) and (orientation: portrait) {
     padding: 35px 35px;
@@ -132,7 +133,11 @@ export default class Index extends Vue {
   created(): void {
     window.addEventListener("scroll", () => {
       let bottom = this.$el.getBoundingClientRect().bottom;
-      let header_buffer = window.matchMedia("(max-width: 1024px) and (orientation: portrait)").matches ? 95 : 50;
+      let header_buffer = window.matchMedia(
+        "(max-width: 1024px) and (orientation: portrait)"
+      ).matches
+        ? 95
+        : 50;
 
       if (bottom < header_buffer) {
         this.$emit("input", bottom - header_buffer + window.scrollY);

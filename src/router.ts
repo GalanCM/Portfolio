@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Index from "./views/Index.vue";
+import Portfolio from "./views/Portfolio.vue";
+import About from "./views/About.vue";
 import PortfolioStudy from "./views/CaseStudies/PortfolioStudy.vue";
 
 Vue.use(Router);
@@ -11,8 +12,14 @@ export default new Router({
     {
       path: "/portfolio",
       name: "portfolio",
-      component: Index,
+      component: Portfolio,
       meta: { title: "Portfolio" }
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: About,
+      meta: { title: "About" }
     },
     {
       path: "/case_studies/portfolio",
