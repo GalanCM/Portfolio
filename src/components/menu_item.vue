@@ -17,7 +17,7 @@
 <style lang="less">
 .menu-item {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(200px, 2fr) minmax(50px, 2fr);
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 3fr) minmax(85px, 1fr);
   position: relative;
   margin: 0;
   padding: 30px 50px;
@@ -29,6 +29,7 @@
 
   .content-wrapper {
     grid-column: 2;
+    padding: 0 10px 0 0;
   }
 
   h1,
