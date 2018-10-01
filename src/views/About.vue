@@ -22,10 +22,10 @@
     </p>
     <p>
       <em>Since then, I have been working a variety of odd jobs,</em> mostly contracting, and generally working on improving my skills. 
-      I've worked to diverify my skillset, learning different tools for different situation. 
+      I've worked to diversify my skillset, learning different tools for different situation. 
       I've gotten good at building Single Page applications using tools like <a href="https://www.vuejs.org">Vue</a> and 
       <a href="https://www.reactjs.org">React</a>, at writing vanilla Javascript, and working with language features like CSS grid and JS promises. 
-      On the backend, I've supplemented my knowledge of MVC backends with headless-CMS and microservices. 
+      On the backend, I've supplemented my experience using MVC frameworks with both headless-CMSs and microservices. 
       And I'm always looking to expand my skills on interesting projects.
     </p>
   </div>

@@ -60,7 +60,7 @@ export default Vue.extend({
   created() {
     if (
       sessionStorage.getItem("show_titles") === "false" ||
-      this.$route.name !== "index"
+      this.$route.name !== null
     ) {
       this.show_titles = false;
     }
