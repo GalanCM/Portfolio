@@ -1,24 +1,74 @@
 <template>
   <div class="about">
-    <transition name="scale">
-      <h1>Do you want a <strong>distinctive</strong> website built on a <em>robust</em> foundation?</h1>
-    </transition>
-    <h1>Do you want <em>stylish visuals</em> that engage your users and support their needs?</h1>
-    <h1>Do you a care about both <strong>user</strong> and <strong>developer</strong>&nbsp;<em>experience</em>?</h1>
-    <h2>My name is <span class="name">Galan Montgomery</span>. <em>I engineer websites</em> with a focus on usability.</h2>
-    <h2>And <strong>I could work for you.</strong></h2>
+    <ul class="intro">
+      <li>
+        <strong>Software should delight its users.</strong> First by meeting their needs — with the features they're looking for, a good workflow,
+        and an easy-to-read design. Then, in the places where it does the most good, it should be fun.
+      </li>
+      <li>
+        <strong>Software should be built on the right foundation.</strong> Many sites use one-size-fits-all solutions, and 
+        when you just need something that works, that's fine. But those solutions aren't 
+        necessarily the fastest. Or they add unnecessary complexity. Or become difficult to maintain. The right 
+        tool for <em>a</em> job is not the right tool for <em>every</em> job.
+      </li>
+    </ul>
+    <p>
+      <em>I started my career in 2013, working for Getloaded,</em> a site that helpd independant truckers search for loads. 
+      I was hired on as a mid-level developer, and had to learn quickly in order to put out the quality of work they needed. 
+      It was here that I realized that I wanted to use my coding skills to design, after falling into the unofficial role of 
+      UI expert. I helped design their admin interface, and handled the design for their mobile search results. 
+      In 2015, I lucked into a role as project lead for their new Android and iOS apps. I built the architecture for the apps, 
+      and led a small, remote team to port our mobile site views to it.
+    </p>
+    <p>
+      <em>Since then, I have been working a variety of odd jobs,</em> mostly contracting, and generally working on improving my skills. 
+      I've worked to diverify my skillset, learning different tools for different situation. 
+      I've gotten good at building Single Page applications using tools like <a href="https://www.vuejs.org">Vue</a> and 
+      <a href="https://www.reactjs.org">React</a>, at writing vanilla Javascript, and with language features like CSS grid and JS promises. 
+      On the backend, I've supplemented my knowledge of MVC backends with headless-CMS and microservices. 
+      And I'm always looking to expand my skills on interesting projects.
+    </p>
   </div>
 </template>
 
 <style lang="less" scoped>
 .about {
-  width: 100vw;
+  display: grid;
+  grid-template-columns: minmax(15px, 1fr) minmax(200px, 4fr) minmax(15px, 1fr);
   min-height: 100vh;
-  padding: 50px 80px;
+  padding: 50px 50px 0;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 1.4;
   background-color: #000a14;
+  color: rgba(255, 255, 255, 0.85);
+}
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    padding: 35px 35px;
+.intro {
+  grid-column: ~"1 / 4";
+  list-style: none;
+  padding: 0;
+  margin-bottom: 50px;
+
+  li {
+    margin: 0 0 14px;
+
+    strong {
+      font-weight: 600;
+      padding-right: 20px;
+      color: white;
+    }
+  }
+}
+
+p {
+  margin: 0 0 50px 0;
+
+  &:nth-of-type(2n + 1) {
+    grid-column: ~"2 / 4";
+  }
+  &:nth-of-type(2n + 2) {
+    grid-column: ~"1 / 3";
   }
 }
 
@@ -112,16 +162,6 @@ h2 strong {
   @media (max-width: 1024px) and (orientation: portrait) {
     font-size: 28px;
   }
-}
-
-.scale-active {
-  transition: 300ms transform ease-in;
-}
-.scale-enter {
-  transform: scaleY(0);
-}
-.scale-to {
-  transform: scaleY(1);
 }
 </style>
 
