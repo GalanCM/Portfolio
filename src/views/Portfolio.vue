@@ -217,7 +217,7 @@ export default class Portfolio extends Vue {
     {
       color: "#001f3d",
       url: null,
-      case_study_url: "/case_studies/portfolio",
+      case_study_url: null,
       image: null,
       video: null,
       title: "This Site",
