@@ -18,7 +18,7 @@
       It was here that I realized that I wanted to use my coding skills to design, after falling into the unofficial role of 
       UI expert. I helped design their admin interface, and handled the design for their mobile search results. 
       In 2015, I lucked into a role as project lead for their new Android and iOS apps. I built the architecture for the apps, 
-      and led a small, remote team to port our mobile site views to it.
+      and led a small, remote team to port over views from out mobile site.
     </p>
     <p>
       <em>Since then, I have been working a variety of odd jobs,</em> mostly contracting, and generally working on improving my skills. 
@@ -28,6 +28,16 @@
       On the backend, I've supplemented my experience using MVC frameworks with both headless-CMSs and microservices. 
       And I'm always looking to expand my skills on interesting projects.
     </p>
+    <p>
+      <em>Much of my work is influenced by my game development hobby.</em> I have over two dozen short games (of varying quality) on 
+      <a href="elanti.itch.io">Itch.io</a>, and I publish my more polished games under the label 
+      <a href="www.isoteric-games.com">Isoteric Games</a>. Take a look if you want to see some of my non-web work.
+    </p>
+    <h1>
+      If you like what you see and are interest in hiring me
+      <br>— freelance, contract, or full-time —
+      <br>please <a href="mailto:galan.c.m@gmail.com">email me</a>.
+    </h1>
   </div>
 </template>
 
@@ -35,6 +45,7 @@
 .about {
   display: grid;
   grid-template-columns: minmax(15px, 1fr) minmax(200px, 4fr) minmax(15px, 1fr);
+  grid-auto-rows: min-content;
   min-height: 100vh;
   padding: 50px 50px 0;
   font-size: 18px;
@@ -48,7 +59,7 @@
   grid-column: ~"1 / 4";
   list-style: none;
   padding: 0;
-  margin-bottom: 50px;
+  margin-bottom: 16px;
 
   li {
     margin: 0 0 14px;
@@ -62,7 +73,7 @@
 }
 
 p {
-  margin: 0 0 50px 0;
+  margin: 0 0 30px 0;
 
   &:nth-of-type(2n + 1) {
     grid-column: ~"2 / 4";
@@ -73,96 +84,106 @@ p {
 }
 
 h1 {
-  font-size: 22px;
+  grid-column: ~"1 / 4";
+  margin: 40px auto auto;
+  font-size: 26px;
   font-family: Raleway, sans-serif;
   font-weight: 200;
-  color: rgba(255, 255, 255, 0.7);
-  transform-origin: top center;
-
-  @media (max-width: 1024px) and (orientation: portrait) {
-    font-size: 18px;
-  }
-}
-h1:nth-of-type(2) {
-  text-align: right;
-}
-h1:not(:first-of-type) {
-  margin-top: 40px;
-}
-h1:first-of-type {
-  margin-top: 0;
-}
-h1:not(:last-of-type) {
-  margin-bottom: 30px;
-}
-h1:last-of-type {
-  margin-bottom: 0;
-}
-h1 em {
-  color: rgba(255, 255, 255, 1);
-  text-decoration: underline rgba(129, 10, 9, 1);
-  font-size: 24px;
-
-  @media (max-width: 1024px) and (orientation: portrait) {
-    font-size: 20px;
-  }
-}
-h1 strong {
-  opacity: 1;
-  font-size: 30px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 1);
-
-  @media (max-width: 1024px) and (orientation: portrait) {
-    font-size: 23px;
-  }
-}
-
-h2 {
-  font-size: 28px;
-  font-family: Lato;
-  font-weight: 200;
-  font-style: normal;
   text-align: center;
-  margin-bottom: 0;
-  color: rgba(255, 255, 255, 0.55);
+  color: white;
+}
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    font-size: 25px;
-  }
-}
-h2:first-of-type {
-  margin: 50px 0;
+// h1 {
+//   font-size: 22px;
+//   font-family: Raleway, sans-serif;
+//   font-weight: 200;
+//   color: rgba(255, 255, 255, 0.7);
+//   transform-origin: top center;
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    font-size: 25px;
-  }
-}
-h2 em {
-  font-style: normal;
-  color: rgba(255, 255, 255, 0.9);
-  font-style: italic;
-  text-decoration: underline rgba(129, 10, 9, 1);
-}
-.name {
-  font-weight: 400;
-  font-size: 42px;
-  color: rgba(255, 255, 255, 1);
-  white-space: nowrap;
+//   @media (max-width: 1024px) and (orientation: portrait) {
+//     font-size: 18px;
+//   }
+// }
+// h1:nth-of-type(2) {
+//   text-align: right;
+// }
+// h1:not(:first-of-type) {
+//   margin-top: 40px;
+// }
+// h1:first-of-type {
+//   margin-top: 0;
+// }
+// h1:not(:last-of-type) {
+//   margin-bottom: 30px;
+// }
+// h1:last-of-type {
+//   margin-bottom: 0;
+// }
+// h1 em {
+//   color: rgba(255, 255, 255, 1);
+//   text-decoration: underline rgba(129, 10, 9, 1);
+//   font-size: 24px;
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    font-size: 34px;
-  }
-}
-h2 strong {
-  font-weight: 400;
-  font-size: 30px;
-  color: rgba(255, 255, 255, 1);
+//   @media (max-width: 1024px) and (orientation: portrait) {
+//     font-size: 20px;
+//   }
+// }
+// h1 strong {
+//   opacity: 1;
+//   font-size: 30px;
+//   font-weight: 400;
+//   color: rgba(255, 255, 255, 1);
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    font-size: 28px;
-  }
-}
+//   @media (max-width: 1024px) and (orientation: portrait) {
+//     font-size: 23px;
+//   }
+// }
+
+// h2 {
+//   font-size: 28px;
+//   font-family: Lato;
+//   font-weight: 200;
+//   font-style: normal;
+//   text-align: center;
+//   margin-bottom: 0;
+//   color: rgba(255, 255, 255, 0.55);
+
+//   @media (max-width: 1024px) and (orientation: portrait) {
+//     font-size: 25px;
+//   }
+// }
+// h2:first-of-type {
+//   margin: 50px 0;
+
+//   @media (max-width: 1024px) and (orientation: portrait) {
+//     font-size: 25px;
+//   }
+// }
+// h2 em {
+//   font-style: normal;
+//   color: rgba(255, 255, 255, 0.9);
+//   font-style: italic;
+//   text-decoration: underline rgba(129, 10, 9, 1);
+// }
+// .name {
+//   font-weight: 400;
+//   font-size: 42px;
+//   color: rgba(255, 255, 255, 1);
+//   white-space: nowrap;
+
+//   @media (max-width: 1024px) and (orientation: portrait) {
+//     font-size: 34px;
+//   }
+// }
+// h2 strong {
+//   font-weight: 400;
+//   font-size: 30px;
+//   color: rgba(255, 255, 255, 1);
+
+//   @media (max-width: 1024px) and (orientation: portrait) {
+//     font-size: 28px;
+//   }
+// }
 </style>
 
 <script lang="ts">
