@@ -17,9 +17,11 @@
 
 <style lang="less" scoped>
 .menu-wrapper {
-  min-height: calc(100vh - 50px);
   display: grid;
   grid-template-rows: repeat(3, minmax(20px, 1fr) max-content);
+  width: 100vw;
+  min-height: calc(100vh - 50px);
+  overflow-x: hidden;
 }
 </style>
 
