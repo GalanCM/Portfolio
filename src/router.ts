@@ -13,19 +13,21 @@ export default new Router({
       path: "/portfolio",
       name: "portfolio",
       component: Portfolio,
-      meta: { title: "Portfolio" }
+      meta: { title: "Portfolio" },
+      children: [
+        {
+          path: "/case_studies/portfolio",
+          name: "portfolio_study",
+          component: PortfolioStudy,
+          meta: { title: "Case Study – My Portfolio" }
+        }
+      ]
     },
     {
       path: "/about",
       name: "about",
       component: About,
       meta: { title: "About" }
-    },
-    {
-      path: "/case_studies/portfolio",
-      name: "portfolio_study",
-      component: PortfolioStudy,
-      meta: { title: "Case Study – My Portfolio" }
     }
   ]
 });

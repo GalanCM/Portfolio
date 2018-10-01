@@ -13,6 +13,8 @@
         </div>
       </div>
     </div>
+
+    <router-view class="router-wrapper" />
   </section>
 </template>
 
