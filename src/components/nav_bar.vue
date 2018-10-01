@@ -113,9 +113,13 @@
       margin-bottom: 10px;
       color: white;
       display: flex;
-      font-size: 70px;
+      font-size: 10vh;
       line-height: 0.7;
       transition: 100ms opacity ease-out;
+
+      @media (orientation: portrait) {
+        font-size: 10vw;
+      }
 
       .chevron {
         margin: auto;
