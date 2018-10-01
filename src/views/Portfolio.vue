@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Portfolio</h1>
+    <!-- <h1>Portfolio</h1> -->
 
     <svg height="3" width="100%" :style=" intro_transitions.horizontal">
       <line x1="0" y1="1px" x2="100%" y2="1px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
@@ -27,7 +27,7 @@ section {
   overflow-y: visible;
 
   @media (max-width: 1024px) and (orientation: portrait) {
-    margin-top: 25px;
+    margin-top: 10px;
   }
 }
 
@@ -156,10 +156,10 @@ svg {
   float: left;
 
   @media (max-width: 1024px) {
-    margin-top: 20px;
+    margin-top: 0;
   }
   @media (max-width: 1024px) and (orientation: portrait) {
-    margin-top: 60px;
+    margin-top: 0;
   }
 
   > div {
