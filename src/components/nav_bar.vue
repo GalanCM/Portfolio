@@ -16,8 +16,8 @@
     <transition name="intro" appear>
       <div class="bottom" ref="bottom" v-if="show_titles === true">
         <div class="titles" ref="titles">
-          <div class="web">Stylish Websites & Apps</div>
-          <div class="game">Smart Foundations</div>
+          <div class="design">Stylish Websites & Apps</div>
+          <div class="code">Smart Foundations</div>
         </div>
         <div class="chevron-wrapper" :style=" styles.hideChevron ? 'opacity: 0' : '' ">
           <div class="chevron">⌄</div>
@@ -99,11 +99,11 @@
         font-size: calc(60vw / 9);
       }
 
-      .web {
+      .design {
         font-weight: 200;
         color: white;
       }
-      .game {
+      .code {
         font-weight: 400;
         color: rgba(232, 232, 247, 0.8);
       }
@@ -133,11 +133,11 @@
     &.bottom {
       transition: 2500ms position 1000ms; // placeholder to insure transition runs
 
-      .web {
+      .design {
         transition: 500ms clip-path linear 750ms;
         clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
       }
-      .game {
+      .code {
         transition: 500ms clip-path linear 1800ms;
         clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
       }
@@ -152,10 +152,10 @@
       transform: scaleX(0);
     }
     &.bottom {
-      .web {
+      .design {
         clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
       }
-      .game {
+      .code {
         clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
       }
       .chevron-wrapper {
