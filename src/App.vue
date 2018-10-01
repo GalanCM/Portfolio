@@ -59,8 +59,8 @@ export default Vue.extend({
 
   created() {
     if (
-      sessionStorage.getItem("show_titles") === "false" &&
-      this.$route.name === null
+      sessionStorage.getItem("show_titles") === "false" ||
+      this.$route.path !== "/"
     ) {
       this.show_titles = false;
     }
@@ -68,7 +68,7 @@ export default Vue.extend({
 
   watch: {
     show_titles(value) {
-      if (this.$route.name === null) {
+      if (this.$route.path === "/") {
         sessionStorage.setItem("show_titles", value.toString());
       }
     }
