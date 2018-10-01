@@ -89,14 +89,14 @@
     .titles {
       position: relative;
       top: 5px;
-      font-size: calc(50vw / 9);
+      font-size: 4.5vw;
       line-height: 1;
       right: 4%;
       margin-left: auto;
       font-family: Raleway, Helvetica, sans-serif;
 
       @media screen and (orientation: portrait) {
-        font-size: calc(60vw / 9);
+        font-size: 5.5vw;
       }
 
       .design {
