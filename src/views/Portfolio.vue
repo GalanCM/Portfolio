@@ -184,8 +184,9 @@ export default class Portfolio extends Vue {
   sites = [
     {
       color: "#001f3d",
-      url: null,
-      case_study_url: null,
+      siteUrl: null,
+      caseStudyUrl: null,
+      repoUrl: null,
       image: null,
       video: null,
       title: "This Site",
@@ -194,8 +195,9 @@ export default class Portfolio extends Vue {
     },
     {
       color: "#fd9001",
-      url: ["Visit Site", "https://www.childfund.org/thereturn/"],
-      case_study_url: null,
+      siteUrl: ["Visit Site", "https://www.childfund.org/thereturn/"],
+      caseStudyUrl: null,
+      repoUrl: null,
       image: "there-turn.png",
       video: null,
       title: "Childfund VR",
@@ -204,8 +206,9 @@ export default class Portfolio extends Vue {
     },
     {
       color: "rgb(115, 168, 57)",
-      url: null,
-      case_study_url: null,
+      siteUrl: null,
+      caseStudyUrl: null,
+      repoUrl: null,
       image: "getloaded-mobile.png",
       video: null,
       title: "Getloaded Mobile 2.0",

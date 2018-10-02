@@ -5,12 +5,10 @@ declare module "*.vue" {
 
 interface PortfolioInfo {
   color: string;
-  url: string;
+  siteUrl: string;
+  caseStudyUrl: string;
+  repoUrl: string;
   image: string;
   video: string;
   title: string;
-  main: string;
-  tech: string;
-  frontend: string;
-  backend: string;
 }

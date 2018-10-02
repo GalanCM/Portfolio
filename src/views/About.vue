@@ -13,16 +13,16 @@
       </li>
     </ul>
     <p>
-      <em>I started my career in 2013, working for Getloaded,</em> a site that helpd independant truckers search for loads. 
+      <em>I started my career in 2013, working for Getloaded,</em> a site that helped independant truckers search for loads. 
       I was hired on as a mid-level developer, and had to learn quickly in order to put out the quality of work they needed. 
       It was here that I realized that I wanted to use my coding skills to design, after falling into the unofficial role of 
       UI expert. I helped design their admin interface, and handled the design for their mobile search results. 
       In 2015, I lucked into a role as project lead for their new Android and iOS apps. I built the architecture for the apps, 
-      and led a small, remote team to port over views from out mobile site.
+      and led a small, remote team to port over views from our mobile site.
     </p>
     <p>
       <em>Since then, I have been working a variety of odd jobs,</em> mostly contracting, and generally working on improving my skills. 
-      I've worked to diversify my skillset, learning different tools for different situation. 
+      I've worked to diversify my skillset, learning different tools for different situations. 
       I've gotten good at building Single Page applications using tools like <a href="https://www.vuejs.org">Vue</a> and 
       <a href="https://www.reactjs.org">React</a>, at writing vanilla Javascript, and working with language features like CSS grid and JS promises. 
       On the backend, I've supplemented my experience using MVC frameworks with both headless-CMSs and microservices. 
@@ -30,8 +30,8 @@
     </p>
     <p>
       <em>Much of my work is influenced by my game development hobby.</em> I have over two dozen short games (of varying quality) on 
-      <a href="elanti.itch.io">Itch.io</a>, and I publish my more polished games under the label 
-      <a href="www.isoteric-games.com">Isoteric Games</a>. Take a look if you want to see some of my non-web work.
+      <a href="https://elanti.itch.io">Itch.io</a>, and I publish my more polished games under the label 
+      <a href="https://www.isoteric-games.com">Isoteric Games</a>. Take a look if you want to see some of my non-web work.
     </p>
     <h1>
       If you like what you see and are interest in hiring me
@@ -59,7 +59,7 @@
   grid-column: ~"1 / 4";
   list-style: none;
   padding: 0;
-  margin-bottom: 16px;
+  margin-bottom: 50px;
 
   li {
     margin: 0 0 14px;

@@ -4,6 +4,11 @@
     <main>
       <h1>{{info.title}}</h1>
       <p>{{info.tagline}}</p>
+      <div class="buttons">
+        <a class="button" :href="info.repoUrl" v-if="info.repoUrl !== null">Github</a>
+        <a class="button" :href="info.caseStudyUrl" v-if="info.caseStudyUrl !== null">Case Study</a>
+        <a class="button primary" :href="info.siteUrl" v-if="info.siteUrl !== null">Visit Site</a>
+      </div>
     </main>
   </section>
 </template>
@@ -66,6 +71,23 @@
     }
     p {
       margin-top: 0;
+      font-size: 18px;
+      color: #50503c;
+    }
+
+    .buttons {
+      display: flex;
+
+      a {
+        margin: 10px;
+
+        &:first-child {
+          margin-left: auto;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
     }
   }
 }

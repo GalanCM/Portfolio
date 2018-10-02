@@ -10,7 +10,7 @@
     </MenuItem> -->
     <MenuItem color="blue" url="portfolio" style="grid-row: 4">
       <template slot="header">Portfolio</template>
-      <template slot="subheader">In-depth looks at some of my past projects.</template>
+      <template slot="subheader">In-depth looks at some of my past projects. <small>["In-depth" coming soon]</small></template>
     </MenuItem>
   </section>
 </template>
