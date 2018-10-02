@@ -14,6 +14,7 @@
 </template>
 
 <style lang="less">
+@import "~normalize.css/normalize.css";
 @import "./base.less";
 
 .router-wrapper {
