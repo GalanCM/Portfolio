@@ -26,7 +26,7 @@ export default Vue.extend({
           color: "#820a0a",
           siteUrl: "https://www.galan-montgomery.com/miniblog/",
           caseStudyUrl: null,
-          repoUrl: "https://github.com/GalanCM/miniblog-code-samples",
+          repoUrl: "https://github.com/GalanCM/Miniblog",
           image: "screenshots/miniblog.png",
           video: null,
           title: "Miniblog",
