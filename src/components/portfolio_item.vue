@@ -1,42 +1,56 @@
 <template>
-  <div class="wrapper">
-    <div class="color-bar" v-if=" side === 'right' || has_image !== true " :style=" { 'background-color': info.color } "></div>
-    <div v-if=" !is_mobile && side === 'left' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-right': '50px' }">
-      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) ">
-      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <div class="details" :style="{ 'padding-left': padding.left + 'px', 'padding-right': padding.right + 'px'  }">
-      <div>
-        <div v-if=" is_mobile && ( has_image === true )" class="img-wrapper" :style="{ 'background': info.color}">
-          <div class="img-inner-wrapper">
-            <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) " :style="{ 'border-color': info.color } ">
-            <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen :style="{ 'border-color': info.color } "></iframe>
-          </div>
-        </div>
-        <div v-else-if=" is_mobile " :style="{ 'min-height': '50px', 'background-color': info.color }">
-        </div>
-
-        <div class="detail-chunk">
-          <h2>{{ info.title }}</h2>
-          <p>{{ info.tagline }}</p>
-          <a v-if=" info.url !== null " class="button primary" :href=" info.url[1] ">{{ info.url[0] }}</a>
-          <a v-if=" info.case_study_url !== null " class="button" :href=" info.case_study_url ">Case Study</a>
-        </div>
-      </div>
-    </div>
-
-    <div v-if=" !is_mobile && side === 'right' && has_image === true " class="img-wrapper" :style="{ 'background': info.color, 'padding-left': '50px' }">
-      <img v-if=" info.image !== null " :src=" require( '../assets/' + info.image ) ">
-      <iframe v-if=" info.video !== null " :src=" 'https://www.youtube.com/embed/' + info.video + '?rel=0&showinfo=0' " frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <div class="color-bar" v-if=" side === 'left' || has_image !== true " :style=" { 'background-color': info.color }"></div>
-  </div>
+  <section :style="{backgroundColor: info.color}" class="item">
+    <img v-if="info.image" :src="require( '@/assets/' + info.image )">
+    <main>
+      <h1>{{info.title}}</h1>
+      <p>{{info.tagline}}</p>
+    </main>
+  </section>
 </template>
 
 <style lang="less" scoped>
-.wrapper {
+.item {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, auto));
+  grid-gap: 30px;
+  width: 100%;
+
+  img {
+    height: 50vh;
+    min-height: 150px;
+    max-height: 300px;
+    object-fit: contain;
+    margin: auto 0;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    grid-row: 1;
+    height: auto;
+    background-color: #fafaff;
+    padding: 10px 50px 15px;
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+    min-height: 120px;
+
+    :first-child {
+      margin-top: auto;
+    }
+    :last-child {
+      margin-bottom: auto;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+    }
+    p {
+      margin-top: 0;
+    }
+  }
+}
+/*.wrapper {
   width: 100%;
   min-height: 200px;
   display: flex;
@@ -172,16 +186,27 @@ ul {
 li {
   padding-top: 5px;
 }
+*/
 </style>
 
-<style>
-.detail-chunk p {
-  margin: 0 0 0.6em 0;
+<style lang="less">
+.portfolio-item {
+  &:nth-child(odd) img {
+    grid-column: 1;
+    margin-right: auto;
+  }
+  &:nth-child(even) img {
+    grid-column: 3;
+    margin-left: auto;
+  }
 }
+/* // .detail-chunk p { 
+//   margin: 0 0 0.6em 0;
+// }
 
-.portfolio-item:first-child h2 {
-  margin-top: 10px;
-}
+// .portfolio-item:first-child h2 {
+//   margin-top: 10px;
+// } */
 </style>
 
 <script lang="ts">
@@ -191,8 +216,6 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 export default class PortfolioItem extends Vue {
   @Prop(Object)
   info!: PortfolioInfo;
-  @Prop(String)
-  side!: string;
 
   is_mobile = false;
   padding = {

@@ -2,14 +2,14 @@
   <section>
     <!-- <h1>Portfolio</h1> -->
 
-    <svg height="3" width="100%" :style=" intro_transitions.horizontal">
+    <svg height="3" width="100%">
       <line x1="0" y1="1px" x2="100%" y2="1px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
     </svg>
 
-    <div class="content" :style="{ 'transform': content_transform }">
+    <div class="content">
       <div class="panel" ref="panel-websites">
         <div v-for=" (site, key) in sites " class="portfolio-item" :key="key">
-          <item :info=" site " :side=" key % 2 === 0 ? 'left' : 'right' "></item>
+          <item :info=" site "></item>
         </div>
       </div>
     </div>
@@ -21,10 +21,7 @@
 <style lang="less" scoped>
 section {
   width: 100%;
-  overflow-x: hidden;
   background-color: rgb(250, 250, 255);
-  margin-top: 20px;
-  overflow-y: visible;
 
   @media (max-width: 1024px) and (orientation: portrait) {
     margin-top: 10px;
@@ -152,7 +149,7 @@ svg {
 
 .panel {
   width: 100vw;
-  padding: 50px 0 0px;
+  padding: 20px 0;
   float: left;
 
   @media (max-width: 1024px) {
@@ -168,25 +165,7 @@ svg {
 }
 
 .portfolio-item {
-  margin: 50px 0 150px;
-
-  &:last-child {
-    margin-bottom: 50px;
-  }
-  &:first-child {
-    margin-top: -50px;
-  }
-
-  @media (max-width: 1024px) and (orientation: portrait) {
-    margin: 0 0 40px;
-
-    &:last-child {
-      margin-bottom: 50px;
-    }
-    &:first-child {
-      margin-top: -60px;
-    }
-  }
+  margin: 0 0 150px;
 }
 </style>
 
@@ -198,21 +177,6 @@ import Item from "@/components/portfolio_item.vue";
   components: { Item }
 })
 export default class Portfolio extends Vue {
-  @Prop()
-  intro!: boolean;
-  @Prop(Boolean)
-  "animation-start": boolean = false;
-
-  content_transform = "translateX(0)";
-  intro_transitions = {
-    vertical: (this.intro === true
-      ? "transition: 0.3s transform ease-out 3.5s;"
-      : "") as string,
-    horizontal: (this.intro === true
-      ? "transition: 0.5s transform ease-in-out 3.7s;"
-      : "") as string
-  };
-
   sites = [
     {
       color: "#001f3d",
