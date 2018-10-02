@@ -55,7 +55,7 @@
     color: #004e9b;
 
     img {
-      vertical-align: text-top;
+      vertical-align: -1px;
       opacity: 0.8;
     }
   }
