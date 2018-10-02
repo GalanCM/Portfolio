@@ -27,7 +27,6 @@ export default Vue.extend({
           siteUrl: "https://www.galan-montgomery.com/miniblog/",
           caseStudyUrl: null,
           repoUrl: "https://github.com/GalanCM/miniblog-code-samples",
-          image: "screenshots/fuzzytasks.png",
           image: "screenshots/miniblog.png",
           video: null,
           title: "Miniblog",
