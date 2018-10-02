@@ -1,14 +1,14 @@
 <template>
   <section class='menu-wrapper'>
-    <MenuItem color="black" url="about" style="grid-row: 2">
+    <MenuItem color="#000a14" url="about" style="grid-row: 2">
       <template slot="header">About Me</template>
       <template slot="subheader">My work history, and my skills.</template>
     </MenuItem>
-    <MenuItem color="green" url="code-samples" style="grid-row: 4">
+    <MenuItem color="#009086" url="code-samples" style="grid-row: 4">
       <template slot="header">Code Samples</template>
-      <template slot="subheader">Small web apps, with code.</template>
+      <template slot="subheader">Simple web apps, so you can see how I code.</template>
     </MenuItem>
-    <MenuItem color="blue" url="portfolio" style="grid-row: 6">
+    <MenuItem color="#004a8f" url="portfolio" style="grid-row: 6">
       <template slot="header">Portfolio</template>
       <template slot="subheader">In-depth looks at some of my past projects. <small>["In-depth" coming soon]</small></template>
     </MenuItem>

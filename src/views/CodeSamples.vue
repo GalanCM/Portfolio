@@ -12,37 +12,27 @@ export default Vue.extend({
     return {
       sites: [
         {
-          color: "#001f3d",
-          siteUrl: null,
+          color: "#0061ac",
+          siteUrl: "https://tasks.galan-montgomery.com/",
           caseStudyUrl: null,
-          repoUrl: null,
-          image: null,
+          repoUrl: "https://github.com/GalanCM/FuzzyTasks",
+          image: "screenshots/fuzzytasks.png",
           video: null,
-          title: "This Site",
+          title: "Fuzzy Tasks",
           tagline:
-            "The first site in my portfolio. A showcase for my technical and design skills."
+            "A simple planner app. Global data, forms, and a drag-and-drop interface. Made in Vue."
         },
         {
-          color: "#fd9001",
-          siteUrl: ["Visit Site", "https://www.childfund.org/thereturn/"],
+          color: "#820a0a",
+          siteUrl: "https://www.galan-montgomery.com/miniblog/",
           caseStudyUrl: null,
-          repoUrl: null,
-          image: "there-turn.png",
+          repoUrl: "https://github.com/GalanCM/miniblog-code-samples",
+          image: "screenshots/fuzzytasks.png",
+          image: "screenshots/miniblog.png",
           video: null,
-          title: "Childfund VR",
+          title: "Miniblog",
           tagline:
-            "A microsite designed to host a 360° video. Responsive design modified from a static, desktop-only mockup."
-        },
-        {
-          color: "rgb(115, 168, 57)",
-          siteUrl: null,
-          caseStudyUrl: null,
-          repoUrl: null,
-          image: "getloaded-mobile.png",
-          video: null,
-          title: "Getloaded Mobile 2.0",
-          tagline:
-            "A complex Ecommerce front-end. My largest project to date, where I led a small team from initial research to final product."
+            "A barebones, view-only blog. Built-in code viewer. Made in React"
         }
       ]
     };

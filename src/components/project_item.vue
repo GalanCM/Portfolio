@@ -59,6 +59,11 @@
       border-top: 4px solid black;
     }
 
+    > * {
+      @media (min-width: 840px) {
+        transform: translateY(15px);
+      }
+    }
     :first-child {
       margin-top: auto;
     }
@@ -67,10 +72,10 @@
     }
 
     h1 {
-      margin-bottom: 5px;
+      margin-bottom: 7px;
     }
     p {
-      margin-top: 0;
+      margin: 0;
       font-size: 18px;
       color: #50503c;
     }
