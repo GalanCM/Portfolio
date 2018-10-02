@@ -98,6 +98,7 @@ export default class MenuItem extends Vue {
   color!: String;
 
   get matchesRoute() {
+    console.log(this.$route.name, this.url);
     return this.$route.name === this.url;
   }
 }

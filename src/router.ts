@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Portfolio from "./views/Portfolio.vue";
+import CodeSamples from "./views/CodeSamples.vue";
 import About from "./views/About.vue";
 import PortfolioStudy from "./views/CaseStudies/PortfolioStudy.vue";
 
@@ -22,6 +23,12 @@ export default new Router({
           meta: { title: "Case Study – My Portfolio" }
         }
       ]
+    },
+    {
+      path: "/code-samples",
+      name: "code-samples",
+      component: CodeSamples,
+      meta: { title: "CodeSamples" }
     },
     {
       path: "/about",
