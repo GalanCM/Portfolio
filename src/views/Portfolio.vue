@@ -166,6 +166,10 @@ svg {
 
 .portfolio-item {
   margin: 0 0 150px;
+
+  @media (max-width: 839px) {
+    margin: 0 0 50px;
+  }
 }
 </style>
 
