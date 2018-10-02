@@ -6,7 +6,7 @@
     </div>
     <transition name="go-fade">
       <div class="go" v-show="$route.path === '/'">
-        Go&emsp;
+        <span>Go&nbsp;</span>
         <img src="@/assets/arrow-left.svg">
       </div>
     </transition>
@@ -52,8 +52,16 @@
     font-weight: 700;
     margin: auto 0;
     line-height: 0;
+    white-space: nowrap;
     color: #004e9b;
 
+    @media (max-width: 1023px) {
+      margin: auto 0 auto auto;
+
+      span {
+        visibility: hidden;
+      }
+    }
     img {
       vertical-align: -1px;
       opacity: 0.8;
@@ -66,11 +74,11 @@
     right: 0;
     width: 300vw;
     height: 100%;
-    transition: 400ms transform ease-in-out, 400ms opacity ease-in;
     transform: translateX(calc(300vw - 25px));
     opacity: 1;
 
     &.active {
+      transition: 400ms transform ease-in-out, 400ms opacity ease-in;
       transform: translateX(0) scaleY(0.7);
       opacity: 0.7;
     }
