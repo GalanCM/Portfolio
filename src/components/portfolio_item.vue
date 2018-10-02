@@ -99,41 +99,5 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 export default class PortfolioItem extends Vue {
   @Prop(Object)
   info!: PortfolioInfo;
-
-  is_mobile = false;
-  padding = {
-    left:
-      this.has_image !== true && window.innerWidth > 1100
-        ? (window.innerWidth - 1100) / 2
-        : 0,
-    right:
-      this.has_image !== true && window.innerWidth > 1100
-        ? (window.innerWidth - 1100) / 2
-        : 0
-  };
-
-  resize(): void {
-    this.is_mobile = window.innerWidth < 1024 ? true : false;
-  }
-
-  beforeMount() {
-    this.resize();
-  }
-
-  mounted() {
-    window.addEventListener("resize", this.resize);
-  }
-
-  destroyed() {
-    window.removeEventListener("resize", this.resize);
-  }
-
-  get has_image() {
-    if (this.info.image === null && this.info.video === null) {
-      return false;
-    } else {
-      return true;
-    }
-  }
 }
 </script>
