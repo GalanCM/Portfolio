@@ -175,12 +175,12 @@ svg {
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
-import Item from "@/components/portfolio_item.vue";
+import Item from "@/components/project_item.vue";
 
 @Component({
   components: { Item }
 })
-export default class Portfolio extends Vue {
+export default class ProjectList extends Vue {
   @Prop()
   sites!: PortfolioInfo[];
 }

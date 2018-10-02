@@ -1,13 +1,13 @@
 <template>
-  <Portfolio :sites="sites"></Portfolio>
+  <Projects :sites="sites"></Projects>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Portfolio from "@/components/portfolio.vue";
+import Projects from "@/components/projects.vue";
 
 export default Vue.extend({
-  components: { Portfolio },
+  components: { Projects },
   data() {
     return {
       sites: [
