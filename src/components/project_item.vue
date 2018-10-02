@@ -82,6 +82,7 @@
 
     .buttons {
       display: flex;
+      min-height: 30px;
 
       a {
         margin: 10px;

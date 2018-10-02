@@ -18,20 +18,20 @@ export default Vue.extend({
           repoUrl: null,
           image: null,
           video: null,
-          title: "This Site",
+          title: "galan-montgomery.com",
           tagline:
-            "The first site in my portfolio. A showcase for my technical and design skills."
+            "This site. A personal site, it is constantly changing — for better or worse. Representative of my latest design skills."
         },
         {
           color: "#fd9001",
-          siteUrl: ["Visit Site", "https://www.childfund.org/thereturn/"],
+          siteUrl: "https://www.childfund.org/thereturn/",
           caseStudyUrl: null,
           repoUrl: null,
           image: "there-turn.png",
           video: null,
           title: "Childfund VR",
           tagline:
-            "A microsite designed to host a 360° video. Responsive design modified from a static, desktop-only mockup."
+            "A microsite built to host a 360º video. An example of my client work, I was given a desktop-only mockup, and had to modify it into a responsive design."
         },
         {
           color: "rgb(115, 168, 57)",
@@ -42,7 +42,7 @@ export default Vue.extend({
           video: null,
           title: "Getloaded Mobile 2.0",
           tagline:
-            "A complex Ecommerce front-end. My largest project to date, where I led a small team from initial research to final product."
+            "Front-end for an SAAS application. My largest project to date, I led a small team from initial research to final product. Ported existing mobile site pages to a new application framework."
         }
       ]
     };
