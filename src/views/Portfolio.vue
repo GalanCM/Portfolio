@@ -14,7 +14,7 @@ export default Vue.extend({
         {
           color: "#001f3d",
           siteUrl: null,
-          caseStudyUrl: null,
+          caseStudyUrl: "/case_studies/portfolio",
           repoUrl: null,
           image: null,
           video: null,
