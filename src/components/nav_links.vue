@@ -1,6 +1,6 @@
 <template>
   <div class="nav-links" v-if="$route.path !== '/'">
-    <router-link to="/" class="home">🏠</router-link>
+    <router-link to="/" class="home"><img src="@/assets/home.svg"/></router-link>
     <router-link to="/about">About</router-link>
     <router-link to="/code-samples">Code Samples</router-link>
     <router-link to="/portfolio">Portfolio</router-link>
@@ -20,13 +20,14 @@
   }
 
   a {
-    margin: auto auto 0;
+    margin: auto auto -3px;
     text-align: center;
-    color: rgba(255, 255, 255, 0.7);
+    color: white;
+    opacity: 0.5;
     font-size: 20px;
 
     &:hover {
-      color: white;
+      opacity: 0.8;
     }
 
     &.home {
