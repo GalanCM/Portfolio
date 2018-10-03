@@ -47,7 +47,7 @@
   grid-template-columns: minmax(15px, 1fr) minmax(200px, 4fr) minmax(15px, 1fr);
   grid-auto-rows: min-content;
   min-height: 100vh;
-  padding: 50px 50px 0;
+  padding: 100px 50px 0;
   font-size: 18px;
   font-weight: 200;
   line-height: 1.4;

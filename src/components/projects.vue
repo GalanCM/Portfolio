@@ -149,7 +149,7 @@ svg {
 
 .panel {
   width: 100vw;
-  padding: 50px 0 0;
+  padding: 60px 0 0;
   float: left;
 
   @media (max-width: 1024px) {

@@ -19,7 +19,7 @@
 
 .router-wrapper {
   position: absolute;
-  top: 40px;
+  top: 0;
 }
 
 // TRANSITIONS
