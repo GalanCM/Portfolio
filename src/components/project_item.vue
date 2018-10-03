@@ -6,7 +6,7 @@
       <p>{{info.tagline}}</p>
       <div class="buttons">
         <a class="button" :href="info.repoUrl" v-if="info.repoUrl !== null">Github</a>
-        <a class="button" :href="info.caseStudyUrl" v-if="info.caseStudyUrl !== null">Case Study</a>
+        <router-link class="button" :to="info.caseStudyUrl" v-if="info.caseStudyUrl !== null">Case Study</router-link>
         <a class="button primary" :href="info.siteUrl" v-if="info.siteUrl !== null">Visit Site</a>
       </div>
     </main>

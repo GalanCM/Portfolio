@@ -14,7 +14,9 @@
       </div>
     </div>
 
-    <router-view class="router-wrapper" />
+    <transition name="page-fade">
+      <router-view class="router-wrapper" />
+    </transition>
   </section>
 </template>
 
@@ -170,6 +172,17 @@ svg {
   @media (max-width: 839px) {
     margin: 0 0 50px;
   }
+}
+
+// TRANSITIONS
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: 300ms opacity ease-out;
+}
+
+.page-fade-enter,
+.page-fade-leave-to {
+  opacity: 0;
 }
 </style>
 

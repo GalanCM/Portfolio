@@ -11,10 +11,6 @@
   </div>
 </template>
 
-<style lang="less">
-@import "../base.less";
-</style>
-
 <style lang="less" scoped>
 .study-wrapper {
   display: flex;
