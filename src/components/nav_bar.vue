@@ -7,6 +7,7 @@
         :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "
         :class=" { active: this.transitionsActive }"
         @click="go_home"/>
+        <NavLinks></NavLinks>
     </nav>
     <transition name="intro" appear>
       <div class="line" ref="line" 
@@ -34,12 +35,11 @@
   width: 100%;
 
   .nav {
+    display: flex;
     position: fixed;
     width: 100%;
     height: 50vh;
     min-height: fit-content;
-    display: flex;
-    flex-direction: column;
     background-color: #001f3d;
     z-index: 101;
 
@@ -183,9 +183,11 @@
 
 <script lang="ts">
 import Vue from "vue";
+import NavLinks from "@/components/nav_links.vue";
 import { setTimeout } from "timers";
 
 export default Vue.extend({
+  components: { NavLinks },
   data() {
     return {
       transitionsActive: false,
