@@ -5,38 +5,9 @@
       <h1 class="header">{{ studyName }}</h1>
     </div>
 
-    <div class="tab-wrapper">
-        <button 
-          v-show=" section === null || section === 'tech' " 
-          @click=" setSection('tech') "
-          class="section-tab"
-          :class=" section === 'tech' ? 'solo': null"
-        >
-          Tech
-          <span class="close-icon">×</span>
-        </button>
-   
-        <button 
-          v-show=" section === null || section === 'design' "
-          @click=" setSection('design') "
-          class="section-tab"
-          :class=" section === 'design' ? 'solo': null"
-        >
-          <span class="close-icon">×</span>
-          Design
-        </button>
-    </div>
-
-    <section class="main" v-show=" section === null ">
-      <h1 class="decision"><strong>Which aspect</strong> of <em>{{studyName}}</em> would you like to learn about?</h1>
+    <section class="main">
+      <slot name="design-case"></slot>
     </section>
-
-    <transition name="fade">
-      <section class="main full" v-show=" section !== null ">
-        <slot name="tech-case" v-if=" section === 'tech' "></slot>
-        <slot name="design-case"  v-if=" section === 'design' "></slot>
-      </section>
-    </transition>
   </div>
 </template>
 
@@ -46,10 +17,11 @@
 
 <style lang="less" scoped>
 .study-wrapper {
-  min-height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
+  padding-top: 60px;
+  min-height: 100vh;
+  width: 100%;
   background-color: #aaaabb;
 }
 
@@ -95,79 +67,6 @@
   }
 }
 
-.tab-wrapper {
-  display: flex;
-  margin: 0;
-  user-select: none;
-
-  .section-tab {
-    font-size: 30px;
-    background-color: #fafaff;
-    z-index: 1;
-    padding: 7px 30px 1px;
-    position: absolute;
-    transition: 500ms transform ease-out;
-
-    @media screen and (max-width: 1024px) {
-      font-size: 22px;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .section-tab:first-child {
-    transform: translateX(calc(~"(50vw - 100%) - 15px + 2px"));
-    border-right: 4px solid black;
-    padding-right: 20px;
-
-    &.solo {
-      transform: translateX(0);
-    }
-
-    .close-icon {
-      left: 5px;
-    }
-  }
-
-  .section-tab:last-child {
-    transform: translateX(calc(~"50vw - 15px - 2px"));
-    border-left: 4px solid black;
-    padding-left: 20px;
-
-    &.solo {
-      transform: translateX(calc(~"100vw - 100%"));
-    }
-
-    .close-icon {
-      right: 5px;
-    }
-  }
-
-  .close-icon {
-    display: inline-block; // Webkit display glitch workaround
-    font-weight: 200;
-    background-color: #ddd;
-    line-height: 0;
-    padding: 12px 4px;
-    font-size: 24px;
-    border-radius: 2px;
-    position: relative;
-    top: -3px;
-    opacity: 0;
-
-    @media screen and (max-width: 1024px) {
-      margin-top: 1px;
-      font-size: 20px;
-    }
-  }
-  .solo .close-icon {
-    opacity: 1;
-    transition: 500ms opacity ease-out 500ms;
-  }
-}
-
 .study-wrapper {
   @media screen and (max-width: 1024px) {
     font-size: 40%;
@@ -175,64 +74,23 @@
 }
 
 .main {
-  margin-top: 15px;
-  padding-top: 50px;
+  padding-top: 10px;
   background-color: #fafaff;
   border-top: 2px solid black;
   clip-path: polygon(0 0, 105% 0, 105% 105%, 0 105%);
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
+  border-top: 2px solid black;
+  flex-grow: 1;
+  display: flex;
 
   @media screen and (max-width: 1024px) {
     padding-top: 40px;
   }
 }
-.main.full {
-  border-top: 2px solid black;
-  flex-grow: 1;
-  display: flex;
-}
-
-.decision {
-  margin: -15px 0 10px 0;
-  text-align: center;
-  font-weight: 400;
-  color: #777;
-  padding: 20px;
-
-  @media screen and (max-width: 1024px) {
-    font-size: 36px;
-  }
-
-  strong {
-    color: #333;
-    font-weight: 700;
-  }
-
-  em {
-    color: #333;
-    font-weight: 200;
-  }
-}
-
-// TRANSITIONS
-
-.fade-enter-active {
-  transition: 500ms opacity ease-in, 600ms clip-path ease-in 300ms;
-  // transition: 300ms clip-path ease-in;
-}
-.fade-leave-active {
-  transition: 300ms opacity ease-in, 300ms clip-path ease-in;
-  // transition: 300ms clip-path ease-in;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  clip-path: polygon(0 0, 100% 0, 100% 2px, 0 2px);
-}
 </style>
 
 <style lang="less">
-.study-wrapper .main.full {
+.study-wrapper .main {
   .case {
     width: 100%;
     display: flex;
@@ -371,15 +229,5 @@ import { Vue, Prop, Component } from "vue-property-decorator";
 export default class CaseStudy extends Vue {
   @Prop(String)
   studyName?: string;
-
-  section = null;
-
-  setSection(new_section) {
-    if (new_section !== this.section) {
-      this.section = new_section;
-    } else {
-      this.section = null;
-    }
-  }
 }
 </script>
