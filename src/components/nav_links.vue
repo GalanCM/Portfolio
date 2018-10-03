@@ -1,10 +1,12 @@
 <template>
-  <div class="nav-links" v-if="$route.path !== '/'">
-    <router-link to="/" class="home"><img src="@/assets/home.svg"/></router-link>
-    <router-link to="/about">About</router-link>
-    <router-link to="/code-samples">Code Samples</router-link>
-    <router-link to="/portfolio">Portfolio</router-link>
-  </div>
+  <transition name="fade">
+    <div class="nav-links" v-show="$route.path !== '/'">
+      <router-link to="/" class="home"><img src="@/assets/home.svg"/></router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/code-samples">Code Samples</router-link>
+      <router-link to="/portfolio">Portfolio</router-link>
+    </div>
+  </transition>
 </template>
 
 <style lang="less" scoped>
@@ -25,6 +27,7 @@
     color: white;
     opacity: 0.5;
     font-size: 20px;
+    transition: 350ms opacity ease-in;
 
     &:hover {
       opacity: 0.8;
@@ -45,6 +48,11 @@
       }
     }
   }
+}
+
+// TRANSITIONS
+.fade-enter a {
+  opacity: 0;
 }
 </style>
 
