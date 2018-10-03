@@ -18,9 +18,9 @@ export default Vue.extend({
           repoUrl: null,
           image: null,
           video: null,
-          title: "galan-montgomery.com",
+          title: "This Site",
           tagline:
-            "This site. A personal site, it is constantly changing — for better or worse. Representative of my latest design skills."
+            "The third major iteration of this site so far, I'm constantly modifying it to best represent my current skills."
         },
         {
           color: "#fd9001",
