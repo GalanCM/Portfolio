@@ -23,18 +23,18 @@ export default Vue.extend({
             "The third major iteration of this site so far, I'm constantly modifying it to best represent my current skills."
         },
         {
-          color: "#fd9001",
-          siteUrl: "https://www.childfund.org/thereturn/",
+          color: "#01ab00",
+          siteUrl: "https://www.isoteric-games.com/",
           caseStudyUrl: null,
           repoUrl: null,
-          image: "there-turn.png",
+          image: "isoteric.png",
           video: null,
-          title: "Childfund VR",
+          title: "Isoteric Games",
           tagline:
-            "A microsite built to host a 360º video. An example of my client work, I was given a desktop-only mockup, and had to modify it into a responsive design."
+            "A site that I built for my personal videogame label. A combination blog and marketing page."
         },
         {
-          color: "rgb(115, 168, 57)",
+          color: "#006bc3",
           siteUrl: null,
           caseStudyUrl: null,
           repoUrl: null,
