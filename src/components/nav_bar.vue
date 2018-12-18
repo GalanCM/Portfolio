@@ -1,18 +1,32 @@
 <template>
-  <div class="nav-wrapper" @click=" scrollComplete " :style=" show_titles ? 'cursor: pointer;' : 'height: ' + styles.navHeight + 'px;' ">
-    <nav class="nav" ref="nav" 
+  <div
+    class="nav-wrapper"
+    @click=" scrollComplete "
+    :style=" show_titles ? 'cursor: pointer;' : 'height: ' + styles.navHeight + 'px;' "
+  >
+    <nav
+      class="nav"
+      ref="nav"
       :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: relative;' "
-      :class=" { active: this.transitionsActive }">
-        <img class="name" src="../assets/header.svg" ref="name" 
+      :class=" { active: this.transitionsActive }"
+    >
+      <img
+        class="name"
+        src="../assets/header.svg"
+        ref="name"
         :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "
         :class=" { active: this.transitionsActive }"
-        @click="go_home"/>
-        <NavLinks></NavLinks>
+        @click="go_home"
+      >
+      <NavLinks></NavLinks>
     </nav>
     <transition name="intro" appear>
-      <div class="line" ref="line" 
+      <div
+        class="line"
+        ref="line"
         :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: absolute;' "
-        :class=" { active: this.transitionsActive }"></div>
+        :class=" { active: this.transitionsActive }"
+      ></div>
     </transition>
     <transition name="intro" appear>
       <div class="bottom" ref="bottom" v-if="show_titles === true">
@@ -49,11 +63,12 @@
 
     .name {
       position: relative;
+      align-self: end;
       left: 0.5vw;
       top: 1.8vw;
       width: 90vw;
+      height: calc(90vw * 0.12698);
       filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.6));
-      margin-top: auto;
       transform-origin: 0 84%;
       cursor: pointer;
 
