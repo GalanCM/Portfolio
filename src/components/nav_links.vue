@@ -1,90 +1,58 @@
 <template>
-  <div>
-    <div class="slide-cover"></div>
-    <a class='header-link' :href=" !is_portrait ? '/miniblog' : null" @click="toggle_open">{{ !is_portrait ? "Code Sample" : "☰"}}</a>
-
-    <transition name="slide" duration="5000ms">
-      <div v-show="show_drawer" class="drawer">
-        <a class="drawer-item" href="/miniblog">Code Sample</a>
-      </div>
-    </transition>
-  </div>
+  <transition name="fade">
+    <div class="nav-links" v-show="$route.path !== '/'">
+      <router-link to="/" class="home"><img src="@/assets/home.svg"/></router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/code-samples">Code Samples</router-link>
+      <router-link to="/portfolio">Portfolio</router-link>
+    </div>
+  </transition>
 </template>
 
 <style lang="less" scoped>
-.header-link {
+.nav-links {
+  display: flex;
   position: absolute;
   bottom: 0;
-  right: 20px;
-  line-height: 49px;
-  padding: 0 15px 0 20px;
-  font-weight: 200;
-  font-size: 17px;
-  letter-spacing: 4px;
-  transition: background-color 0.4s ease-out;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: Raleway, Helvetica, sans-serif;
+  right: 0;
+  margin-top: auto;
 
-  &:hover {
-    background-color: rgba(100, 255, 255, 0.15);
+  @media (min-width: 760px) {
+    width: calc(100vw - 400px);
+  }
+
+  a {
+    margin: auto auto -3px;
+    text-align: center;
     color: white;
-  }
-  &:focus {
-    outline: 1px dotted white;
-    text-decoration: underline rgba(255, 255, 255, 0.3);
-  }
+    opacity: 0.5;
+    font-size: 20px;
+    transition: 350ms opacity ease-in;
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    line-height: 50px;
-    padding: 0 10px 0 15px;
-    font-size: 25px;
-    right: 0;
-  }
-}
+    &:hover {
+      opacity: 0.8;
+    }
 
-.drawer {
-  position: absolute;
-  top: 100%;
-  background-color: #001f3d;
-  width: 100vw;
-  z-index: -1;
-  padding-top: 22px;
-  transform: translateY(-20px);
-}
+    &.home {
+      margin-right: 10px;
 
-.drawer-item {
-  display: inline-block;
-  width: ~"calc(100% - 20px)";
-  text-align: right;
-  font-family: Raleway, Helvetica, sans-serif;
-  line-height: 40px;
-  font-size: 20px;
-  color: white;
-}
-
-.slide-cover {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: #001f3d;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-  .drawer-item {
-    transition: opacity 300ms ease-in 200ms;
+      @media (min-width: 760px) {
+        visibility: collapse;
+        margin: 0;
+      }
+    }
+    &:not(.home) {
+      @media (max-width: 759px) {
+        visibility: collapse;
+        margin: 0;
+      }
+    }
   }
 }
-.slide-enter,
-.slide-leave-to {
-  transform: translateY(-100%);
 
-  .drawer-item {
-    opacity: 0;
-  }
+// TRANSITIONS
+.fade-enter a {
+  opacity: 0;
 }
 </style>
 
@@ -92,25 +60,5 @@
 import { Vue, Component } from "vue-property-decorator";
 
 @Component({})
-export default class NavLinks extends Vue {
-  is_portrait = this.get_mode();
-  show_drawer = false;
-
-  created(): void {
-    window.addEventListener("resize", () => {
-      this.is_portrait = this.get_mode();
-    });
-  }
-
-  get_mode(): boolean {
-    return window.matchMedia("(max-width: 1024px) and (orientation: portrait)")
-      .matches;
-  }
-
-  toggle_open() {
-    if (this.is_portrait) {
-      this.show_drawer = !this.show_drawer;
-    }
-  }
-}
+export default class NavLinks extends Vue {}
 </script>

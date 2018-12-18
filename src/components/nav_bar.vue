@@ -7,6 +7,7 @@
         :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "
         :class=" { active: this.transitionsActive }"
         @click="go_home"/>
+        <NavLinks></NavLinks>
     </nav>
     <transition name="intro" appear>
       <div class="line" ref="line" 
@@ -16,9 +17,8 @@
     <transition name="intro" appear>
       <div class="bottom" ref="bottom" v-if="show_titles === true">
         <div class="titles" ref="titles">
-          <div class="web">Web UX Engineer</div>
-          <div class="and">&</div>
-          <div class="game">Game Developer</div>
+          <div class="design">Stylish Websites & Apps</div>
+          <div class="code">Smart Foundations</div>
         </div>
         <div class="chevron-wrapper" :style=" styles.hideChevron ? 'opacity: 0' : '' ">
           <div class="chevron">⌄</div>
@@ -35,12 +35,11 @@
   width: 100%;
 
   .nav {
+    display: flex;
     position: fixed;
     width: 100%;
     height: 50vh;
     min-height: fit-content;
-    display: flex;
-    flex-direction: column;
     background-color: #001f3d;
     z-index: 101;
 
@@ -90,29 +89,23 @@
     .titles {
       position: relative;
       top: 5px;
-      font-size: calc(50vw / 9);
+      font-size: 4.5vw;
       line-height: 1;
       right: 4%;
       margin-left: auto;
       font-family: Raleway, Helvetica, sans-serif;
 
       @media screen and (orientation: portrait) {
-        font-size: calc(60vw / 9);
+        font-size: 5.5vw;
       }
 
-      .web {
+      .design {
         font-weight: 200;
         color: white;
       }
-      .game {
+      .code {
         font-weight: 400;
         color: rgba(232, 232, 247, 0.8);
-      }
-      .and {
-        position: absolute;
-        transform: translateX(calc(-100% - 10px));
-        font-weight: 200;
-        color: rgba(225, 225, 255, 0.3);
       }
     }
     .chevron-wrapper {
@@ -120,9 +113,13 @@
       margin-bottom: 10px;
       color: white;
       display: flex;
-      font-size: 70px;
+      font-size: 10vh;
       line-height: 0.7;
       transition: 100ms opacity ease-out;
+
+      @media (orientation: portrait) {
+        font-size: 10vw;
+      }
 
       .chevron {
         margin: auto;
@@ -140,19 +137,16 @@
     &.bottom {
       transition: 2500ms position 1000ms; // placeholder to insure transition runs
 
-      .web {
-        transition: 750ms clip-path linear 1000ms;
+      .design {
+        transition: 500ms clip-path linear 750ms;
         clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
       }
-      .and {
-        transition: 300ms opacity ease-out 1950ms, 500ms transform ease-out 1950ms;
-      }
-      .game {
-        transition: 750ms clip-path linear 2450ms;
+      .code {
+        transition: 500ms clip-path linear 1800ms;
         clip-path: polygon(0 0, 100% 0, 100% 110%, 0 110%);
       }
       .chevron-wrapper {
-        transition: 200ms opacity ease-out 3500ms;
+        transition: 200ms opacity ease-out 2700ms;
       }
     }
   }
@@ -162,14 +156,10 @@
       transform: scaleX(0);
     }
     &.bottom {
-      .web {
+      .design {
         clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
       }
-      .and {
-        opacity: 0;
-        transform: translateX(calc(-100% - 10px)) scale(0.1);
-      }
-      .game {
+      .code {
         clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
       }
       .chevron-wrapper {
@@ -193,9 +183,11 @@
 
 <script lang="ts">
 import Vue from "vue";
+import NavLinks from "@/components/nav_links.vue";
 import { setTimeout } from "timers";
 
 export default Vue.extend({
+  components: { NavLinks },
   data() {
     return {
       transitionsActive: false,
@@ -249,7 +241,7 @@ export default Vue.extend({
       let targetScale = targetHeight / (LOGO_WIDTH * LOGO_HEIGHT_RATIO);
 
       if (targetScale * LOGO_WIDTH > window.innerWidth * 0.85) {
-        targetScale = window.innerWidth * 0.85 / LOGO_WIDTH;
+        targetScale = (window.innerWidth * 0.85) / LOGO_WIDTH;
         targetHeight = window.innerWidth * 0.85 * LOGO_HEIGHT_RATIO;
       }
 
