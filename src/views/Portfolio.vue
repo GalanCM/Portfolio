@@ -29,7 +29,7 @@ export default Vue.extend({
           repoUrl: null,
           image: "breakbarriers.jpg",
           video: null,
-          title: "#BreakBarrier",
+          title: "#BreakBarriers",
           tagline:
             "Built as a promotional site for motivational speaker Bishoy Tadros. I handled the logo, design, development, and hosting."
         },
