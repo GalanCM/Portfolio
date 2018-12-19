@@ -23,18 +23,18 @@ export default Vue.extend({
             "The third major iteration of this site so far, I'm constantly modifying it to best represent my current skills."
         },
         {
-          color: "#01ab00",
-          siteUrl: "https://www.isoteric-games.com/",
+          color: "#5d41e6",
+          siteUrl: "https://hashtagbreakbarriers.com/",
           caseStudyUrl: null,
           repoUrl: null,
-          image: "isoteric.png",
+          image: "breakbarriers.jpg",
           video: null,
-          title: "Isoteric Games",
+          title: "#BreakBarrier",
           tagline:
-            "A site that I built for my personal videogame label. A combination blog and marketing page."
+            "Built as a promotional site for motivational speaker Bishoy Tadros. I handled the logo, design, development, and hosting."
         },
         {
-          color: "#006bc3",
+          color: "#73a839",
           siteUrl: null,
           caseStudyUrl: null,
           repoUrl: null,
