@@ -20,18 +20,18 @@ export default Vue.extend({
           video: null,
           title: "Emotions Ltd.",
           tagline:
-            "A sample ecommerce store. Vue front-end, serverless back-end, inventory and checkout managed by Stripe. [WIP]"
+            "A whimsical eCommerce app. [WIP]<br><b>Front-end:</b> Vue, <b>Back-end:</b> Serverless & Stripe"
         },
         {
           color: "#0061ac",
           siteUrl: "https://tasks.galan-montgomery.com/",
           caseStudyUrl: null,
-          repoUrl: "https://github.com/GalanCM/FuzzyTasks",
-          image: "screenshots/fuzzytasks.png",
+          repoUrl: "https://github.com/GalanCM/Errand",
+          image: "screenshots/errand.png",
           video: null,
-          title: "Fuzzy Tasks",
+          title: "Errand",
           tagline:
-            "A simple planner app. Global data, forms, and a drag-and-drop interface. Made in Vue. [WIP]"
+            "A web application with data shared across many components. [WIP]<br><b>Front-end:</b> Vue, <b>Back-end:</b> <i>TBA</i>"
         },
         {
           color: "#820a0a",
@@ -41,8 +41,7 @@ export default Vue.extend({
           image: "screenshots/miniblog.png",
           video: null,
           title: "Miniblog",
-          tagline:
-            "A barebones, view-only blog. Built-in code viewer. Made in React. [WIP]"
+          tagline: "A simple static blog site.<br><b>Front-end:</b> React"
         }
       ]
     };

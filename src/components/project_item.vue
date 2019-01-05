@@ -3,7 +3,7 @@
     <img v-if="info.image" :src="require( '@/assets/' + info.image )">
     <main>
       <h1>{{info.title}}</h1>
-      <p>{{info.tagline}}</p>
+      <p v-html="info.tagline"></p>
       <div class="buttons">
         <a class="button" :href="info.repoUrl" v-if="info.repoUrl !== null">View Code</a>
         <router-link
