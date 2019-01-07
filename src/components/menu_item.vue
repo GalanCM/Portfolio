@@ -1,8 +1,12 @@
 <template>
   <router-link :to="url ? url : ''" class="menu-item portfolio" href="#">
     <div class="content-wrapper">
-      <h1><slot name="header"></slot></h1>
-      <h2><slot name="subheader"></slot></h2>
+      <h1>
+        <slot name="header"></slot>
+      </h1>
+      <h2>
+        <slot name="subheader"></slot>
+      </h2>
     </div>
     <transition name="go-fade">
       <div class="go" v-show="$route.path === '/'">
@@ -10,7 +14,11 @@
         <img src="@/assets/arrow-left.svg">
       </div>
     </transition>
-    <div class="color-bar" :style="{ 'background-color': color }" :class="matchesRoute ? 'active' : ''"></div>
+    <div
+      class="color-bar"
+      :style="{ 'background-color': color }"
+      :class="matchesRoute ? 'active' : ''"
+    ></div>
   </router-link>
 </template>
 
@@ -44,6 +52,7 @@
 
   h2 {
     font-size: 20px;
+    font-weight: 300;
     color: rgb(80, 80, 60);
   }
 

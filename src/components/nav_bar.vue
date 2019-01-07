@@ -108,19 +108,19 @@
       line-height: 1;
       right: 4%;
       margin-left: auto;
-      font-family: Raleway, Helvetica, sans-serif;
+      font-family: Poppins, Helvetica, sans-serif;
 
       @media screen and (orientation: portrait) {
         font-size: 5.5vw;
       }
 
       .design {
-        font-weight: 200;
+        font-weight: 300;
         color: white;
       }
       .code {
-        font-weight: 400;
-        color: rgba(232, 232, 247, 0.8);
+        font-weight: 300;
+        color: rgba(232, 232, 247, 0.7);
       }
     }
     .chevron-wrapper {

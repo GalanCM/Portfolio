@@ -1,7 +1,9 @@
 <template>
   <transition name="fade">
     <div class="nav-links" v-show="$route.path !== '/'">
-      <router-link to="/" class="home"><img src="@/assets/home.svg"/></router-link>
+      <router-link to="/" class="home">
+        <img src="@/assets/home.svg">
+      </router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/code-samples">Code Samples</router-link>
       <router-link to="/portfolio">Portfolio</router-link>
@@ -16,6 +18,7 @@
   bottom: 0;
   right: 0;
   margin-top: auto;
+  font-family: Poppins, Helvetica, sans-serif;
 
   @media (min-width: 760px) {
     width: calc(100vw - 400px);

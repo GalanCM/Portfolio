@@ -113,7 +113,7 @@
         font-size: 22px;
       }
       em {
-        font-weight: 200;
+        font-weight: 300;
       }
     }
 
