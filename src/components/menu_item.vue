@@ -1,12 +1,12 @@
 <template>
   <router-link :to="url ? url : ''" class="menu-item portfolio" href="#">
     <div class="content-wrapper">
-      <h1>
+      <div class="title">
         <slot name="header"></slot>
-      </h1>
-      <h2>
+      </div>
+      <div class="tagline">
         <slot name="subheader"></slot>
-      </h2>
+      </div>
     </div>
     <transition name="go-fade">
       <div class="go" v-show="$route.path === '/'">
@@ -23,6 +23,8 @@
 </template>
 
 <style lang="less">
+@import "../base.less";
+
 .menu-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(200px, 3fr) minmax(85px, 1fr);
@@ -40,19 +42,13 @@
     padding: 0 10px 0 0;
   }
 
-  h1,
-  h2 {
-    margin: 0;
-  }
-
-  h1 {
-    font-size: 28px;
+  .title {
+    .nav-title();
     color: #004e9b;
   }
 
-  h2 {
-    font-size: 20px;
-    font-weight: 300;
+  .tagline {
+    .nav-tagline();
     color: rgb(80, 80, 60);
   }
 

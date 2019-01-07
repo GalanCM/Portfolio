@@ -21,6 +21,9 @@
   font-weight: 600;
 }
 
+//COLORS
+@text-color-light: #50503c;
+
 body {
   background-color: #aab;
   color: rgb(12, 27, 42);
@@ -30,6 +33,7 @@ body {
 :root {
   font-family: @body-font;
   .body-font-regular();
+  line-height: 1.4;
 }
 
 h1,
@@ -57,6 +61,36 @@ li {
 a {
   color: #006cd5;
   text-decoration: none;
+}
+
+.nav-title {
+  .display-font-bold();
+  font-size: 28px;
+  line-height: 1.1;
+}
+.nav-tagline {
+  .display-font-light();
+  font-size: 18px;
+  color: @text-color-light;
+
+  /deep/ b,
+  /deep/ strong {
+    font-weight: 600;
+  }
+}
+
+.buttons {
+  button,
+  a.button {
+    margin: 0 10px;
+
+    &:first-child {
+      margin-left: auto;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 button,

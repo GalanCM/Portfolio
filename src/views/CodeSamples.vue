@@ -20,7 +20,7 @@ export default Vue.extend({
           video: null,
           title: "Emotions Ltd.",
           tagline:
-            "A whimsical eCommerce app. [WIP]<br><b>Front-end:</b> Vue, <b>Back-end:</b> Serverless & Stripe"
+            "A whimsical eCommerce app. <b>[WIP]</b><br><b>Front-end:</b> Vue, <b>Back-end:</b> Serverless & Stripe"
         },
         {
           color: "#0061ac",
@@ -31,7 +31,7 @@ export default Vue.extend({
           video: null,
           title: "Errand",
           tagline:
-            "A web application with data shared across many components. [WIP]<br><b>Front-end:</b> Vue, <b>Back-end:</b> <i>TBA</i>"
+            "A web application with data shared across many components. <b>[WIP]</b><br><b>Front-end:</b> Vue, <b>Back-end:</b> <i>TBA</i>"
         },
         {
           color: "#820a0a",

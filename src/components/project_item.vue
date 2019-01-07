@@ -2,8 +2,8 @@
   <section :style="{backgroundColor: info.color}" class="item">
     <img v-if="info.image" :src="require( '@/assets/' + info.image )">
     <main>
-      <h1>{{info.title}}</h1>
-      <p v-html="info.tagline"></p>
+      <div class="title">{{info.title}}</div>
+      <div class="tagline" v-html="info.tagline"></div>
       <div class="buttons">
         <a class="button" :href="info.repoUrl" v-if="info.repoUrl !== null">View Code</a>
         <router-link
@@ -18,6 +18,8 @@
 </template>
 
 <style lang="less" scoped>
+@import "../base.less";
+
 .item {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, auto));
@@ -75,29 +77,17 @@
       margin-bottom: auto;
     }
 
-    h1 {
-      margin-bottom: 7px;
+    .title {
+      .nav-title();
     }
-    p {
-      margin: 0;
-      font-size: 18px;
-      color: #50503c;
+    .tagline {
+      .nav-tagline();
     }
 
     .buttons {
       display: flex;
       min-height: 30px;
-
-      a {
-        margin: 10px;
-
-        &:first-child {
-          margin-left: auto;
-        }
-        &:last-child {
-          margin-right: 0;
-        }
-      }
+      margin-top: 20px;
     }
   }
 }
