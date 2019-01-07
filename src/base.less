@@ -1,3 +1,26 @@
+//TYPOGRAPHY
+@import (css)
+  url("https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700|Poppins:300,600");
+@body-font: Lato, Arial, sans-serif;
+@display-font: Poppins, Helvetica, sans-serif;
+.body-font-light {
+  font-weight: 300;
+}
+.body-font-regular {
+  font-weight: 400;
+}
+.body-font-bold {
+  font-weight: 700;
+}
+.display-font-light {
+  font-family: @display-font;
+  font-weight: 300;
+}
+.display-font-bold {
+  font-family: @display-font;
+  font-weight: 600;
+}
+
 body {
   background-color: #aab;
   color: rgb(12, 27, 42);
@@ -5,7 +28,8 @@ body {
 }
 
 :root {
-  font-family: Lato, Arial, "sans-serif";
+  font-family: @body-font;
+  .body-font-regular();
 }
 
 h1,
@@ -17,7 +41,17 @@ h6,
 h7,
 h8,
 h9 {
-  font-family: Poppins, Helvetica, "sans-serif";
+  .display-font-bold();
+  margin: 0;
+}
+
+p,
+li {
+  margin: 0;
+
+  &:not(:first-child) {
+    margin-top: 14px;
+  }
 }
 
 a {
