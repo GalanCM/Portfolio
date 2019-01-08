@@ -33,6 +33,8 @@ body {
 :root {
   font-family: @body-font;
   .body-font-regular();
+  font-size: 18px;
+  font-variant-numeric: diagonal-fractions oldstyle-nums;
   line-height: 1.4;
 }
 
@@ -50,11 +52,12 @@ h9 {
 }
 
 p,
+ul,
 li {
   margin: 0;
 
   &:not(:first-child) {
-    margin-top: 14px;
+    margin-top: 18px;
   }
 }
 
@@ -70,7 +73,6 @@ a {
 }
 .nav-tagline {
   .display-font-light();
-  font-size: 18px;
   color: @text-color-light;
 
   /deep/ b,

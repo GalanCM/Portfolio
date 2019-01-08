@@ -1,19 +1,19 @@
 <template>
   <div class="about">
-    <ul class="intro">
-      <li>
+    <section class="intro">
+      <p>
         <strong>Software should delight its users.</strong> First by meeting their needs — with the features they're looking for, a good workflow,
         and an easy-to-read design. Then, in the places where it does the most good, it should be fun.
-      </li>
-      <li>
+      </p>
+      <p>
         <strong>Software should be built on the right foundation.</strong> Many sites use one-size-fits-all solutions, and
         when you just need something that works, that's fine. But those solutions aren't
         necessarily the fastest. Or they add unnecessary complexity. Or become difficult to maintain. The right
         tool for
         <em>a</em> job is not the right tool for
         <em>every</em> job.
-      </li>
-    </ul>
+      </p>
+    </section>
     <p>
       <em>I started my career in 2013, working for Getloaded,</em> a site that helped independant truckers search for loads.
       I was hired on as a mid-level developer, and had to learn quickly in order to put out the quality of work they needed.
@@ -52,55 +52,48 @@
 </template>
 
 <style lang="less" scoped>
+@import "../base.less";
+
 .about {
   display: grid;
   grid-template-columns: minmax(15px, 1fr) minmax(200px, 4fr) minmax(15px, 1fr);
-  grid-auto-rows: min-content;
+  grid-template-rows: repeat(4, min-content) auto;
   box-sizing: border-box;
   min-height: 100vh;
   padding: 80px 50px 0;
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.4;
+  .body-font-light();
   background-color: #000a14;
   color: rgba(255, 255, 255, 0.85);
 }
 
 .intro {
   grid-column: ~"1 / 4";
-  list-style: none;
   padding: 0;
-
-  li {
-    margin: 0 0 14px;
-
-    strong {
-      font-weight: 700;
-      padding-right: 20px;
-      color: white;
-    }
-  }
+  margin-top: 40px;
+  list-style: none;
 }
 
 p {
-  :not:first-child {
-    margin-top: 30px;
-  }
-
   &:nth-of-type(2n + 1) {
     grid-column: ~"2 / 4";
   }
   &:nth-of-type(2n + 2) {
     grid-column: ~"1 / 3";
   }
+
+  strong {
+    .body-font-bold();
+    padding-right: 0.5em;
+    color: white;
+  }
 }
 
 h1 {
   grid-column: ~"1 / 4";
+  align-self: center;
   margin: 40px auto;
-  font-size: 26px;
-  font-family: Poppins, sans-serif;
-  font-weight: 300;
+  font-size: 28px;
+  .display-font-light();
   text-align: center;
   color: white;
 }

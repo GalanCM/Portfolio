@@ -15,7 +15,7 @@
 .nav-links {
   display: flex;
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   right: 0;
   margin-top: auto;
   font-family: Poppins, Helvetica, sans-serif;
