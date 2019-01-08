@@ -49,7 +49,6 @@
 
   .tagline {
     .nav-tagline();
-    color: rgb(80, 80, 60);
   }
 
   .go {

@@ -12,6 +12,8 @@
 </template>
 
 <style lang="less" scoped>
+@import "../base.less";
+
 .study-wrapper {
   display: flex;
   flex-direction: column;
@@ -31,6 +33,7 @@
 }
 
 .subheader {
+  .display-font-light();
   margin: 0;
   line-height: 100%;
   color: #820a0a;
@@ -38,13 +41,11 @@
   z-index: 1;
 
   @media (max-width: 1024px) and (orientation: portrait) {
-    font-size: 30px;
     text-align: right;
   }
 }
 
 .header {
-  font-size: 50px;
   margin: 0 0 0 -5px;
   line-height: 100%;
   color: #f2f2f2;
@@ -86,6 +87,8 @@
 </style>
 
 <style lang="less">
+@import "../base.less";
+
 .study-wrapper .main {
   .case {
     width: 100%;
@@ -93,13 +96,11 @@
     flex-direction: column;
 
     .mission {
-      font-weight: 700;
-      font-size: 24px;
+      .h3();
       line-height: 1.7;
       color: #346;
       margin: 30px calc(~"(100vw - 1064px) / 2") 50px
         calc(~"(100vw - 1064px) / 2");
-      font-family: Lato, "sans-serif";
       border-left: 4px solid #3467;
       border-right: 4px solid #3467;
       padding: 0 20px;
@@ -127,26 +128,13 @@
 
       .header-short {
         margin: 0;
-        color: #346;
-        font-size: 32px;
+        .h2();
       }
       .header-long {
-        margin: -5px 0 0;
-        font-family: Lato, "sans-serif";
-        font-size: 20px;
-        font-weight: 300;
-        color: #661;
+        .h3();
 
         @media screen and (max-width: 1024px) {
           font-size: 18px;
-        }
-      }
-      p {
-        font-size: 18px;
-        line-height: 1.6;
-
-        @media screen and (max-width: 1024px) {
-          font-size: 16px;
         }
       }
 

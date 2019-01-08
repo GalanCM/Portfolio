@@ -12,13 +12,15 @@
 </template>
 
 <style lang="less" scoped>
+@import "../base.less";
+
 .nav-links {
   display: flex;
   position: absolute;
-  bottom: -2px;
+  bottom: -3px;
   right: 0;
   margin-top: auto;
-  font-family: Poppins, Helvetica, sans-serif;
+  .display-font-light();
 
   @media (min-width: 760px) {
     width: calc(100vw - 400px);
