@@ -6,11 +6,13 @@
     </MenuItem>
     <MenuItem color="#009086" url="code-samples" style="grid-row: 4">
       <template slot="header">Code Samples</template>
-      <template slot="subheader">Get a feel for my skills via several small web apps and their code.</template>
+      <template
+        slot="subheader"
+      >Get a feel for my skills via several small web apps, and their code.</template>
     </MenuItem>
     <MenuItem color="#004a8f" url="portfolio" style="grid-row: 6">
       <template slot="header">Portfolio</template>
-      <template slot="subheader">Take a look at some of my professional projects in the wild.</template>
+      <template slot="subheader">Experience some of the professional products I've launched.</template>
     </MenuItem>
   </section>
 </template>

@@ -31,7 +31,7 @@ export default Vue.extend({
           video: null,
           title: "#BreakBarriers",
           tagline:
-            "<p>A promotional site for motivational speaker Bishoy Tadros.</p><p>I handled the design and development process: including logo design, theming, layout, coding, and hosting.</p>"
+            "<p>Promotional site for motivational speaker Bishoy Tadros.</p><p>I handled the design and development process: including logo design, theming, layout, coding, and hosting.</p>"
         }
         // {
         //   color: "#73a839",
