@@ -1,3 +1,29 @@
+//TYPOGRAPHY
+@import (css)
+  url("https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700|Poppins:300,600");
+@body-font: Lato, Arial, sans-serif;
+@display-font: Poppins, Helvetica, sans-serif;
+.body-font-light {
+  font-weight: 300;
+}
+.body-font-regular {
+  font-weight: 400;
+}
+.body-font-bold {
+  font-weight: 700;
+}
+.display-font-light {
+  font-family: @display-font;
+  font-weight: 300;
+}
+.display-font-bold {
+  font-family: @display-font;
+  font-weight: 600;
+}
+
+//COLORS
+@text-color-light: #50503c;
+
 body {
   background-color: #aab;
   color: rgb(12, 27, 42);
@@ -5,7 +31,11 @@ body {
 }
 
 :root {
-  font-family: Lato, Arial, "sans-serif";
+  font-family: @body-font;
+  .body-font-regular();
+  font-size: 18px;
+  font-variant-numeric: diagonal-fractions oldstyle-nums;
+  line-height: 1.4;
 }
 
 h1,
@@ -17,12 +47,68 @@ h6,
 h7,
 h8,
 h9 {
-  font-family: Raleway, Helvetica, "sans-serif";
+  margin: 0;
+}
+
+h1,
+.h1 {
+  .display-font-bold();
+  font-size: 50px;
+  color: #346;
+}
+h2,
+.h2 {
+  .display-font-bold();
+  font-size: 28px;
+  color: #346;
+}
+h3,
+.h3 {
+  .display-font-light();
+  font-size: 18px;
+  color: @text-color-light;
+}
+
+p,
+ul,
+li {
+  margin: 0;
+
+  &:not(:first-child) {
+    margin-top: 18px;
+  }
 }
 
 a {
   color: #006cd5;
   text-decoration: none;
+}
+
+.nav-title {
+  .h2();
+  line-height: 1.1;
+}
+.nav-tagline {
+  .h3();
+
+  /deep/ b,
+  /deep/ strong {
+    font-weight: 600;
+  }
+}
+
+.buttons {
+  button,
+  a.button {
+    margin: 0 10px;
+
+    &:first-child {
+      margin-left: auto;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 button,
@@ -32,7 +118,7 @@ a.button {
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.07);
   color: #004a8f;
-  font-weight: 600;
+  font-weight: 700;
 
   &:focus {
     outline: 1px dotted black;

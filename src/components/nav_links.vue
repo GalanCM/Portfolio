@@ -1,7 +1,9 @@
 <template>
   <transition name="fade">
     <div class="nav-links" v-show="$route.path !== '/'">
-      <router-link to="/" class="home"><img src="@/assets/home.svg"/></router-link>
+      <router-link to="/" class="home">
+        <img src="@/assets/home.svg">
+      </router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/code-samples">Code Samples</router-link>
       <router-link to="/portfolio">Portfolio</router-link>
@@ -10,12 +12,15 @@
 </template>
 
 <style lang="less" scoped>
+@import "../base.less";
+
 .nav-links {
   display: flex;
   position: absolute;
-  bottom: 0;
+  bottom: -3px;
   right: 0;
   margin-top: auto;
+  .display-font-light();
 
   @media (min-width: 760px) {
     width: calc(100vw - 400px);
