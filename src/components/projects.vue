@@ -1,7 +1,6 @@
 <template>
   <section>
     <!-- <h1>Portfolio</h1> -->
-
     <svg height="3" width="100%">
       <line x1="0" y1="1px" x2="100%" y2="1px" stroke-width="2px" stroke="rgb(12, 27, 42)"></line>
     </svg>
@@ -15,7 +14,7 @@
     </div>
 
     <transition name="page-fade">
-      <router-view class="router-wrapper" />
+      <router-view class="router-wrapper"/>
     </transition>
   </section>
 </template>
@@ -24,10 +23,6 @@
 section {
   width: 100%;
   background-color: rgb(250, 250, 255);
-
-  @media (max-width: 1024px) and (orientation: portrait) {
-    margin-top: 10px;
-  }
 }
 
 h1 {
@@ -151,13 +146,11 @@ svg {
 
 .panel {
   width: 100vw;
+  min-height: 100vh;
   padding: 60px 0 0;
   float: left;
 
   @media (max-width: 1024px) {
-    margin-top: 0;
-  }
-  @media (max-width: 1024px) and (orientation: portrait) {
     margin-top: 0;
   }
 
@@ -168,6 +161,21 @@ svg {
 
 .portfolio-item {
   margin: 0 0 150px;
+
+  &:first-child {
+    margin-top: 75px;
+
+    @media (max-width: 839px) {
+      margin-top: 25px;
+    }
+  }
+  &:last-child {
+    margin-bottom: 75px;
+
+    @media (max-width: 839px) {
+      margin-bottom: 25px;
+    }
+  }
 
   @media (max-width: 839px) {
     margin: 0 0 50px;

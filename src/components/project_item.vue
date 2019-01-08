@@ -41,7 +41,7 @@
 
     @media (max-width: 839px) {
       height: 22vh;
-      margin: 0 20px !important;
+      margin: 6px 20px !important;
     }
   }
 
