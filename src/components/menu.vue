@@ -12,7 +12,7 @@
     </MenuItem>
     <MenuItem color="#004a8f" url="portfolio" style="grid-row: 6">
       <template slot="header">Portfolio</template>
-      <template slot="subheader">Experience some of the professional products that I've launched.</template>
+      <template slot="subheader">View some of the professional products that I've launched.</template>
     </MenuItem>
   </section>
 </template>
