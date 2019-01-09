@@ -63,7 +63,7 @@
 
     .name {
       position: relative;
-      align-self: end;
+      margin-top: auto;
       left: 0.5vw;
       top: 1.8vw;
       width: 90vw;
