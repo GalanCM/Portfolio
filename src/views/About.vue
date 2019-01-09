@@ -2,7 +2,7 @@
   <div class="about">
     <section class="intro">
       <p>
-        <strong>Software should delight its users.</strong> First by meeting their needs, by having the features they're looking for, a good workflow,
+        <strong>Software should delight its users.</strong> First by meeting their needs; By having the features they're looking for, a good workflow,
         and an easy-to-read design. And then, where we can, we should make our designs
         <i>fun</i>.
       </p>
@@ -14,17 +14,17 @@
     <p>
       <em>I started my career in 2013,</em> working as a full-stack developer for a now-discontinued web app called
       <em>Getloaded</em>.
-      Starting as a mid-level developer, I had to learn quickly in order to contribute quality work comparable to that of my co-workers.
+      Hired as a mid-level developer, I had to learn quickly in order to contribute quality work comparable to that of my co-workers.
       It was at Getloaded that I came to realize that I had a love for interface design, and that code itself is an interface.
       Toward the end of my time there,
       I lucked upon the opportunity to become project lead on the Getloaded Mobile 2.0 project. Not only did this give me
       the chance determine the direction of a new product, but it also broadened my perspective, introducing me to new tools and design patterns.
     </p>
     <p>
-      <em>Since my time at Getloaded, I've kept learning.</em> Getloaded Mobile wasn't perfect, and there are always new ideas to
-      consider. No tool is right for every project. As such, I'm always looking at new tools and evaluating what they're are good for:
-      What problems do they solve? And who are they best for? I may not have the time to learn them all, but it helps my work to know
-      they're available. This is the philosophy that I bring to every product I work on.
+      <em>Since my time at Getloaded, I've continued learning.</em> Getloaded Mobile wasn't perfect, and there was a lot I didn't know.
+      No tool is right for every project. As such, I'm always evaluating new tools;
+      What problems do they solve, and who are they best for? I may not have the time to learn every tool, but it helps my work to know
+      they're available. I bring this philosophy to every product that I work on.
     </p>
     <p class="contact">
       If you like what you see and are interested in hiring me
