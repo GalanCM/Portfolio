@@ -19,7 +19,7 @@ export default Vue.extend({
           image: "screenshots/emotions-ltd.png",
           video: null,
           title: "Emotions Ltd.",
-          tagline: `A whimsical eCommerce app. <b>[WIP]</b><div class="tech"><b>Front-end:</b> Vue, <b>Back-end:</b> Serverless & Stripe</div>`
+          tagline: `<p>A whimsical eCommerce site with a complete checkout process. <b>[WIP]</b></p><p class="tech"><b>Front-end:</b> Vue, <b>Back-end:</b> Serverless & Stripe</p>`
         },
         {
           color: "#0061ac",
@@ -29,18 +29,18 @@ export default Vue.extend({
           image: "screenshots/errand.png",
           video: null,
           title: "Errand",
-          tagline: `A web application with data shared across many components. <b>[WIP]</b><div class="tech"><b>Front-end:</b> Vue, <b>Back-end:</b> <i>TBD</i></div>`
-        },
-        {
-          color: "#820a0a",
-          siteUrl: "https://www.galan-montgomery.com/miniblog/",
-          caseStudyUrl: null,
-          repoUrl: "https://github.com/GalanCM/Miniblog",
-          image: "screenshots/miniblog.png",
-          video: null,
-          title: "Miniblog",
-          tagline: `A simple static blog site.<div class="tech"><b>Front-end:</b> React</div>`
+          tagline: `<p>A task management web application with global data management. <b>[WIP]</b></p><p class="tech"><b>Front-end:</b> Vue, <b>Back-end:</b> <i>TBD</i></p>`
         }
+        // {
+        //   color: "#820a0a",
+        //   siteUrl: "https://www.galan-montgomery.com/miniblog/",
+        //   caseStudyUrl: null,
+        //   repoUrl: "https://github.com/GalanCM/Miniblog",
+        //   image: "screenshots/miniblog.png",
+        //   video: null,
+        //   title: "Miniblog",
+        //   tagline: `A lightweight static blog site.<div class="tech"><b>Front-end:</b> React</div>`
+        // }
       ]
     };
   }
@@ -53,6 +53,5 @@ export default Vue.extend({
 .portfolio-item .tech {
   font-family: @body-font;
   .body-font-regular();
-  margin-top: 10px;
 }
 </style>
