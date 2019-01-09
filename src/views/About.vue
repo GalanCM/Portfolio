@@ -2,52 +2,36 @@
   <div class="about">
     <section class="intro">
       <p>
-        <strong>Software should delight its users.</strong> First by meeting their needs — with the features they're looking for, a good workflow,
-        and an easy-to-read design. Then, in the places where it does the most good, it should be fun.
+        <strong>Software should delight its users.</strong> First by meeting their needs, by having the features they're looking for, a good workflow,
+        and an easy-to-read design. And then, where we can, we should make our designs
+        <i>fun</i>.
       </p>
       <p>
-        <strong>Software should be built on the right foundation.</strong> Many sites use one-size-fits-all solutions, and
-        when you just need something that works, that's fine. But those solutions aren't
-        necessarily the fastest. Or they add unnecessary complexity. Or become difficult to maintain. The right
-        tool for
-        <em>a</em> job is not the right tool for
-        <em>every</em> job.
+        <strong>Software should be built on the right foundation.</strong> I strive to have an understanding of a variety of patterns —
+        from static site generators to microservices — and to determine which one to use only after learning the project's needs.
       </p>
     </section>
     <p>
-      <em>I started my career in 2013, working for Getloaded,</em> a site that helped independant truckers search for loads.
-      I was hired on as a mid-level developer, and had to learn quickly in order to put out the quality of work they needed.
-      It was here that I realized that I wanted to use my coding skills to design, after falling into the unofficial role of
-      UI expert. I helped design their admin interface, and handled the design for their mobile search results.
-      In 2015, I lucked into a role as project lead for their new Android and iOS apps. I built the architecture for the apps,
-      and led a small, remote team to port over views from our mobile site.
+      <em>I started my career in 2013,</em> working as a full-stack developer for a now-discontinued web app called
+      <em>Getloaded</em>.
+      Starting as a mid-level developer, I had to learn quickly in order to contribute quality work comparable to that of my co-workers.
+      It was at Getloaded that I came to realize that I had a love for interface design, and that code itself is an interface.
+      Toward the end of my time there,
+      I lucked upon the opportunity to become project lead on the Getloaded Mobile 2.0 project. Not only did this give me
+      the chance determine the direction of a new product, but it also broadened my perspective, introducing me to new tools and design patterns.
     </p>
     <p>
-      <em>Since then, I have been working a variety of odd jobs,</em> mostly contracting, and generally working on improving my skills.
-      I've worked to diversify my skillset, learning different tools for different situations.
-      I've gotten good at building Single Page applications using tools like
-      <a
-        href="https://www.vuejs.org"
-      >Vue</a> and
-      <a href="https://www.reactjs.org">React</a>, at writing vanilla Javascript, and working with language features like CSS grid and JS promises.
-      On the backend, I've supplemented my experience using MVC frameworks with both headless-CMSs and microservices.
-      And I'm always looking to expand my skills on interesting projects.
+      <em>Since my time at Getloaded, I've kept learning.</em> Getloaded Mobile wasn't perfect, and there are always new ideas to
+      consider. No tool is right for every project. As such, I'm always looking at new tools and evaluating what they're are good for:
+      What problems do they solve? And who are they best for? I may not have the time to learn them all, but it helps my work to know
+      they're available. This is the philosophy that I bring to every product I work on.
     </p>
-    <p>
-      <em>Much of my work is influenced by my game development hobby.</em> I have over two dozen short games (of varying quality) on
-      <a
-        href="https://elanti.itch.io"
-      >Itch.io</a>, and I publish my more polished games under the label
-      <a
-        href="https://www.isoteric-games.com"
-      >Isoteric Games</a>. Take a look if you want to see some of my non-web work.
-    </p>
-    <h1>
+    <p class="contact">
       If you like what you see and are interested in hiring me
       <br>— freelance, contract, or full-time —
       <br>please
       <a href="mailto:galan.c.m@gmail.com">email me</a>.
-    </h1>
+    </p>
   </div>
 </template>
 
@@ -57,7 +41,7 @@
 .about {
   display: grid;
   grid-template-columns: minmax(15px, 1fr) minmax(200px, 4fr) minmax(15px, 1fr);
-  grid-template-rows: repeat(4, min-content) auto;
+  grid-template-rows: repeat(3, min-content) auto;
   box-sizing: border-box;
   min-height: 100vh;
   padding: 80px 50px 0;
@@ -88,12 +72,12 @@ p {
   }
 }
 
-h1 {
-  grid-column: ~"1 / 4";
+.contact {
+  grid-column: ~"1 / 4" !important;
   align-self: center;
-  margin: 40px auto;
-  font-size: 28px;
+  margin: 40px auto !important;
   .display-font-light();
+  font-size: 28px;
   text-align: center;
   color: white;
 }
