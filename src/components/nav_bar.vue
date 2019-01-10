@@ -44,6 +44,8 @@
 </template>
 
 <style lang="less" scoped>
+@import "../base.less";
+
 .nav-wrapper {
   height: 200vh;
   width: 100%;
@@ -108,19 +110,19 @@
       line-height: 1;
       right: 4%;
       margin-left: auto;
-      font-family: Poppins, Helvetica, sans-serif;
+      font-family: @display-font;
 
       @media screen and (orientation: portrait) {
         font-size: 5.5vw;
       }
 
       .design {
-        font-weight: 300;
-        color: white;
+        font-weight: 100;
+        color: rgba(232, 232, 247, 1);
       }
       .code {
         font-weight: 300;
-        color: rgba(232, 232, 247, 0.7);
+        color: rgba(232, 232, 247, 0.85);
       }
     }
     .chevron-wrapper {
