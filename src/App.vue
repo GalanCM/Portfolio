@@ -6,7 +6,7 @@
       <div v-if=" !show_titles ">
         <Menu></Menu>
         <transition name="page">
-          <router-view class="router-wrapper" />
+          <router-view class="router-wrapper"/>
         </transition>
       </div>
     </transition>
@@ -49,6 +49,15 @@ import NavBar from "@/components/nav_bar.vue";
 import Menu from "@/components/menu.vue";
 
 export default Vue.extend({
+  metaInfo: {
+    meta: [
+      {
+        name: "description",
+        content:
+          "Professional homepage for web developer and designer Galan Montgomery. About, Code Samples, and Portfolio."
+      }
+    ]
+  },
   components: {
     NavBar,
     Menu

@@ -5,7 +5,7 @@
       <template slot="subheader">Learn about my development philosophy and background.</template>
     </MenuItem>
     <MenuItem color="#009086" url="code-samples" style="grid-row: 4">
-      <template slot="header">Samples</template>
+      <template slot="header">Sample Sites</template>
       <template
         slot="subheader"
       >Get a feel for my skills via several small web apps, complete with code.</template>

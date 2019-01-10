@@ -86,8 +86,31 @@ p {
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component({})
+@Component({
+  metaInfo() {
+    return {
+      meta: [
+        {
+          name: "description",
+          content:
+            "About Galan Montgomery. His background and philosophy as a web developer."
+        }
+      ]
+    };
+  }
+})
 export default class Index extends Vue {
+  metaInfo() {
+    return {
+      meta: [
+        {
+          name: "description",
+          content:
+            "About Galan Montgomery. Learn about my background and philsophy as a web developer."
+        }
+      ]
+    };
+  }
   created(): void {
     window.addEventListener("scroll", () => {
       let bottom = this.$el.getBoundingClientRect().bottom;

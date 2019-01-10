@@ -7,6 +7,15 @@ import Vue from "vue";
 import Projects from "@/components/projects.vue";
 
 export default Vue.extend({
+  metaInfo: {
+    meta: [
+      {
+        name: "description",
+        content:
+          "Sample web sites made by Galan Montgomery. Web applications, eCommerce applications, and statically generated sites."
+      }
+    ]
+  },
   components: { Projects },
   data() {
     return {
@@ -55,3 +64,4 @@ export default Vue.extend({
   .body-font-regular();
 }
 </style>
+

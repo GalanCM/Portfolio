@@ -7,6 +7,15 @@ import Vue from "vue";
 import Projects from "@/components/projects.vue";
 
 export default Vue.extend({
+  metaInfo: {
+    meta: [
+      {
+        name: "description",
+        content:
+          "Galan Montgomery's portfolio. Sites designed and/or developed professionally."
+      }
+    ]
+  },
   components: { Projects },
   data() {
     return {
