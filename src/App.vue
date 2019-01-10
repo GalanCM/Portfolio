@@ -94,7 +94,7 @@ export default Vue.extend({
       },
       {
         name: "twitter:image:src",
-        content: "https://www.galan-mongtomery.com/twitter_screenshot.png"
+        content: "https://www.galan-mongtomery.com/opengraph_screenshot.png"
       },
 
       {
