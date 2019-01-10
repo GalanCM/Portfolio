@@ -50,6 +50,7 @@ import Menu from "@/components/menu.vue";
 
 export default Vue.extend({
   metaInfo: {
+    title: "Galan Montgomery",
     meta: [
       {
         name: "description",
