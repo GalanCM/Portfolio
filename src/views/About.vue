@@ -89,6 +89,7 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 @Component({
   metaInfo() {
     return {
+      title: "Galan Montgomery | About",
       meta: [
         {
           name: "description",

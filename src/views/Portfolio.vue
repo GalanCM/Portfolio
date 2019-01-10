@@ -8,6 +8,7 @@ import Projects from "@/components/projects.vue";
 
 export default Vue.extend({
   metaInfo: {
+    title: "Galan Montgomery | Portfolio",
     meta: [
       {
         name: "description",
