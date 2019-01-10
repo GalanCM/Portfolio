@@ -5,7 +5,7 @@
         <img src="@/assets/home.svg">
       </router-link>
       <router-link to="/about">About</router-link>
-      <router-link to="/code-samples">Samples</router-link>
+      <router-link to="/code-samples">Sample Sites</router-link>
       <router-link to="/portfolio">Portfolio</router-link>
     </div>
   </transition>
