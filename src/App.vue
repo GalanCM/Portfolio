@@ -65,11 +65,11 @@ export default Vue.extend({
       // { property: "og:type", content: "website" },
       // {
       //   property: "og:url",
-      //   content: "https://www.galan-mongtomery.com"
+      //   content: "https://www.galan-montgomery.com"
       // },
       // {
       //   property: "og:image",
-      //   content: "https://www.galan-mongtomery.com/opengraph_screenshot.png"
+      //   content: "https://www.galan-montgomery.com/opengraph_screenshot.png"
       // },
       // {
       //   property: "og:description",
@@ -92,7 +92,7 @@ export default Vue.extend({
       // },
       // {
       //   name: "twitter:image:src",
-      //   content: "https://www.galan-mongtomery.com/opengraph_screenshot.png"
+      //   content: "https://www.galan-montgomery.com/opengraph_screenshot.png"
       // },
       // {
       //   itemprop: "name",
@@ -105,7 +105,7 @@ export default Vue.extend({
       // },
       // {
       //   itemprop: "image",
-      //   content: "https://www.galan-mongtomery.com/opengraph_screenshot.png"
+      //   content: "https://www.galan-montgomery.com/opengraph_screenshot.png"
       // }
     ]
   },
