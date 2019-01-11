@@ -3,7 +3,7 @@
     <nav-bar v-model=" show_titles "></nav-bar>
 
     <transition name="deblur">
-      <div v-if=" !show_titles ">
+      <div v-show=" !show_titles ">
         <Menu></Menu>
         <transition name="page">
           <router-view class="router-wrapper"/>
