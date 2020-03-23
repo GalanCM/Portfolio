@@ -21,39 +21,28 @@ export default Vue.extend({
   data() {
     return {
       sites: [
-        // {
-        //   color: "#001f3d",
-        //   siteUrl: null,
-        //   caseStudyUrl: "/case_studies/portfolio",
-        //   repoUrl: null,
-        //   image: null,
-        //   video: null,
-        //   title: "This Site",
-        //   tagline:
-        //     "The third major iteration of this site so far, I'm constantly modifying it to best represent my current skills."
-        // },
+        {
+          color: "#5f3032",
+          siteUrl: "https://designer.residencyapparel.com/",
+          caseStudyUrl: null,
+          repoUrl: null,
+          image: "screenshots/residency-designer.png",
+          video: null,
+          title: "Apparel Designer",
+          tagline: `<p>A custom design tool for clothing company <a href="https://residencyapparel.com" target="_blank" rel="noopener noreferrer">Residency</a>.
+            <p>Worked with client to design and implement an interactive tool to help customers communicate their designs.</p>`
+        },
         {
           color: "#5d41e6",
           siteUrl: "https://hashtagbreakbarriers.com/",
           caseStudyUrl: null,
           repoUrl: null,
-          image: "breakbarriers.jpg",
+          image: "screenshots/breakbarriers.png",
           video: null,
           title: "#BreakBarriers",
-          tagline:
-            "<p>Promotional site for motivational speaker Bishoy Tadros.</p><p>I handled the design and development process: including logo design, theming, layout, coding, and hosting.</p>"
+          tagline: `<p>Promotional site for motivational speaker Bishoy Tadros.</p>
+            <p>I handled the design and development process: including theming, layout, coding, and hosting.</p>`
         }
-        // {
-        //   color: "#73a839",
-        //   siteUrl: null,
-        //   caseStudyUrl: null,
-        //   repoUrl: null,
-        //   image: "getloaded-mobile.png",
-        //   video: null,
-        //   title: "Getloaded Mobile 2.0",
-        //   tagline:
-        //     "Front-end for an SAAS application. My largest project to date, I led a small team from initial research to final product. Ported existing mobile site pages to a new application framework."
-        // }
       ]
     };
   }

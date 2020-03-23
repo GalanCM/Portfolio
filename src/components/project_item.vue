@@ -1,17 +1,27 @@
 <template>
-  <section :style="{backgroundColor: info.color}" class="item">
-    <img v-if="info.image" :src="require( '@/assets/' + info.image )">
+  <section :style="{ backgroundColor: info.color }" class="item">
+    <img v-if="info.image" :src="require('@/assets/' + info.image)" />
     <main>
-      <div class="title">{{info.title}}</div>
+      <div class="title">{{ info.title }}</div>
       <div class="tagline" v-html="info.tagline"></div>
       <div class="buttons">
-        <a class="button" :href="info.repoUrl" v-if="info.repoUrl !== null">View Code</a>
+        <a class="button" :href="info.repoUrl" v-if="info.repoUrl !== null"
+          >View Code</a
+        >
         <router-link
           class="button"
           :to="info.caseStudyUrl"
           v-if="info.caseStudyUrl !== null"
-        >Case Study</router-link>
-        <a class="button primary" :href="info.siteUrl" v-if="info.siteUrl !== null">Visit Site</a>
+          >Case Study</router-link
+        >
+        <a
+          class="button primary"
+          :href="info.siteUrl"
+          v-if="info.siteUrl !== null"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Visit Site</a
+        >
       </div>
     </main>
   </section>
