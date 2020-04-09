@@ -1,12 +1,12 @@
 <template>
-  <transition name="fade">
+  <transition name="fly">
     <div class="nav-links" v-show="$route.path !== '/'">
       <router-link to="/" class="home">
-        <img src="@/assets/home.svg">
+        <img src="@/assets/home.svg" />
       </router-link>
       <router-link to="/about">About</router-link>
-      <router-link to="/code-samples">Sample Sites</router-link>
       <router-link to="/portfolio">Portfolio</router-link>
+      <router-link to="/code-samples">Sample Sites</router-link>
     </div>
   </transition>
 </template>
@@ -27,15 +27,26 @@
   }
 
   a {
-    margin: auto auto -3px;
+    box-sizing: border-box;
+    margin: auto auto -8px;
+    padding: 6px 18px;
     text-align: center;
-    color: white;
-    opacity: 0.5;
+    color: #fffe;
     font-size: 20px;
-    transition: 350ms opacity ease-in;
+    transition: 500ms transform cubic-bezier(0.61, 1, 0.88, 1);
+    border-width: 0 4px;
+    border-color: transparent;
+    border-style: solid;
 
-    &:hover {
-      opacity: 0.8;
+    &.router-link-active {
+      transition: 500ms transform cubic-bezier(0.61, 1, 0.88, 1),
+        200ms background-color ease-out 0ms;
+      background-color: #001f3d;
+    }
+
+    &:hover:not(.router-link-active) {
+      background-color: #fff2;
+      border-color: #001f3d;
     }
 
     &.home {
@@ -52,12 +63,22 @@
         margin: 0;
       }
     }
+
+    &:nth-child(1) {
+      transition-delay: 150ms;
+    }
+    &:nth-child(2) {
+      transition-delay: 300ms;
+    }
+    &:nth-child(3) {
+      transition-delay: 450ms;
+    }
   }
 }
 
 // TRANSITIONS
-.fade-enter a {
-  opacity: 0;
+.fly-enter a {
+  transform: translateX(100vw);
 }
 </style>
 

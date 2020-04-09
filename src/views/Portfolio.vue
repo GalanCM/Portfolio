@@ -28,9 +28,10 @@ export default Vue.extend({
           repoUrl: null,
           image: "screenshots/residency-designer.png",
           video: null,
-          title: "Apparel Designer",
-          tagline: `<p>A custom design tool for clothing company <a href="https://residencyapparel.com" target="_blank" rel="noopener noreferrer">Residency</a>.
-            <p>Worked with client to design and implement an interactive tool to help customers communicate their designs.</p>`
+          title: "Residency Designer",
+          tagline: `<p><small>A tool for designing custom apparel.</small></p>
+            <p>Built for <a href="https://residencyapparel.com" target="_blank" rel="noopener noreferrer">Residency</a>, a clothing company. Designed to help potential clients get started on new designs.</p>
+            <p>I worked with them to design a user-friendly interface, and handled all technical concerns.</p>`
         },
         {
           color: "#5d41e6",
@@ -40,8 +41,9 @@ export default Vue.extend({
           image: "screenshots/breakbarriers.png",
           video: null,
           title: "#BreakBarriers",
-          tagline: `<p>Promotional site for motivational speaker Bishoy Tadros.</p>
-            <p>I handled the design and development process: including theming, layout, coding, and hosting.</p>`
+          tagline: `<p><small>A homepage for motivational speaker Bishoy Tadros.</small></p>
+            <p>Intended to help promote both Bishoy's book and speaking engagements.</p>
+            <p>I helped him create a design that would introduce himself in an engaging way, and built the site on a front-end only stack.</p>`
         }
       ]
     };

@@ -4,15 +4,16 @@
       <template slot="header">About Me</template>
       <template slot="subheader">Learn about my development philosophy and background.</template>
     </MenuItem>
-    <MenuItem color="#009086" url="code-samples" style="grid-row: 4">
-      <template slot="header">Sample Sites</template>
-      <template
-        slot="subheader"
-      >Get a feel for my skills via several small web apps, complete with code.</template>
-    </MenuItem>
-    <MenuItem color="#004a8f" url="portfolio" style="grid-row: 6">
+    <MenuItem color="#004a8f" url="portfolio" style="grid-row: 4">
       <template slot="header">Portfolio</template>
       <template slot="subheader">View some of the professional products that I've launched.</template>
+    </MenuItem>
+    <MenuItem color="#009086" url="code-samples" style="grid-row: 6">
+      <template slot="header">Sample Sites</template>
+      <template slot="subheader">
+        Get a feel for my skills via several small web apps, complete with
+        code.
+      </template>
     </MenuItem>
   </section>
 </template>
