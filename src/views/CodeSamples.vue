@@ -23,7 +23,7 @@ export default Vue.extend({
       sites: [
         {
           color: "#7b36ff",
-          siteUrl: "https://romantic-cori-78a771.netlify.com/",
+          siteUrl: "https://emotions.galan-montgomery.com/",
           caseStudyUrl: null,
           repoUrl: "https://gitlab.com/galancm/emotions-ltd",
           image: "screenshots/emotions-ltd.png",
@@ -33,7 +33,7 @@ export default Vue.extend({
         },
         {
           color: "#0061ac",
-          siteUrl: "https://tasks.galan-montgomery.com/",
+          siteUrl: "https://errand.galan-montgomery.com/",
           caseStudyUrl: null,
           repoUrl: "https://github.com/GalanCM/Errand",
           image: "screenshots/errand.png",
