@@ -6,7 +6,7 @@
       <div v-show=" !show_titles ">
         <Menu></Menu>
         <transition name="page">
-          <router-view class="router-wrapper"/>
+          <router-view class="router-wrapper" />
         </transition>
       </div>
     </transition>

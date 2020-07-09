@@ -4,7 +4,7 @@
     @click=" scrollComplete "
     :style=" show_titles ? 'cursor: pointer;' : 'height: ' + styles.navHeight + 'px;' "
   >
-    <nav
+    <header
       class="nav"
       ref="nav"
       :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: relative;' "
@@ -14,12 +14,13 @@
         class="name"
         src="../assets/header.svg"
         ref="name"
-        :style=" show_titles ? '' : 'transform: scale(' + styles.logoScale + ')' "
+        :style=" show_titles ? '' : `transform: scale(${styles.logoScale}) translateY(${styles.navHeight > 50 ? -styles.navHeight / styles.logoScale / 2 : 0}px)` "
         :class=" { active: this.transitionsActive }"
         @click="go_home"
-      >
-      <NavLinks></NavLinks>
-    </nav>
+      />
+      <NavLinks :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 5%)`}" />
+    </header>
+
     <transition name="intro" appear>
       <div
         class="line"
@@ -68,6 +69,7 @@
       margin-top: auto;
       left: 0.5vw;
       top: 1.8vw;
+      z-index: 2;
       width: 90vw;
       height: calc(90vw * 0.12698);
       filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.6));
@@ -83,7 +85,7 @@
     position: fixed;
     top: 50vh;
     width: 100%;
-    height: 1.5vw;
+    height: 12px;
     z-index: 100;
     transform-origin: top;
     background-color: #820a0a;
@@ -201,10 +203,14 @@
 <script lang="ts">
 import Vue from "vue";
 import NavLinks from "@/components/nav_links.vue";
+
 import { setTimeout } from "timers";
 
 export default Vue.extend({
-  components: { NavLinks },
+  components: {
+    NavLinks
+  },
+
   data() {
     return {
       transitionsActive: false,
@@ -260,6 +266,9 @@ export default Vue.extend({
       if (targetScale * LOGO_WIDTH > window.innerWidth * 0.85) {
         targetScale = (window.innerWidth * 0.85) / LOGO_WIDTH;
         targetHeight = window.innerWidth * 0.85 * LOGO_HEIGHT_RATIO;
+      }
+      if (window.innerWidth < 860) {
+        targetHeight *= 2;
       }
 
       this.styles.navHeight = targetHeight;

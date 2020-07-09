@@ -1,9 +1,6 @@
 <template>
-  <transition name="fly">
+  <transition name="fly" :duration="{enter: 1000}">
     <div class="nav-links" v-show="$route.path !== '/'">
-      <router-link to="/" class="home">
-        <img src="@/assets/home.svg" />
-      </router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/portfolio">Portfolio</router-link>
       <router-link to="/code-samples">Sample Sites</router-link>
@@ -16,23 +13,24 @@
 
 .nav-links {
   display: flex;
-  position: absolute;
-  bottom: -3px;
-  right: 0;
+  position: relative;
+  height: 50px;
   margin-top: auto;
+  line-height: 50px;
+  z-index: 1;
   .display-font-light();
-
-  @media (min-width: 760px) {
-    width: calc(100vw - 400px);
-  }
+  background: #001f3d;
+  // border-bottom: 6px solid #820a0a;
 
   a {
     box-sizing: border-box;
-    margin: auto auto -8px;
-    padding: 6px 18px;
+    margin: 10px 1vw 0;
+    padding: 1px 18px;
+    transform: translateY(6px);
     text-align: center;
     color: #fffe;
-    font-size: 20px;
+    // font-size: 20px;
+    font-size: calc(12px + 0.6vw);
     transition: 500ms transform cubic-bezier(0.61, 1, 0.88, 1);
     border-width: 0 4px;
     border-color: transparent;
@@ -40,7 +38,7 @@
 
     &.router-link-active {
       transition: 500ms transform cubic-bezier(0.61, 1, 0.88, 1),
-        200ms background-color ease-out 0ms;
+        300ms background-color cubic-bezier(0.45, 0, 0.55, 1) 0ms;
       background-color: #001f3d;
     }
 
@@ -49,29 +47,11 @@
       border-color: #001f3d;
     }
 
-    &.home {
-      margin-right: 10px;
-
-      @media (min-width: 760px) {
-        visibility: collapse;
-        margin: 0;
-      }
+    &:first-child {
+      margin-left: auto;
     }
-    &:not(.home) {
-      @media (max-width: 759px) {
-        visibility: collapse;
-        margin: 0;
-      }
-    }
-
-    &:nth-child(1) {
-      transition-delay: 150ms;
-    }
-    &:nth-child(2) {
-      transition-delay: 300ms;
-    }
-    &:nth-child(3) {
-      transition-delay: 450ms;
+    &:last-child {
+      margin-right: 0;
     }
   }
 }
@@ -79,6 +59,17 @@
 // TRANSITIONS
 .fly-enter a {
   transform: translateX(100vw);
+}
+.fly-enter-active a {
+  &:nth-child(1) {
+    transition-delay: 150ms;
+  }
+  &:nth-child(2) {
+    transition-delay: 300ms;
+  }
+  &:nth-child(3) {
+    transition-delay: 450ms;
+  }
 }
 </style>
 
