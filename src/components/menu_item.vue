@@ -1,5 +1,10 @@
 <template>
-  <router-link :to="url ? url : ''" class="menu-item portfolio" href="#">
+  <router-link
+    :to="url ? url : ''"
+    class="menu-item portfolio"
+    href="#"
+    :style="{ '-webkit-tap-highlight-color': color+66}"
+  >
     <div class="content-wrapper">
       <div class="title">
         <slot name="header"></slot>
@@ -11,7 +16,7 @@
     <transition name="go-fade">
       <div class="go" v-show="$route.path === '/'">
         <span>Go&nbsp;</span>
-        <img src="@/assets/arrow-left.svg">
+        <img src="@/assets/arrow-left.svg" />
       </div>
     </transition>
     <div

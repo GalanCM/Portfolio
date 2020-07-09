@@ -61,6 +61,7 @@
     min-height: fit-content;
     background-color: #001f3d;
     z-index: 101;
+    -webkit-tap-highlight-color: transparent;
 
     &.active {
       transition: 1000ms transform ease-in-out;

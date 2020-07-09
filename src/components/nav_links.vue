@@ -34,6 +34,7 @@
     border-color: transparent;
     border-style: solid;
     white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
 
     &.router-link-active {
       transition: 500ms transform cubic-bezier(0.61, 1, 0.88, 1),
