@@ -18,7 +18,9 @@
         :class=" { active: this.transitionsActive }"
         @click="go_home"
       />
-      <NavLinks :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 4%)`}" />
+      <NavLinks
+        :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 10% * ${styles.logoScale} )`}"
+      />
     </header>
 
     <transition name="intro" appear>
@@ -257,17 +259,19 @@ export default Vue.extend({
     },
 
     resizeHandler() {
-      const LOGO_WIDTH = window.innerWidth * 0.9;
+      const WINDOW_WIDTH =
+        document.querySelector("html")?.clientWidth ?? window.innerWidth;
+      const LOGO_WIDTH = WINDOW_WIDTH * 0.9;
       const LOGO_HEIGHT_RATIO = 0.127;
 
       let targetHeight = 50;
       let targetScale = targetHeight / (LOGO_WIDTH * LOGO_HEIGHT_RATIO);
 
-      if (targetScale * LOGO_WIDTH > window.innerWidth * 0.85) {
-        targetScale = (window.innerWidth * 0.85) / LOGO_WIDTH;
-        targetHeight = window.innerWidth * 0.85 * LOGO_HEIGHT_RATIO;
+      if (targetScale * LOGO_WIDTH > WINDOW_WIDTH * 0.85) {
+        targetScale = (WINDOW_WIDTH * 0.85) / LOGO_WIDTH;
+        targetHeight = WINDOW_WIDTH * 0.85 * LOGO_HEIGHT_RATIO;
       }
-      if (window.innerWidth < 860) {
+      if (WINDOW_WIDTH < 860) {
         targetHeight *= 2;
       }
 
