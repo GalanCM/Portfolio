@@ -20,7 +20,6 @@
   z-index: 1;
   .display-font-light();
   background: #001f3d;
-  // border-bottom: 6px solid #820a0a;
 
   a {
     box-sizing: border-box;
@@ -29,12 +28,12 @@
     transform: translateY(6px);
     text-align: center;
     color: #fffe;
-    // font-size: 20px;
     font-size: calc(12px + 0.6vw);
     transition: 500ms transform cubic-bezier(0.61, 1, 0.88, 1);
     border-width: 0 4px;
     border-color: transparent;
     border-style: solid;
+    white-space: nowrap;
 
     &.router-link-active {
       transition: 500ms transform cubic-bezier(0.61, 1, 0.88, 1),

@@ -18,7 +18,7 @@
         :class=" { active: this.transitionsActive }"
         @click="go_home"
       />
-      <NavLinks :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 5%)`}" />
+      <NavLinks :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 4%)`}" />
     </header>
 
     <transition name="intro" appear>
