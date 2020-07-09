@@ -19,7 +19,7 @@
         @click="go_home"
       />
       <NavLinks
-        :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 10% * ${styles.logoScale} )`}"
+        :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 6% * ${styles.logoScale} )`}"
       />
     </header>
 
