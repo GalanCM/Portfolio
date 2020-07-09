@@ -5,23 +5,19 @@
       <div class="title">{{ info.title }}</div>
       <div class="tagline" v-html="info.tagline"></div>
       <div class="buttons">
-        <a class="button" :href="info.repoUrl" v-if="info.repoUrl !== null"
-          >View Code</a
-        >
+        <a class="button" :href="info.repoUrl" v-if="info.repoUrl !== null">View Code</a>
         <router-link
           class="button"
           :to="info.caseStudyUrl"
           v-if="info.caseStudyUrl !== null"
-          >Case Study</router-link
-        >
+        >Case Study</router-link>
         <a
           class="button primary"
           :href="info.siteUrl"
           v-if="info.siteUrl !== null"
           target="_blank"
           rel="noopener noreferrer"
-          >Visit Site</a
-        >
+        >Visit Site</a>
       </div>
     </main>
   </section>
@@ -62,7 +58,7 @@
     grid-row: 1;
     height: auto;
     background-color: #fafaff;
-    padding: 10px 50px 15px;
+    padding: 10px 40px 15px;
     border-left: 4px solid black;
     border-right: 4px solid black;
     min-height: 120px;
