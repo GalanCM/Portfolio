@@ -5,7 +5,7 @@ module.exports = {
     prerenderSpa: {
       registry: undefined,
       renderRoutes: [
-        '/'
+        '/', "/about", "/code-samples", "/portfolio"
       ],
       useRenderEvent: true,
       headless: true,
