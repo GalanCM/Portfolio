@@ -1,9 +1,10 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Portfolio from "./views/Portfolio.vue";
-import CodeSamples from "./views/CodeSamples.vue";
-import About from "./views/About.vue";
-import PortfolioStudy from "./views/CaseStudies/PortfolioStudy.vue";
+
+const Portfolio = () => import(/* webpackPrefetch: true */ "./views/Portfolio.vue")
+const CodeSamples = () => import(/* webpackPrefetch: true */ "./views/CodeSamples.vue")
+const About = () => import(/* webpackPrefetch: true */ "./views/About.vue")
+const PortfolioStudy = () => import("./views/CaseStudies/PortfolioStudy.vue");
 
 Vue.use(Router);
 
