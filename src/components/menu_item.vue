@@ -3,7 +3,7 @@
     :to="url ? url : ''"
     class="menu-item portfolio"
     href="#"
-    :style="{ '-webkit-tap-highlight-color': color+66}"
+    :style="{ '-webkit-tap-highlight-color': color+66, '--border-color': color+'aa'}"
   >
     <div class="content-wrapper">
       <div class="title">
@@ -13,12 +13,6 @@
         <slot name="subheader"></slot>
       </div>
     </div>
-    <transition name="go-fade">
-      <div class="go" v-show="$route.path === '/'">
-        <span>Go&nbsp;</span>
-        <img src="@/assets/arrow-left.svg" />
-      </div>
-    </transition>
     <div
       class="color-bar"
       :style="{ 'background-color': color }"
@@ -31,50 +25,41 @@
 @import "../base.less";
 
 .menu-item {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(200px, 3fr) minmax(85px, 1fr);
   position: relative;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 30px 50px;
   color: black;
-  background-color: rgb(250, 250, 255);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
-  border-top: 1px solid rgba(0, 0, 0, 0.4);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  border-top: 1px solid var(--border-color);
+
+  &:nth-child(1) {
+    margin-left: 5vw;
+  }
+  &:nth-child(2) {
+    margin-left: 20vw;
+  }
+  &:nth-child(3) {
+    margin-left: 12vw;
+  }
 
   .content-wrapper {
-    grid-column: 2;
+    margin: auto 0;
     padding: 0 10px 0 0;
   }
 
   .title {
     .nav-title();
-    color: #004e9b;
+    color: lighten(#d2cec2, 10%);
+    text-shadow: 1px 1px 2px black;
   }
 
   .tagline {
     .nav-tagline();
-  }
-
-  .go {
-    font-size: 35px;
-    font-weight: 700;
-    margin: auto 0;
-    line-height: 0;
-    white-space: nowrap;
-    color: #004e9b;
-
-    @media (max-width: 1023px) {
-      margin: auto 0 auto auto;
-
-      span {
-        visibility: hidden;
-      }
-    }
-    img {
-      vertical-align: -1px;
-      opacity: 0.8;
-    }
+    margin: 10px 0 10px 3vw;
+    font-weight: 100;
+    color: lighten(#23adf0, 25%);
+    text-shadow: 1px 1px 2px black;
   }
 
   .color-bar {
@@ -83,7 +68,7 @@
     right: 0;
     width: 300vw;
     height: 100%;
-    transform: translateX(calc(300vw - 25px));
+    transform: translateX(calc(300vw - 5px));
     opacity: 1;
 
     &.active {
@@ -92,14 +77,6 @@
       opacity: 0.7;
     }
   }
-}
-
-// TRANSITIONS
-.go-fade-enter-active {
-  transition: 200ms opacity ease-in 200ms;
-}
-.go-fade-enter {
-  opacity: 0;
 }
 </style>
 
