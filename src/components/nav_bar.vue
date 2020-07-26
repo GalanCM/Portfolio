@@ -19,6 +19,7 @@
         @click="go_home"
       />
       <NavLinks
+        v-show="!show_titles"
         :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 6% * ${styles.logoScale} )`}"
       />
     </header>
