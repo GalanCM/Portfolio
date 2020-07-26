@@ -31,6 +31,11 @@
   margin: 0;
   padding: 30px 50px;
   color: black;
+  background-color: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.07) 15vw
+  );
   border-top: 1px solid var(--border-color);
 
   &:nth-child(1) {

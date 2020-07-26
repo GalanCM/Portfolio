@@ -22,7 +22,6 @@
 <style lang="less" scoped>
 section {
   width: 100%;
-  background-color: rgb(250, 250, 255);
 }
 
 h1 {
@@ -199,7 +198,7 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import Item from "@/components/project_item.vue";
 
 @Component({
-  components: { Item }
+  components: { Item },
 })
 export default class ProjectList extends Vue {
   @Prop()

@@ -28,8 +28,8 @@
     </p>
     <p class="contact">
       If you like what you see and are interested in hiring me
-      <br>— freelance, contract, or full-time —
-      <br>please
+      <br />— freelance, contract, or full-time —
+      <br />please
       <a href="mailto:galan.c.m@gmail.com">email me</a>.
     </p>
   </div>
@@ -46,7 +46,21 @@
   min-height: 100vh;
   padding: 80px 50px 0;
   .body-font-light();
-  background-color: #000a14;
+  @star-color: lighten(#000a1488, 17%);
+  background: radial-gradient(fade(@star-color, 80%) 3px, transparent 5px),
+    radial-gradient(fade(@star-color, 50%) 4px, transparent 5px),
+    radial-gradient(@star-color 2px, transparent 4px),
+    radial-gradient(@star-color 1px, transparent 3px),
+    linear-gradient(
+      to top,
+      lighten(#000a14aa, 10%) 0%,
+      lighten(#000a14aa, 5%) 10%,
+      transparent 100%
+    ),
+    #000a14cc;
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px, 100%,
+    100%;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 0 0, 0 0;
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -94,11 +108,11 @@ import { Component, Vue, Prop } from "vue-property-decorator";
         {
           name: "description",
           content:
-            "About Galan Montgomery. His background and philosophy as a web developer."
-        }
-      ]
+            "About Galan Montgomery. His background and philosophy as a web developer.",
+        },
+      ],
     };
-  }
+  },
 })
 export default class Index extends Vue {
   metaInfo() {
@@ -107,9 +121,9 @@ export default class Index extends Vue {
         {
           name: "description",
           content:
-            "About Galan Montgomery. Learn about my background and philsophy as a web developer."
-        }
-      ]
+            "About Galan Montgomery. Learn about my background and philsophy as a web developer.",
+        },
+      ],
     };
   }
   created(): void {
