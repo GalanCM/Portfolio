@@ -62,7 +62,7 @@
   .tagline {
     .nav-tagline();
     margin: 10px 0 10px 3vw;
-    font-weight: 100;
+    font-weight: 200;
     color: lighten(#23adf0, 25%);
     text-shadow: 1px 1px 2px black;
   }

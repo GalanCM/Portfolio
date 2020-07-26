@@ -24,7 +24,7 @@
 .menu-wrapper {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   min-height: calc(100vh - 50px);
   overflow-x: hidden;
   transition: 500ms background ease-in 100ms;

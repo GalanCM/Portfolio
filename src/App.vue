@@ -17,9 +17,14 @@
 @import "~normalize.css/normalize.css";
 @import "./base.less";
 
+#app {
+  overflow-x: hidden;
+}
+
 .router-wrapper {
   position: absolute;
   top: 0;
+  overflow-x: hidden;
 }
 
 // TRANSITIONS
@@ -52,11 +57,11 @@ import MetaData from "@/metadata.ts";
 export default Vue.extend({
   metaInfo: {
     title: "Galan Montgomery | Home",
-    meta: MetaData
+    meta: MetaData,
   },
   components: {
     NavBar,
-    Menu
+    Menu,
   },
 
   data() {
@@ -77,7 +82,7 @@ export default Vue.extend({
       if (this.$route.path === "/") {
         sessionStorage.setItem("show_titles", value.toString());
       }
-    }
-  }
+    },
+  },
 });
 </script>

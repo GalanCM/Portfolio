@@ -122,7 +122,7 @@
       }
 
       .design {
-        font-weight: 100;
+        font-weight: 200;
         color: rgba(232, 232, 247, 1);
       }
       .code {
@@ -211,7 +211,7 @@ import { setTimeout } from "timers";
 
 export default Vue.extend({
   components: {
-    NavLinks
+    NavLinks,
   },
 
   data() {
@@ -221,15 +221,15 @@ export default Vue.extend({
       styles: {
         navHeight: 50,
         logoScale: 1,
-        hideChevron: false
-      }
+        hideChevron: false,
+      },
     };
   },
 
   computed: {
     show_titles(): boolean {
       return this.value;
-    }
+    },
   },
 
   props: ["value"],
@@ -312,8 +312,8 @@ export default Vue.extend({
       if (this.show_titles === false) {
         this.$router.push("/");
       }
-    }
-  }
+    },
+  },
 });
 </script>
 
