@@ -71,9 +71,11 @@ export default Vue.extend({
   created() {
     if (
       sessionStorage.getItem("show_titles") === "false" ||
-      this.$route.path !== "/"
+      location.pathname !== "/"
     ) {
       this.show_titles = false;
+    } else {
+      document.body.style.overflowY = "hidden";
     }
   },
 
@@ -81,6 +83,12 @@ export default Vue.extend({
     show_titles(value) {
       if (this.$route.path === "/") {
         sessionStorage.setItem("show_titles", value.toString());
+      }
+
+      if (value === true) {
+        document.body.style.overflowY = "hidden";
+      } else {
+        document.body.style.overflowY = "scroll";
       }
     },
   },

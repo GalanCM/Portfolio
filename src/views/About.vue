@@ -136,7 +136,7 @@ export default class Index extends Vue {
         : 50;
 
       if (bottom < header_buffer) {
-        this.$emit("input", bottom - header_buffer + window.scrollY);
+        this.$emit("input", bottom - header_buffer + document.body.scrollTop);
       } else {
         this.$emit("input", 0);
       }

@@ -33,9 +33,8 @@
   width: 100%;
 
   @media (max-width: 839px) {
-    grid-template-columns: min-content auto;
+    grid-template-columns: min-content 1fr;
     grid-auto-rows: minmax(50px, auto);
-    grid-gap: 0;
   }
 
   img {
@@ -108,7 +107,6 @@
 .portfolio-item {
   &:nth-child(odd) img {
     grid-column: 1;
-    margin-right: auto;
 
     @media (max-width: 839px) {
       grid-column: 1;
@@ -116,8 +114,6 @@
   }
   &:nth-child(even) img {
     grid-column: 3;
-    margin-left: auto;
-
     @media (max-width: 839px) {
       grid-column: 1;
     }

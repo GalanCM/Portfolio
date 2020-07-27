@@ -246,7 +246,7 @@ export default Vue.extend({
     window.addEventListener("resize", this.resizeHandler);
 
     if (this.show_titles) {
-      window.addEventListener("scroll", this.scrollHandler);
+      document.body.addEventListener("scroll", this.scrollHandler);
     }
   },
 
@@ -283,10 +283,9 @@ export default Vue.extend({
 
     scrollComplete(event) {
       this.styles.hideChevron = true;
-
       let speed = 1;
       let scroller = () => {
-        window.scrollBy(0, speed);
+        document.body.scrollBy(0, speed);
         speed += 1;
 
         if (this.show_titles === false) {
@@ -297,9 +296,9 @@ export default Vue.extend({
             (this.$refs.nav as Element).getBoundingClientRect().bottom
         ) {
           this.$emit("input", false);
-          window.removeEventListener("scroll", this.scrollHandler);
+          document.body.removeEventListener("scroll", this.scrollHandler);
 
-          requestAnimationFrame(() => window.scrollTo(0, 0)); // scroll AFTER scroller() ticks
+          requestAnimationFrame(() => document.body.scrollTo(0, 0)); // scroll AFTER scroller() ticks
           setTimeout(() => (this.transitionsActive = false), 2500);
         } else {
           requestAnimationFrame(scroller);
