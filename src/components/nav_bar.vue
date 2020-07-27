@@ -7,7 +7,7 @@
     <header
       class="nav"
       ref="nav"
-      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: relative;' "
+      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: absolute;' "
       :class=" { active: this.transitionsActive }"
     >
       <img
@@ -19,7 +19,7 @@
         @click="go_home"
       />
       <NavLinks
-        v-show="!show_titles"
+        v-if="!show_titles"
         :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 6% * ${styles.logoScale} )`}"
       />
     </header>
