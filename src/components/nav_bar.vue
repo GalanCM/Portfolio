@@ -24,7 +24,7 @@
       />
     </header>
 
-    <transition name="intro" appear>
+    <transition name="intro" :appear="show_titles">
       <div
         class="line"
         ref="line"

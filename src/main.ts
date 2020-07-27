@@ -6,8 +6,10 @@ import Meta from "vue-meta";
 Vue.use(Meta);
 Vue.config.productionTip = false;
 
-new Vue({
+const app = new Vue({
   router,
   render: (h) => h(App),
   mounted: () => document.dispatchEvent(new Event("x-app-rendered")),
-}).$mount("#app");
+})
+
+router.onReady(() => app.$mount('#app'))
