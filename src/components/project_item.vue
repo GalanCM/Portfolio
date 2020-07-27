@@ -1,5 +1,5 @@
 <template>
-  <section :style="{ backgroundColor: info.color }" class="item">
+  <section :style="{ '--item-color': info.color }" class="item">
     <img v-if="info.image" :src="require('@/assets/' + info.image)" />
     <main>
       <div class="title">{{ info.title }}</div>
@@ -20,6 +20,7 @@
         >Visit Site</a>
       </div>
     </main>
+    <div class="color-bar" />
   </section>
 </template>
 
@@ -29,11 +30,10 @@
 .item {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, auto));
-  grid-gap: 30px;
   width: 100%;
 
   @media (max-width: 839px) {
-    grid-template-columns: 20px auto;
+    grid-template-columns: min-content auto;
     grid-auto-rows: minmax(50px, auto);
     grid-gap: 0;
   }
@@ -47,8 +47,14 @@
 
     @media (max-width: 839px) {
       height: 22vh;
-      margin: 6px 20px !important;
     }
+  }
+
+  .color-bar {
+    grid-row: 1;
+    background-color: var(--item-color);
+    width: 100%;
+    height: 100%;
   }
 
   main {
@@ -57,7 +63,8 @@
     grid-column: 2;
     grid-row: 1;
     height: auto;
-    background-color: #fafaff;
+    background-color: #fffc;
+    backdrop-filter: blur(1px);
     padding: 10px 40px 15px;
     border-left: 4px solid black;
     border-right: 4px solid black;
@@ -97,9 +104,7 @@
     }
   }
 }
-</style>
 
-<style lang="less">
 .portfolio-item {
   &:nth-child(odd) img {
     grid-column: 1;
@@ -115,6 +120,22 @@
 
     @media (max-width: 839px) {
       grid-column: 1;
+    }
+  }
+  &:nth-child(odd) .color-bar {
+    grid-column: 3;
+    margin-right: auto;
+
+    @media (max-width: 839px) {
+      grid-column: 2;
+    }
+  }
+  &:nth-child(even) .color-bar {
+    grid-column: 1;
+    margin-left: auto;
+
+    @media (max-width: 839px) {
+      grid-column: 2;
     }
   }
 }
