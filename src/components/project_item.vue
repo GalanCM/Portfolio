@@ -20,7 +20,10 @@
         >Visit Site</a>
       </div>
     </main>
-    <div class="color-bar" />
+    <div class="color-bar" aria-hidden="true" />
+    <div class="color-bar2" aria-hidden="true">
+      <div></div>
+    </div>
   </section>
 </template>
 
@@ -29,38 +32,64 @@
 
 .item {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, auto));
+  grid-template-columns: minmax(min-content, 600px) minmax(200px, 50%) 1fr;
+  grid-template-rows: min-content 1fr;
   width: 100%;
 
   @media (max-width: 839px) {
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: min-content 1fr !important;
     grid-auto-rows: minmax(50px, auto);
   }
 
   img {
-    height: 50vh;
-    min-height: 150px;
-    max-height: 300px;
-    object-fit: contain;
-    margin: auto 0;
+    grid-row: 1;
+    width: 100%;
+    object-fit: cover;
+    margin: 0;
+    background-color: black;
 
     @media (max-width: 839px) {
-      height: 22vh;
+      height: 30vh;
+      width: auto;
+      padding-right: 0.6vw;
     }
   }
 
   .color-bar {
-    grid-row: 1;
+    grid-row: 1 / span 2;
     background-color: var(--item-color);
     width: 100%;
     height: 100%;
+
+    @media (max-width: 839px) {
+      grid-row: 1;
+    }
+  }
+
+  .color-bar2 {
+    grid-column: 1;
+    grid-row: 2;
+    box-sizing: border-box;
+    background-color: var(--item-color);
+    width: 100%;
+    height: 100%;
+
+    div {
+      background-color: black;
+      height: 5%;
+      width: 100%;
+    }
+
+    @media (max-width: 839px) {
+      display: none;
+    }
   }
 
   main {
     display: flex;
     flex-direction: column;
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1 / span 2;
     height: auto;
     background-color: #fffc;
     backdrop-filter: blur(1px);
@@ -99,12 +128,16 @@
     .buttons {
       display: flex;
       min-height: 30px;
-      margin-top: 20px;
+      margin: 20px 0;
     }
   }
 }
 
 .portfolio-item {
+  &:nth-child(even) .item {
+    grid-template-columns: 1fr minmax(200px, 50%) minmax(min-content, 600px);
+  }
+
   &:nth-child(odd) img {
     grid-column: 1;
 
@@ -133,6 +166,10 @@
     @media (max-width: 839px) {
       grid-column: 2;
     }
+  }
+  &:nth-child(even) .color-bar2 {
+    grid-column: 3;
+    grid-row: 2;
   }
 }
 </style>
