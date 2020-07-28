@@ -1,53 +1,48 @@
 <template>
-  <div class="about">
-    <section class="intro">
+  <section class="about">
+    <div class="overview" role="presentation">
+      <p>Since starting my first job as a web developer in 2013, I have worked across the software stack, from server architecture to graphic design. My strength is on the front-end: designing interfaces and managing the data that drives them — but I’m comfortable working on all tasks needed to build a website or application.</p>
+      <p>I’ve worked as both employee and freelancer for large corporations, startups, charities and individuals. One thing that I’ve taken away from my experiences is that every project’s needs are unique, and that solutions that solve one problem may not work for another.</p>
+    </div>
+    <p
+      class="segue"
+    >In order to tackle each project on its own merits, I've focused my skills into two major areas:</p>
+    <div class="focuses" role="presentation">
+      <h2>One.</h2>
       <p>
-        <strong>Software should delight its users.</strong> First by meeting their needs; By having the features they're looking for, a good workflow,
-        and an easy-to-read design. And then, where we can, we should make our designs
-        <i>fun</i>.
+        <strong>I evaluate every software dependency that I add to a project.</strong> Whenever you add to a website, it brings different tradeoffs between performance, complexity, and flexibility — and every project needs to prioritize these differently. Whether I’m determining the architecture for a site, or adding a third-party dependency, I want to make sure to balance those priorities in a way that works for the project at hand, rather than taking a single solution and trying to apply it to every problem.
       </p>
+      <h2>Two.</h2>
       <p>
-        <strong>Software should be built on the right foundation.</strong> I strive to have an understanding of a variety of patterns —
-        from static site generators to microservices — and to determine which one to use only after learning the project's needs.
+        <strong>I bring a distinct look to every design.</strong> Themes and UI toolkits can be a great starting point, and work fine for many projects even through completion, but they can become
+        <em>too</em> rigid — then the tools start dictating the design. Whether building a design system from scratch or modifying pre-existing work, I want my client's sites to have a look unique to their professional or personal brands.
       </p>
-    </section>
-    <p>
-      <em>I started my career in 2013,</em> working as a full-stack developer for a now-discontinued web app called
-      <em>Getloaded</em>.
-      Hired as a mid-level developer, I had to learn quickly in order to contribute quality work comparable to that of my co-workers.
-      It was at Getloaded that I came to realize that I had a love for interface design, and that code itself is an interface.
-      Toward the end of my time there,
-      I lucked upon the opportunity to become project lead on the Getloaded Mobile 2.0 project. Not only did this give me
-      the chance determine the direction of a new product, but it also broadened my perspective, introducing me to new tools and design patterns.
-    </p>
-    <p>
-      <em>Since my time at Getloaded, I've continued learning.</em> Getloaded Mobile wasn't perfect, and there was a lot I didn't know.
-      No tool is right for every project. As such, I'm always evaluating new tools;
-      What problems do they solve, and who are they best for? I may not have the time to learn every tool, but it helps my work to know
-      they're available. I bring this philosophy to every product that I work on.
-    </p>
-    <p class="contact">
-      If you like what you see and are interested in hiring me
-      <br />— freelance, contract, or full-time —
-      <br />please
-      <a href="mailto:galan.c.m@gmail.com">email me</a>.
-    </p>
-  </div>
+    </div>
+  </section>
 </template>
 
 <style lang="less" scoped>
 @import "../base.less";
 
 .about {
-  display: grid;
-  grid-template-columns: minmax(15px, 1fr) minmax(200px, 4fr) minmax(15px, 1fr);
-  grid-template-rows: repeat(3, min-content) auto;
-  box-sizing: border-box;
-  min-height: 100vh;
-  padding: 80px 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: calc(100vh - 150px);
+  justify-content: space-evenly;
+  margin-top: 50px;
+  padding: 50px 100px;
   .body-font-light();
+
   @star-color: lighten(#000a1488, 17%);
-  background: radial-gradient(fade(@star-color, 80%) 3px, transparent 5px),
+  background: linear-gradient(
+      90deg,
+      transparent 0%,
+      darken(#001f3d99, 3%) 150px,
+      darken(#001f3d99, 3%) calc(100% - 150px),
+      transparent 100%
+    ),
+    radial-gradient(fade(@star-color, 80%) 3px, transparent 5px),
     radial-gradient(fade(@star-color, 50%) 4px, transparent 5px),
     radial-gradient(@star-color 2px, transparent 4px),
     radial-gradient(@star-color 1px, transparent 3px),
@@ -57,43 +52,72 @@
       lighten(#000a14aa, 5%) 10%,
       transparent 100%
     ),
-    #000a14cc;
-  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px, 100%,
-    100%;
+    rgba(0, 10, 20, 0.8);
+  background-size: 100% 100%, 550px 550px, 350px 350px, 250px 250px, 150px 150px,
+    100%, 100%;
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 0 0, 0 0;
   color: rgba(255, 255, 255, 0.85);
-}
 
-.intro {
-  grid-column: ~"1 / 4";
-  padding: 0;
-  margin-top: 40px;
-  list-style: none;
-}
-
-p {
-  &:nth-of-type(2n + 1) {
-    grid-column: ~"2 / 4";
-  }
-  &:nth-of-type(2n + 2) {
-    grid-column: ~"1 / 3";
+  .overview {
+    column-count: 2;
+    gap: 80px;
+    column-rule: 1px solid #fff8;
+    padding: 20px 40px;
+    line-height: 1.7;
   }
 
-  strong {
-    .body-font-bold();
-    padding-right: 0.5em;
-    color: white;
+  .segue {
+    margin: 50px 0;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.2;
+    opacity: 0.7;
   }
-}
 
-.contact {
-  grid-column: ~"1 / 4" !important;
-  align-self: center;
-  margin: 40px auto !important;
-  .display-font-light();
-  font-size: 28px;
-  text-align: center;
-  color: white;
+  .focuses {
+    padding: 20px 40px;
+
+    h2 {
+      width: 90%;
+      margin: 0 0 5px;
+      border-bottom: 1px solid #fff8;
+      .display-font-bold();
+      font-size: 26px;
+      line-height: 1.1;
+      color: #fffc;
+    }
+
+    p {
+      text-align: justify;
+      margin: 0;
+      line-height: 1.7;
+
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+
+      strong {
+        .body-font-bold();
+      }
+    }
+  }
+
+  @media (max-width: 839px) {
+    margin-top: 77px;
+    padding: 25px 10px;
+
+    .overview {
+      column-count: 1;
+    }
+
+    .segue {
+      margin: 30px 5px;
+    }
+
+    .focuses p {
+      text-align: left;
+    }
+  }
 }
 </style>
 
