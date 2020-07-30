@@ -22,8 +22,6 @@
 }
 
 .router-wrapper {
-  position: absolute;
-  top: 0;
   overflow-x: hidden;
 }
 

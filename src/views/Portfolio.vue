@@ -1,6 +1,6 @@
 <template>
   <div role="presentation">
-    <Projects :sites="sites"></Projects>π
+    <Projects :sites="sites"></Projects>
     <section class="other">
       <h2>Other Projects</h2>
       <h3>
@@ -9,8 +9,8 @@
       </h3>
       <ul>
         <li>
-          <strong>Unnamed Annotation Tool</strong>
-          <em>unreleased</em> — A tool for creating and displaying large numbers of scholarly annotations. Still in development.
+          <strong>[unnamed annotation tool]</strong>
+          <em>unreleased</em> — A tool for creating and displaying large numbers of overlapping annotations. Still in development.
         </li>
         <li>
           <strong>Resay</strong> for
@@ -28,7 +28,7 @@
         </li>
         <li>
           <strong>Getloaded Mobile</strong>
-          <em>defunct</em> — Let a small team to develop this mobile app for Getloaded's load board. Shut down after Getloaded was absorbed into parent company in 2017.
+          <em>defunct</em> — I led a small team to develop this mobile app for Getloaded's load board. Shut down after Getloaded was absorbed into parent company in 2017.
         </li>
       </ul>
     </section>
@@ -50,25 +50,40 @@ div {
 }
 
 .other {
+  padding: 5px 15px;
   background-color: #fffc;
-  padding: 40px;
+
+  @media (max-width: 849px) {
+    padding: 3px 10px 12px;
+  }
 
   h2 {
     .nav-title();
+    width: 80%;
+    margin: 5px 0 3px;
+    border-bottom: 1px solid #0008;
+    font-size: 26px;
+    line-height: 1;
+    color: #346;
+
+    @media (max-width: 849px) {
+      width: 90%;
+    }
   }
   h3 {
     .nav-tagline();
   }
 
   ul {
-    padding: 0 5px;
+    margin: 20px;
+    padding: 0;
   }
   li {
     display: block;
     margin-top: 10px;
     color: #50503c;
-    margin-left: 2em;
-    text-indent: -2em;
+    margin-left: 1.5em;
+    text-indent: -1.5em;
 
     strong {
       .display-font-bold();

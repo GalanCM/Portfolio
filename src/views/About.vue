@@ -1,12 +1,10 @@
 <template>
   <section class="about">
     <div class="overview" role="presentation">
-      <p>Since I first started working as a web developer in 2013, I have worked throughout the development process, from server architecture to graphic design. My strength is on the front-end: designing interfaces and managing the data that drives them — but I’m comfortable working on all tasks needed to build a website or application.</p>
+      <p>Since my starting my career as a developer in 2013, I have worked throughout the development process, from server architecture to graphic design. My strength is on the front-end: designing interfaces and managing the data that drives them — but I’m comfortable with all tasks needed to build a website or application.</p>
       <p>I’ve worked as both employee and freelancer for large corporations, startups, charities and individuals. One thing that I’ve taken away from my experiences is that every project’s needs are unique, and that solutions that solve one problem may not work for another.</p>
     </div>
-    <p
-      class="segue"
-    >In order to tackle each project on its own merits, I've focused on developing skills with two major goals:</p>
+    <p class="segue">In order to tackle each project on its own merits, I focus on two major goals:</p>
     <div class="focuses" role="presentation">
       <h2>One.</h2>
       <p>
@@ -30,7 +28,6 @@
   justify-content: space-evenly;
   min-height: calc(100vh - 150px);
   justify-content: space-evenly;
-  margin-top: 50px;
   padding: 50px 100px;
   .body-font-light();
 
@@ -85,7 +82,7 @@
       border-bottom: 1px solid #fffe;
       .display-font-bold();
       font-size: 26px;
-      line-height: 1.1;
+      line-height: 1;
       color: #fffe;
     }
 
@@ -107,7 +104,6 @@
   }
 
   @media (max-width: 859px) {
-    margin-top: 77px;
     padding: 50px 50px;
 
     .overview {

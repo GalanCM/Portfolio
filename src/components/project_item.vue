@@ -50,9 +50,12 @@
     background-color: black;
 
     @media (max-width: 839px) {
-      height: 30vh;
+      max-height: 30vh;
+      max-height: 30vmax;
       width: auto;
+      max-width: 100vw;
       padding-right: 0.6vw;
+      object-fit: cover;
     }
   }
 
@@ -89,32 +92,26 @@
   main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     grid-column: 2;
     grid-row: 1 / span 2;
+    max-width: calc(100vw - 20px);
     height: auto;
-    background-color: #fffc;
-    backdrop-filter: blur(1px);
-    padding: 10px 40px 15px;
+    min-height: 120px;
+    padding: 5px 15px;
     border-left: 4px solid black;
     border-right: 4px solid black;
-    min-height: 120px;
+    background-color: #fffc;
+    backdrop-filter: blur(1px);
 
     @media (max-width: 839px) {
       grid-column: ~"1 / 3";
       grid-row: 2;
+      padding: 3px 12px 5px;
       border-left: none;
       border-right: none;
       border-top: 4px solid black;
-
-      padding: 0 30px;
     }
 
-    > * {
-      @media (min-width: 840px) {
-        transform: translateY(15px);
-      }
-    }
     > :first-child {
       margin-top: 20px;
     }
@@ -124,20 +121,31 @@
 
     .title {
       .nav-title();
+      width: 80%;
+      margin: 7px 0 3px;
+      border-bottom: 1px solid #0008;
+      font-size: 26px;
+      line-height: 1;
+      color: #346;
+
+      @media (max-width: 839px) {
+        width: 90%;
+      }
     }
     .tagline {
       .nav-tagline();
+      margin-bottom: 20px;
     }
 
     .buttons {
       display: flex;
       min-height: 30px;
-      margin: 20px 0;
+      margin: 20px 0 5px;
     }
   }
 
   .description {
-    margin-top: 20px;
+    margin: auto 20px;
 
     /deep/ p {
       line-height: 1.6;

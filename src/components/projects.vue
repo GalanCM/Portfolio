@@ -1,6 +1,5 @@
 <template>
   <section>
-    <!-- <h1>Portfolio</h1> -->
     <svg height="3" width="100%">
       <line x1="0" y1="1px" x2="100%" y2="1px" stroke-width="2px" stroke="rgb(12, 27, 42)" />
     </svg>
@@ -146,7 +145,7 @@ svg {
 .panel {
   width: 100vw;
   min-height: 100vh;
-  padding: 60px 0 0;
+  padding: 0;
   float: left;
 
   @media (max-width: 1024px) {
@@ -165,14 +164,14 @@ svg {
     margin-top: 25px;
 
     @media (max-width: 859px) {
-      margin-top: 50px;
+      margin-top: 40px;
     }
   }
   &:last-child {
     margin-bottom: 75px;
 
     @media (max-width: 839px) {
-      margin-bottom: 25px;
+      margin-bottom: 50px;
     }
   }
 

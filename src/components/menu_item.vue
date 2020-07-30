@@ -61,8 +61,10 @@
 
   .tagline {
     .nav-tagline();
-    margin: 10px 0 10px 3vw;
+    margin: 0;
+    font-size: 17px;
     font-weight: 200;
+    line-height: 1;
     color: lighten(#23adf0, 25%);
     text-shadow: 1px 1px 2px black;
   }
