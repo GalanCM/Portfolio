@@ -3,7 +3,8 @@
     <img v-if="info.image" :src="require('@/assets/' + info.image)" />
     <main>
       <div class="title">{{ info.title }}</div>
-      <div class="tagline" v-html="info.tagline"></div>
+      <div class="tagline">{{info.tagline}}</div>
+      <div class="description" v-html="info.description"></div>
       <div class="buttons">
         <a class="button" :href="info.repoUrl" v-if="info.repoUrl !== null">View Code</a>
         <router-link
@@ -88,6 +89,7 @@
   main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     grid-column: 2;
     grid-row: 1 / span 2;
     height: auto;
@@ -104,6 +106,8 @@
       border-left: none;
       border-right: none;
       border-top: 4px solid black;
+
+      padding: 0 30px;
     }
 
     > * {
@@ -111,11 +115,11 @@
         transform: translateY(15px);
       }
     }
-    :first-child {
-      margin-top: auto;
+    > :first-child {
+      margin-top: 20px;
     }
-    :last-child {
-      margin-bottom: auto;
+    > :last-child {
+      margin-bottom: 20px;
     }
 
     .title {
@@ -129,6 +133,18 @@
       display: flex;
       min-height: 30px;
       margin: 20px 0;
+    }
+  }
+
+  .description {
+    margin-top: 20px;
+
+    /deep/ p {
+      line-height: 1.6;
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
     }
   }
 }

@@ -1,20 +1,20 @@
 <template>
   <section class="about">
     <div class="overview" role="presentation">
-      <p>Since starting my first job as a web developer in 2013, I have worked across the software stack, from server architecture to graphic design. My strength is on the front-end: designing interfaces and managing the data that drives them — but I’m comfortable working on all tasks needed to build a website or application.</p>
+      <p>Since I first started working as a web developer in 2013, I have worked throughout the development process, from server architecture to graphic design. My strength is on the front-end: designing interfaces and managing the data that drives them — but I’m comfortable working on all tasks needed to build a website or application.</p>
       <p>I’ve worked as both employee and freelancer for large corporations, startups, charities and individuals. One thing that I’ve taken away from my experiences is that every project’s needs are unique, and that solutions that solve one problem may not work for another.</p>
     </div>
     <p
       class="segue"
-    >In order to tackle each project on its own merits, I've focused my skills into two major areas:</p>
+    >In order to tackle each project on its own merits, I've focused on developing skills with two major goals:</p>
     <div class="focuses" role="presentation">
       <h2>One.</h2>
       <p>
-        <strong>I evaluate every software dependency that I add to a project.</strong> Whenever you add to a website, it brings different tradeoffs between performance, complexity, and flexibility — and every project needs to prioritize these differently. Whether I’m determining the architecture for a site, or adding a third-party dependency, I want to make sure to balance those priorities in a way that works for the project at hand, rather than taking a single solution and trying to apply it to every problem.
+        <strong>Choosing software based on the needs of the project:</strong> Whenever you add to a website, it brings different tradeoffs between performance, complexity, and flexibility — and every project needs to prioritize these differently. Whether I’m determining the architecture for a site, or adding a third-party dependency, I aim to balance those priorities in a way that works for the project at hand, rather than taking a single solution and trying to apply it to every project.
       </p>
       <h2>Two.</h2>
       <p>
-        <strong>I bring a distinct look to every design.</strong> Themes and UI toolkits can be a great starting point, and work fine for many projects even through completion, but they can become
+        <strong>Creating unique, clear designs:</strong> Themes and UI toolkits can be a great starting point, and even work fine for many projects through completion, but they can become
         <em>too</em> rigid — then the tools start dictating the design. Whether building a design system from scratch or modifying pre-existing work, I want my client's sites to have a look unique to their professional or personal brands.
       </p>
     </div>
@@ -68,10 +68,12 @@
 
   .segue {
     margin: 50px 0;
-    font-size: 20px;
+    font-size: 22px;
     font-style: italic;
     line-height: 1.2;
-    opacity: 0.7;
+    font-weight: 00;
+    color: #aab;
+    text-shadow: 2px 2px 1px black;
   }
 
   .focuses {
@@ -80,11 +82,11 @@
     h2 {
       width: 90%;
       margin: 0 0 5px;
-      border-bottom: 1px solid #fff8;
+      border-bottom: 1px solid #fffe;
       .display-font-bold();
       font-size: 26px;
       line-height: 1.1;
-      color: #fffc;
+      color: #fffe;
     }
 
     p {
@@ -98,13 +100,15 @@
 
       strong {
         .body-font-bold();
+        margin-right: 10px;
+        color: #fffe;
       }
     }
   }
 
-  @media (max-width: 839px) {
+  @media (max-width: 859px) {
     margin-top: 77px;
-    padding: 25px 10px;
+    padding: 50px 50px;
 
     .overview {
       column-count: 1;
@@ -113,6 +117,10 @@
     .segue {
       margin: 30px 5px;
     }
+  }
+
+  @media (max-width: 599px) {
+    padding: 25px 10px;
 
     .focuses p {
       text-align: left;
@@ -149,22 +157,6 @@ export default class Index extends Vue {
         },
       ],
     };
-  }
-  created(): void {
-    window.addEventListener("scroll", () => {
-      let bottom = this.$el.getBoundingClientRect().bottom;
-      let header_buffer = window.matchMedia(
-        "(max-width: 1024px) and (orientation: portrait)"
-      ).matches
-        ? 95
-        : 50;
-
-      if (bottom < header_buffer) {
-        this.$emit("input", bottom - header_buffer + document.body.scrollTop);
-      } else {
-        this.$emit("input", 0);
-      }
-    });
   }
 }
 </script>
