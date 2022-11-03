@@ -1,26 +1,44 @@
 <template>
   <div
     class="nav-wrapper"
-    @click=" scrollComplete "
-    :style=" show_titles ? 'cursor: pointer;' : 'height: ' + styles.navHeight + 'px;' "
+    @click="scrollComplete"
+    :style="
+      show_titles ? 'cursor: pointer;' : 'height: ' + styles.navHeight + 'px;'
+    "
   >
     <header
       class="nav"
       ref="nav"
-      :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)); position: absolute;' "
-      :class=" { active: this.transitionsActive }"
+      :style="
+        show_titles
+          ? ''
+          : 'transform: translateY(calc(-50vh + ' +
+            styles.navHeight +
+            'px)); position: absolute;'
+      "
+      :class="{ active: this.transitionsActive }"
     >
       <img
         class="name"
         src="../assets/header.svg"
         ref="name"
-        :style=" show_titles ? '' : `transform: scale(${styles.logoScale}) translateY(${styles.navHeight > 50 ? -styles.navHeight / styles.logoScale / 2 : 0}px)` "
-        :class=" { active: this.transitionsActive }"
+        :style="
+          show_titles
+            ? ''
+            : `transform: scale(${styles.logoScale}) translateY(${
+                styles.navHeight > 50
+                  ? -styles.navHeight / styles.logoScale / 2
+                  : 0
+              }px)`
+        "
+        :class="{ active: this.transitionsActive }"
         @click="go_home"
       />
       <NavLinks
         v-if="!show_titles"
-        :style="{marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 6% * ${styles.logoScale} )`}"
+        :style="{
+          marginLeft: `calc(-1 * 90vw * ${styles.logoScale} + 6% * ${styles.logoScale} )`,
+        }"
       />
     </header>
 
@@ -28,8 +46,14 @@
       <div
         class="line"
         ref="line"
-        :style=" show_titles ? '' : 'transform: translateY(calc(-50vh + ' + styles.navHeight + 'px)) scaleY(0.5); position: absolute;' "
-        :class=" { active: this.transitionsActive }"
+        :style="
+          show_titles
+            ? ''
+            : 'transform: translateY(calc(-50vh + ' +
+              styles.navHeight +
+              'px)) scaleY(0.5); position: absolute;'
+        "
+        :class="{ active: this.transitionsActive }"
       ></div>
     </transition>
     <transition name="intro" appear>
@@ -38,7 +62,10 @@
           <div class="design">Stylish Websites & Apps</div>
           <div class="code">Smart Foundations</div>
         </div>
-        <div class="chevron-wrapper" :style=" styles.hideChevron ? 'opacity: 0' : '' ">
+        <div
+          class="chevron-wrapper"
+          :style="styles.hideChevron ? 'opacity: 0' : ''"
+        >
           <div class="chevron">⌄</div>
           <div class="chevron">⌄</div>
         </div>
@@ -203,12 +230,9 @@
 }
 </style>
 
-
 <script lang="ts">
 import Vue from "vue";
 import NavLinks from "@/components/nav_links.vue";
-
-import { setTimeout } from "timers";
 
 export default Vue.extend({
   components: {
@@ -316,4 +340,3 @@ export default Vue.extend({
   },
 });
 </script>
-
