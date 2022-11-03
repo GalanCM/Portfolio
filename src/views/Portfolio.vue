@@ -10,25 +10,29 @@
       <ul>
         <li>
           <strong>[unnamed annotation tool]</strong>
-          <em>unreleased</em> — A tool for creating and displaying large numbers of overlapping annotations. Still in development.
+          <em>unreleased</em> — A tool for creating and displaying large numbers
+          of overlapping annotations. Still in development.
         </li>
         <li>
           <strong>Resay</strong> for
           <a href="https://perkbrands.com/">Perk Brands</a>
-          <em>in-house</em> — A publishing tool for scheduled marketing messages. Took over feature updates and maintenance of this full-stack service.
+          <em>in-house</em> — A publishing tool for scheduled marketing
+          messages. Took over feature updates and maintenance of this full-stack
+          service.
         </li>
         <li>
           <strong>Naval Warfare</strong> for
-          <a href="https://www.houstonescaperoom.com/home">Houston Escape Rooms</a>
-          <em>in-house</em> — Took over and completed work for this web-based Battleship-inspired game. The core component of an escape room game.
-        </li>
-        <li>
-          <strong>Childfund’s VR website</strong>
-          <em>defunct</em> – Interactive website for hosting Childfund's 306º video, The Return. Shut down several years ago.
+          <a href="https://www.houstonescaperoom.com/home"
+            >Houston Escape Rooms</a
+          >
+          <em>in-house</em> — Took over and completed work for this web-based
+          Battleship-inspired game. The core component of an escape room game.
         </li>
         <li>
           <strong>Getloaded Mobile</strong>
-          <em>defunct</em> — I led a small team to develop this mobile app for Getloaded's load board. Shut down after Getloaded was absorbed into parent company in 2017.
+          <em>defunct</em> — I led a small team to develop this mobile app for
+          Getloaded's load board. Shut down after Getloaded was absorbed into
+          parent company in 2017.
         </li>
       </ul>
     </section>
@@ -143,16 +147,15 @@ export default Vue.extend({
             <p>I worked with them to build a custom interface, and handled all technical concerns.</p>`,
         },
         {
-          color: "#5d41e6",
-          siteUrl: "https://hashtagbreakbarriers.com/",
+          color: "#2a303a",
+          siteUrl: "https://unnamed-sfx-builder.netlify.app/",
           caseStudyUrl: null,
           repoUrl: null,
-          image: "screenshots/breakbarriers.png",
+          image: "screenshots/sfx.png",
           video: null,
-          title: "#BreakBarriers",
-          tagline: `A promotional site.`,
-          description: `<p>This site is used by motivational speaker Bishoy Tadros, to promote his book and speaking engagements.</p>
-            <p>I helped him design the site to provide information to the reader in an organized manner, getting more in-depth the further they read.</p>`,
+          title: "[Unnamed SFX Builder]",
+          tagline: `A very early in-development tool for creating sound effects.`,
+          description: `<p>Inspired by tools like <a href="https://sfxr.me/">jsfxr</a> and <a href="https://sfbgames.itch.io/chiptone">ChipTone</a>, this project's goal is to create an easy-to-use, open-soucre SFX creation app that works for both small jam games and larger commercial projects.</p>`,
         },
       ],
     };
