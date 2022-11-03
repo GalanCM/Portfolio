@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@vue/cli": "^4.4.6",
+    "@vue/cli": "^5.0.8",
     "css-loader": "^4.0.0",
     "normalize.css": "^8.0.1",
     "vue": "^2.7.13",
