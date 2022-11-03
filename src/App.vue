@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <nav-bar v-model=" show_titles "></nav-bar>
+    <nav-bar v-model="show_titles"></nav-bar>
 
     <transition name="deblur">
-      <div v-show=" !show_titles ">
+      <div v-show="!show_titles">
         <Menu></Menu>
         <transition name="page">
           <router-view class="router-wrapper" />
@@ -50,7 +50,7 @@
 import Vue from "vue";
 import NavBar from "@/components/nav_bar.vue";
 import Menu from "@/components/menu.vue";
-import MetaData from "@/metadata.ts";
+import MetaData from "@/metadata";
 
 export default Vue.extend({
   metaInfo: {
