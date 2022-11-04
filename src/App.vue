@@ -10,6 +10,12 @@
         </transition>
       </div>
     </transition>
+    <a
+      rel="me"
+      href="https://mastodon.gamedev.place/@galan"
+      style="display: none"
+      >Mastodon</a
+    >
   </div>
 </template>
 
